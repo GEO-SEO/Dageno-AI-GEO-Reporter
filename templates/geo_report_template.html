@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GEO Performance Report</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -216,7 +215,24 @@
             <p class="section-desc">How your GEO score has improved over the past 6 months.</p>
 
             <div class="chart-container">
-                <canvas id="trendChart"></canvas>
+                <svg viewBox="0 0 600 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;">
+                    <!-- Grid lines -->
+                    <line x1="50" y1="20" x2="580" y2="20" stroke="#e8e8ed" stroke-width="1"/>
+                    <line x1="50" y1="50" x2="580" y2="50" stroke="#e8e8ed" stroke-width="1"/>
+                    <line x1="50" y1="80" x2="580" y2="80" stroke="#e8e8ed" stroke-width="1"/>
+                    <line x1="50" y1="110" x2="580" y2="110" stroke="#e8e8ed" stroke-width="1"/>
+                    <line x1="50" y1="140" x2="580" y2="140" stroke="#e8e8ed" stroke-width="1"/>
+                    <!-- Y-axis labels -->
+                    <text x="40" y="24" font-family="Inter,sans-serif" font-size="10" fill="#8b8b9a" text-anchor="end">100</text>
+                    <text x="40" y="54" font-family="Inter,sans-serif" font-size="10" fill="#8b8b9a" text-anchor="end">90</text>
+                    <text x="40" y="84" font-family="Inter,sans-serif" font-size="10" fill="#8b8b9a" text-anchor="end">80</text>
+                    <text x="40" y="114" font-family="Inter,sans-serif" font-size="10" fill="#8b8b9a" text-anchor="end">70</text>
+                    <text x="40" y="144" font-family="Inter,sans-serif" font-size="10" fill="#8b8b9a" text-anchor="end">60</text>
+                    <!-- Dynamic chart line and points - data will be injected -->
+                    {{TREND_CHART_SVG}}
+                    <!-- X-axis labels -->
+                    {{TREND_CHART_LABELS}}
+                </svg>
             </div>
 
             <div class="takeaway">
@@ -264,39 +280,5 @@
             <p style="margin-top: 8px;">Questions? Contact <a href="https://dageno.ai">dageno.ai</a></p>
         </footer>
     </main>
-
-    <script>
-        Chart.defaults.font.family = "'Inter', sans-serif";
-        Chart.defaults.color = '#5c5c6d';
-
-        const trendCtx = document.getElementById('trendChart').getContext('2d');
-        new Chart(trendCtx, {
-            type: 'line',
-            data: {
-                labels: {{TREND_LABELS}},
-                datasets: [{
-                    label: 'GEO Score',
-                    data: {{TREND_DATA}},
-                    borderColor: '#ff5c23',
-                    backgroundColor: 'rgba(255, 92, 35, 0.1)',
-                    fill: true,
-                    tension: 0.4,
-                    pointBackgroundColor: '#ff5c23',
-                    pointBorderColor: '#fff',
-                    pointBorderWidth: 2,
-                    pointRadius: 5
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { display: false } },
-                scales: {
-                    y: { min: 50, max: 100, grid: { color: '#e8e8ed' } },
-                    x: { grid: { display: false } }
-                }
-            }
-        });
-    </script>
 </body>
 </html>
