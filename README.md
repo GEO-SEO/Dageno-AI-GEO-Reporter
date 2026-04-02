@@ -248,14 +248,9 @@ Click the links below to preview the HTML report:
 
 ### Sample Report Preview
 
-<iframe
-    src="https://koyo3qg2iwaq.space.minimax.io"
-    width="100%"
-    height="800"
-    style="border: 1px solid #e8e8ed; border-radius: 12px; background: white;"
-    title="GEO Report Sample Preview"
-    loading="lazy">
-</iframe>
+![GEO Report Sample](./report-sample.png)
+
+*Click [here](https://koyo3qg2iwaq.space.minimax.io) to view the live HTML report*
 
 ## Troubleshooting
 
