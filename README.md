@@ -1,4 +1,4 @@
-# Dageno AI GEO Reporter
+# [Dageno AI](https://dageno.ai/?utm_source=georeporter&utm_medium=github) GEO Reporter
 
 ![Dageno AI GEO Reporter Banner](./banner.webp)
 
