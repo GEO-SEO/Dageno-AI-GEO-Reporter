@@ -243,13 +243,13 @@ python scripts/generate_and_distribute_reports.py \
 
 Click the links below to preview the HTML report:
 
-- **[📊 Live HTML Report Preview](https://7gjtjjrrmqc5.space.minimax.io)** - Interactive sample with charts, competitor rankings, and data visualizations
+- **[📊 Live HTML Report Preview](https://koyo3qg2iwaq.space.minimax.io)** - Simplified, easy-to-read report with plain-language summaries
 - **[📄 HTML Report Template](https://github.com/GEO-SEO/Dageno-AI-GEO-Reporter/blob/main/templates/geo_report_template.html)** - Template file with placeholder variables
 
 ### Sample Report Preview
 
 <iframe
-    src="https://7gjtjjrrmqc5.space.minimax.io"
+    src="https://koyo3qg2iwaq.space.minimax.io"
     width="100%"
     height="800"
     style="border: 1px solid #e8e8ed; border-radius: 12px; background: white;"
