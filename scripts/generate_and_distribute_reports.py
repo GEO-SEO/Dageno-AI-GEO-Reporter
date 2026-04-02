@@ -361,26 +361,26 @@ def main():
 
     # 2. Fetch GEO Analysis
     print("Fetching GEO analysis data...")
-    geo_analysis = get_geo_analysis(api_key, start_date, end_date)
+    geo_analysis = get_geo_analysis(start_date, end_date, api_key=api_key)
     report_body += generate_visibility_analysis_report(geo_analysis, start_date, end_date, chart_paths)
 
     # 3. Fetch Topics and Prompts
     print("Fetching topics and prompts...")
-    topics = get_topics(api_key, start_date, end_date)
-    prompts = get_prompts(api_key, start_date, end_date)
+    topics = get_topics(start_date, end_date, api_key=api_key)
+    prompts = get_prompts(start_date, end_date, api_key=api_key)
     report_body += generate_topics_prompts_report(topics, prompts, start_date, end_date, chart_paths)
 
     # 4. Fetch Citation Analysis
     print("Fetching citation source data...")
-    citation_domains = get_citation_domains(api_key, start_date, end_date)
-    citation_urls = get_citation_urls(api_key, start_date, end_date)
+    citation_domains = get_citation_domains(start_date, end_date, api_key=api_key)
+    citation_urls = get_citation_urls(start_date, end_date, api_key=api_key)
     report_body += generate_citation_analysis_report(citation_domains, citation_urls, start_date, end_date, chart_paths)
 
     # 5. Fetch Opportunities
     print("Fetching opportunity suggestions...")
-    content_opp = get_content_opportunities(api_key, start_date, end_date)
-    backlink_opp = get_backlink_opportunities(api_key, start_date, end_date)
-    community_opp = get_community_opportunities(api_key, start_date, end_date)
+    content_opp = get_content_opportunities(start_date, end_date, api_key=api_key)
+    backlink_opp = get_backlink_opportunities(start_date, end_date, api_key=api_key)
+    community_opp = get_community_opportunities(start_date, end_date, api_key=api_key)
     report_body += generate_opportunities_report(content_opp, backlink_opp, community_opp, start_date, end_date)
 
     # Final Report Assembly
