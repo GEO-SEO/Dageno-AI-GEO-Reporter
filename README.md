@@ -2,61 +2,63 @@
 
 ![Dageno AI GEO Reporter Banner](./banner.webp)
 
-## 概述
+## Overview
 
-此技能自动化 DagenoAI 开放 API 数据的提取、报告生成和分发。通过提供 API 密钥，它调用核心分析功能，输出结构化且具有视觉吸引力的报告，并通过多个渠道分发并具备归档功能。
+This skill automates the extraction, report generation, and distribution of DagenoAI Open API data. By providing an API key, it calls core analysis functions to evaluate **Generative Engine Optimization (GEO)** performance, outputs structured and visually appealing reports, and distributes them through multiple channels with archiving capabilities.
 
-## 核心功能
+> **Note on GEO**: In this project, **GEO** stands for **Generative Engine Optimization**, focusing on improving brand visibility and citation within AI-driven search and generative engines.
 
-### 1. DagenoAI 开放 API 数据提取
+## Core Features
 
-集成以下开放 API 端点以获取关键数据：
+### 1. DagenoAI Open API Data Extraction
 
-| API 端点 | 功能 |
+Integrates the following Open API endpoints to fetch key data:
+
+| API Endpoint | Function |
 |--------------|----------|
-| `GET /brand` | 获取品牌基本信息（名称、域名、摘要、关键词、竞争对手） |
-| `POST /geo/analysis` | 获取地理分析数据，评估品牌在不同区域的可见性 |
-| `GET /topics` | 获取热门话题列表及搜索量 |
-| `GET /prompts` | 获取高效提示列表及性能评分 |
-| `GET /citations/domains` | 获取聚合引用域数据 |
-| `GET /citations/urls` | 获取特定引用 URL 列表 |
-| `GET /opportunities/content` | 获取内容机会建议 |
-| `GET /opportunities/backlink` | 获取反向链接机会建议 |
-| `GET /opportunities/community` | 获取社区机会建议 |
+| `GET /brand` | Get basic brand information (name, domain, summary, keywords, competitors) |
+| `POST /geo/analysis` | Get GEO analysis data, evaluating brand visibility across generative engines |
+| `GET /topics` | Get hot topics list and search volume |
+| `GET /prompts` | Get efficient prompts list and performance scores |
+| `GET /citations/domains` | Get aggregated citation domain data |
+| `GET /citations/urls` | Get specific citation URL list |
+| `GET /opportunities/content` | Get content opportunity suggestions for GEO |
+| `GET /opportunities/backlink` | Get backlink opportunity suggestions |
+| `GET /opportunities/community` | Get community opportunity suggestions |
 
-### 2. 报告生成与可视化
+### 2. Report Generation & Visualization
 
-自动生成包含数据表和可视化图表的完整报告：
+Automatically generates comprehensive reports including data tables and visual charts:
 
-- **品牌可见性报告**：总结 GEO 分析结果，概述品牌在不同市场/区域的可见性
-- **引用来源分析**：分析引用域和 URL 数据，揭示关键引用模式和来源影响力
-- **机会建议报告**：提供内容、反向链接和社区机会建议
+- **Brand Visibility Report**: Summarizes GEO analysis results, providing an overview of brand visibility across different AI platforms and markets.
+- **Citation Source Analysis**: Analyzes citation domains and URL data to reveal key citation patterns and source influence.
+- **Opportunity Suggestions Report**: Provides recommendations for content, backlinks, and community engagement to optimize for generative engines.
 
-图表功能：
-- 自动检测并使用系统中文字体（优先使用 Noto Sans CJK SC、文泉驿系列）
-- 支持多种数据格式适配（`{data: {items: [...]}}` 或 `{items: [...]}`）
-- 生成水平条形图（适用于长类别名称）和垂直条形图
-- 图表自动上传到 CDN 并嵌入报告中
+Chart Features:
+- Automatically detects and uses system fonts.
+- Supports various data format adaptations (`{data: {items: [...]}}` or `{items: [...]}`).
+- Generates horizontal bar charts (for long category names) and vertical bar charts.
+- Charts are automatically embedded in the reports.
 
-### 3. 报告分发与归档
+### 3. Report Distribution & Archiving
 
-支持的分发渠道：
+Supported distribution channels:
 
-| 分发类型 | 配置要求 |
+| Distribution Type | Configuration Requirements |
 |-------------------|----------------------------|
-| **Slack** | `--webhook_url` 参数指定 Slack Incoming Webhook URL |
-| **飞书** | `--webhook_url` 参数指定飞书机器人 Webhook URL |
-| **电子邮件** | `--email_address` 参数指定收件人，以及 SMTP 配置 |
+| **Slack** | `--webhook_url` parameter specifies the Slack Incoming Webhook URL |
+| **Feishu** | `--webhook_url` parameter specifies the Feishu Bot Webhook URL |
+| **Email** | `--email_address` parameter specifies the recipient, along with SMTP configuration |
 
-电子邮件分发需要额外的 SMTP 配置：
-- `--smtp_server`：SMTP 服务器地址（例如，smtp.gmail.com）
-- `--smtp_port`：SMTP 端口（默认：587）
-- `--smtp_user`：发件人电子邮件
-- `--smtp_password`：SMTP 密码或应用程序专用密码
+Email distribution requires additional SMTP configuration:
+- `--smtp_server`: SMTP server address (e.g., smtp.gmail.com)
+- `--smtp_port`: SMTP port (default: 587)
+- `--smtp_user`: Sender email address
+- `--smtp_password`: SMTP password or app-specific password
 
-## 用法
+## Usage
 
-### 基本命令
+### Basic Command
 
 ```bash
 python scripts/generate_and_distribute_reports.py \
@@ -67,7 +69,7 @@ python scripts/generate_and_distribute_reports.py \
   --end_date "2026-03-31"
 ```
 
-### 飞书分发示例
+### Feishu Distribution Example
 
 ```bash
 python scripts/generate_and_distribute_reports.py \
@@ -78,7 +80,7 @@ python scripts/generate_and_distribute_reports.py \
   --end_date "2026-04-02"
 ```
 
-### 电子邮件分发示例
+### Email Distribution Example
 
 ```bash
 python scripts/generate_and_distribute_reports.py \
@@ -93,46 +95,46 @@ python scripts/generate_and_distribute_reports.py \
   --end_date "2026-04-02"
 ```
 
-### 使用环境变量
+### Using Environment Variables
 
 ```bash
-# 设置 API 密钥环境变量
+# Set API Key environment variable
 export X_API_KEY="YOUR_DAGENOA_API_KEY"
 
-# 运行脚本（无需 --api_key 参数）
+# Run script (no --api_key parameter needed)
 python scripts/generate_and_distribute_reports.py \
   --distribution_type "slack" \
   --webhook_url "YOUR_SLACK_WEBHOOK_URL"
 ```
 
-## 参数参考
+## Parameter Reference
 
-| 参数 | 必填 | 描述 |
+| Parameter | Required | Description |
 |-----------|----------|-------------|
-| `--api_key` | **是** | DagenoAI API 密钥（也可通过 `X_API_KEY` 环境变量设置） |
-| `--distribution_type` | 否 | 分发类型：`slack`、`email` 或 `feishu`（可选，如果未提供，代理将直接输出报告） |
-| `--webhook_url` | 条件 | Slack/飞书分发所需 |
-| `--email_address` | 条件 | 电子邮件分发所需 |
-| `--smtp_server` | 条件 | 电子邮件分发所需 |
-| `--smtp_port` | 否 | SMTP 端口，默认 587 |
-| `--smtp_user` | 条件 | 电子邮件分发所需（发件人电子邮件） |
-| `--smtp_password` | 条件 | 电子邮件分发所需 |
-| `--start_date` | **是** | 数据开始日期（YYYY-MM-DD） |
-| `--end_date` | **是** | 数据结束日期（YYYY-MM-DD） |
+| `--api_key` | **Yes** | DagenoAI API Key (can also be set via `X_API_KEY` environment variable) |
+| `--distribution_type` | No | Distribution type: `slack`, `email`, or `feishu` (Optional; if not provided, the report is output directly) |
+| `--webhook_url` | Conditional | Required for Slack/Feishu distribution |
+| `--email_address` | Conditional | Required for email distribution |
+| `--smtp_server` | Conditional | Required for email distribution |
+| `--smtp_port` | No | SMTP port, default 587 |
+| `--smtp_user` | Conditional | Required for email distribution (sender email) |
+| `--smtp_password` | Conditional | Required for email distribution |
+| `--start_date` | **Yes** | Data start date (YYYY-MM-DD) |
+| `--end_date` | **Yes** | Data end date (YYYY-MM-DD) |
 
-## 计划执行 (Cron Job)
+## Scheduled Execution (Cron Job)
 
-您可以使用 Manus 的 `create_cron_job` 工具设置计划任务，以在指定间隔自动运行此技能。
+You can use Manus's `create_cron_job` tool to set up scheduled tasks to run this skill automatically at specified intervals.
 
-### 每日报告示例（前一天数据）
+### Daily Report Example (Previous Day's Data)
 
 ```python
-# 每天上午 9:00 安排每日报告
+# Schedule daily report at 9:00 AM
 create_cron_job(
     job_title="DagenoAI Daily GEO Report",
-    job_instruction="""运行 dageno-geo-reporter 技能以生成并分发前一天的 GEO 报告。
+    job_instruction="""Run the dageno-geo-reporter skill to generate and distribute the previous day's GEO report.
 
-执行以下命令：
+Execute the following command:
 python /home/ubuntu/skills/dageno-geo-reporter/scripts/generate_and_distribute_reports.py \
   --api_key "YOUR_API_KEY" \
   --distribution_type "feishu" \
@@ -140,23 +142,23 @@ python /home/ubuntu/skills/dageno-geo-reporter/scripts/generate_and_distribute_r
   --start_date "$(date -d 'yesterday' +%Y-%m-%d)" \
   --end_date "$(date -d 'yesterday' +%Y-%m-%d)"
 
-请将以下内容替换为实际值：
-- YOUR_API_KEY: 您的 DagenoAI API 密钥
-- YOUR_WEBHOOK_URL: 您的飞书/Slack Webhook URL
+Please replace the following with actual values:
+- YOUR_API_KEY: Your DagenoAI API Key
+- YOUR_WEBHOOK_URL: Your Feishu/Slack Webhook URL
 """,
-    cron_expression="0 0 9 * * *"  # 每天上午 9:00
+    cron_expression="0 0 9 * * *"  # 9:00 AM daily
 )
 ```
 
-### 每周报告示例（前一周）
+### Weekly Report Example (Previous Week)
 
 ```python
-# 每周一上午 9:00 安排每周报告
+# Schedule weekly report every Monday at 9:00 AM
 create_cron_job(
     job_title="DagenoAI Weekly GEO Report",
-    job_instruction="""运行 dageno-geo-reporter 技能以生成并分发前一周的 GEO 报告。
+    job_instruction="""Run the dageno-geo-reporter skill to generate and distribute the previous week's GEO report.
 
-执行以下命令：
+Execute the following command:
 python /home/ubuntu/skills/dageno-geo-reporter/scripts/generate_and_distribute_reports.py \
   --api_key "YOUR_API_KEY" \
   --distribution_type "feishu" \
@@ -164,73 +166,65 @@ python /home/ubuntu/skills/dageno-geo-reporter/scripts/generate_and_distribute_r
   --start_date "$(date -d '8 days ago' +%Y-%m-%d)" \
   --end_date "$(date -d '2 days ago' +%Y-%m-%d)"
 
-请将以下内容替换为实际值：
-- YOUR_API_KEY: 您的 DagenoAI API 密钥
-- YOUR_WEBHOOK_URL: 您的飞书/Slack Webhook URL
+Please replace the following with actual values:
+- YOUR_API_KEY: Your DagenoAI API Key
+- YOUR_WEBHOOK_URL: Your Feishu/Slack Webhook URL
 """,
-    cron_expression="0 0 9 * * 1"  # 每周一上午 9:00
+    cron_expression="0 0 9 * * 1"  # 9:00 AM every Monday
 )
 ```
 
-## 文件结构
+## File Structure
 
 ```
 dageno-geo-reporter/
-├── README.md                          # 本文档
-├── SKILL.md                           # 技能定义文档
+├── README.md                          # This document
+├── SKILL.md                           # Skill definition document
 ├── scripts/
-│   ├── dageno_mcp_client.py          # DagenoAI 开放 API 客户端
-│   ├── generate_charts.py            # 图表生成模块
-│   ├── distribute_report.py           # 报告分发模块
-│   └── generate_and_distribute_reports.py  # 主脚本
-├── templates/                        # 图表模板目录
+│   ├── dageno_mcp_client.py          # DagenoAI Open API client
+│   ├── generate_charts.py            # Chart generation module
+│   ├── distribute_report.py           # Report distribution module
+│   └── generate_and_distribute_reports.py  # Main script
+├── templates/                        # Chart templates directory
 │   ├── geo_visibility_bar_chart.png
 │   ├── citation_domains_bar_chart.png
 │   └── topics_bar_chart.png
 └── references/
-    └── api_reference.md              # API 参考文档
+    └── api_reference.md              # API reference document
 ```
 
-## 故障排除
+## Troubleshooting
 
-### 图表中文显示问题
+### Chart Font Issues
 
-1. 检查是否安装了中文字体：
-   ```bash
-   fc-list :lang=zh -f "%{family}\n" | head -5
-   ```
-2. 如果没有中文字体，请安装中文字体包：
-   ```bash
-   sudo apt-get install fonts-noto-cjk
-   ```
+If you encounter issues with text rendering in charts, ensure that basic system fonts are available. The script will automatically fall back to available fonts like DejaVu Sans if specific CJK fonts are not found.
 
-### 分发失败
+### Distribution Failures
 
-1. **无效的 Slack/飞书 Webhook**：
-   - 检查 Webhook URL 是否正确
-   - 确认 Webhook 未过期（Slack Webhook 通常不会过期）
-   - 测试 Webhook 是否正常工作
+1. **Invalid Slack/Feishu Webhook**:
+   - Verify the Webhook URL is correct.
+   - Ensure the Webhook has not expired.
+   - Test the Webhook manually if possible.
 
-2. **电子邮件发送失败**：
-   - 使用 Gmail 时，生成应用程序专用密码（而非登录密码）
-   - 检查 SMTP 服务器和端口设置
-   - 确认发件人电子邮件和密码正确
+2. **Email Sending Failures**:
+   - For Gmail, use an App Password instead of your regular login password.
+   - Verify SMTP server and port settings.
+   - Ensure the sender email and password are correct.
 
-### API 调用失败
+### API Call Failures
 
-1. 确认 API 密钥有效
-2. 检查网络连接
-3. 查看日志中的详细错误消息
+1. Verify the API Key is valid.
+2. Check your internet connection.
+3. Review detailed error messages in the logs.
 
-## 依赖项
+## Dependencies
 
 ```
 matplotlib>=3.5.0
 requests>=2.28.0
 ```
 
-安装依赖项：
+Install dependencies:
 ```bash
 pip install matplotlib requests
-```
 ```

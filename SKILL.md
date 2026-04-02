@@ -1,13 +1,15 @@
 ---
 name: dageno-geo-reporter
-description: DagenoAI GEO Report Generation and Distribution. Use this skill to invoke DagenoAI Open API (GEO analysis, citation source analysis) for generating brand visibility reports, citation source analysis, and opportunity suggestions, with distribution via Webhook to Slack/Feishu or Email. Supports customizable data time range and generates visual charts.
+description: DagenoAI GEO Report Generation and Distribution. Use this skill to invoke DagenoAI Open API (GEO analysis, citation source analysis) for generating brand visibility reports, citation source analysis, and opportunity suggestions for Generative Engine Optimization (GEO). Supports distribution via Webhook to Slack/Feishu or Email, customizable data time ranges, and visual charts.
 ---
 
 # DagenoAI GEO Reporter
 
 ## Overview
 
-This skill automates the extraction, report generation, and distribution of DagenoAI Open API data. By providing an API key, it calls core analysis functions, outputs structured and visually appealing reports, and distributes them through multiple channels with archiving capabilities.
+This skill automates the extraction, report generation, and distribution of DagenoAI Open API data. By providing an API key, it calls core analysis functions to evaluate **Generative Engine Optimization (GEO)** performance, outputs structured and visually appealing reports, and distributes them through multiple channels with archiving capabilities.
+
+> **Note on GEO**: In this project, **GEO** stands for **Generative Engine Optimization**, focusing on improving brand visibility and citation within AI-driven search and generative engines.
 
 ## User Requirements
 
@@ -17,7 +19,7 @@ This skill automates the extraction, report generation, and distribution of Dage
 |-----------|----------|-------------|
 | **api_key** | **Yes** | DagenoAI API Key (can also be set via `X_API_KEY` environment variable) |
 | **time_period** | **Yes** | Data time range (start_date and end_date in YYYY-MM-DD format) |
-| **distribution_type** | No | Distribution method: `slack`, `feishu`, or `email` (Optional, if not provided, agent will directly output report) |
+| **distribution_type** | No | Distribution method: `slack`, `feishu`, or `email` (Optional; if not provided, the report is output directly) |
 
 ### Optional Inputs
 
@@ -39,12 +41,12 @@ Integrates the following Open API endpoints to fetch key data:
 | API Endpoint | Function |
 |--------------|----------|
 | `GET /brand` | Get brand basic info (name, domain, summary, keywords, competitors) |
-| `POST /geo/analysis` | Get geographic analysis data, evaluating brand visibility across regions |
+| `POST /geo/analysis` | Get GEO analysis data, evaluating brand visibility across generative engines |
 | `GET /topics` | Get hot topics list with search volume |
 | `GET /prompts` | Get efficient prompts list with performance scores |
 | `GET /citations/domains` | Get aggregated citation domain data |
 | `GET /citations/urls` | Get specific citation URL list |
-| `GET /opportunities/content` | Get content opportunity suggestions |
+| `GET /opportunities/content` | Get content opportunity suggestions for GEO |
 | `GET /opportunities/backlink` | Get backlink opportunity suggestions |
 | `GET /opportunities/community` | Get community opportunity suggestions |
 
@@ -52,15 +54,15 @@ Integrates the following Open API endpoints to fetch key data:
 
 Automatically generates complete reports with data tables and visual charts:
 
-- **Brand Visibility Report**: Summarizes GEO analysis results with brand visibility overview across different markets/regions
-- **Citation Source Analysis**: Analyzes citation domain and URL data, revealing key citation patterns and source influence
-- **Opportunity Suggestions Report**: Provides content, backlink, and community opportunity recommendations
+- **Brand Visibility Report**: Summarizes GEO analysis results with brand visibility overview across different AI platforms and regions.
+- **Citation Source Analysis**: Analyzes citation domain and URL data, revealing key citation patterns and source influence.
+- **Opportunity Suggestions Report**: Provides content, backlink, and community opportunity recommendations for generative engine optimization.
 
 Chart Features:
-- Auto-detects and uses system Chinese fonts (prioritizes Noto Sans CJK SC, WenQuanYi series)
-- Supports multiple data format adaptations (`{data: {items: [...]}}` or `{items: [...]}`)
-- Generates horizontal bar charts (suitable for long category names) and vertical bar charts
-- Charts auto-upload to CDN and embedded in reports
+- Auto-detects and uses system fonts.
+- Supports multiple data format adaptations (`{data: {items: [...]}}` or `{items: [...]}`).
+- Generates horizontal bar charts (suitable for long category names) and vertical bar charts.
+- Charts are automatically embedded in the reports.
 
 ### 3. Report Distribution & Archiving
 
@@ -68,9 +70,9 @@ Supported distribution channels:
 
 | Distribution Type | Configuration Requirements |
 |-------------------|----------------------------|
-| **Slack** | `--webhook_url` parameter specifies Slack Incoming Webhook URL |
-| **Feishu** | `--webhook_url` parameter specifies Feishu Bot Webhook URL |
-| **Email** | `--email_address` parameter specifies recipient, plus SMTP configuration |
+| **Slack** | `--webhook_url` parameter specifies the Slack Incoming Webhook URL |
+| **Feishu** | `--webhook_url` parameter specifies the Feishu Bot Webhook URL |
+| **Email** | `--email_address` parameter specifies the recipient, plus SMTP configuration |
 
 Email distribution requires additional SMTP configuration:
 - `--smtp_server`: SMTP server address (e.g., smtp.gmail.com)
@@ -134,7 +136,7 @@ python /home/ubuntu/skills/dageno-geo-reporter/scripts/generate_and_distribute_r
 | Parameter | Required | Description |
 |-----------|----------|-------------|
 | `--api_key` | **Yes** | DagenoAI API Key (can also be set via `X_API_KEY` env variable) |
-| `--distribution_type` | No | Distribution type: `slack`, `email`, or `feishu` (Optional, if not provided, agent will directly output report) |
+| `--distribution_type` | No | Distribution type: `slack`, `email`, or `feishu` (Optional; if not provided, the report is output directly) |
 | `--webhook_url` | Conditional | Required for Slack/Feishu distribution |
 | `--email_address` | Conditional | Required for email distribution |
 | `--smtp_server` | Conditional | Required for email distribution |
@@ -146,7 +148,7 @@ python /home/ubuntu/skills/dageno-geo-reporter/scripts/generate_and_distribute_r
 
 ## Scheduled Execution (Cron Job)
 
-You can set up scheduled tasks using Manus' `create_cron_job` tool to automatically run this skill at specified intervals.
+You can set up scheduled tasks using Manus's `create_cron_job` tool to automatically run this skill at specified intervals.
 
 ### Daily Report Example (Previous Day's Data)
 
@@ -154,7 +156,7 @@ You can set up scheduled tasks using Manus' `create_cron_job` tool to automatica
 # Schedule daily report at 9:00 AM
 create_cron_job(
     job_title="DagenoAI Daily GEO Report",
-    job_instruction="""Run dageno-geo-reporter skill to generate and distribute the previous day's GEO report.
+    job_instruction="""Run the dageno-geo-reporter skill to generate and distribute the previous day's GEO report.
 
 Execute the following command:
 python /home/ubuntu/skills/dageno-geo-reporter/scripts/generate_and_distribute_reports.py \
@@ -178,7 +180,7 @@ Replace the following with actual values:
 # Schedule weekly report every Monday at 9:00 AM
 create_cron_job(
     job_title="DagenoAI Weekly GEO Report",
-    job_instruction="""Run dageno-geo-reporter skill to generate and distribute the previous week's GEO report.
+    job_instruction="""Run the dageno-geo-reporter skill to generate and distribute the previous week's GEO report.
 
 Execute the following command:
 python /home/ubuntu/skills/dageno-geo-reporter/scripts/generate_and_distribute_reports.py \
@@ -218,7 +220,7 @@ dageno-geo-reporter/
 │   ├── generate_charts.py            # Chart generation module
 │   ├── distribute_report.py           # Report distribution module
 │   └── generate_and_distribute_reports.py  # Main script
-├── templates/                        # Chart template directory
+├── templates/                        # Chart templates directory
 │   ├── geo_visibility_bar_chart.png
 │   ├── citation_domains_bar_chart.png
 │   └── topics_bar_chart.png
@@ -228,34 +230,27 @@ dageno-geo-reporter/
 
 ## Troubleshooting
 
-### Chart Chinese Characters Display Issues
+### Chart Font Issues
 
-1. Check if Chinese fonts are installed:
-   ```bash
-   fc-list :lang=zh -f "%{family}\n" | head -5
-   ```
-2. If no Chinese fonts, install Chinese font package:
-   ```bash
-   sudo apt-get install fonts-noto-cjk
-   ```
+Ensure system fonts are available for chart rendering. The script will automatically fall back to available fonts like DejaVu Sans if specific CJK fonts are not found.
 
 ### Distribution Failures
 
 1. **Invalid Slack/Feishu Webhook**:
-   - Check if Webhook URL is correct
-   - Confirm Webhook hasn't expired (Slack Webhooks typically don't expire)
-   - Test if Webhook is working
+   - Check if Webhook URL is correct.
+   - Confirm Webhook hasn't expired.
+   - Test if Webhook is working.
 
 2. **Email Send Failure**:
-   - When using Gmail, generate an app-specific password (not login password)
-   - Check SMTP server and port settings
-   - Confirm sender email and password are correct
+   - For Gmail, generate an app-specific password (not login password).
+   - Check SMTP server and port settings.
+   - Confirm sender email and password are correct.
 
 ### API Call Failures
 
-1. Confirm API Key is valid
-2. Check network connection
-3. Review detailed error messages in logs
+1. Confirm API Key is valid.
+2. Check network connection.
+3. Review detailed error messages in logs.
 
 ## Dependencies
 

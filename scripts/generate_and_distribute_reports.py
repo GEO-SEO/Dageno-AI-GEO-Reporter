@@ -24,7 +24,7 @@ CUSTOM_COLOR = '#ff5c23'
 CHART_PALETTE = ['#ff5c23', '#3498db', '#2ecc71', '#9b59b6', '#f39c12', '#1abc9c']
 
 def setup_matplotlib_style():
-    """Configure Matplotlib style (moved to generate_charts module for compatibility)"""
+    """Configure Matplotlib style"""
     from generate_charts import setup_matplotlib_style as _setup
     _setup()
 
@@ -107,7 +107,7 @@ def generate_brand_basics_report(brand_info):
 
     competitors = data.get("competitors", [])
     if competitors:
-        comp_list = [comp.get("brand", "N/A") if isinstance(comp, dict) else str(comp) for comp in competitors]
+        comp_list = [comp.get('brand', 'N/A') if isinstance(comp, dict) else str(comp) for comp in competitors]
         report += f"- **Main Competitors**: {', '.join(comp_list)}\n"
 
     report += "\n"
@@ -115,10 +115,10 @@ def generate_brand_basics_report(brand_info):
 
 def generate_visibility_analysis_report(geo_analysis_data, start_date, end_date, chart_paths):
     """Generate visibility analysis report"""
-    report = f"## Visibility Analysis ({start_date} to {end_date})\n\n"
+    report = f"## GEO Visibility Analysis ({start_date} to {end_date})\n\n"
 
     if not geo_analysis_data or not geo_analysis_data.get("data"):
-        report += "No visibility analysis data available.\n"
+        report += "No GEO visibility analysis data available.\n"
         return report
 
     data = geo_analysis_data["data"]
@@ -160,7 +160,7 @@ def generate_visibility_analysis_report(geo_analysis_data, start_date, end_date,
     if ranking:
         report += format_json_as_markdown_table(ranking, "Ranking Details")
 
-    # Handle regions data (if any)
+    # Handle regions data
     regions = data.get("regions", [])
     if regions:
         report += format_json_as_markdown_table(regions, "Region Details")
@@ -192,11 +192,9 @@ def generate_topics_prompts_report(topics_data, prompts_data, start_date, end_da
 
             # Generate topics chart
             if isinstance(topics_items, list) and len(topics_items) > 0:
-                # Try to extract topic name and volume
                 chart_data = []
                 for item in topics_items:
                     if isinstance(item, dict):
-                        # Try to find topic name and volume fields
                         topic = item.get("topic") or item.get("name") or item.get("title") or str(item.get("id", ""))
                         volume = item.get("volume") or item.get("count") or item.get("searchVolume") or item.get("value")
                         if topic and volume is not None:
@@ -263,27 +261,27 @@ def generate_citation_analysis_report(citation_domains_data, citation_urls_data,
                 for item in citation_domains_items:
                     if isinstance(item, dict):
                         domain = item.get("domain") or item.get("name") or str(item.get("id", ""))
-                        count = item.get("citationCount") or item.get("count") or item.get("citations")
+                        count = item.get("citationCount") or item.get("count") or item.get("value")
                         if domain and count is not None:
                             try:
-                                chart_data.append({"domain": str(domain), "citationCount": float(count)})
+                                chart_data.append({"domain": str(domain), "count": float(count)})
                             except (ValueError, TypeError):
                                 pass
 
                 if chart_data:
-                    chart_path = generate_horizontal_bar_chart(
+                    chart_path = generate_bar_chart(
                         chart_data,
-                        x_key="citationCount",
-                        y_key="domain",
+                        x_key="domain",
+                        y_key="count",
                         title="Top Citation Domains",
-                        xlabel="Citation Count",
-                        ylabel="Domain",
+                        xlabel="Domain",
+                        ylabel="Citations",
                         filename="citation_domains_bar_chart.png",
                         color=CUSTOM_COLOR
                     )
                     if chart_path:
                         chart_paths.append(chart_path)
-                        report += f"### Top Citation Domains Chart\n\n![Top Citation Domains Chart]({{IMG_PLACEHOLDER_citation_domains_bar_chart.png}})\n\n"
+                        report += f"### Citation Domains Chart\n\n![Citation Domains Chart]({{IMG_PLACEHOLDER_citation_domains_bar_chart.png}})\n\n"
 
     # Handle citation URLs data
     if not urls_empty:
@@ -294,292 +292,136 @@ def generate_citation_analysis_report(citation_domains_data, citation_urls_data,
             citation_urls_items = []
 
         if citation_urls_items:
-            report += "### Citation URLs Analysis\n"
+            report += "### Specific Citation URLs\n"
             report += format_json_as_markdown_table(citation_urls_items, "Citation URL Details")
 
-            # Generate citation URLs chart
-            if isinstance(citation_urls_items, list) and len(citation_urls_items) > 0:
-                chart_data = []
-                for item in citation_urls_items:
-                    if isinstance(item, dict):
-                        url = item.get("url") or item.get("link") or str(item.get("id", ""))
-                        count = item.get("citationCount") or item.get("count") or item.get("citations")
-                        if url and count is not None:
-                            try:
-                                # Truncate long URLs
-                                display_url = url[:50] + "..." if len(url) > 50 else url
-                                chart_data.append({"url": display_url, "citationCount": float(count)})
-                            except (ValueError, TypeError):
-                                pass
-
-                if chart_data:
-                    chart_path = generate_horizontal_bar_chart(
-                        chart_data,
-                        x_key="citationCount",
-                        y_key="url",
-                        title="Top Citation URLs",
-                        xlabel="Citation Count",
-                        ylabel="URL",
-                        filename="citation_urls_bar_chart.png",
-                        color=CUSTOM_COLOR
-                    )
-                    if chart_path:
-                        chart_paths.append(chart_path)
-                        report += f"### Top Citation URLs Chart\n\n![Top Citation URLs Chart]({{IMG_PLACEHOLDER_citation_urls_bar_chart.png}})\n\n"
-
     return report
 
-def generate_opportunity_suggestions(content_opportunities, backlink_opportunities, community_opportunities):
+def generate_opportunities_report(content_opp, backlink_opp, community_opp, start_date, end_date):
     """Generate opportunity suggestions report"""
-    report = "## Opportunity Suggestions\n\n"
+    report = f"## Opportunity Suggestions ({start_date} to {end_date})\n\n"
 
-    all_empty = (
-        (not content_opportunities or not content_opportunities.get("data")) and
-        (not backlink_opportunities or not backlink_opportunities.get("data")) and
-        (not community_opportunities or not community_opportunities.get("data"))
-    )
+    # Content Opportunities
+    if content_opp and content_opp.get("data"):
+        report += "### Content Opportunities for GEO\n"
+        report += format_json_as_markdown_table(content_opp["data"], "Content Suggestions")
 
-    if all_empty:
-        report += "No opportunity suggestions data available.\n"
-        return report
+    # Backlink Opportunities
+    if backlink_opp and backlink_opp.get("data"):
+        report += "### Backlink Opportunities\n"
+        report += format_json_as_markdown_table(backlink_opp["data"], "Backlink Suggestions")
 
-    # Content opportunities
-    if content_opportunities and content_opportunities.get("data"):
-        items = content_opportunities.get("data", {})
-        if isinstance(items, dict):
-            items = items.get("items", [])
-        if items:
-            report += "### Content Opportunities\n"
-            report += format_json_as_markdown_table(items, "Content Opportunity Details")
-            report += "Based on the above content opportunities, it is recommended to prioritize creating or optimizing high-priority, high-impact content to improve brand visibility and user engagement.\n\n"
-
-    # Backlink opportunities
-    if backlink_opportunities and backlink_opportunities.get("data"):
-        items = backlink_opportunities.get("data", {})
-        if isinstance(items, dict):
-            items = items.get("items", [])
-        if items:
-            report += "### Backlink Opportunities\n"
-            report += format_json_as_markdown_table(items, "Backlink Opportunity Details")
-            report += "Based on the above backlink opportunities, it is recommended to actively cooperate with high-authority domains to acquire quality backlinks and improve search engine rankings.\n\n"
-
-    # Community opportunities
-    if community_opportunities and community_opportunities.get("data"):
-        items = community_opportunities.get("data", {})
-        if isinstance(items, dict):
-            items = items.get("items", [])
-        if items:
-            report += "### Community Opportunities\n"
-            report += format_json_as_markdown_table(items, "Community Opportunity Details")
-            report += "Based on the above community opportunities, it is recommended to actively participate in discussions on active community platforms (such as Reddit, LinkedIn groups) and share valuable content to expand brand influence.\n\n"
+    # Community Opportunities
+    if community_opp and community_opp.get("data"):
+        report += "### Community Opportunities\n"
+        report += format_json_as_markdown_table(community_opp["data"], "Community Suggestions")
 
     return report
-
-def upload_files_and_get_cdn_urls(file_paths):
-    """Upload files to CDN and return URL mapping"""
-    if not file_paths:
-        return {}
-
-    # Filter non-existent files
-    existing_files = [f for f in file_paths if os.path.exists(f)]
-    if not existing_files:
-        return {}
-
-    command = ["manus-upload-file"] + existing_files
-    try:
-        result = subprocess.run(command, capture_output=True, text=True, check=True, timeout=120)
-        cdn_urls = {}
-
-        for line in result.stdout.splitlines():
-            if "CDN URL: " in line:
-                parts = line.split("CDN URL: ")
-                if len(parts) > 1:
-                    cdn_url = parts[1].strip()
-                    for fp in existing_files:
-                        if os.path.basename(fp) in cdn_url:
-                            cdn_urls[os.path.basename(fp)] = cdn_url
-                            break
-
-        print(f"Uploaded {len(cdn_urls)} files to CDN")
-        return cdn_urls
-
-    except (subprocess.CalledProcessError, PermissionError, FileNotFoundError) as e:
-        print(f"Warning: CDN upload not available ({type(e).__name__}). Charts will be saved locally.")
-        return {}
-    except subprocess.TimeoutExpired:
-        print("Warning: CDN upload timed out")
-        return {}
 
 def main():
-    parser = argparse.ArgumentParser(description="Generate and distribute DagenoAI GEO reports")
-    parser.add_argument("--api_key", help="DagenoAI API Key. Can also be set via X_API_KEY env variable")
-    parser.add_argument("--distribution_type", required=True, choices=["slack", "email", "feishu"],
-                        help="Distribution type (slack, email, feishu)")
-    parser.add_argument("--webhook_url", help="Webhook URL for Slack/Feishu distribution")
-    parser.add_argument("--email_address", help="Email address for email distribution")
-    parser.add_argument("--start_date", help="Start date (YYYY-MM-DD), defaults to yesterday")
-    parser.add_argument("--end_date", help="End date (YYYY-MM-DD), defaults to yesterday")
-
-    # SMTP configuration parameters (for email distribution)
-    parser.add_argument("--smtp_server", help="SMTP server for email distribution")
-    parser.add_argument("--smtp_port", type=int, default=587, help="SMTP port (default: 587)")
-    parser.add_argument("--smtp_user", help="SMTP username/email")
+    parser = argparse.ArgumentParser(description="DagenoAI GEO Report Generation and Distribution")
+    parser.add_argument("--api_key", help="DagenoAI API Key")
+    parser.add_argument("--start_date", help="Start date (YYYY-MM-DD)")
+    parser.add_argument("--end_date", help="End date (YYYY-MM-DD)")
+    parser.add_argument("--distribution_type", choices=["slack", "feishu", "email"], help="Distribution type")
+    parser.add_argument("--webhook_url", help="Webhook URL for Slack/Feishu")
+    parser.add_argument("--email_address", help="Recipient email address")
+    parser.add_argument("--smtp_server", help="SMTP server address")
+    parser.add_argument("--smtp_port", type=int, default=587, help="SMTP port")
+    parser.add_argument("--smtp_user", help="SMTP user (sender email)")
     parser.add_argument("--smtp_password", help="SMTP password")
 
     args = parser.parse_args()
 
-    # Initialize Matplotlib style
-    setup_matplotlib_style()
-
-    # Handle dates
-    today = datetime.now()
-    if args.start_date:
-        try:
-            start_date_obj = datetime.strptime(args.start_date, "%Y-%m-%d")
-        except ValueError:
-            start_date_obj = today - timedelta(days=1)
-    else:
-        start_date_obj = today - timedelta(days=1)
-
-    if args.end_date:
-        try:
-            end_date_obj = datetime.strptime(args.end_date, "%Y-%m-%d")
-        except ValueError:
-            end_date_obj = today - timedelta(days=1)
-    else:
-        end_date_obj = today - timedelta(days=1)
-
-    start_date_str = start_date_obj.strftime("%Y-%m-%d")
-    end_date_str = end_date_obj.strftime("%Y-%m-%d")
-
-    print(f"=" * 60)
-    print(f"DagenoAI GEO Report Generator")
-    print(f"Date Range: {start_date_str} to {end_date_str}")
-    print(f"Distribution: {args.distribution_type}")
-    print(f"=" * 60)
-
-    # Get API Key
-    api_key = args.api_key or os.getenv("X_API_KEY")
+    # Get API key from env if not provided
+    api_key = args.api_key or os.environ.get("X_API_KEY")
     if not api_key:
-        print("Error: API Key is required. Set --api_key or X_API_KEY environment variable.")
+        print("Error: API Key is required (use --api_key or X_API_KEY env var)")
         sys.exit(1)
 
-    # Call DagenoAI API
-    print("\n[1/4] Fetching data from DagenoAI API...")
-    try:
-        brand_info = get_brand_info(api_key=api_key)
-        geo_analysis = get_geo_analysis(start_date_str, end_date_str, api_key=api_key)
-        topics = get_topics(start_date_str, end_date_str, api_key=api_key)
-        prompts = get_prompts(start_date_str, end_date_str, api_key=api_key)
-        citation_domains = get_citation_domains(start_date_str, end_date_str, api_key=api_key)
-        citation_urls = get_citation_urls(start_date_str, end_date_str, api_key=api_key)
-        content_opps = get_content_opportunities(start_date_str, end_date_str, api_key=api_key)
-        backlink_opps = get_backlink_opportunities(start_date_str, end_date_str, api_key=api_key)
-        community_opps = get_community_opportunities(start_date_str, end_date_str, api_key=api_key)
+    # Use yesterday if dates not provided
+    yesterday = (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d")
+    start_date = args.start_date or yesterday
+    end_date = args.end_date or yesterday
 
-        print("Data fetch completed.")
-    except Exception as e:
-        print(f"Error fetching data: {e}")
-        sys.exit(1)
+    print(f"Starting DagenoAI GEO report generation for {start_date} to {end_date}...")
 
-    # Generate report
-    print("\n[2/4] Generating reports...")
+    # Initialize report
+    report_title = f"# DagenoAI Generative Engine Optimization (GEO) Report\n\n"
+    report_title += f"Generated on: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
+    report_title += f"Reporting Period: {start_date} to {end_date}\n\n"
+    
+    report_body = ""
     chart_paths = []
 
-    report_parts = []
-    report_parts.append(generate_brand_basics_report(brand_info))
-    report_parts.append(generate_visibility_analysis_report(geo_analysis, start_date_str, end_date_str, chart_paths))
-    report_parts.append(generate_topics_prompts_report(topics, prompts, start_date_str, end_date_str, chart_paths))
-    report_parts.append(generate_citation_analysis_report(citation_domains, citation_urls, start_date_str, end_date_str, chart_paths))
-    report_parts.append(generate_opportunity_suggestions(content_opps, backlink_opps, community_opps))
+    # 1. Fetch Brand Info
+    print("Fetching brand info...")
+    brand_info = get_brand_info(api_key)
+    report_body += generate_brand_basics_report(brand_info)
 
-    full_report_content = "\n".join(report_parts)
+    # 2. Fetch GEO Analysis
+    print("Fetching GEO analysis data...")
+    geo_analysis = get_geo_analysis(api_key, start_date, end_date)
+    report_body += generate_visibility_analysis_report(geo_analysis, start_date, end_date, chart_paths)
 
-    # Upload charts to CDN
-    print(f"\n[3/4] Uploading {len(chart_paths)} charts to CDN...")
-    cdn_url_map = upload_files_and_get_cdn_urls(chart_paths)
+    # 3. Fetch Topics and Prompts
+    print("Fetching topics and prompts...")
+    topics = get_topics(api_key, start_date, end_date)
+    prompts = get_prompts(api_key, start_date, end_date)
+    report_body += generate_topics_prompts_report(topics, prompts, start_date, end_date, chart_paths)
 
-    # Replace image placeholders with CDN URLs
-    for filename, cdn_url in cdn_url_map.items():
+    # 4. Fetch Citation Analysis
+    print("Fetching citation source data...")
+    citation_domains = get_citation_domains(api_key, start_date, end_date)
+    citation_urls = get_citation_urls(api_key, start_date, end_date)
+    report_body += generate_citation_analysis_report(citation_domains, citation_urls, start_date, end_date, chart_paths)
+
+    # 5. Fetch Opportunities
+    print("Fetching opportunity suggestions...")
+    content_opp = get_content_opportunities(api_key, start_date, end_date)
+    backlink_opp = get_backlink_opportunities(api_key, start_date, end_date)
+    community_opp = get_community_opportunities(api_key, start_date, end_date)
+    report_body += generate_opportunities_report(content_opp, backlink_opp, community_opp, start_date, end_date)
+
+    # Final Report Assembly
+    full_report = report_title + report_body
+
+    # Replace chart placeholders with local paths for distribution if needed
+    # In a real scenario, you'd upload these to a CDN first
+    for path in chart_paths:
+        filename = os.path.basename(path)
         placeholder = f"{{{{IMG_PLACEHOLDER_{filename}}}}}"
-        full_report_content = full_report_content.replace(placeholder, cdn_url)
+        full_report = full_report.replace(placeholder, f"./templates/{filename}")
 
-    # Handle non-uploaded charts (keep placeholders or remove)
-    import re
-    full_report_content = re.sub(r'!\[\[IMG_PLACEHOLDER_.*?\]\]\([^)]+\)', '', full_report_content)
-    full_report_content = re.sub(r'!\[\]\(\{\{IMG_PLACEHOLDER_[^}]+\}\}\)', '', full_report_content)
-
-    # Generate complete report
-    full_report = f"""# DagenoAI GEO Report
-
-**Generated At**: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
-**Data Range**: {start_date_str} to {end_date_str}
-**Brand Info**: {brand_info.get('data', {}).get('name', 'N/A') if brand_info and brand_info.get('data') else 'N/A'}
-
----
-
-{full_report_content}
-
----
-
-*This report was automatically generated by DagenoAI GEO Reporter*
-"""
-
-    # Save report
-    report_filename = f"DagenoAI_GEO_Report_{start_date_str}_to_{end_date_str}.md"
-    report_path = os.path.join(os.getcwd(), report_filename)
-    with open(report_path, "w", encoding="utf-8") as f:
+    # Output to file
+    output_filename = f"DagenoAI_GEO_Report_{start_date}_to_{end_date}.md"
+    with open(output_filename, "w") as f:
         f.write(full_report)
-    print(f"Report saved to: {report_path}")
+    print(f"Report saved to {output_filename}")
 
-    # Distribute report
-    print(f"\n[4/4] Distributing report via {args.distribution_type}...")
-
-    smtp_config = None
-    if args.distribution_type == "email":
-        if args.smtp_server and args.smtp_user and args.smtp_password:
+    # Distribution
+    if args.distribution_type:
+        smtp_config = None
+        if args.distribution_type == "email":
             smtp_config = {
-                'smtp_server': args.smtp_server,
-                'smtp_port': args.smtp_port,
-                'sender_email': args.smtp_user,
-                'sender_password': args.smtp_password
+                "smtp_server": args.smtp_server,
+                "smtp_port": args.smtp_port,
+                "sender_email": args.smtp_user,
+                "sender_password": args.smtp_password
             }
-        else:
-            print("Warning: Email distribution requires SMTP configuration. Skipping distribution.")
-            print("Please provide: --smtp_server, --smtp_user, --smtp_password")
-            success = False
-    else:
-        if not args.webhook_url:
-            print(f"Warning: {args.distribution_type} distribution requires --webhook_url")
-            print("Report will be saved locally but not distributed.")
-            success = False
-
-    if args.distribution_type == "email" and smtp_config:
-        success = distribute_report(
-            full_report,
-            args.distribution_type,
-            webhook_url=None,
-            email_address=args.email_address,
-            smtp_config=smtp_config
-        )
-    elif args.webhook_url:
+        
         success = distribute_report(
             full_report,
             args.distribution_type,
             webhook_url=args.webhook_url,
-            email_address=args.email_address
+            email_address=args.email_address,
+            smtp_config=smtp_config
         )
-    else:
-        success = False
-
-    # Print result
-    print("\n" + "=" * 60)
-    if success:
-        print("Report generated and distributed successfully!")
-    else:
-        print("Report generated (distribution skipped or failed)")
-    print(f"Report file: {report_path}")
-    print("=" * 60)
+        
+        if success:
+            print(f"Report distributed successfully via {args.distribution_type}")
+        else:
+            print(f"Failed to distribute report via {args.distribution_type}")
 
 if __name__ == "__main__":
     main()

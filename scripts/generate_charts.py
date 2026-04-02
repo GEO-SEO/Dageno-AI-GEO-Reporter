@@ -1,5 +1,5 @@
 """
-图表生成模块 - 支持中文字体和多种数据格式
+Chart Generation Module - Supports multiple fonts and data formats
 """
 import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
@@ -7,47 +7,42 @@ import json
 import os
 import warnings
 
-# 忽略警告
+# Ignore warnings
 warnings.filterwarnings('ignore')
 
-# 设置自定义颜色
+# Set custom colors
 CUSTOM_COLOR = '#ff5c23'
 CHART_COLOR_PALETTE = ['#ff5c23', '#3498db', '#2ecc71', '#9b59b6', '#f39c12', '#1abc9c']
 
-def find_chinese_font():
-    """查找可用的中文字体"""
-    # 优先使用 Noto Sans CJK SC，然后是文泉驿系列
+def find_available_font():
+    """Find available fonts for chart rendering"""
+    # Priority for common fonts
     font_candidates = [
+        'DejaVu Sans',
+        'Arial',
+        'Helvetica',
+        'Liberation Sans',
         'Noto Sans CJK SC',
-        'WenQuanYi Zen Hei',
-        'WenQuanYi Micro Hei',
-        'SimHei',
-        'DejaVu Sans'
+        'WenQuanYi Zen Hei'
     ]
 
     available_fonts = [f.name for f in fm.fontManager.ttflist]
 
     for font_name in font_candidates:
         if font_name in available_fonts:
-            print(f"Found Chinese font: {font_name}")
+            print(f"Found font: {font_name}")
             return font_name
-
-    # 打印一些可用字体用于调试
-    cjk_fonts = [f.name for f in fm.fontManager.ttflist if 'CJK' in f.name or 'WenQuan' in f.name]
-    if cjk_fonts:
-        print(f"Available CJK fonts: {cjk_fonts[:5]}")
-        return cjk_fonts[0]
 
     return 'DejaVu Sans'
 
 def setup_matplotlib_style():
-    """配置 Matplotlib 样式"""
-    chinese_font = find_chinese_font()
+    """Configure Matplotlib style"""
+    font_family = find_available_font()
 
     plt.style.use('seaborn-v0_8-whitegrid')
-    plt.rcParams["font.family"] = chinese_font
-    plt.rcParams["font.sans-serif"] = [chinese_font]
-    plt.rcParams['axes.unicode_minus'] = False  # 解决负号显示问题
+    plt.rcParams["font.family"] = font_family
+    plt.rcParams["font.sans-serif"] = [font_family]
+    plt.rcParams['axes.unicode_minus'] = False  # Handle negative signs
     plt.rcParams['figure.facecolor'] = 'white'
     plt.rcParams['axes.facecolor'] = 'white'
     plt.rcParams['text.color'] = '#333333'
@@ -62,19 +57,19 @@ def setup_matplotlib_style():
 
 def extract_chart_data(data, x_key, y_key, data_keys_mapping=None):
     """
-    从 API 返回的数据中提取图表需要的数据
-    支持多种数据格式：
-    1. 直接是列表: [{"key1": val1, "key2": val2}, ...]
-    2. {"data": {"items": [...]}} 格式
-    3. {"data": [...]} 格式
-    4. {"items": [...]} 格式
+    Extract data needed for charts from API response
+    Supports multiple data formats:
+    1. Direct list: [{"key1": val1, "key2": val2}, ...]
+    2. {"data": {"items": [...]}} format
+    3. {"data": [...]} format
+    4. {"items": [...]} format
     """
     if not data:
         return None
 
-    # 处理字典包装
+    # Handle dictionary wrapping
     if isinstance(data, dict):
-        # 尝试多种常见的包装格式
+        # Try various common wrapping formats
         if "data" in data:
             inner = data["data"]
             if isinstance(inner, dict):
@@ -98,7 +93,7 @@ def extract_chart_data(data, x_key, y_key, data_keys_mapping=None):
     if len(data) == 0:
         return None
 
-    # 如果提供了 key 映射，尝试转换字段名
+    # Apply key mapping if provided
     result = []
     for item in data:
         if not isinstance(item, dict):
@@ -108,27 +103,27 @@ def extract_chart_data(data, x_key, y_key, data_keys_mapping=None):
         y_val = None
 
         if data_keys_mapping:
-            # 使用映射转换字段
+            # Convert fields using mapping
             for source_key, target_key in data_keys_mapping.items():
                 if source_key in item:
                     if target_key == x_key:
                         x_val = item[source_key]
                     elif target_key == y_key:
-                        # 尝试将值转换为数字
+                        # Try to convert value to float
                         try:
                             y_val = float(item[source_key])
                         except (ValueError, TypeError):
                             y_val = 0
         else:
-            # 直接使用指定的 key
+            # Use specified keys directly
             x_val = item.get(x_key)
             y_val = item.get(y_key)
-            # 尝试转换 y 值为数字
+            # Try to convert y value to float
             if y_val is not None:
                 try:
                     y_val = float(y_val)
                 except (ValueError, TypeError):
-                    # 如果是字符串，尝试转换
+                    # If string, try conversion
                     if isinstance(y_val, str):
                         if y_val.isdigit():
                             y_val = float(y_val)
@@ -141,39 +136,39 @@ def extract_chart_data(data, x_key, y_key, data_keys_mapping=None):
     return result if result else None
 
 def generate_bar_chart(data, x_key, y_key, title, xlabel, ylabel, filename, color=None):
-    """生成条形图并保存为 PNG"""
+    """Generate bar chart and save as PNG"""
     if color is None:
         color = CUSTOM_COLOR
 
-    # 设置样式
+    # Set style
     setup_matplotlib_style()
 
-    # 提取图表数据
+    # Extract chart data
     chart_data = extract_chart_data(data, x_key, y_key)
 
     if not chart_data:
         print(f"Warning: No valid data for bar chart {filename}")
         return None
 
-    # 限制显示的条目数量（最多15个）
+    # Limit number of items (max 15)
     chart_data = chart_data[:15]
 
     x_values, y_values = zip(*chart_data)
 
-    # 创建图表
+    # Create chart
     fig, ax = plt.subplots(figsize=(12, 6))
 
     bars = ax.bar(range(len(x_values)), y_values, color=color, edgecolor='white', linewidth=0.5)
 
-    # 设置标签
+    # Set labels
     ax.set_xlabel(xlabel, fontsize=12, fontweight='bold')
     ax.set_ylabel(ylabel, fontsize=12, fontweight='bold')
     ax.set_title(title, fontsize=14, fontweight='bold', pad=20)
 
-    # 设置 x 轴标签
+    # Set x-axis ticks
     ax.set_xticks(range(len(x_values)))
 
-    # 处理长标签（截断或旋转）
+    # Handle long labels (truncate or rotate)
     display_labels = []
     for label in x_values:
         if len(str(label)) > 20:
@@ -183,7 +178,7 @@ def generate_bar_chart(data, x_key, y_key, title, xlabel, ylabel, filename, colo
 
     ax.set_xticklabels(display_labels, rotation=45, ha='right', fontsize=10)
 
-    # 在条形上添加数值标签
+    # Add value labels on bars
     for i, (bar, val) in enumerate(zip(bars, y_values)):
         height = bar.get_height()
         ax.annotate(f'{val:.0f}',
@@ -193,7 +188,7 @@ def generate_bar_chart(data, x_key, y_key, title, xlabel, ylabel, filename, colo
                     ha='center', va='bottom',
                     fontsize=9, color='#333333')
 
-    # 美化
+    # Aesthetics
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
     ax.grid(axis='y', linestyle='--', alpha=0.7)
@@ -201,7 +196,7 @@ def generate_bar_chart(data, x_key, y_key, title, xlabel, ylabel, filename, colo
 
     plt.tight_layout()
 
-    # 保存图表
+    # Save chart
     output_path = os.path.join(os.path.dirname(__file__), "..", "templates", filename)
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
@@ -212,18 +207,18 @@ def generate_bar_chart(data, x_key, y_key, title, xlabel, ylabel, filename, colo
     return output_path
 
 def generate_horizontal_bar_chart(data, x_key, y_key, title, xlabel, ylabel, filename, color=None):
-    """生成水平条形图并保存为 PNG
+    """Generate horizontal bar chart and save as PNG
     Args:
-        data: 数据
-        x_key: 数值型字段名 (将在 x 轴显示)
-        y_key: 类别型字段名 (将在 y 轴显示)
+        data: Data
+        x_key: Numeric field name (displayed on x-axis)
+        y_key: Categorical field name (displayed on y-axis)
     """
     if color is None:
         color = CUSTOM_COLOR
 
     setup_matplotlib_style()
 
-    # 交换 x_key 和 y_key，因为 extract_chart_data 期望 x_key 是类别，y_key 是数值
+    # Swap x_key and y_key because extract_chart_data expects x_key as category, y_key as numeric
     chart_data = extract_chart_data(data, y_key, x_key)
 
     if not chart_data:
@@ -232,7 +227,7 @@ def generate_horizontal_bar_chart(data, x_key, y_key, title, xlabel, ylabel, fil
 
     chart_data = chart_data[:15]
 
-    # 按值排序
+    # Sort by value
     chart_data.sort(key=lambda x: x[1], reverse=True)
 
     y_values_sorted = [x[0] for x in chart_data]
@@ -248,7 +243,7 @@ def generate_horizontal_bar_chart(data, x_key, y_key, title, xlabel, ylabel, fil
 
     ax.set_yticks(range(len(y_values_sorted)))
 
-    # 截断长标签
+    # Truncate long labels
     display_labels = []
     for label in y_values_sorted:
         if len(str(label)) > 30:
@@ -258,7 +253,7 @@ def generate_horizontal_bar_chart(data, x_key, y_key, title, xlabel, ylabel, fil
 
     ax.set_yticklabels(display_labels, fontsize=10)
 
-    # 添加数值标签
+    # Add value labels
     for i, (bar, val) in enumerate(zip(bars, x_values_sorted)):
         width = bar.get_width()
         ax.annotate(f'{val:.0f}',
@@ -285,7 +280,7 @@ def generate_horizontal_bar_chart(data, x_key, y_key, title, xlabel, ylabel, fil
     return output_path
 
 def generate_pie_chart(data, label_key, value_key, title, filename, color=None):
-    """生成饼图"""
+    """Generate pie chart"""
     if color is None:
         color = CHART_COLOR_PALETTE
 
@@ -297,7 +292,7 @@ def generate_pie_chart(data, label_key, value_key, title, filename, color=None):
         print(f"Warning: No valid data for pie chart {filename}")
         return None
 
-    chart_data = chart_data[:8]  # 限制数量
+    chart_data = chart_data[:8]  # Limit items
 
     labels = [str(x[0])[:20] for x in chart_data]
     sizes = [x[1] for x in chart_data]
@@ -318,7 +313,7 @@ def generate_pie_chart(data, label_key, value_key, title, filename, color=None):
         autotext.set_fontweight('bold')
         autotext.set_fontsize(10)
 
-    # 添加图例
+    # Add legend
     ax.legend(wedges, labels, title="", loc="center left", bbox_to_anchor=(1, 0, 0.5, 1), fontsize=9)
 
     ax.set_title(title, fontsize=14, fontweight='bold', pad=20)
@@ -334,13 +329,13 @@ def generate_pie_chart(data, label_key, value_key, title, filename, color=None):
     print(f"Generated pie chart: {output_path}")
     return output_path
 
-# 示例用法
+# Example usage
 if __name__ == '__main__':
     setup_matplotlib_style()
 
     print("Testing chart generation...")
 
-    # 测试数据
+    # Sample data
     sample_citation_domains = {
         "data": {
             "items": [
@@ -353,26 +348,26 @@ if __name__ == '__main__':
         }
     }
 
-    # 测试条形图
+    # Test bar chart
     path = generate_bar_chart(
         sample_citation_domains,
         x_key="domain",
         y_key="citationCount",
-        title="热门引用域名",
-        xlabel="域名",
-        ylabel="引用次数",
+        title="Top Citation Domains",
+        xlabel="Domain",
+        ylabel="Citations",
         filename="citation_domains_bar_chart.png"
     )
     print(f"Generated: {path}")
 
-    # 测试水平条形图
+    # Test horizontal bar chart
     path = generate_horizontal_bar_chart(
         sample_citation_domains,
         x_key="domain",
         y_key="citationCount",
-        title="引用域名排名",
-        xlabel="引用次数",
-        ylabel="域名",
+        title="Citation Domain Ranking",
+        xlabel="Citations",
+        ylabel="Domain",
         filename="citation_domains_horizontal.png"
     )
     print(f"Generated: {path}")

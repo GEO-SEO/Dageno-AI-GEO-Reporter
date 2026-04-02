@@ -1,5 +1,5 @@
 """
-报告分发模块 - 支持 Slack、飞书和邮件分发
+Report Distribution Module - Supports Slack, Feishu, and Email distribution
 """
 import requests
 import json
@@ -10,19 +10,19 @@ from email.header import Header
 from typing import Optional
 
 class ReportDistributor:
-    """报告分发器类"""
+    """Report Distributor Class"""
 
     def __init__(self):
         self.last_error = None
 
     def distribute_to_slack(self, report_content: str, webhook_url: str) -> bool:
-        """通过 Slack Webhook 发送报告"""
+        """Send report via Slack Webhook"""
         if not webhook_url or not webhook_url.startswith('http'):
             self.last_error = "Invalid Slack webhook URL"
             print(f"Error: {self.last_error}")
             return False
 
-        # 格式化消息（Slack 限制消息大小，分割长消息）
+        # Format message (Slack limits message size, split long messages)
         max_message_length = 30000
 
         if len(report_content) > max_message_length:
@@ -34,7 +34,7 @@ class ReportDistributor:
         success = True
         for i, chunk in enumerate(chunks):
             payload = {
-                "text": f"📊 DagenoAI GEO 报告 (Part {i+1}/{len(chunks)})\n\n{chunk}"
+                "text": f"📊 DagenoAI GEO Report (Part {i+1}/{len(chunks)})\n\n{chunk}"
             }
             headers = {"Content-type": "application/json"}
 
@@ -54,13 +54,13 @@ class ReportDistributor:
         return success
 
     def distribute_to_feishu(self, report_content: str, webhook_url: str) -> bool:
-        """通过飞书 Webhook 发送报告"""
+        """Send report via Feishu Webhook"""
         if not webhook_url or not webhook_url.startswith('http'):
             self.last_error = "Invalid Feishu webhook URL"
             print(f"Error: {self.last_error}")
             return False
 
-        # 飞书消息限制
+        # Feishu message limits
         max_message_length = 4000
 
         if len(report_content) > max_message_length:
@@ -74,7 +74,7 @@ class ReportDistributor:
             payload = {
                 "msg_type": "text",
                 "content": {
-                    "text": f"📊 DagenoAI GEO 报告 (Part {i+1}/{len(chunks)})\n\n{chunk}"
+                    "text": f"📊 DagenoAI GEO Report (Part {i+1}/{len(chunks)})\n\n{chunk}"
                 }
             }
             headers = {"Content-type": "application/json"}
@@ -103,28 +103,28 @@ class ReportDistributor:
         sender_password: str,
         recipient_email: str
     ) -> bool:
-        """通过 SMTP 发送邮件报告"""
+        """Send email report via SMTP"""
         if not all([smtp_server, sender_email, sender_password, recipient_email]):
             self.last_error = "Missing email configuration"
             print(f"Error: {self.last_error}")
             return False
 
         try:
-            # 创建邮件
+            # Create message
             msg = MIMEMultipart('alternative')
-            msg['Subject'] = Header('DagenoAI GEO 报告', 'utf-8')
+            msg['Subject'] = Header('DagenoAI GEO Report', 'utf-8')
             msg['From'] = sender_email
             msg['To'] = recipient_email
 
-            # 添加纯文本版本
+            # Add plain text version
             text_content = self._markdown_to_text(report_content)
             msg.attach(MIMEText(text_content, 'plain', 'utf-8'))
 
-            # 添加 HTML 版本
+            # Add HTML version
             html_content = self._markdown_to_html(report_content)
             msg.attach(MIMEText(html_content, 'html', 'utf-8'))
 
-            # 发送邮件
+            # Send email
             if smtp_port == 465:
                 server = smtplib.SMTP_SSL(smtp_server, smtp_port)
             else:
@@ -152,13 +152,13 @@ class ReportDistributor:
             return False
 
     def _split_content(self, content: str, max_length: int) -> list:
-        """将内容分割为多个块"""
+        """Split content into multiple chunks"""
         chunks = []
         lines = content.split('\n')
         current_chunk = []
 
         for line in lines:
-            # 检查添加这一行是否超过限制
+            # Check if adding this line exceeds the limit
             potential = '\n'.join(current_chunk + [line])
             if len(potential) > max_length and current_chunk:
                 chunks.append('\n'.join(current_chunk))
@@ -172,57 +172,57 @@ class ReportDistributor:
         return chunks
 
     def _markdown_to_text(self, markdown: str) -> str:
-        """将 Markdown 转换为纯文本"""
+        """Convert Markdown to plain text"""
         import re
 
-        # 移除图片
+        # Remove images
         text = re.sub(r'!\[.*?\]\(.*?\)', '', markdown)
-        # 移除标题标记
+        # Remove header markers
         text = re.sub(r'^#+\s*', '', text, flags=re.MULTILINE)
-        # 移除粗体和斜体标记
+        # Remove bold and italic markers
         text = re.sub(r'\*\*(.*?)\*\*', r'\1', text)
         text = re.sub(r'\*(.*?)\*', r'\1', text)
-        # 移除链接
+        # Remove links
         text = re.sub(r'\[(.*?)\]\(.*?\)', r'\1', text)
-        # 移除水平线
+        # Remove horizontal rules
         text = re.sub(r'^-{3,}$', '', text, flags=re.MULTILINE)
 
         return text.strip()
 
     def _markdown_to_html(self, markdown: str) -> str:
-        """将 Markdown 转换为 HTML"""
+        """Convert Markdown to HTML"""
         import re
 
         html = markdown
 
-        # 转换标题
+        # Convert headers
         html = re.sub(r'^### (.*)$', r'<h3>\1</h3>', html, flags=re.MULTILINE)
         html = re.sub(r'^## (.*)$', r'<h2>\1</h2>', html, flags=re.MULTILINE)
         html = re.sub(r'^# (.*)$', r'<h1>\1</h1>', html, flags=re.MULTILINE)
 
-        # 转换图片
+        # Convert images
         html = re.sub(r'!\[(.*?)\]\((.*?)\)', r'<img src="\2" alt="\1" />', html)
 
-        # 转换链接
+        # Convert links
         html = re.sub(r'\[(.*?)\]\((.*?)\)', r'<a href="\2">\1</a>', html)
 
-        # 转换列表
+        # Convert lists
         html = re.sub(r'^- (.*)$', r'<li>\1</li>', html, flags=re.MULTILINE)
         html = re.sub(r'<li>(.*)</li>\n<li>', r'<li>\1</li><li>', html)
         html = re.sub(r'</li>\n(?!<li>)', '</li><br>', html)
 
-        # 转换段落
+        # Convert paragraphs
         paragraphs = html.split('\n\n')
         html = '</p><p>'.join([p.strip() for p in paragraphs if p.strip()])
 
-        # 清理
+        # Cleanup
         html = re.sub(r'\n', '<br>', html)
         html = f'<html><body><p>{html}</p></body></html>'
 
         return html
 
     def get_last_error(self) -> Optional[str]:
-        """获取最近的错误信息"""
+        """Get the most recent error message"""
         return self.last_error
 
 
@@ -234,17 +234,17 @@ def distribute_report(
     smtp_config: dict = None
 ) -> bool:
     """
-    分发报告到指定渠道
+    Distribute report to specified channel
 
     Args:
-        report_content: 报告内容
-        distribution_type: 分发类型 (slack, feishu, email)
-        webhook_url: Webhook URL (用于 Slack/飞书)
-        email_address: 邮箱地址 (用于邮件)
-        smtp_config: SMTP 配置字典，包含 smtp_server, smtp_port, sender_email, sender_password
-
+        report_content: Report content
+        distribution_type: Distribution type (slack, feishu, email)
+        webhook_url: Webhook URL (for Slack/Feishu)
+        email_address: Email address (for Email)
+        smtp_config: SMTP configuration dictionary
+    
     Returns:
-        是否成功分发
+        Whether distribution was successful
     """
     distributor = ReportDistributor()
 
@@ -269,7 +269,6 @@ def distribute_report(
 
         if not smtp_config:
             print("Error: Email distribution requires smtp_config")
-            print("Please configure SMTP settings: smtp_server, smtp_port, sender_email, sender_password")
             return False
 
         print(f"Sending email to {email_address}...")
@@ -287,26 +286,26 @@ def distribute_report(
         return False
 
 
-# 示例用法
+# Example usage
 if __name__ == '__main__':
     test_report = """
-    # DagenoAI GEO 报告
+    # DagenoAI GEO Report
 
-    ## 品牌基础信息
-    - 品牌名称: Example Brand
-    - 品牌域名: example.com
+    ## Brand Basic Information
+    - Brand Name: Example Brand
+    - Brand Domain: example.com
 
-    ## 可见度分析
-    这是测试报告的内容。
+    ## Visibility Analysis
+    This is test report content.
     """
 
-    # Slack 示例（需要真实的 webhook URL）
+    # Slack Example
     # distribute_report(test_report, "slack", webhook_url="https://hooks.slack.com/services/...")
 
-    # 飞书示例（需要真实的 webhook URL）
+    # Feishu Example
     # distribute_report(test_report, "feishu", webhook_url="https://open.feishu.cn/open-apis/bot/v2/hook/...")
 
-    # 邮件示例
+    # Email Example
     # smtp_config = {
     #     'smtp_server': 'smtp.gmail.com',
     #     'smtp_port': 587,
@@ -315,4 +314,4 @@ if __name__ == '__main__':
     # }
     # distribute_report(test_report, "email", email_address="recipient@example.com", smtp_config=smtp_config)
 
-    print("Report distributor module loaded. Configure webhook URLs or SMTP settings for distribution.")
+    print("Report distributor module loaded.")

@@ -1,18 +1,13 @@
-# Reference Documentation for Dageno Geo Reporter
+# Reference Documentation for Dageno AI GEO Reporter
 
-This is a placeholder for detailed reference documentation.
+This is a placeholder for detailed reference documentation regarding Generative Engine Optimization (GEO).
 Replace with actual reference content or delete if not needed.
-
-Example real reference docs from other skills:
-- product-management/references/communication.md - Comprehensive guide for status updates
-- product-management/references/context_building.md - Deep-dive on gathering context
-- bigquery/references/ - API references and query examples
 
 ## When Reference Docs Are Useful
 
 Reference docs are ideal for:
 - Comprehensive API documentation
-- Detailed workflow guides
+- Detailed workflow guides for GEO
 - Complex multi-step processes
 - Information too lengthy for main SKILL.md
 - Content that's only needed for specific use cases
@@ -29,6 +24,6 @@ Reference docs are ideal for:
 ### Workflow Guide Example
 - Prerequisites
 - Step-by-step instructions
-- Common patterns
+- Common patterns for GEO
 - Troubleshooting
 - Best practices
