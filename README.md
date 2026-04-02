@@ -190,10 +190,72 @@ dageno-geo-reporter/
 ├── templates/                        # Chart templates directory
 │   ├── geo_visibility_bar_chart.png
 │   ├── citation_domains_bar_chart.png
-│   └── topics_bar_chart.png
+│   ├── topics_bar_chart.png
+│   ├── geo_report_template.html      # HTML report template
+│   └── geo_report_sample.html        # HTML report sample
 └── references/
     └── api_reference.md              # API reference document
 ```
+
+## Report Format Options
+
+This skill supports two output formats:
+
+| Format | Description |
+|--------|-------------|
+| **HTML** (default) | Rendered HTML report with interactive charts, modern flat UI design, white background with black text and #ff5c23 accent color. Professional and visually appealing format suitable for presentations. |
+| **Plain Text** | Traditional markdown format. Lightweight and compatible with all platforms, suitable for email distribution and text-based workflows. |
+
+### HTML Report Design Specifications
+
+The HTML report follows these design standards:
+- **Color Scheme**: White background (#ffffff), black text (#1a1a2e), orange accent (#ff5c23)
+- **Typography**: Inter font family
+- **Layout**: Flat, modern, responsive design
+- **Charts**: Interactive Chart.js visualizations including:
+  - Platform visibility bar charts
+  - Citation distribution doughnut charts
+  - Monthly trend line charts
+  - Topics horizontal bar charts
+- **Features**: Executive summary, metrics cards, data tables, opportunity lists
+
+### Generating HTML vs Plain Text Reports
+
+```bash
+# Generate HTML report (default)
+python scripts/generate_and_distribute_reports.py \
+  --api_key "YOUR_DAGENOA_API_KEY" \
+  --report_format "html" \
+  --start_date "2026-03-01" \
+  --end_date "2026-03-31"
+
+# Generate plain text markdown report
+python scripts/generate_and_distribute_reports.py \
+  --api_key "YOUR_DAGENOA_API_KEY" \
+  --report_format "plain_text" \
+  --start_date "2026-03-01" \
+  --end_date "2026-03-31"
+```
+
+---
+
+## Report Sample Preview
+
+Click the links below to preview the HTML report:
+
+- **[📊 Live HTML Report Preview](https://v1p9w4vzjpij.space.minimax.io)** - Interactive sample with charts and data visualizations
+- **[📄 HTML Report Template](https://github.com/GEO-SEO/Dageno-AI-GEO-Reporter/blob/main/templates/geo_report_template.html)** - Template file with placeholder variables
+
+### Sample Report Preview
+
+<iframe
+    src="https://v1p9w4vzjpij.space.minimax.io"
+    width="100%"
+    height="800"
+    style="border: 1px solid #e8e8ed; border-radius: 12px; background: white;"
+    title="GEO Report Sample Preview"
+    loading="lazy">
+</iframe>
 
 ## Troubleshooting
 
