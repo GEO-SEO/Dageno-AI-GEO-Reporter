@@ -59,6 +59,8 @@ Email distribution requires additional SMTP configuration:
 ## Usage
 
 ### Basic Command
+Click [here]((https://dageno.ai/?utm_source=georeporter&utm_medium=github
+)) to get your API key
 
 ```bash
 python scripts/generate_and_distribute_reports.py \
