@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GEO Performance Report - Dageno AI</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #ff5c23;
+            --primary-light: rgba(255, 92, 35, 0.1);
+            --primary-dark: #e04d1a;
+            --text-primary: #1a1a2e;
+            --text-secondary: #5c5c6d;
+            --text-muted: #8b8b9a;
+            --border: #e8e8ed;
+            --bg-white: #ffffff;
+            --bg-light: #fafafa;
+            --bg-card: #ffffff;
+            --shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+            --shadow-lg: 0 4px 20px rgba(0, 0, 0, 0.06);
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-light);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 24px; }
+        .header {
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border);
+            padding: 24px 0;
+            margin-bottom: 40px;
+        }
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .report-meta { text-align: right; }
+        .report-title { font-size: 14px; font-weight: 600; color: var(--text-primary); }
+        .report-date { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+        .brand-name { font-size: 18px; font-weight: 700; color: var(--primary); }
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow);
+        }
+        .card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-light);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .card-icon svg { width: 20px; height: 20px; stroke: var(--primary); }
+        .card-title { font-size: 18px; font-weight: 600; color: var(--text-primary); }
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 32px; }
+        @media (max-width: 900px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+        .stat-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+        .stat-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+        .stat-value { font-size: 32px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; }
+        .stat-value.primary { color: var(--primary); }
+        .stat-label { font-size: 13px; color: var(--text-muted); font-weight: 500; }
+        .stat-change {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 8px;
+            padding: 4px 8px;
+            border-radius: 6px;
+        }
+        .stat-change.positive { color: #10b981; background: rgba(16, 185, 129, 0.1); }
+        .charts-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 24px; }
+        @media (max-width: 900px) { .charts-grid { grid-template-columns: 1fr; } }
+        .chart-container { position: relative; height: 300px; padding: 16px; }
+        .chart-full { grid-column: 1 / -1; }
+        .table-wrapper { overflow-x: auto; margin-top: 16px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 16px; text-align: left; border-bottom: 1px solid var(--border); }
+        th { font-size: 12px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; background: var(--bg-light); }
+        td { font-size: 14px; color: var(--text-primary); }
+        tr:hover td { background: var(--bg-light); }
+        .platform-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            background: var(--primary-light);
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--primary);
+        }
+        .score-bar { display: flex; align-items: center; gap: 12px; }
+        .score-track { flex: 1; height: 8px; background: var(--bg-light); border-radius: 4px; overflow: hidden; }
+        .score-fill { height: 100%; background: var(--primary); border-radius: 4px; transition: width 0.6s ease; }
+        .score-value { font-size: 14px; font-weight: 600; color: var(--text-primary); min-width: 40px; }
+        .opportunity-item {
+            display: flex;
+            gap: 16px;
+            padding: 20px;
+            background: var(--bg-light);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            transition: all 0.2s ease;
+        }
+        .opportunity-item:last-child { margin-bottom: 0; }
+        .opportunity-item:hover { background: var(--primary-light); }
+        .opportunity-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--bg-white);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .opportunity-icon svg { width: 22px; height: 22px; stroke: var(--primary); }
+        .opportunity-content { flex: 1; }
+        .opportunity-title { font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
+        .opportunity-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+        .opportunity-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            background: var(--bg-white);
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-top: 8px;
+        }
+        .footer { text-align: center; padding: 40px 24px; color: var(--text-muted); font-size: 13px; }
+        .footer a { color: var(--primary); text-decoration: none; }
+        .divider { height: 1px; background: var(--border); margin: 32px 0; }
+        .section-header { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
+        .section-number {
+            width: 36px;
+            height: 36px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 700;
+            color: white;
+        }
+        .section-title { font-size: 20px; font-weight: 600; color: var(--text-primary); }
+        .section-subtitle { font-size: 14px; color: var(--text-muted); margin-top: 4px; }
+        .exec-summary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 16px;
+            padding: 40px;
+            color: white;
+            margin-bottom: 32px;
+        }
+        .exec-summary h2 { font-size: 24px; font-weight: 700; margin-bottom: 16px; }
+        .exec-summary p { font-size: 15px; line-height: 1.7; opacity: 0.95; max-width: 800px; }
+        .exec-highlights { display: flex; gap: 40px; margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.2); }
+        .exec-highlight { display: flex; align-items: center; gap: 12px; }
+        .exec-highlight-value { font-size: 28px; font-weight: 700; }
+        .exec-highlight-label { font-size: 13px; opacity: 0.85; }
+        .tag {
+            display: inline-block;
+            padding: 6px 12px;
+            background: var(--bg-light);
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+        .tag.highlight { background: var(--primary-light); color: var(--primary); }
+    </style>
+</head>
+<body>
+    <!-- Header - Brand Name Only -->
+    <header class="header">
+        <div class="header-content">
+            <div class="brand-name">{{BRAND_NAME}}</div>
+            <div class="report-meta">
+                <div class="report-title">GEO Performance Report</div>
+                <div class="report-date">{{REPORT_PERIOD}}</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Executive Summary -->
+        <section class="exec-summary">
+            <h2>Executive Summary</h2>
+            <p>Your brand's visibility across generative AI platforms has shown strong momentum this month. Overall GEO score increased by 18.2%, with particularly notable growth in ChatGPT mentions (+24%) and Perplexity citations (+31%). Key opportunities identified include expanding presence in academic citations and community discussions.</p>
+            <div class="exec-highlights">
+                <div class="exec-highlight">
+                    <div class="exec-highlight-value">+18.2%</div>
+                    <div class="exec-highlight-label">Overall GEO Score</div>
+                </div>
+                <div class="exec-highlight">
+                    <div class="exec-highlight-value">2,847</div>
+                    <div class="exec-highlight-label">Total AI Mentions</div>
+                </div>
+                <div class="exec-highlight">
+                    <div class="exec-highlight-value">156</div>
+                    <div class="exec-highlight-label">Citation Domains</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Metrics -->
+        <div class="section-header">
+            <div class="section-number">1</div>
+            <div>
+                <div class="section-title">Key Performance Metrics</div>
+                <div class="section-subtitle">Track your brand's visibility across AI platforms</div>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value primary">87.4</div>
+                <div class="stat-label">GEO Score</div>
+                <div class="stat-change positive">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2L10 7H2L6 2Z" fill="currentColor"/></svg>
+                    +8.2%
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">2,847</div>
+                <div class="stat-label">AI Platform Mentions</div>
+                <div class="stat-change positive">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2L10 7H2L6 2Z" fill="currentColor"/></svg>
+                    +24%
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">156</div>
+                <div class="stat-label">Citation Sources</div>
+                <div class="stat-change positive">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2L10 7H2L6 2Z" fill="currentColor"/></svg>
+                    +12
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">94%</div>
+                <div class="stat-label">Sentiment Positive</div>
+                <div class="stat-change positive">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2L10 7H2L6 2Z" fill="currentColor"/></svg>
+                    +3%
+                </div>
+            </div>
+        </div>
+
+        <!-- Visibility by Platform -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="2"/>
+                        <path d="M3 9h18"/>
+                        <path d="M9 21V9"/>
+                    </svg>
+                </div>
+                <div class="card-title">Visibility by AI Platform</div>
+            </div>
+            <div class="chart-container">
+                <canvas id="platformChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Charts Row -->
+        <div class="charts-grid">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                        </svg>
+                    </div>
+                    <div class="card-title">Citation Domains</div>
+                </div>
+                <div class="chart-container" style="height: 260px;">
+                    <canvas id="citationChart"></canvas>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                        </svg>
+                    </div>
+                    <div class="card-title">Monthly Trend</div>
+                </div>
+                <div class="chart-container" style="height: 260px;">
+                    <canvas id="trendChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Platform Performance Table -->
+        <div class="card" style="margin-top: 24px;">
+            <div class="card-header">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 20V10"/>
+                        <path d="M18 20V4"/>
+                        <path d="M6 20v-4"/>
+                    </svg>
+                </div>
+                <div class="card-title">Platform Performance Breakdown</div>
+            </div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Platform</th>
+                            <th>Mentions</th>
+                            <th>Visibility Score</th>
+                            <th>Sentiment</th>
+                            <th>Trend</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="platform-badge">ChatGPT</span></td>
+                            <td>1,284</td>
+                            <td>
+                                <div class="score-bar">
+                                    <div class="score-track"><div class="score-fill" style="width: 92%;"></div></div>
+                                    <span class="score-value">92</span>
+                                </div>
+                            </td>
+                            <td>Positive</td>
+                            <td><span class="stat-change positive">+24%</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="platform-badge">Claude</span></td>
+                            <td>892</td>
+                            <td>
+                                <div class="score-bar">
+                                    <div class="score-track"><div class="score-fill" style="width: 85%;"></div></div>
+                                    <span class="score-value">85</span>
+                                </div>
+                            </td>
+                            <td>Positive</td>
+                            <td><span class="stat-change positive">+18%</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="platform-badge">Perplexity</span></td>
+                            <td>423</td>
+                            <td>
+                                <div class="score-bar">
+                                    <div class="score-track"><div class="score-fill" style="width: 78%;"></div></div>
+                                    <span class="score-value">78</span>
+                                </div>
+                            </td>
+                            <td>Neutral</td>
+                            <td><span class="stat-change positive">+31%</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="platform-badge">Gemini</span></td>
+                            <td>248</td>
+                            <td>
+                                <div class="score-bar">
+                                    <div class="score-track"><div class="score-fill" style="width: 64%;"></div></div>
+                                    <span class="score-value">64</span>
+                                </div>
+                            </td>
+                            <td>Positive</td>
+                            <td><span class="stat-change positive">+12%</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Opportunities Section -->
+        <div class="section-header">
+            <div class="section-number">2</div>
+            <div>
+                <div class="section-title">GEO Opportunities</div>
+                <div class="section-subtitle">Actionable recommendations to improve your AI visibility</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="8" x2="12" y2="12"/>
+                        <line x1="12" y1="16" x2="12.01" y2="16"/>
+                    </svg>
+                </div>
+                <div class="card-title">Content Opportunities</div>
+            </div>
+            <div class="opportunity-item">
+                <div class="opportunity-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="16" y1="13" x2="8" y2="13"/>
+                        <line x1="16" y1="17" x2="8" y2="17"/>
+                    </svg>
+                </div>
+                <div class="opportunity-content">
+                    <div class="opportunity-title">Technical Documentation Expansion</div>
+                    <div class="opportunity-desc">Create comprehensive technical guides covering API integration patterns and best practices. AI models frequently cite structured documentation in responses.</div>
+                    <span class="opportunity-tag">High Priority</span>
+                </div>
+            </div>
+            <div class="opportunity-item">
+                <div class="opportunity-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                </div>
+                <div class="opportunity-content">
+                    <div class="opportunity-title">Academic Research Partnerships</div>
+                    <div class="opportunity-desc">Partner with universities for joint research publications. Academic citations significantly boost AI platform recognition and authority scores.</div>
+                    <span class="opportunity-tag">Medium Priority</span>
+                </div>
+            </div>
+            <div class="opportunity-item">
+                <div class="opportunity-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                    </svg>
+                </div>
+                <div class="opportunity-content">
+                    <div class="opportunity-title">Community Engagement Initiative</div>
+                    <div class="opportunity-desc">Increase presence in relevant Reddit communities and Stack Overflow discussions. Community-sourced answers are heavily referenced by AI systems.</div>
+                    <span class="opportunity-tag">Ongoing</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Backlink Opportunities -->
+        <div class="card" style="margin-top: 24px;">
+            <div class="card-header">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                    </svg>
+                </div>
+                <div class="card-title">Backlink Opportunities</div>
+            </div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Source Domain</th>
+                            <th>Domain Authority</th>
+                            <th>Relevance</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>techcrunch.com</td>
+                            <td>93</td>
+                            <td><span class="tag highlight">High</span></td>
+                            <td><span class="tag">News</span></td>
+                        </tr>
+                        <tr>
+                            <td>venturebeat.com</td>
+                            <td>89</td>
+                            <td><span class="tag highlight">High</span></td>
+                            <td><span class="tag">Industry</span></td>
+                        </tr>
+                        <tr>
+                            <td>hackernews.ycombinator.com</td>
+                            <td>91</td>
+                            <td><span class="tag">Medium</span></td>
+                            <td><span class="tag">Community</span></td>
+                        </tr>
+                        <tr>
+                            <td>wired.com</td>
+                            <td>92</td>
+                            <td><span class="tag highlight">High</span></td>
+                            <td><span class="tag">News</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Topics Section -->
+        <div class="card" style="margin-top: 24px;">
+            <div class="card-header">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                    </svg>
+                </div>
+                <div class="card-title">Trending Topics</div>
+            </div>
+            <div class="chart-container chart-full" style="height: 280px;">
+                <canvas id="topicsChart"></canvas>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Citation Analysis -->
+        <div class="section-header">
+            <div class="section-number">3</div>
+            <div>
+                <div class="section-title">Citation Analysis</div>
+                <div class="section-subtitle">Top sources referencing your brand</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                    </svg>
+                </div>
+                <div class="card-title">Top Citation Sources</div>
+            </div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Source</th>
+                            <th>Citation Count</th>
+                            <th>Context</th>
+                            <th>Influence Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>github.com</td>
+                            <td>342</td>
+                            <td>API documentation and integration guides</td>
+                            <td>
+                                <div class="score-bar">
+                                    <div class="score-track"><div class="score-fill" style="width: 96%;"></div></div>
+                                    <span class="score-value">96</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>medium.com</td>
+                            <td>187</td>
+                            <td>Tutorial articles and case studies</td>
+                            <td>
+                                <div class="score-bar">
+                                    <div class="score-track"><div class="score-fill" style="width: 82%;"></div></div>
+                                    <span class="score-value">82</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>dev.to</td>
+                            <td>124</td>
+                            <td>Community tutorials and discussions</td>
+                            <td>
+                                <div class="score-bar">
+                                    <div class="score-track"><div class="score-fill" style="width: 74%;"></div></div>
+                                    <span class="score-value">74</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>stackoverflow.com</td>
+                            <td>98</td>
+                            <td>Technical Q&A and solutions</td>
+                            <td>
+                                <div class="score-bar">
+                                    <div class="score-track"><div class="score-fill" style="width: 68%;"></div></div>
+                                    <span class="score-value">68</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Report generated by <strong>Dageno AI GEO Reporter</strong></p>
+            <p style="margin-top: 8px;">For questions or detailed analysis, contact <a href="https://dageno.ai">dageno.ai</a></p>
+        </footer>
+    </main>
+
+    <script>
+        Chart.defaults.font.family = "'Inter', sans-serif";
+        Chart.defaults.color = '#5c5c6d';
+
+        // Platform Visibility Chart
+        const platformCtx = document.getElementById('platformChart').getContext('2d');
+        new Chart(platformCtx, {
+            type: 'bar',
+            data: {
+                labels: ['ChatGPT', 'Claude', 'Perplexity', 'Gemini', 'Grok', 'Mistral'],
+                datasets: [{
+                    label: 'Visibility Score',
+                    data: [92, 85, 78, 64, 52, 48],
+                    backgroundColor: '#ff5c23',
+                    borderRadius: 6,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: '#1a1a2e',
+                        titleColor: '#fff',
+                        bodyColor: '#fff',
+                        padding: 12,
+                        cornerRadius: 8,
+                        displayColors: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        grid: { color: '#e8e8ed', drawBorder: false },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // Citation Domains Chart
+        const citationCtx = document.getElementById('citationChart').getContext('2d');
+        new Chart(citationCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Technical Docs', 'Blog Posts', 'News Articles', 'Community', 'Academic'],
+                datasets: [{
+                    data: [35, 25, 20, 12, 8],
+                    backgroundColor: ['#ff5c23', '#ff7b4a', '#ff9d73', '#ffbe9b', '#ffddd0'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '65%',
+                plugins: {
+                    legend: {
+                        position: 'right',
+                        labels: { padding: 16, usePointStyle: true, pointStyle: 'circle' }
+                    },
+                    tooltip: {
+                        backgroundColor: '#1a1a2e',
+                        titleColor: '#fff',
+                        bodyColor: '#fff',
+                        padding: 12,
+                        cornerRadius: 8,
+                        callbacks: { label: function(context) { return context.label + ': ' + context.parsed + '%'; } }
+                    }
+                }
+            }
+        });
+
+        // Monthly Trend Chart
+        const trendCtx = document.getElementById('trendChart').getContext('2d');
+        new Chart(trendCtx, {
+            type: 'line',
+            data: {
+                labels: ['Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar'],
+                datasets: [{
+                    label: 'GEO Score',
+                    data: [58, 65, 71, 76, 82, 87.4],
+                    borderColor: '#ff5c23',
+                    backgroundColor: 'rgba(255, 92, 35, 0.1)',
+                    fill: true,
+                    tension: 0.4,
+                    pointBackgroundColor: '#ff5c23',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointRadius: 5,
+                    pointHoverRadius: 7
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: '#1a1a2e',
+                        titleColor: '#fff',
+                        bodyColor: '#fff',
+                        padding: 12,
+                        cornerRadius: 8,
+                        displayColors: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        min: 50,
+                        max: 100,
+                        grid: { color: '#e8e8ed', drawBorder: false }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // Topics Chart
+        const topicsCtx = document.getElementById('topicsChart').getContext('2d');
+        new Chart(topicsCtx, {
+            type: 'bar',
+            data: {
+                labels: ['AI API Integration', 'Machine Learning Tools', 'Developer Productivity', 'Cloud Services', 'Data Analytics'],
+                datasets: [{
+                    label: 'Search Volume',
+                    data: [845, 672, 534, 423, 318],
+                    backgroundColor: '#ff5c23',
+                    borderRadius: 6,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: '#1a1a2e',
+                        titleColor: '#fff',
+                        bodyColor: '#fff',
+                        padding: 12,
+                        cornerRadius: 8,
+                        displayColors: false
+                    }
+                },
+                scales: {
+                    x: { beginAtZero: true, grid: { color: '#e8e8ed', drawBorder: false } },
+                    y: { grid: { display: false } }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

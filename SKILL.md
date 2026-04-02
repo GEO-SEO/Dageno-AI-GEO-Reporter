@@ -19,6 +19,7 @@ This skill automates the extraction, report generation, and distribution of Dage
 |-----------|----------|-------------|
 | **api_key** | **Yes** | DagenoAI API Key (can also be set via `X_API_KEY` environment variable) |
 | **time_period** | **Yes** | Data time range (start_date and end_date in YYYY-MM-DD format) |
+| **report_format** | No | Output format: `html` (default) or `plain_text`. Users can choose between rendered HTML report or plain text markdown format. |
 | **distribution_type** | No | Distribution method: `slack`, `feishu`, or `email` (Optional; if not provided, the report is output directly) |
 
 ### Optional Inputs
@@ -58,6 +59,36 @@ Automatically generates complete reports with data tables and visual charts:
 - **Citation Source Analysis**: Analyzes citation domain and URL data, revealing key citation patterns and source influence.
 - **Opportunity Suggestions Report**: Provides content, backlink, and community opportunity recommendations for generative engine optimization.
 
+#### Report Format Options
+
+Users can choose between two output formats:
+
+| Format | Description |
+|--------|-------------|
+| **HTML** (default) | Rendered HTML report with interactive charts, modern flat UI design, white background with black text and #ff5c23 accent color. Professional and visually appealing format suitable for presentations. |
+| **Plain Text** | Traditional markdown format. Lightweight and compatible with all platforms, suitable for email distribution and text-based workflows. |
+
+#### HTML Report Design Specifications
+
+The HTML report follows these design standards:
+- **Color Scheme**: White background (#ffffff), black text (#1a1a2e), orange accent (#ff5c23)
+- **Typography**: Inter font family
+- **Layout**: Flat, modern, responsive design
+- **Charts**: Interactive Chart.js visualizations including:
+  - Platform visibility bar charts
+  - Citation distribution doughnut charts
+  - Monthly trend line charts
+  - Topics horizontal bar charts
+- **Features**: Executive summary, metrics cards, data tables, opportunity lists
+
+#### Plain Text Report Specifications
+
+The plain text report provides:
+- Markdown-formatted content
+- ASCII-based data tables
+- Embedded chart descriptions
+- Clean, text-readable layout
+
 Chart Features:
 - Auto-detects and uses system fonts.
 - Supports multiple data format adaptations (`{data: {items: [...]}}` or `{items: [...]}`).
@@ -89,6 +120,28 @@ python /home/ubuntu/skills/dageno-geo-reporter/scripts/generate_and_distribute_r
   --api_key "YOUR_DAGENOA_API_KEY" \
   --distribution_type "slack" \
   --webhook_url "YOUR_SLACK_WEBHOOK_URL" \
+  --start_date "2026-03-01" \
+  --end_date "2026-03-31"
+```
+
+### HTML Report (Default) Example
+
+```bash
+# Generate HTML report (default format)
+python /home/ubuntu/skills/dageno-geo-reporter/scripts/generate_and_distribute_reports.py \
+  --api_key "YOUR_DAGENOA_API_KEY" \
+  --report_format "html" \
+  --start_date "2026-03-01" \
+  --end_date "2026-03-31"
+```
+
+### Plain Text Report Example
+
+```bash
+# Generate plain text markdown report
+python /home/ubuntu/skills/dageno-geo-reporter/scripts/generate_and_distribute_reports.py \
+  --api_key "YOUR_DAGENOA_API_KEY" \
+  --report_format "plain_text" \
   --start_date "2026-03-01" \
   --end_date "2026-03-31"
 ```
@@ -136,6 +189,7 @@ python /home/ubuntu/skills/dageno-geo-reporter/scripts/generate_and_distribute_r
 | Parameter | Required | Description |
 |-----------|----------|-------------|
 | `--api_key` | **Yes** | DagenoAI API Key (can also be set via `X_API_KEY` env variable) |
+| `--report_format` | No | Output format: `html` (default) or `plain_text` |
 | `--distribution_type` | No | Distribution type: `slack`, `email`, or `feishu` (Optional; if not provided, the report is output directly) |
 | `--webhook_url` | Conditional | Required for Slack/Feishu distribution |
 | `--email_address` | Conditional | Required for email distribution |
@@ -223,9 +277,54 @@ dageno-geo-reporter/
 ├── templates/                        # Chart templates directory
 │   ├── geo_visibility_bar_chart.png
 │   ├── citation_domains_bar_chart.png
-│   └── topics_bar_chart.png
+│   ├── topics_bar_chart.png
+│   └── geo_report_template.html      # HTML report template (no logo version)
 └── references/
     └── api_reference.md              # API reference document
+```
+
+## Report Samples
+
+### HTML Report Sample
+
+A sample HTML report is available at: `templates/geo_report_template.html`
+
+The HTML report features:
+- Modern flat UI design with white background and #ff5c23 accent color
+- Interactive Chart.js visualizations
+- Responsive layout for all screen sizes
+- Executive summary section with key metrics
+- Detailed platform performance breakdown
+- Opportunity recommendations
+- Citation analysis tables
+
+### Plain Text Report Sample
+
+```
+DagenoAI GEO Report
+Period: March 1 - March 31, 2026
+
+Executive Summary
+-----------------
+Your brand's visibility across generative AI platforms has shown strong momentum...
+
+Key Metrics
+-----------
+- GEO Score: 87.4 (+8.2%)
+- AI Platform Mentions: 2,847 (+24%)
+- Citation Sources: 156 (+12)
+- Sentiment Positive: 94% (+3%)
+
+Platform Visibility
+-------------------
+| Platform     | Mentions | Score |
+|--------------|----------|-------|
+| ChatGPT      | 1,284    | 92    |
+| Claude       | 892      | 85    |
+| Perplexity   | 423      | 78    |
+| Gemini       | 248      | 64    |
+
+... (additional sections)
 ```
 
 ## Troubleshooting
