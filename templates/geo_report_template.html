@@ -528,6 +528,46 @@
             {{METRICS_CARDS}}
         </div>
 
+        <!-- Competitor Ranking -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                </div>
+                <div class="card-title">GEO Ranking vs Competitors</div>
+            </div>
+            <p style="color: var(--text-secondary); margin-bottom: 20px; font-size: 14px;">
+                Your brand's overall ranking compared to competitors in the AI visibility landscape.
+            </p>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Brand</th>
+                            <th>GEO Score</th>
+                            <th>Trend</th>
+                            <th>Share of Voice</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{COMPETITOR_RANKING_ROWS}}
+                    </tbody>
+                </table>
+            </div>
+            <div style="margin-top: 20px; padding: 16px; background: var(--bg-light); border-radius: 8px;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <div style="width: 12px; height: 12px; background: var(--primary); border-radius: 3px;"></div>
+                    <span style="font-size: 13px; color: var(--text-secondary);">Your Brand</span>
+                </div>
+            </div>
+        </div>
+
         <!-- Visibility by Platform -->
         <div class="card">
             <div class="card-header">
