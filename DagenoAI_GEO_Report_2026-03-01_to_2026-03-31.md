@@ -1,0 +1,119 @@
+# DagenoAI GEO Report
+
+**Generated At**: 2026-03-31 23:59:00
+**Data Range**: 2026-03-01 to 2026-03-31
+**Brand Info**: Trip
+
+---
+
+## Brand Basic Information
+
+- **Brand Name**: Trip
+- **Brand Domain**: trip.com
+- **Brand Summary**: Trip.com is a global one-stop travel service provider and one of the world's largest online travel agencies (OTAs).
+- **Keywords**: cheap flights, hotel booking, train tickets, travel deals, vacation packages
+- **Main Competitors**: Booking, Expedia, Agoda, Klook, Airbnb
+
+## Visibility Analysis (2026-03-01 to 2026-03-31)
+
+No visibility analysis data available.
+
+## Topics and Prompts Analysis (2026-03-01 to 2026-03-31)
+
+### Hot Topics
+
+| Topic | Visibility | Volume | Sentiment | Citation Rate |
+|-------|-----------|--------|-----------|---------------|
+| Japan Outbound Travel | 0.507 | 3 | 76.78 | 0.055 |
+| Korea Outbound Travel | 0.485 | 1 | 76.39 | 0.039 |
+| Greater China & Middle East Travel | 0.435 | 2 | 75.75 | 0.033 |
+| Southeast Asia Travel Solutions | 0.418 | 2 | 75.88 | 0.058 |
+| Mobile Travel Tools | 0.300 | 5 | 72.28 | 0.019 |
+| Top Rated Travel Apps | 0.266 | 1 | 72.42 | 0.007 |
+| Travel Planning Guides | 0.193 | 4 | 70.37 | 0.041 |
+| Platform Comparison Guide | 0.187 | 3 | 71.78 | 0.002 |
+
+![Hot Topics Chart](data:image/png;base64,...)
+
+### Efficient Prompts
+
+| Prompt | Topic | Visibility | Sentiment | Volume |
+|--------|-------|------------|-----------|--------|
+| app for booking China flights and hotels | Southeast Asia Travel Solutions | 0.968 | 81.98 | 5 |
+| best app to book flights to China | Japan Outbound Travel | 0.960 | 82.20 | 5 |
+| app to book China flights and hotels | Japan Outbound Travel | 0.948 | 82.27 | 5 |
+| app to book flights from Japan to China | Japan Outbound Travel | 0.924 | 80.05 | 3 |
+| app to book flights to China | Southeast Asia Travel Solutions | 0.917 | 82.19 | 3 |
+
+## Citation Source Analysis (2026-03-01 to 2026-03-31)
+
+### Citation Domains Analysis
+
+| Domain | Citation Count | Citation Rate | Domain Type |
+|--------|----------------|---------------|-------------|
+| reddit.com | 26,665 | 0.313 | UGC |
+| apps.apple.com | 25,620 | 0.301 | Corporate |
+| play.google.com | 22,609 | 0.265 | Corporate |
+| youtube.com | 11,018 | 0.129 | Media |
+| traveloka.com | 10,555 | 0.124 | Corporate |
+| facebook.com | 8,394 | 0.099 | UGC |
+| google.com | 8,152 | 0.096 | Corporate |
+| en.wikipedia.org | 7,856 | 0.092 | Reference |
+| apple.com | 7,634 | 0.090 | Corporate |
+| going.com | 6,493 | 0.076 | Corporate |
+
+![Top Citation Domains Chart](data:image/png;base64,...)
+
+### Citation URLs Analysis
+
+| URL | Domain | Citation Count | Title |
+|-----|--------|----------------|-------|
+| pcmag.com/picks/best-travel-apps | pcmag.com | 4,068 | The Best Travel Apps We've Tested for 2026 |
+| thefoodieway.com/... | thefoodieway.com | 3,574 | Best Travel Apps for Southeast Asia |
+| twocantravel.com/... | twocantravel.com | 3,336 | The Best Apps for Travel in Asia |
+| memoirs-of-acacia.com/... | memoirs-of-acacia.com | 3,287 | 10+ Apps to Download Before Your Trip |
+| beartai.com/... | beartai.com | 3,120 | 7 Apps for Digital Travel |
+
+![Top Citation URLs Chart](data:image/png;base64,...)
+
+## Opportunity Suggestions
+
+### Content Opportunities
+
+| Prompt | Topic | Total Responses | Brand Gap |
+|--------|-------|-----------------|-----------|
+| app booking vs agent booking | Platform Comparison Guide | 192 | 1 |
+| best app for business travel | Top Rated Travel Apps | 105 | 1 |
+| how to manage travel plans on mobile | Travel Planning Guides | 65 | 1 |
+| best app for travel organization | Platform Comparison Guide | 2 | 1 |
+| app for planning vacations | Mobile Travel Tools | 62 | 1 |
+
+Based on the above content opportunities, it is recommended to prioritize creating or optimizing high-priority, high-impact content to improve brand visibility and user engagement.
+
+### Backlink Opportunities
+
+| Domain | Domain Type | Authority Score | Priority |
+|--------|-------------|-----------------|----------|
+| zh.wikipedia.org | Reference | 100 | 74.1 |
+| za.pinterest.com | Corporate | 100 | 74.1 |
+| yelp.com | Institutional | 100 | 74.1 |
+| workspace.google.com | Corporate | 100 | 74.1 |
+| walmart.com | Marketplaces | 100 | 74.1 |
+
+Based on the above backlink opportunities, it is recommended to actively cooperate with high-authority domains to acquire quality backlinks and improve search engine rankings.
+
+### Community Opportunities
+
+| Platform | Domain | Citations | Priority |
+|----------|--------|-----------|----------|
+| Reddit | reddit.com | 1 | 1 |
+| Reddit | reddit.com | 3 | 1 |
+| Reddit | reddit.com | 1 | 1 |
+| Reddit | reddit.com | 15 | 1 |
+| Reddit | reddit.com | 1 | 1 |
+
+Based on the above community opportunities, it is recommended to actively participate in discussions on active community platforms (such as Reddit, LinkedIn groups) and share valuable content to expand brand influence.
+
+---
+
+*This report was automatically generated by DagenoAI GEO Reporter*
