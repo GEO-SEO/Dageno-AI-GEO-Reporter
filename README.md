@@ -59,12 +59,12 @@ Email distribution requires additional SMTP configuration:
 ## Usage
 
 ### Basic Command
-Click [here]((https://dageno.ai/?utm_source=georeporter&utm_medium=github
-)) to get your API key
+Click [here](https://dageno.ai/?utm_source=georeporter&utm_medium=github
+) to get your API KEY
 
 ```bash
 python scripts/generate_and_distribute_reports.py \
-  --api_key "YOUR_DAGENOA_API_KEY" \
+  --api_key "YOUR_DAGENO_API_KEY" \
   --distribution_type "slack" \
   --webhook_url "YOUR_SLACK_WEBHOOK_URL" \
   --start_date "2026-03-01" \
@@ -75,7 +75,7 @@ python scripts/generate_and_distribute_reports.py \
 
 ```bash
 python scripts/generate_and_distribute_reports.py \
-  --api_key "YOUR_DAGENOA_API_KEY" \
+  --api_key "YOUR_DAGENO_API_KEY" \
   --distribution_type "feishu" \
   --webhook_url "https://open.feishu.cn/open-apis/bot/v2/hook/YOUR_WEBHOOK_ID" \
   --start_date "2026-04-01" \
@@ -86,7 +86,7 @@ python scripts/generate_and_distribute_reports.py \
 
 ```bash
 python scripts/generate_and_distribute_reports.py \
-  --api_key "YOUR_DAGENOA_API_KEY" \
+  --api_key "YOUR_DAGENO_API_KEY" \
   --distribution_type "email" \
   --email_address "recipient@example.com" \
   --smtp_server "smtp.gmail.com" \
@@ -101,7 +101,7 @@ python scripts/generate_and_distribute_reports.py \
 
 ```bash
 # Set API Key environment variable
-export X_API_KEY="YOUR_DAGENOA_API_KEY"
+export X_API_KEY="YOUR_DAGENO_API_KEY"
 
 # Run script (no --api_key parameter needed)
 python scripts/generate_and_distribute_reports.py \
