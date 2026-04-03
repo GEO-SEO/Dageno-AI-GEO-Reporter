@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GEO Performance Report</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #ff5c23;
+            --primary-light: rgba(255, 92, 35, 0.1);
+            --primary-dark: #e04d1a;
+            --text-primary: #1a1a2e;
+            --text-secondary: #5c5c6d;
+            --text-muted: #8b8b9a;
+            --border: #e8e8ed;
+            --bg-white: #ffffff;
+            --bg-light: #fafafa;
+            --bg-success: rgba(16, 185, 129, 0.1);
+            --success: #10b981;
+        }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg-light); color: var(--text-primary); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 24px; }
+        .header { background: var(--bg-white); border-bottom: 1px solid var(--border); padding: 20px 0; margin-bottom: 32px; }
+        .header-content { max-width: 900px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; }
+        .brand-name { font-size: 18px; font-weight: 700; color: var(--primary); }
+        .report-meta { text-align: right; }
+        .report-title { font-size: 14px; font-weight: 600; }
+        .report-date { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+
+        /* Cards */
+        .card { background: var(--bg-white); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 20px; }
+        .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+        .section-number { width: 32px; height: 32px; background: var(--primary); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: white; }
+        .section-title { font-size: 18px; font-weight: 600; }
+        .section-desc { font-size: 14px; color: var(--text-secondary); margin-bottom: 16px; }
+
+        /* Executive Summary */
+        .exec-summary { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border-radius: 12px; padding: 28px; color: white; margin-bottom: 24px; }
+        .exec-summary h2 { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+        .exec-summary p { font-size: 14px; line-height: 1.6; opacity: 0.95; }
+        .exec-stats { display: flex; gap: 32px; margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.2); }
+        .exec-stat-value { font-size: 24px; font-weight: 700; }
+        .exec-stat-label { font-size: 12px; opacity: 0.85; margin-top: 2px; }
+
+        /* Stats Grid */
+        .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 16px; }
+        .stat-card { background: var(--bg-white); border: 1px solid var(--border); border-radius: 10px; padding: 20px; text-align: center; }
+        .stat-value { font-size: 28px; font-weight: 700; color: var(--text-primary); }
+        .stat-value.primary { color: var(--primary); }
+        .stat-label { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+        .stat-change { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 600; margin-top: 8px; color: var(--success); }
+
+        /* Key Takeaway Box */
+        .takeaway { background: var(--bg-light); border-left: 3px solid var(--primary); padding: 16px; border-radius: 0 8px 8px 0; margin: 16px 0; }
+        .takeaway-title { font-size: 13px; font-weight: 600; color: var(--primary); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+        .takeaway-text { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+
+        /* Rankings */
+        .ranking-list { list-style: none; }
+        .ranking-item { display: flex; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--border); gap: 12px; }
+        .ranking-item:last-child { border-bottom: none; }
+        .ranking-item.highlight { background: var(--primary-light); margin: 0 -24px; padding: 12px 24px; border-radius: 8px; }
+        .rank-badge { width: 28px; height: 28px; background: var(--bg-light); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: var(--text-muted); }
+        .rank-badge.you { background: var(--primary); color: white; }
+        .rank-name { flex: 1; font-weight: 500; }
+        .rank-name.you { color: var(--primary); font-weight: 600; }
+        .rank-score { font-weight: 600; color: var(--text-primary); }
+        .rank-trend { font-size: 12px; color: var(--success); font-weight: 500; }
+
+        /* Platform List */
+        .platform-list { display: flex; flex-direction: column; gap: 12px; }
+        .platform-item { display: flex; align-items: center; gap: 12px; padding: 12px; background: var(--bg-light); border-radius: 8px; }
+        .platform-name { font-weight: 500; flex: 1; }
+        .platform-score { font-weight: 600; color: var(--primary); }
+        .platform-bar { width: 100px; height: 6px; background: #e8e8ed; border-radius: 3px; overflow: hidden; }
+        .platform-bar-fill { height: 100%; background: var(--primary); border-radius: 3px; }
+
+        /* Citation List */
+        .citation-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--border); }
+        .citation-item:last-child { border-bottom: none; }
+        .citation-source { font-weight: 500; }
+        .citation-count { font-weight: 600; color: var(--primary); }
+
+        /* Opportunities */
+        .opportunity-card { background: var(--bg-light); border-radius: 10px; padding: 16px; margin-bottom: 12px; }
+        .opportunity-card:last-child { margin-bottom: 0; }
+        .opportunity-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+        .opportunity-icon { width: 32px; height: 32px; background: var(--bg-white); border-radius: 6px; display: flex; align-items: center; justify-content: center; }
+        .opportunity-icon svg { width: 18px; height: 18px; stroke: var(--primary); }
+        .opportunity-title { font-weight: 600; font-size: 14px; }
+        .opportunity-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+        .opportunity-tag { display: inline-block; padding: 4px 8px; background: var(--bg-white); border-radius: 4px; font-size: 11px; font-weight: 600; color: var(--primary); margin-top: 8px; }
+
+        /* Topics */
+        .topic-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--border); }
+        .topic-item:last-child { border-bottom: none; }
+        .topic-name { font-weight: 500; }
+        .topic-volume { font-size: 13px; color: var(--text-muted); }
+
+        /* Chart */
+        .chart-container { height: 200px; margin: 16px 0; }
+
+        /* Footer */
+        .footer { text-align: center; padding: 32px 0; color: var(--text-muted); font-size: 12px; }
+        .footer a { color: var(--primary); text-decoration: none; }
+
+        @media (max-width: 600px) {
+            .stats-grid { grid-template-columns: 1fr; }
+            .exec-stats { flex-direction: column; gap: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="brand-name">Trip</div>
+            <div class="report-meta">
+                <div class="report-title">GEO Performance Report</div>
+                <div class="report-date">2026-03-01 to 2026-03-31</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Executive Summary -->
+        <section class="exec-summary">
+            <h2>Quick Summary</h2>
+            <p>Trip ranks #3 among 6 travel brands in AI search visibility with a score of 29.5%. Your top citation source is reddit.com with 26,665 citations. "Korea Outbound Travel" shows the strongest growth at +14.8%.</p>
+            <div class="exec-stats">
+                <div>
+                    <div class="exec-stat-value">#3</div>
+                    <div class="exec-stat-label">Your Ranking</div>
+                </div>
+                <div>
+                    <div class="exec-stat-value">29.5%</div>
+                    <div class="exec-stat-label">Score Growth</div>
+                </div>
+                <div>
+                    <div class="exec-stat-value">30,793</div>
+                    <div class="exec-stat-label">AI Mentions</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 1: Rankings -->
+        <div class="card">
+            <div class="section-header">
+                <div class="section-number">1</div>
+                <div class="section-title">Where You Stand vs Competitors</div>
+            </div>
+            <p class="section-desc">Trip ranks #3 among 6 tracked travel brands. Visibility score: 29.5%.</p>
+
+            <ul class="ranking-list">
+                
+            <li class="ranking-item">
+                <span class="rank-badge">1</span>
+                <span class="rank-name">Booking</span>
+                <span class="rank-score">39.5%</span>
+                <span class="rank-trend">337.08%</span>
+            </li>
+            
+            <li class="ranking-item">
+                <span class="rank-badge">2</span>
+                <span class="rank-name">Agoda</span>
+                <span class="rank-score">30.7%</span>
+                <span class="rank-trend">78.71%</span>
+            </li>
+            
+            <li class="ranking-item highlight">
+                <span class="rank-badge you">3</span>
+                <span class="rank-name you">Trip <span style="font-size:10px;background:var(--primary);color:white;padding:2px 6px;border-radius:3px;font-weight:600;">YOU</span></span>
+                <span class="rank-score">29.5%</span>
+                <span class="rank-trend">244.51%</span>
+            </li>
+            
+            <li class="ranking-item">
+                <span class="rank-badge">4</span>
+                <span class="rank-name">Expedia</span>
+                <span class="rank-score">27.5%</span>
+                <span class="rank-trend">349.52%</span>
+            </li>
+            
+            <li class="ranking-item">
+                <span class="rank-badge">5</span>
+                <span class="rank-name">Klook</span>
+                <span class="rank-score">14.7%</span>
+                <span class="rank-trend">99.2%</span>
+            </li>
+            
+            <li class="ranking-item">
+                <span class="rank-badge">6</span>
+                <span class="rank-name">Airbnb</span>
+                <span class="rank-score">7.1%</span>
+                <span class="rank-trend">0.62%</span>
+            </li>
+            
+            </ul>
+
+            <div class="takeaway">
+                <div class="takeaway-title">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                    What This Means
+                </div>
+                <div class="takeaway-text">Booking.com leads with 39.5% visibility. Trip trails by 10.0%. Focus on content strategy to close the gap.</div>
+            </div>
+        </div>
+
+        <!-- Section 2: AI Platform Performance -->
+        <div class="card">
+            <div class="section-header">
+                <div class="section-number">2</div>
+                <div class="section-title">AI Platform Visibility</div>
+            </div>
+            <p class="section-desc">How often your brand appears in different AI search tools.</p>
+
+            <div class="platform-list">
+                
+        <div class="platform-item">
+            <span class="platform-name">Brand Visibility Score</span>
+            <div class="platform-bar"><div class="platform-bar-fill" style="width: 30%;"></div></div>
+            <span class="platform-score">29.5%</span>
+        </div>
+        <div class="platform-item">
+            <span class="platform-name">Citation Rate</span>
+            <div class="platform-bar"><div class="platform-bar-fill" style="width: 15%;"></div></div>
+            <span class="platform-score">14.8%</span>
+        </div>
+    
+            </div>
+
+            <div class="takeaway">
+                <div class="takeaway-title">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                    What This Means
+                </div>
+                <div class="takeaway-text">AI platform visibility score: 29.5%. Citation index: 14.8%. These metrics reflect how often Trip appears in AI-generated responses.</div>
+            </div>
+        </div>
+
+        <!-- Section 3: Citations -->
+        <div class="card">
+            <div class="section-header">
+                <div class="section-number">3</div>
+                <div class="section-title">Where You're Being Cited</div>
+            </div>
+            <p class="section-desc">The top websites that reference your brand the most.</p>
+
+            
+            <div class="citation-item">
+                <span class="citation-source">reddit.com <span style="font-size:10px;color:var(--text-muted);">(UGC)</span></span>
+                <span class="citation-count">26,665 citations</span>
+            </div>
+        
+            <div class="citation-item">
+                <span class="citation-source">apps.apple.com <span style="font-size:10px;color:var(--text-muted);">(Corporate)</span></span>
+                <span class="citation-count">23,842 citations</span>
+            </div>
+        
+            <div class="citation-item">
+                <span class="citation-source">play.google.com <span style="font-size:10px;color:var(--text-muted);">(Corporate)</span></span>
+                <span class="citation-count">20,376 citations</span>
+            </div>
+        
+            <div class="citation-item">
+                <span class="citation-source">apple.com <span style="font-size:10px;color:var(--text-muted);">(Corporate)</span></span>
+                <span class="citation-count">11,028 citations</span>
+            </div>
+        
+            <div class="citation-item">
+                <span class="citation-source">youtube.com <span style="font-size:10px;color:var(--text-muted);">(Media)</span></span>
+                <span class="citation-count">11,018 citations</span>
+            </div>
+        
+
+            <div class="takeaway">
+                <div class="takeaway-title">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                    What This Means
+                </div>
+                <div class="takeaway-text">reddit.com is your top citation source with 26,665 citations. 30,793 total citations across all tracked domains.</div>
+            </div>
+        </div>
+
+        <!-- Section 4: Trends -->
+        <div class="card">
+            <div class="section-header">
+                <div class="section-number">4</div>
+                <div class="section-title">Your Growth Trend</div>
+            </div>
+            <p class="section-desc">How your GEO score has improved over the past 6 months.</p>
+
+            <div class="chart-container">
+                <svg viewBox="0 0 600 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;">
+                    <!-- Grid lines -->
+                    <line x1="50" y1="20" x2="580" y2="20" stroke="#e8e8ed" stroke-width="1"/>
+                    <line x1="50" y1="50" x2="580" y2="50" stroke="#e8e8ed" stroke-width="1"/>
+                    <line x1="50" y1="80" x2="580" y2="80" stroke="#e8e8ed" stroke-width="1"/>
+                    <line x1="50" y1="110" x2="580" y2="110" stroke="#e8e8ed" stroke-width="1"/>
+                    <line x1="50" y1="140" x2="580" y2="140" stroke="#e8e8ed" stroke-width="1"/>
+                    <!-- Y-axis labels -->
+                    <text x="40" y="24" font-family="Inter,sans-serif" font-size="10" fill="#8b8b9a" text-anchor="end">100</text>
+                    <text x="40" y="54" font-family="Inter,sans-serif" font-size="10" fill="#8b8b9a" text-anchor="end">90</text>
+                    <text x="40" y="84" font-family="Inter,sans-serif" font-size="10" fill="#8b8b9a" text-anchor="end">80</text>
+                    <text x="40" y="114" font-family="Inter,sans-serif" font-size="10" fill="#8b8b9a" text-anchor="end">70</text>
+                    <text x="40" y="144" font-family="Inter,sans-serif" font-size="10" fill="#8b8b9a" text-anchor="end">60</text>
+                    <!-- Dynamic chart line and points - data will be injected -->
+                    
+                <rect x="80" y="68.91891891891892" width="80" height="61.08108108108108" fill="#ff5c23" rx="4"/>
+                <text x="120.0" y="63.91891891891892" font-family="Inter,sans-serif" font-size="10" fill="#ff5c23" font-weight="600" text-anchor="middle">+11.3%</text>
+                <text x="120.0" y="145" font-family="Inter,sans-serif" font-size="9" fill="#5c5c6d" text-anchor="middle" transform="rotate(-35,120.0,145)">Japan Outbound Trave</text>
+            
+                <rect x="180" y="50.0" width="80" height="80.0" fill="#ff5c23" rx="4"/>
+                <text x="220.0" y="45.0" font-family="Inter,sans-serif" font-size="10" fill="#ff5c23" font-weight="600" text-anchor="middle">+14.8%</text>
+                <text x="220.0" y="145" font-family="Inter,sans-serif" font-size="9" fill="#5c5c6d" text-anchor="middle" transform="rotate(-35,220.0,145)">Korea Outbound Trave</text>
+            
+                <rect x="280" y="79.72972972972973" width="80" height="50.270270270270274" fill="#ff5c23" rx="4"/>
+                <text x="320.0" y="74.72972972972973" font-family="Inter,sans-serif" font-size="10" fill="#ff5c23" font-weight="600" text-anchor="middle">+9.3%</text>
+                <text x="320.0" y="145" font-family="Inter,sans-serif" font-size="9" fill="#5c5c6d" text-anchor="middle" transform="rotate(-35,320.0,145)">Greater China & Midd</text>
+            
+                <rect x="380" y="74.32432432432432" width="80" height="55.67567567567568" fill="#ff5c23" rx="4"/>
+                <text x="420.0" y="69.32432432432432" font-family="Inter,sans-serif" font-size="10" fill="#ff5c23" font-weight="600" text-anchor="middle">+10.3%</text>
+                <text x="420.0" y="145" font-family="Inter,sans-serif" font-size="9" fill="#5c5c6d" text-anchor="middle" transform="rotate(-35,420.0,145)">Southeast Asia Trave</text>
+            
+                <rect x="480" y="125.13513513513513" width="80" height="4.864864864864865" fill="#ff5c23" rx="4"/>
+                <text x="520.0" y="120.13513513513513" font-family="Inter,sans-serif" font-size="10" fill="#ff5c23" font-weight="600" text-anchor="middle">+0.9%</text>
+                <text x="520.0" y="145" font-family="Inter,sans-serif" font-size="9" fill="#5c5c6d" text-anchor="middle" transform="rotate(-35,520.0,145)">Mobile Travel Tools</text>
+            
+                    <!-- X-axis labels -->
+                    
+                </svg>
+            </div>
+
+            <div class="takeaway">
+                <div class="takeaway-title">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                    What This Means
+                </div>
+                <div class="takeaway-text">Topic "Korea Outbound Travel" has the highest growth at +14.8%. Average sentiment score: 75.4/100.</div>
+            </div>
+        </div>
+
+        <!-- Section 5: Opportunities -->
+        <div class="card">
+            <div class="section-header">
+                <div class="section-number">5</div>
+                <div class="section-title">Recommended Actions</div>
+            </div>
+            <p class="section-desc">Three things you can do to improve your AI visibility.</p>
+
+            
+            <div class="opportunity-card">
+                <div class="opportunity-header">
+                    <div class="opportunity-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    </div>
+                    <div class="opportunity-title">Platform Comparison Guide</div>
+                </div>
+                <div class="opportunity-desc">Prompt: "app booking vs agent booking" - 192 AI responses found. Gap score: 1</div>
+                <div style="font-size:11px;color:var(--text-muted);margin-top:6px;">Platforms: Chatgpt, Google Overview, Grok...</div>
+                <span class="opportunity-tag">Gap: 1</span>
+            </div>
+        
+            <div class="opportunity-card">
+                <div class="opportunity-header">
+                    <div class="opportunity-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    </div>
+                    <div class="opportunity-title">Top Rated Travel Apps</div>
+                </div>
+                <div class="opportunity-desc">Prompt: "best app for business travel" - 105 AI responses found. Gap score: 1</div>
+                <div style="font-size:11px;color:var(--text-muted);margin-top:6px;">Platforms: Grok, Google Aimode, Copilot, ...</div>
+                <span class="opportunity-tag">Gap: 1</span>
+            </div>
+        
+            <div class="opportunity-card">
+                <div class="opportunity-header">
+                    <div class="opportunity-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    </div>
+                    <div class="opportunity-title">Travel Planning Guides</div>
+                </div>
+                <div class="opportunity-desc">Prompt: "how to manage travel plans on mobile" - 65 AI responses found. Gap score: 1</div>
+                <div style="font-size:11px;color:var(--text-muted);margin-top:6px;">Platforms: Perplexity, Grok, Google Aimod...</div>
+                <span class="opportunity-tag">Gap: 1</span>
+            </div>
+        
+        </div>
+
+        <!-- Section 6: Trending Topics -->
+        <div class="card">
+            <div class="section-header">
+                <div class="section-number">6</div>
+                <div class="section-title">Hot Topics in Your Space</div>
+            </div>
+            <p class="section-desc">Topics that are getting the most AI search attention.</p>
+
+            
+            <div class="topic-item">
+                <span class="topic-name">Japan Outbound Travel</span>
+                <span class="topic-volume">Change: +11.3% | Sentiment: 76.8</span>
+            </div>
+        
+            <div class="topic-item">
+                <span class="topic-name">Korea Outbound Travel</span>
+                <span class="topic-volume">Change: +14.8% | Sentiment: 76.4</span>
+            </div>
+        
+            <div class="topic-item">
+                <span class="topic-name">Greater China & Middle East Travel</span>
+                <span class="topic-volume">Change: +9.3% | Sentiment: 75.7</span>
+            </div>
+        
+            <div class="topic-item">
+                <span class="topic-name">Southeast Asia Travel Solutions</span>
+                <span class="topic-volume">Change: +10.3% | Sentiment: 75.9</span>
+            </div>
+        
+            <div class="topic-item">
+                <span class="topic-name">Mobile Travel Tools</span>
+                <span class="topic-volume">Change: +0.9% | Sentiment: 72.3</span>
+            </div>
+        
+
+            <div class="takeaway">
+                <div class="takeaway-title">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                    What This Means
+                </div>
+                <div class="takeaway-text">"Japan Outbound Travel" has highest visibility at 50.7%. Consider creating content around high-visibility topics.</div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Report by <strong>Dageno AI GEO Reporter</strong></p>
+            <p style="margin-top: 8px;">Questions? Contact <a href="https://dageno.ai">dageno.ai</a></p>
+        </footer>
+    </main>
+</body>
+</html>

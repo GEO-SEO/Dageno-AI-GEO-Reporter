@@ -1,0 +1,508 @@
+{
+  "brand": {
+    "success": true,
+    "code": 0,
+    "message": "OK",
+    "data": {
+      "id": "e48e1d99-6832-4f6b-9c39-ce406e70fb07",
+      "projectId": "17387b13-507b-4b67-aba5-0b4591eb43d0",
+      "name": "Trip",
+      "domain": "trip.com",
+      "tagline": "Your Non-stop Travel Mate",
+      "description": "Trip.com is a leading international online travel agency that provides a comprehensive one-stop travel platform for booking flights, hotels, trains, car rentals, and tour packages. It serves millions of users globally with 24/7 multilingual support and advanced AI-driven travel planning tools.",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Trip.com_logo.svg/1280px-Trip.com_logo.svg.png",
+      "website": "https://www.trip.com",
+      "socials": [
+        {
+          "url": "https://www.facebook.com/tripcom/",
+          "platform": "Facebook"
+        },
+        {
+          "url": "https://www.instagram.com/trip/",
+          "platform": "Instagram"
+        },
+        {
+          "url": "https://twitter.com/tripcom",
+          "platform": "Twitter"
+        },
+        {
+          "url": "https://www.linkedin.com/company/trip-com/",
+          "platform": "LinkedIn"
+        },
+        {
+          "url": "https://www.youtube.com/c/Tripcom",
+          "platform": "YouTube"
+        }
+      ],
+      "keywords": [
+        "cheap flights",
+        "hotel booking",
+        "train tickets",
+        "travel deals",
+        "vacation packages"
+      ],
+      "metadata": {
+        "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Trip.com_Icon_2022.png/512px-Trip.com_Icon_2022.png",
+        "name": "Trip.com",
+        "domain": "trip.com",
+        "source": "ai_research",
+        "summary": "# Trip.com\n\n## Overview\nTrip.com is a global one-stop travel service provider and one of the world's largest online travel agencies (OTAs). It offers a comprehensive suite of travel products including accommodation reservations, transportation ticketing, packaged tours, and corporate travel management. As the flagship international brand of Trip.com Group, it operates in over 200 countries and regions, supporting over 24 languages.\n\n## Key Features\n* **Extensive Inventory:** Access to over 1.7 million hotels and flights from more than 600 airlines covering 3,400 airports.\n* **Multi-Modal Transport:** Integrated booking for international flights, high-speed rail (China, UK, Korea, Germany), and car rentals in 6,000+ cities.\n* **AI-Powered Tools:** Features like 'TripGenie' and 'Trip.Planner' provide personalized itineraries and real-time travel assistance.\n* **24/7 Support:** World-class multilingual customer service available via phone, email, and app-based chat.\n* **Loyalty Program:** A tiered rewards system (Trip Coins) that offers discounts and exclusive benefits to frequent travelers.\n\n## Product Matrix\n* **Trip.com:** The primary international OTA platform for global users.\n* **Ctrip:** The leading travel service brand in Mainland China.\n* **Qunar:** A popular Chinese travel search and booking platform.\n* **Skyscanner:** A global travel metasearch engine for comparing flights, hotels, and car rentals.\n* **Trip.Biz:** A dedicated digital platform for corporate travel management and expense reporting.\n* **TrainPal:** A specialized app for finding and booking cheap train and coach tickets globally.\n\n## Target Users\n* **Leisure Travelers:** Individuals and families seeking vacation packages, flights, and hotels.\n* **Business Professionals:** Corporate users requiring efficient booking and expense management via Trip.Biz.\n* **The 'Silver Generation':** Seniors (50+) for whom the platform offers tailored travel experiences through initiatives like the 'Old Friends Club'.\n* **International Tourists:** Travelers looking for seamless cross-border experiences, particularly in the Asia-Pacific and European markets.\n\n## Market Position\nTrip.com is a dominant force in the Asia-Pacific market and a rapidly growing challenger to Western giants like Booking Holdings and Expedia Group. It is recognized as the world's largest online travel service provider by Gross Merchandise Volume (GMV) as of 2023, leveraging its strong roots in China to drive global outbound and inbound travel.\n\n## Competitors\n* **Booking.com** (booking.com): The global leader in hotel and accommodation inventory.\n* **Expedia** (expedia.com): A major US-based travel platform with a strong presence in North America.\n* **Agoda** (agoda.com): A key competitor in the Asian hotel booking market, owned by Booking Holdings.\n* **Klook** (klook.com): A leading platform for travel activities, tours, and local attractions.\n* **Airbnb** (airbnb.com): The primary competitor in the alternative accommodation and vacation rental space.\n\n## History\n* **1999:** Founded as Ctrip.com in Shanghai, China, by James Liang, Neil Shen, Min Fan, and Qi Ji.\n* **2003:** Successfully listed on the NASDAQ (TCOM).\n* **2016:** Acquired Skyscanner, a leading European travel metasearch engine.\n* **2017:** Acquired the Trip.com domain and rebranded its international service under this name.\n* **2019:** Officially changed the group name from Ctrip.com International, Ltd. to Trip.com Group Limited.\n* **2021:** Completed a secondary listing on the Hong Kong Stock Exchange (HKEX).\n\n## Core Value\nTrip.com operates under the 'G2' strategy: **Great Quality** and **Globalization**. Its core values emphasize customer-centricity, innovation through AI, and a commitment to making travel accessible and sustainable for everyone, summarized in its mission \"to pursue the perfect trip for a better world.\"",
+        "tagline": "Your Non-stop Travel Mate",
+        "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Trip.com_logo.svg/1280px-Trip.com_logo.svg.png",
+        "competitors": [
+          {
+            "name": "Booking.com",
+            "domain": "booking.com",
+            "source": "ai_research"
+          },
+          {
+            "name": "Expedia",
+            "domain": "expedia.com",
+            "source": "ai_research"
+          },
+          {
+            "name": "Agoda",
+            "domain": "agoda.com",
+            "source": "ai_research"
+          },
+          {
+            "name": "Klook",
+            "domain": "klook.com",
+            "source": "ai_research"
+          },
+          {
+            "name": "Airbnb",
+            "domain": "airbnb.com",
+            "source": "ai_research"
+          }
+        ],
+        "description": "Trip.com is a leading international online travel agency that provides a comprehensive one-stop travel platform for booking flights, hotels, trains, car rentals, and tour packages. It serves millions of users globally with 24/7 multilingual support and advanced AI-driven travel planning tools.",
+        "domain_type": "Corporate",
+        "social_links": [
+          {
+            "url": "https://www.facebook.com/tripcom/",
+            "platform": "Facebook"
+          },
+          {
+            "url": "https://www.instagram.com/trip/",
+            "platform": "Instagram"
+          },
+          {
+            "url": "https://twitter.com/tripcom",
+            "platform": "Twitter"
+          },
+          {
+            "url": "https://www.linkedin.com/company/trip-com/",
+            "platform": "LinkedIn"
+          },
+          {
+            "url": "https://www.youtube.com/c/Tripcom",
+            "platform": "YouTube"
+          }
+        ],
+        "official_website": "https://www.trip.com",
+        "primary_keywords": [
+          "cheap flights",
+          "hotel booking",
+          "train tickets",
+          "travel deals",
+          "vacation packages"
+        ]
+      },
+      "createdAt": "2026-03-06T14:30:48.285Z",
+      "updatedAt": "2026-03-06T14:30:48.285Z",
+      "summary": "# Trip\n\n## Overview\nTrip.com is a global one-stop travel service provider and one of the world's largest online travel agencies (OTAs). It offers a comprehensive suite of travel products including accommodation reservations, transportation ticketing, packaged tours, and corporate travel management. As the flagship international brand of Trip.com Group, it operates in over 200 countries and regions, supporting over 24 languages.\n\n## Key Features\n* **Extensive Inventory:** Access to over 1.7 million hotels and flights from more than 600 airlines covering 3,400 airports.\n* **Multi-Modal Transport:** Integrated booking for international flights, high-speed rail (China, UK, Korea, Germany), and car rentals in 6,000+ cities.\n* **AI-Powered Tools:** Features like 'TripGenie' and 'Trip.Planner' provide personalized itineraries and real-time travel assistance.\n* **24/7 Support:** World-class multilingual customer service available via phone, email, and app-based chat.\n* **Loyalty Program:** A tiered rewards system (Trip Coins) that offers discounts and exclusive benefits to frequent travelers.\n\n## Product Matrix\n* **Trip.com:** The primary international OTA platform for global users.\n* **Ctrip:** The leading travel service brand in Mainland China.\n* **Qunar:** A popular Chinese travel search and booking platform.\n* **Skyscanner:** A global travel metasearch engine for comparing flights, hotels, and car rentals.\n* **Trip.Biz:** A dedicated digital platform for corporate travel management and expense reporting.\n* **TrainPal:** A specialized app for finding and booking cheap train and coach tickets globally.\n\n## Target Users\n* **Leisure Travelers:** Individuals and families seeking vacation packages, flights, and hotels.\n* **Business Professionals:** Corporate users requiring efficient booking and expense management via Trip.Biz.\n* **The 'Silver Generation':** Seniors (50+) for whom the platform offers tailored travel experiences through initiatives like the 'Old Friends Club'.\n* **International Tourists:** Travelers looking for seamless cross-border experiences, particularly in the Asia-Pacific and European markets.\n\n## Market Position\nTrip.com is a dominant force in the Asia-Pacific market and a rapidly growing challenger to Western giants like Booking Holdings and Expedia Group. It is recognized as the world's largest online travel service provider by Gross Merchandise Volume (GMV) as of 2023, leveraging its strong roots in China to drive global outbound and inbound travel.\n\n## Competitors\n* **Booking.com** (booking.com): The global leader in hotel and accommodation inventory.\n* **Expedia** (expedia.com): A major US-based travel platform with a strong presence in North America.\n* **Agoda** (agoda.com): A key competitor in the Asian hotel booking market, owned by Booking Holdings.\n* **Klook** (klook.com): A leading platform for travel activities, tours, and local attractions.\n* **Airbnb** (airbnb.com): The primary competitor in the alternative accommodation and vacation rental space.\n\n## History\n* **1999:** Founded as Ctrip.com in Shanghai, China, by James Liang, Neil Shen, Min Fan, and Qi Ji.\n* **2003:** Successfully listed on the NASDAQ (TCOM).\n* **2016:** Acquired Skyscanner, a leading European travel metasearch engine.\n* **2017:** Acquired the Trip.com domain and rebranded its international service under this name.\n* **2019:** Officially changed the group name from Ctrip.com International, Ltd. to Trip.com Group Limited.\n* **2021:** Completed a secondary listing on the Hong Kong Stock Exchange (HKEX).\n\n## Core Value\nTrip.com operates under the 'G2' strategy: **Great Quality** and **Globalization**. Its core values emphasize customer-centricity, innovation through AI, and a commitment to making travel accessible and sustainable for everyone, summarized in its mission \"to pursue the perfect trip for a better world.\"",
+      "competitors": [
+        {
+          "id": "0380c676-82c2-4ab6-a3eb-a44a2b676032",
+          "domain": "booking.com",
+          "brand": "Booking",
+          "status": "succeeded"
+        },
+        {
+          "id": "16bd717e-4123-4922-8652-16271da45f31",
+          "domain": "expedia.com",
+          "brand": "Expedia",
+          "status": "succeeded"
+        },
+        {
+          "id": "900449d0-ec9e-4690-9b06-3feed5bbefe2",
+          "domain": "agoda.com",
+          "brand": "Agoda",
+          "status": "succeeded"
+        },
+        {
+          "id": "6e073a22-fe4c-407c-bd88-4cfb7a7d35be",
+          "domain": "klook.com",
+          "brand": "Klook",
+          "status": "succeeded"
+        },
+        {
+          "id": "66166bfe-2b8f-4f02-a7ab-55970621d74d",
+          "domain": "airbnb.com",
+          "brand": "Airbnb",
+          "status": "succeeded"
+        }
+      ]
+    }
+  },
+  "geo": {
+    "success": true,
+    "code": 0,
+    "message": "OK",
+    "data": {
+      "rows": [
+        {
+          "name": "booking.com",
+          "visibility": 0.394704641084401,
+          "citation": 0.03370795615680834
+        },
+        {
+          "name": "agoda.com",
+          "visibility": 0.30653798010451844,
+          "citation": 0.007870989330632428
+        },
+        {
+          "name": "trip.com",
+          "visibility": 0.29523865824549106,
+          "citation": 0.02445087576754127
+        },
+        {
+          "name": "expedia.com",
+          "visibility": 0.27515834300317804,
+          "citation": 0.034952447832359373
+        },
+        {
+          "name": "klook.com",
+          "visibility": 0.14680857548908446,
+          "citation": 0.009920397855158494
+        },
+        {
+          "name": "airbnb.com",
+          "visibility": 0.07127683917196427,
+          "citation": 6.168913877555146e-05
+        }
+      ],
+      "query": {
+        "target": {
+          "entity": "brand",
+          "metrics": [
+            "visibility",
+            "citation"
+          ],
+          "filters": {
+            "dateRange": {
+              "startAt": "2026-03-01T00:00:00.000Z",
+              "endAt": "2026-03-31T00:00:00.000Z"
+            }
+          }
+        },
+        "analysis": {
+          "type": "ranking",
+          "ranking": {
+            "orderBy": "visibility",
+            "direction": "desc"
+          }
+        }
+      }
+    }
+  },
+  "topics": {
+    "success": true,
+    "code": 0,
+    "message": "OK",
+    "data": {
+      "items": [
+        {
+          "id": "455e0bf7-9cb4-4f7c-a33c-61688f93a54b",
+          "topic": "Japan Outbound Travel",
+          "visibility": 0.507142421816425,
+          "visibilityChangedRate": 0.11250992786615388,
+          "sentiment": 76.77773351921928,
+          "avgPosition": 3.0423475946841405,
+          "citationRate": 0.05513879487381078,
+          "volume": 3
+        },
+        {
+          "id": "e75bb22f-70bc-4ccd-bd32-a02f7b8c28c7",
+          "topic": "Korea Outbound Travel",
+          "visibility": 0.4838142736104867,
+          "visibilityChangedRate": 0.1480982707348038,
+          "sentiment": 76.39413447782546,
+          "avgPosition": 3.54575972884656,
+          "citationRate": 0.038706875174333376,
+          "volume": 1
+        },
+        {
+          "id": "fabb7806-fd57-4064-bcfe-0505212a8441",
+          "topic": "Greater China & Middle East Travel",
+          "visibility": 0.43509927602525095,
+          "visibilityChangedRate": 0.09302694595722061,
+          "sentiment": 75.74729411764706,
+          "avgPosition": 3.5483017488371846,
+          "citationRate": 0.03276959814958162,
+          "volume": 2
+        },
+        {
+          "id": "9f9ad931-5021-40b1-a6dd-7bd34ead603b",
+          "topic": "Southeast Asia Travel Solutions",
+          "visibility": 0.4168194359681616,
+          "visibilityChangedRate": 0.10310639697205565,
+          "sentiment": 75.87789122733903,
+          "avgPosition": 3.5957258076709286,
+          "citationRate": 0.0542253213803835,
+          "volume": 2
+        },
+        {
+          "id": "c7a6846a-3c86-427f-aa4c-051d0fed3089",
+          "topic": "Mobile Travel Tools",
+          "visibility": 0.2979273086016773,
+          "visibilityChangedRate": 0.009160964775357772,
+          "sentiment": 72.27961766289715,
+          "avgPosition": 3.819788915672198,
+          "citationRate": 0.015562099603075124,
+          "volume": 5
+        }
+      ]
+    },
+    "meta": {
+      "pagination": {
+        "page": 1,
+        "pageSize": 5,
+        "total": 8,
+        "totalPages": 2
+      }
+    }
+  },
+  "citations": {
+    "success": true,
+    "code": 0,
+    "message": "OK",
+    "data": {
+      "items": [
+        {
+          "domain": "reddit.com",
+          "domainType": "UGC",
+          "citationCount": 26665,
+          "citationRate": 0.3131201634589415,
+          "seoData": {
+            "totalVisits": 3826063911,
+            "bounceRate": 0.4415,
+            "pagePerVisit": 4.6046,
+            "avgDuration": 330.0675
+          }
+        },
+        {
+          "domain": "apps.apple.com",
+          "domainType": "Corporate",
+          "citationCount": 23842,
+          "citationRate": 0.2799704082950716,
+          "seoData": {
+            "totalVisits": 127293831,
+            "bounceRate": 0.7376,
+            "pagePerVisit": 1.5852,
+            "avgDuration": 46.6993
+          }
+        },
+        {
+          "domain": "play.google.com",
+          "domainType": "Corporate",
+          "citationCount": 20376,
+          "citationRate": 0.2392700712784321,
+          "seoData": {
+            "totalVisits": 1047280580,
+            "bounceRate": 0.6204,
+            "pagePerVisit": 2.5685,
+            "avgDuration": 116.1892
+          }
+        },
+        {
+          "domain": "apple.com",
+          "domainType": "Corporate",
+          "citationCount": 11028,
+          "citationRate": 0.12949893728202538,
+          "seoData": {
+            "totalVisits": 472601888,
+            "bounceRate": 0.5296,
+            "pagePerVisit": 3.188,
+            "avgDuration": 141.6996
+          }
+        },
+        {
+          "domain": "youtube.com",
+          "domainType": "Media",
+          "citationCount": 11018,
+          "citationRate": 0.12938150988151575,
+          "seoData": {
+            "totalVisits": 27023255287,
+            "bounceRate": 0.2279,
+            "pagePerVisit": 12.0428,
+            "avgDuration": 1153.3164
+          }
+        }
+      ]
+    },
+    "meta": {
+      "pagination": {
+        "page": 1,
+        "pageSize": 5,
+        "total": 30793,
+        "totalPages": 6159
+      }
+    }
+  },
+  "content_opp": {
+    "success": true,
+    "code": 0,
+    "message": "OK",
+    "data": {
+      "items": [
+        {
+          "id": "20628439-8615-4eda-be75-f6fb1fe00565",
+          "prompt": "app booking vs agent booking",
+          "topicId": "8c3530bc-2c5f-4445-bf5f-8453c56e9ad3",
+          "topic": "Platform Comparison Guide",
+          "promptHash": "fdd77e5a1979c31ab36a0fed1b56c40130b24fd4",
+          "platforms": [
+            "chatgpt",
+            "google_overview",
+            "grok",
+            "perplexity",
+            "google_aimode",
+            "copilot",
+            "google_gemini"
+          ],
+          "topCompetitors": [
+            {
+              "domain": "booking.com",
+              "brand": "Booking",
+              "avgRankPosition": 2.3464566929133857,
+              "brandMentionCount": 169
+            },
+            {
+              "domain": "expedia.com",
+              "brand": "Expedia",
+              "avgRankPosition": 2.520661157024793,
+              "brandMentionCount": 171
+            },
+            {
+              "domain": "agoda.com",
+              "brand": "Agoda",
+              "avgRankPosition": 4,
+              "brandMentionCount": 4
+            },
+            {
+              "domain": "airbnb.com",
+              "brand": "Airbnb",
+              "avgRankPosition": 4.794117647058823,
+              "brandMentionCount": 41
+            }
+          ],
+          "brandGap": 1,
+          "sourceGap": 1,
+          "myDomainMentionCount": 0,
+          "mySourceCount": 0,
+          "totalResponseCount": 192,
+          "totalSourceCount": 1
+        },
+        {
+          "id": "217492ae-385c-434f-ac67-13598e4f4235",
+          "prompt": "best app for business travel",
+          "topicId": "828e29f5-85cf-4d78-abb8-b120d580537a",
+          "topic": "Top Rated Travel Apps",
+          "promptHash": "f8b2e6f1ebb6ee0de2352a3c5134a7809f044923",
+          "platforms": [
+            "grok",
+            "google_aimode",
+            "copilot",
+            "chatgpt",
+            "perplexity",
+            "google_overview"
+          ],
+          "topCompetitors": [
+            {
+              "domain": "airbnb.com",
+              "brand": "Airbnb",
+              "avgRankPosition": 9.2,
+              "brandMentionCount": 5
+            },
+            {
+              "domain": "expedia.com",
+              "brand": "Expedia",
+              "avgRankPosition": 7.125,
+              "brandMentionCount": 27
+            },
+            {
+              "domain": "booking.com",
+              "brand": "Booking",
+              "avgRankPosition": 8.152777777777779,
+              "brandMentionCount": 96
+            }
+          ],
+          "brandGap": 1,
+          "sourceGap": 1,
+          "myDomainMentionCount": 0,
+          "mySourceCount": 0,
+          "totalResponseCount": 105,
+          "totalSourceCount": 79
+        },
+        {
+          "id": "debb1749-6783-429f-824d-4cc0d965017f",
+          "prompt": "how to manage travel plans on mobile",
+          "topicId": "047cd093-8e2e-491a-9b4b-2942e4970ef1",
+          "topic": "Travel Planning Guides",
+          "promptHash": "eff539fb0ae7ca5ff0fad24c5ad570b0502e3473",
+          "platforms": [
+            "perplexity",
+            "grok",
+            "google_aimode",
+            "google_overview",
+            "chatgpt",
+            "google_gemini",
+            "copilot"
+          ],
+          "topCompetitors": [
+            {
+              "domain": "expedia.com",
+              "brand": "Expedia",
+              "avgRankPosition": 7.909090909090909,
+              "brandMentionCount": 26
+            },
+            {
+              "domain": "klook.com",
+              "brand": "Klook",
+              "avgRankPosition": 13.5,
+              "brandMentionCount": 2
+            },
+            {
+              "domain": "airbnb.com",
+              "brand": "Airbnb",
+              "avgRankPosition": 10.125,
+              "brandMentionCount": 30
+            },
+            {
+              "domain": "booking.com",
+              "brand": "Booking",
+              "avgRankPosition": 9.96875,
+              "brandMentionCount": 44
+            }
+          ],
+          "brandGap": 1,
+          "sourceGap": 1,
+          "myDomainMentionCount": 0,
+          "mySourceCount": 0,
+          "totalResponseCount": 65,
+          "totalSourceCount": 45
+        }
+      ]
+    },
+    "meta": {
+      "pagination": {
+        "page": 1,
+        "pageSize": 3,
+        "total": 531,
+        "totalPages": 177
+      }
+    }
+  }
+}
