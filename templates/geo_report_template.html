@@ -83,7 +83,10 @@
         .citation-source { font-weight: 500; }
         .citation-count { font-weight: 600; color: var(--primary); }
 
-        /* Opportunities */
+        /* Opportunities - Three Sections */
+        .opp-section { margin-bottom: 20px; }
+        .opp-section:last-child { margin-bottom: 0; }
+        .opp-section-title { font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
         .opportunity-card { background: var(--bg-light); border-radius: 10px; padding: 16px; margin-bottom: 12px; }
         .opportunity-card:last-child { margin-bottom: 0; }
         .opportunity-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
@@ -92,19 +95,30 @@
         .opportunity-title { font-weight: 600; font-size: 14px; }
         .opportunity-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
         .opportunity-tag { display: inline-block; padding: 4px 8px; background: var(--bg-white); border-radius: 4px; font-size: 11px; font-weight: 600; color: var(--primary); margin-top: 8px; }
+        .opportunity-meta { font-size: 11px; color: var(--text-muted); margin-top: 6px; }
 
         /* Topics */
         .topic-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--border); }
         .topic-item:last-child { border-bottom: none; }
-        .topic-name { font-weight: 500; }
-        .topic-volume { font-size: 13px; color: var(--text-muted); }
+        .topic-name { font-weight: 500; font-size: 13px; }
+        .topic-meta { font-size: 12px; color: var(--text-muted); text-align: right; }
+        .topic-meta .change { color: var(--success); font-weight: 600; }
+        .topic-meta .volume { display: block; }
 
         /* Chart */
-        .chart-container { height: 200px; margin: 16px 0; }
+        .chart-container { height: auto; margin: 16px 0; padding: 16px 0; }
 
         /* Footer */
         .footer { text-align: center; padding: 32px 0; color: var(--text-muted); font-size: 12px; }
         .footer a { color: var(--primary); text-decoration: none; }
+
+        /* List styles for backlinks and community */
+        .backlink-item, .community-item { background: var(--bg-light); border-radius: 8px; padding: 12px; margin-bottom: 10px; }
+        .backlink-item:last-child, .community-item:last-child { margin-bottom: 0; }
+        .backlink-domain { font-weight: 600; color: var(--text-primary); font-size: 13px; }
+        .backlink-meta { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
+        .community-url { font-size: 12px; color: var(--text-secondary); word-break: break-all; }
+        .community-prompt { font-size: 12px; color: var(--primary); margin-top: 4px; font-style: italic; }
 
         @media (max-width: 600px) {
             .stats-grid { grid-template-columns: 1fr; }
@@ -135,21 +149,21 @@
                     <div class="exec-stat-label">Your Ranking</div>
                 </div>
                 <div>
-                    <div class="exec-stat-value">{{SCORE_CHANGE}}</div>
-                    <div class="exec-stat-label">Score Growth</div>
+                    <div class="exec-stat-value">{{USER_SCORE}}</div>
+                    <div class="exec-stat-label">Visibility Score</div>
                 </div>
                 <div>
                     <div class="exec-stat-value">{{TOTAL_MENTIONS}}</div>
-                    <div class="exec-stat-label">AI Mentions</div>
+                    <div class="exec-stat-label">Total Citations</div>
                 </div>
             </div>
         </section>
 
-        <!-- Section 1: Rankings -->
+        <!-- Section 1: GEO Ranking vs Competitors -->
         <div class="card">
             <div class="section-header">
                 <div class="section-number">1</div>
-                <div class="section-title">Where You Stand vs Competitors</div>
+                <div class="section-title">GEO Ranking vs Competitors</div>
             </div>
             <p class="section-desc">{{RANKING_DESC}}</p>
 
@@ -166,36 +180,17 @@
             </div>
         </div>
 
-        <!-- Section 2: AI Platform Performance -->
+        <!-- Section 2: AI Citations by Domain -->
         <div class="card">
             <div class="section-header">
                 <div class="section-number">2</div>
-                <div class="section-title">AI Platform Visibility</div>
+                <div class="section-title">AI Citations by Domain</div>
             </div>
-            <p class="section-desc">How often your brand appears in different AI search tools.</p>
+            <p class="section-desc">Top domains citing your brand in AI search results.</p>
 
-            <div class="platform-list">
-                {{PLATFORM_VISIBILITY_ROWS}}
+            <div class="citation-list">
+                {{CITATION_ROWS}}
             </div>
-
-            <div class="takeaway">
-                <div class="takeaway-title">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-                    What This Means
-                </div>
-                <div class="takeaway-text">{{PLATFORM_TAKEAWAY}}</div>
-            </div>
-        </div>
-
-        <!-- Section 3: Citations -->
-        <div class="card">
-            <div class="section-header">
-                <div class="section-number">3</div>
-                <div class="section-title">Where You're Being Cited</div>
-            </div>
-            <p class="section-desc">The top websites that reference your brand the most.</p>
-
-            {{CITATION_ROWS}}
 
             <div class="takeaway">
                 <div class="takeaway-title">
@@ -206,33 +201,37 @@
             </div>
         </div>
 
-        <!-- Section 4: Trends -->
+        <!-- Section 3: Trending Topics -->
+        <div class="card">
+            <div class="section-header">
+                <div class="section-number">3</div>
+                <div class="section-title">Trending Topics</div>
+            </div>
+            <p class="section-desc">Hot topics in AI search related to your industry.</p>
+
+            <div class="topic-list">
+                {{TOPIC_ROWS}}
+            </div>
+
+            <div class="takeaway">
+                <div class="takeaway-title">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                    What This Means
+                </div>
+                <div class="takeaway-text">{{TOPIC_TAKEAWAY}}</div>
+            </div>
+        </div>
+
+        <!-- Section 4: Topic Visibility Changes -->
         <div class="card">
             <div class="section-header">
                 <div class="section-number">4</div>
-                <div class="section-title">Your Growth Trend</div>
+                <div class="section-title">Topic Visibility Changes</div>
             </div>
-            <p class="section-desc">How your GEO score has improved over the past 6 months.</p>
+            <p class="section-desc">Visibility change rates for tracked topics this period.</p>
 
             <div class="chart-container">
-                <svg viewBox="0 0 600 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;">
-                    <!-- Grid lines -->
-                    <line x1="50" y1="20" x2="580" y2="20" stroke="#e8e8ed" stroke-width="1"/>
-                    <line x1="50" y1="50" x2="580" y2="50" stroke="#e8e8ed" stroke-width="1"/>
-                    <line x1="50" y1="80" x2="580" y2="80" stroke="#e8e8ed" stroke-width="1"/>
-                    <line x1="50" y1="110" x2="580" y2="110" stroke="#e8e8ed" stroke-width="1"/>
-                    <line x1="50" y1="140" x2="580" y2="140" stroke="#e8e8ed" stroke-width="1"/>
-                    <!-- Y-axis labels -->
-                    <text x="40" y="24" font-family="Inter,sans-serif" font-size="10" fill="#8b8b9a" text-anchor="end">100</text>
-                    <text x="40" y="54" font-family="Inter,sans-serif" font-size="10" fill="#8b8b9a" text-anchor="end">90</text>
-                    <text x="40" y="84" font-family="Inter,sans-serif" font-size="10" fill="#8b8b9a" text-anchor="end">80</text>
-                    <text x="40" y="114" font-family="Inter,sans-serif" font-size="10" fill="#8b8b9a" text-anchor="end">70</text>
-                    <text x="40" y="144" font-family="Inter,sans-serif" font-size="10" fill="#8b8b9a" text-anchor="end">60</text>
-                    <!-- Dynamic chart line and points - data will be injected -->
-                    {{TREND_CHART_SVG}}
-                    <!-- X-axis labels -->
-                    {{TREND_CHART_LABELS}}
-                </svg>
+                {{TREND_CHART_SVG}}
             </div>
 
             <div class="takeaway">
@@ -244,33 +243,32 @@
             </div>
         </div>
 
-        <!-- Section 5: Opportunities -->
+        <!-- Section 5: Recommended Actions - Three Columns -->
         <div class="card">
             <div class="section-header">
                 <div class="section-number">5</div>
                 <div class="section-title">Recommended Actions</div>
             </div>
-            <p class="section-desc">Three things you can do to improve your AI visibility.</p>
+            <p class="section-desc">Actionable opportunities to improve your GEO performance.</p>
 
-            {{OPPORTUNITY_CARDS}}
-        </div>
-
-        <!-- Section 6: Trending Topics -->
-        <div class="card">
-            <div class="section-header">
-                <div class="section-number">6</div>
-                <div class="section-title">Hot Topics in Your Space</div>
-            </div>
-            <p class="section-desc">Topics that are getting the most AI search attention.</p>
-
-            {{TOPIC_ROWS}}
-
-            <div class="takeaway">
-                <div class="takeaway-title">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-                    What This Means
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+                <!-- Content Opportunities -->
+                <div class="opp-section">
+                    <div class="opp-section-title">Content Opportunities</div>
+                    {{CONTENT_OPPORTUNITY_ROWS}}
                 </div>
-                <div class="takeaway-text">{{TOPIC_TAKEAWAY}}</div>
+
+                <!-- Backlink Opportunities -->
+                <div class="opp-section">
+                    <div class="opp-section-title">Backlink Opportunities</div>
+                    {{BACKLINK_OPPORTUNITY_ROWS}}
+                </div>
+
+                <!-- Community Opportunities -->
+                <div class="opp-section">
+                    <div class="opp-section-title">Community Opportunities</div>
+                    {{COMMUNITY_OPPORTUNITY_ROWS}}
+                </div>
             </div>
         </div>
 

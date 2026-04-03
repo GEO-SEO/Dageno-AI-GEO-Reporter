@@ -83,7 +83,10 @@
         .citation-source { font-weight: 500; }
         .citation-count { font-weight: 600; color: var(--primary); }
 
-        /* Opportunities */
+        /* Opportunities - Three Sections */
+        .opp-section { margin-bottom: 20px; }
+        .opp-section:last-child { margin-bottom: 0; }
+        .opp-section-title { font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
         .opportunity-card { background: var(--bg-light); border-radius: 10px; padding: 16px; margin-bottom: 12px; }
         .opportunity-card:last-child { margin-bottom: 0; }
         .opportunity-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
@@ -92,19 +95,30 @@
         .opportunity-title { font-weight: 600; font-size: 14px; }
         .opportunity-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
         .opportunity-tag { display: inline-block; padding: 4px 8px; background: var(--bg-white); border-radius: 4px; font-size: 11px; font-weight: 600; color: var(--primary); margin-top: 8px; }
+        .opportunity-meta { font-size: 11px; color: var(--text-muted); margin-top: 6px; }
 
         /* Topics */
         .topic-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--border); }
         .topic-item:last-child { border-bottom: none; }
-        .topic-name { font-weight: 500; }
-        .topic-volume { font-size: 13px; color: var(--text-muted); }
+        .topic-name { font-weight: 500; font-size: 13px; }
+        .topic-meta { font-size: 12px; color: var(--text-muted); text-align: right; }
+        .topic-meta .change { color: var(--success); font-weight: 600; }
+        .topic-meta .volume { display: block; }
 
         /* Chart */
-        .chart-container { height: 200px; margin: 16px 0; }
+        .chart-container { height: auto; margin: 16px 0; padding: 16px 0; }
 
         /* Footer */
         .footer { text-align: center; padding: 32px 0; color: var(--text-muted); font-size: 12px; }
         .footer a { color: var(--primary); text-decoration: none; }
+
+        /* List styles for backlinks and community */
+        .backlink-item, .community-item { background: var(--bg-light); border-radius: 8px; padding: 12px; margin-bottom: 10px; }
+        .backlink-item:last-child, .community-item:last-child { margin-bottom: 0; }
+        .backlink-domain { font-weight: 600; color: var(--text-primary); font-size: 13px; }
+        .backlink-meta { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
+        .community-url { font-size: 12px; color: var(--text-secondary); word-break: break-all; }
+        .community-prompt { font-size: 12px; color: var(--primary); margin-top: 4px; font-style: italic; }
 
         @media (max-width: 600px) {
             .stats-grid { grid-template-columns: 1fr; }
@@ -116,10 +130,10 @@
     <!-- Header -->
     <header class="header">
         <div class="header-content">
-            <div class="brand-name">Dageno AI</div>
+            <div class="brand-name">Trip</div>
             <div class="report-meta">
                 <div class="report-title">GEO Performance Report</div>
-                <div class="report-date">March 1 - March 31, 2026</div>
+                <div class="report-date">2026-03-01 to 2026-03-31</div>
             </div>
         </div>
     </header>
@@ -128,62 +142,75 @@
         <!-- Executive Summary -->
         <section class="exec-summary">
             <h2>Quick Summary</h2>
-            <p>Your brand's presence in AI search results is growing steadily. ChatGPT mentions increased by 24%, and you're ranking #1 among tracked competitors. The main opportunity: expand into academic publications and developer communities.</p>
+            <p>Trip ranks #3 among 6 travel brands in AI search visibility with a score of 29.5%. Your top citation source is reddit.com with 26,665 citations. "Korea Outbound Travel" shows the strongest growth at +14.8%.</p>
             <div class="exec-stats">
                 <div>
-                    <div class="exec-stat-value">#1</div>
+                    <div class="exec-stat-value">#3</div>
                     <div class="exec-stat-label">Your Ranking</div>
                 </div>
                 <div>
-                    <div class="exec-stat-value">+18%</div>
-                    <div class="exec-stat-label">Score Growth</div>
+                    <div class="exec-stat-value">29.5%</div>
+                    <div class="exec-stat-label">Visibility Score</div>
                 </div>
                 <div>
-                    <div class="exec-stat-value">2,847</div>
-                    <div class="exec-stat-label">AI Mentions</div>
+                    <div class="exec-stat-value">30,793</div>
+                    <div class="exec-stat-label">Total Citations</div>
                 </div>
             </div>
         </section>
 
-        <!-- Section 1: Rankings -->
+        <!-- Section 1: GEO Ranking vs Competitors -->
         <div class="card">
             <div class="section-header">
                 <div class="section-number">1</div>
-                <div class="section-title">Where You Stand vs Competitors</div>
+                <div class="section-title">GEO Ranking vs Competitors</div>
             </div>
-            <p class="section-desc">Your brand ranks #1 among 5 tracked competitors in AI platform visibility.</p>
+            <p class="section-desc">Trip ranks #3 among 6 tracked travel brands. Visibility score: 29.5%.</p>
 
             <ul class="ranking-list">
-                <li class="ranking-item highlight">
-                    <span class="rank-badge you">1</span>
-                    <span class="rank-name you">Dageno AI <span style="font-size:10px;background:var(--primary);color:white;padding:2px 6px;border-radius:3px;font-weight:600;">YOU</span></span>
-                    <span class="rank-score">87.4</span>
-                    <span class="rank-trend">+18.2%</span>
-                </li>
-                <li class="ranking-item">
-                    <span class="rank-badge">2</span>
-                    <span class="rank-name">Competitor A</span>
-                    <span class="rank-score">82.1</span>
-                    <span class="rank-trend">+12.4%</span>
-                </li>
-                <li class="ranking-item">
-                    <span class="rank-badge">3</span>
-                    <span class="rank-name">Competitor B</span>
-                    <span class="rank-score">76.8</span>
-                    <span class="rank-trend">+8.7%</span>
-                </li>
-                <li class="ranking-item">
-                    <span class="rank-badge">4</span>
-                    <span class="rank-name">Competitor C</span>
-                    <span class="rank-score">71.3</span>
-                    <span class="rank-trend">+5.2%</span>
-                </li>
-                <li class="ranking-item">
-                    <span class="rank-badge">5</span>
-                    <span class="rank-name">Competitor D</span>
-                    <span class="rank-score">65.9</span>
-                    <span class="rank-trend">+3.1%</span>
-                </li>
+                
+            <li class="ranking-item">
+                <span class="rank-badge">1</span>
+                <span class="rank-name">Booking</span>
+                <span class="rank-score">39.5%</span>
+                <span class="rank-trend">337.08%</span>
+            </li>
+            
+            <li class="ranking-item">
+                <span class="rank-badge">2</span>
+                <span class="rank-name">Agoda</span>
+                <span class="rank-score">30.7%</span>
+                <span class="rank-trend">78.71%</span>
+            </li>
+            
+            <li class="ranking-item highlight">
+                <span class="rank-badge you">3</span>
+                <span class="rank-name you">Trip <span style="font-size:10px;background:var(--primary);color:white;padding:2px 6px;border-radius:3px;font-weight:600;">YOU</span></span>
+                <span class="rank-score">29.5%</span>
+                <span class="rank-trend">244.51%</span>
+            </li>
+            
+            <li class="ranking-item">
+                <span class="rank-badge">4</span>
+                <span class="rank-name">Expedia</span>
+                <span class="rank-score">27.5%</span>
+                <span class="rank-trend">349.52%</span>
+            </li>
+            
+            <li class="ranking-item">
+                <span class="rank-badge">5</span>
+                <span class="rank-name">Klook</span>
+                <span class="rank-score">14.7%</span>
+                <span class="rank-trend">99.2%</span>
+            </li>
+            
+            <li class="ranking-item">
+                <span class="rank-badge">6</span>
+                <span class="rank-name">Airbnb</span>
+                <span class="rank-score">7.1%</span>
+                <span class="rank-trend">0.62%</span>
+            </li>
+            
             </ul>
 
             <div class="takeaway">
@@ -191,39 +218,45 @@
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
                     What This Means
                 </div>
-                <div class="takeaway-text">You're leading the pack! Your GEO score of 87.4 is 6.4% higher than the next competitor. Keep creating quality content to maintain this advantage.</div>
+                <div class="takeaway-text">Booking.com leads with 39.5% visibility. Trip trails by 10.0%. Focus on content strategy to close the gap.</div>
             </div>
         </div>
 
-        <!-- Section 2: AI Platform Performance -->
+        <!-- Section 2: AI Citations by Domain -->
         <div class="card">
             <div class="section-header">
                 <div class="section-number">2</div>
-                <div class="section-title">AI Platform Visibility</div>
+                <div class="section-title">AI Citations by Domain</div>
             </div>
-            <p class="section-desc">How often your brand appears in different AI search tools.</p>
+            <p class="section-desc">Top domains citing your brand in AI search results.</p>
 
-            <div class="platform-list">
-                <div class="platform-item">
-                    <span class="platform-name">ChatGPT</span>
-                    <div class="platform-bar"><div class="platform-bar-fill" style="width: 92%;"></div></div>
-                    <span class="platform-score">92%</span>
-                </div>
-                <div class="platform-item">
-                    <span class="platform-name">Claude</span>
-                    <div class="platform-bar"><div class="platform-bar-fill" style="width: 85%;"></div></div>
-                    <span class="platform-score">85%</span>
-                </div>
-                <div class="platform-item">
-                    <span class="platform-name">Perplexity</span>
-                    <div class="platform-bar"><div class="platform-bar-fill" style="width: 78%;"></div></div>
-                    <span class="platform-score">78%</span>
-                </div>
-                <div class="platform-item">
-                    <span class="platform-name">Gemini</span>
-                    <div class="platform-bar"><div class="platform-bar-fill" style="width: 64%;"></div></div>
-                    <span class="platform-score">64%</span>
-                </div>
+            <div class="citation-list">
+                
+            <div class="citation-item">
+                <span class="citation-source">reddit.com <span style="font-size:10px;color:var(--text-muted);">(UGC)</span></span>
+                <span class="citation-count">26,665 citations</span>
+            </div>
+        
+            <div class="citation-item">
+                <span class="citation-source">apps.apple.com <span style="font-size:10px;color:var(--text-muted);">(Corporate)</span></span>
+                <span class="citation-count">23,842 citations</span>
+            </div>
+        
+            <div class="citation-item">
+                <span class="citation-source">play.google.com <span style="font-size:10px;color:var(--text-muted);">(Corporate)</span></span>
+                <span class="citation-count">20,376 citations</span>
+            </div>
+        
+            <div class="citation-item">
+                <span class="citation-source">apple.com <span style="font-size:10px;color:var(--text-muted);">(Corporate)</span></span>
+                <span class="citation-count">11,028 citations</span>
+            </div>
+        
+            <div class="citation-item">
+                <span class="citation-source">youtube.com <span style="font-size:10px;color:var(--text-muted);">(Media)</span></span>
+                <span class="citation-count">11,018 citations</span>
+            </div>
+        
             </div>
 
             <div class="takeaway">
@@ -231,33 +264,45 @@
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
                     What This Means
                 </div>
-                <div class="takeaway-text">You're strongest on ChatGPT (1,284 mentions) and growing fast on Perplexity (+31%). Gemini shows room for improvement - consider more Google-focused content strategy.</div>
+                <div class="takeaway-text">reddit.com is your top citation source with 26,665 citations. 30,793 total citations across all tracked domains.</div>
             </div>
         </div>
 
-        <!-- Section 3: Citations -->
+        <!-- Section 3: Trending Topics -->
         <div class="card">
             <div class="section-header">
                 <div class="section-number">3</div>
-                <div class="section-title">Where You're Being Cited</div>
+                <div class="section-title">Trending Topics</div>
             </div>
-            <p class="section-desc">The top websites that reference your brand the most.</p>
+            <p class="section-desc">Hot topics in AI search related to your industry.</p>
 
-            <div class="citation-item">
-                <span class="citation-source">github.com</span>
-                <span class="citation-count">342 citations</span>
+            <div class="topic-list">
+                
+            <div class="topic-item">
+                <span class="topic-name">Japan Outbound Travel</span>
+                <span class="topic-volume">Change: +11.3% | Sentiment: 76.8</span>
             </div>
-            <div class="citation-item">
-                <span class="citation-source">medium.com</span>
-                <span class="citation-count">187 citations</span>
+        
+            <div class="topic-item">
+                <span class="topic-name">Korea Outbound Travel</span>
+                <span class="topic-volume">Change: +14.8% | Sentiment: 76.4</span>
             </div>
-            <div class="citation-item">
-                <span class="citation-source">dev.to</span>
-                <span class="citation-count">124 citations</span>
+        
+            <div class="topic-item">
+                <span class="topic-name">Greater China & Middle East Travel</span>
+                <span class="topic-volume">Change: +9.3% | Sentiment: 75.7</span>
             </div>
-            <div class="citation-item">
-                <span class="citation-source">stackoverflow.com</span>
-                <span class="citation-count">98 citations</span>
+        
+            <div class="topic-item">
+                <span class="topic-name">Southeast Asia Travel Solutions</span>
+                <span class="topic-volume">Change: +10.3% | Sentiment: 75.9</span>
+            </div>
+        
+            <div class="topic-item">
+                <span class="topic-name">Mobile Travel Tools</span>
+                <span class="topic-volume">Change: +0.9% | Sentiment: 72.3</span>
+            </div>
+        
             </div>
 
             <div class="takeaway">
@@ -265,58 +310,40 @@
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
                     What This Means
                 </div>
-                <div class="takeaway-text">Developer communities love you! Focus on technical tutorials and API documentation to maintain this strong position.</div>
+                <div class="takeaway-text">"Japan Outbound Travel" has highest visibility at 50.7%. Consider creating content around high-visibility topics.</div>
             </div>
         </div>
 
-        <!-- Section 4: Trends -->
+        <!-- Section 4: Topic Visibility Changes -->
         <div class="card">
             <div class="section-header">
                 <div class="section-number">4</div>
-                <div class="section-title">Your Growth Trend</div>
+                <div class="section-title">Topic Visibility Changes</div>
             </div>
-            <p class="section-desc">How your GEO score has improved over the past 6 months.</p>
+            <p class="section-desc">Visibility change rates for tracked topics this period.</p>
 
             <div class="chart-container">
-                <svg viewBox="0 0 600 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;">
-                    <!-- Grid lines -->
-                    <line x1="50" y1="20" x2="580" y2="20" stroke="#e8e8ed" stroke-width="1"/>
-                    <line x1="50" y1="50" x2="580" y2="50" stroke="#e8e8ed" stroke-width="1"/>
-                    <line x1="50" y1="80" x2="580" y2="80" stroke="#e8e8ed" stroke-width="1"/>
-                    <line x1="50" y1="110" x2="580" y2="110" stroke="#e8e8ed" stroke-width="1"/>
-                    <line x1="50" y1="140" x2="580" y2="140" stroke="#e8e8ed" stroke-width="1"/>
-                    <!-- Y-axis labels -->
-                    <text x="40" y="24" font-family="Inter,sans-serif" font-size="10" fill="#8b8b9a" text-anchor="end">100</text>
-                    <text x="40" y="54" font-family="Inter,sans-serif" font-size="10" fill="#8b8b9a" text-anchor="end">90</text>
-                    <text x="40" y="84" font-family="Inter,sans-serif" font-size="10" fill="#8b8b9a" text-anchor="end">80</text>
-                    <text x="40" y="114" font-family="Inter,sans-serif" font-size="10" fill="#8b8b9a" text-anchor="end">70</text>
-                    <text x="40" y="144" font-family="Inter,sans-serif" font-size="10" fill="#8b8b9a" text-anchor="end">60</text>
-                    <!-- Area fill -->
-                    <path d="M50,117 L138,97 L226,83 L314,74 L402,64 L490,50 L490,140 L50,140 Z" fill="rgba(255,92,35,0.1)"/>
-                    <!-- Line -->
-                    <path d="M50,117 L138,97 L226,83 L314,74 L402,64 L490,50" fill="none" stroke="#ff5c23" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                    <!-- Points -->
-                    <circle cx="50" cy="117" r="5" fill="#ff5c23" stroke="#fff" stroke-width="2"/>
-                    <circle cx="138" cy="97" r="5" fill="#ff5c23" stroke="#fff" stroke-width="2"/>
-                    <circle cx="226" cy="83" r="5" fill="#ff5c23" stroke="#fff" stroke-width="2"/>
-                    <circle cx="314" cy="74" r="5" fill="#ff5c23" stroke="#fff" stroke-width="2"/>
-                    <circle cx="402" cy="64" r="5" fill="#ff5c23" stroke="#fff" stroke-width="2"/>
-                    <circle cx="490" cy="50" r="5" fill="#ff5c23" stroke="#fff" stroke-width="2"/>
-                    <!-- X-axis labels -->
-                    <text x="50" y="160" font-family="Inter,sans-serif" font-size="11" fill="#5c5c6d" text-anchor="middle">Oct</text>
-                    <text x="138" y="160" font-family="Inter,sans-serif" font-size="11" fill="#5c5c6d" text-anchor="middle">Nov</text>
-                    <text x="226" y="160" font-family="Inter,sans-serif" font-size="11" fill="#5c5c6d" text-anchor="middle">Dec</text>
-                    <text x="314" y="160" font-family="Inter,sans-serif" font-size="11" fill="#5c5c6d" text-anchor="middle">Jan</text>
-                    <text x="402" y="160" font-family="Inter,sans-serif" font-size="11" fill="#5c5c6d" text-anchor="middle">Feb</text>
-                    <text x="490" y="160" font-family="Inter,sans-serif" font-size="11" fill="#5c5c6d" text-anchor="middle">Mar</text>
-                    <!-- Value labels -->
-                    <text x="50" y="108" font-family="Inter,sans-serif" font-size="10" fill="#ff5c23" font-weight="600" text-anchor="middle">58</text>
-                    <text x="138" y="88" font-family="Inter,sans-serif" font-size="10" fill="#ff5c23" font-weight="600" text-anchor="middle">65</text>
-                    <text x="226" y="74" font-family="Inter,sans-serif" font-size="10" fill="#ff5c23" font-weight="600" text-anchor="middle">71</text>
-                    <text x="314" y="65" font-family="Inter,sans-serif" font-size="10" fill="#ff5c23" font-weight="600" text-anchor="middle">76</text>
-                    <text x="402" y="55" font-family="Inter,sans-serif" font-size="10" fill="#ff5c23" font-weight="600" text-anchor="middle">82</text>
-                    <text x="490" y="41" font-family="Inter,sans-serif" font-size="10" fill="#ff5c23" font-weight="600" text-anchor="middle">87.4</text>
-                </svg>
+                
+                <rect x="80" y="68.91891891891892" width="80" height="61.08108108108108" fill="#ff5c23" rx="4"/>
+                <text x="120.0" y="63.91891891891892" font-family="Inter,sans-serif" font-size="10" fill="#ff5c23" font-weight="600" text-anchor="middle">+11.3%</text>
+                <text x="120.0" y="145" font-family="Inter,sans-serif" font-size="9" fill="#5c5c6d" text-anchor="middle" transform="rotate(-35,120.0,145)">Japan Outbound Trave</text>
+            
+                <rect x="180" y="50.0" width="80" height="80.0" fill="#ff5c23" rx="4"/>
+                <text x="220.0" y="45.0" font-family="Inter,sans-serif" font-size="10" fill="#ff5c23" font-weight="600" text-anchor="middle">+14.8%</text>
+                <text x="220.0" y="145" font-family="Inter,sans-serif" font-size="9" fill="#5c5c6d" text-anchor="middle" transform="rotate(-35,220.0,145)">Korea Outbound Trave</text>
+            
+                <rect x="280" y="79.72972972972973" width="80" height="50.270270270270274" fill="#ff5c23" rx="4"/>
+                <text x="320.0" y="74.72972972972973" font-family="Inter,sans-serif" font-size="10" fill="#ff5c23" font-weight="600" text-anchor="middle">+9.3%</text>
+                <text x="320.0" y="145" font-family="Inter,sans-serif" font-size="9" fill="#5c5c6d" text-anchor="middle" transform="rotate(-35,320.0,145)">Greater China & Midd</text>
+            
+                <rect x="380" y="74.32432432432432" width="80" height="55.67567567567568" fill="#ff5c23" rx="4"/>
+                <text x="420.0" y="69.32432432432432" font-family="Inter,sans-serif" font-size="10" fill="#ff5c23" font-weight="600" text-anchor="middle">+10.3%</text>
+                <text x="420.0" y="145" font-family="Inter,sans-serif" font-size="9" fill="#5c5c6d" text-anchor="middle" transform="rotate(-35,420.0,145)">Southeast Asia Trave</text>
+            
+                <rect x="480" y="125.13513513513513" width="80" height="4.864864864864865" fill="#ff5c23" rx="4"/>
+                <text x="520.0" y="120.13513513513513" font-family="Inter,sans-serif" font-size="10" fill="#ff5c23" font-weight="600" text-anchor="middle">+0.9%</text>
+                <text x="520.0" y="145" font-family="Inter,sans-serif" font-size="9" fill="#5c5c6d" text-anchor="middle" transform="rotate(-35,520.0,145)">Mobile Travel Tools</text>
+            
             </div>
 
             <div class="takeaway">
@@ -324,87 +351,108 @@
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
                     What This Means
                 </div>
-                <div class="takeaway-text">Steady upward trend! You've gained 29.4 points in 6 months. At this pace, you'll hit 95+ by summer.</div>
+                <div class="takeaway-text">Topic "Korea Outbound Travel" has the highest growth at +14.8%. Average sentiment score: 75.4/100.</div>
             </div>
         </div>
 
-        <!-- Section 5: Opportunities -->
+        <!-- Section 5: Recommended Actions - Three Columns -->
         <div class="card">
             <div class="section-header">
                 <div class="section-number">5</div>
                 <div class="section-title">Recommended Actions</div>
             </div>
-            <p class="section-desc">Three things you can do to improve your AI visibility.</p>
+            <p class="section-desc">Actionable opportunities to improve your GEO performance.</p>
 
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+                <!-- Content Opportunities -->
+                <div class="opp-section">
+                    <div class="opp-section-title">Content Opportunities</div>
+                    
             <div class="opportunity-card">
                 <div class="opportunity-header">
                     <div class="opportunity-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
                     </div>
-                    <div class="opportunity-title">Expand Technical Documentation</div>
+                    <div class="opportunity-title">Platform Comparison Guide</div>
                 </div>
-                <div class="opportunity-desc">Create detailed API guides and integration tutorials. AI models cite structured documentation frequently.</div>
-                <span class="opportunity-tag">High Priority</span>
+                <div class="opportunity-desc">Prompt: "app booking vs agent booking" - 192 responses found</div>
+                <div class="opportunity-meta">Gap: 1 | Platforms: Chatgpt, Google Overview, Grok, Perplexity, Google Aimode</div>
+                <span class="opportunity-tag">Gap: 1</span>
             </div>
-
+        
             <div class="opportunity-card">
                 <div class="opportunity-header">
                     <div class="opportunity-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
                     </div>
-                    <div class="opportunity-title">Partner with Academic Institutions</div>
+                    <div class="opportunity-title">Top Rated Travel Apps</div>
                 </div>
-                <div class="opportunity-desc">Joint research publications significantly boost authority scores in AI platforms.</div>
-                <span class="opportunity-tag">Medium Priority</span>
+                <div class="opportunity-desc">Prompt: "best app for business travel" - 105 responses found</div>
+                <div class="opportunity-meta">Gap: 1 | Platforms: Grok, Google Aimode, Copilot, Chatgpt, Perplexity</div>
+                <span class="opportunity-tag">Gap: 1</span>
             </div>
-
+        
             <div class="opportunity-card">
                 <div class="opportunity-header">
                     <div class="opportunity-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
                     </div>
-                    <div class="opportunity-title">Engage Developer Communities</div>
+                    <div class="opportunity-title">Travel Planning Guides</div>
                 </div>
-                <div class="opportunity-desc">Increase presence on Reddit and Stack Overflow. Community discussions are heavily referenced by AI.</div>
-                <span class="opportunity-tag">Ongoing</span>
+                <div class="opportunity-desc">Prompt: "how to manage travel plans on mobile" - 65 responses found</div>
+                <div class="opportunity-meta">Gap: 1 | Platforms: Perplexity, Grok, Google Aimode, Google Overview, Chatgpt</div>
+                <span class="opportunity-tag">Gap: 1</span>
             </div>
-        </div>
-
-        <!-- Section 6: Trending Topics -->
-        <div class="card">
-            <div class="section-header">
-                <div class="section-number">6</div>
-                <div class="section-title">Hot Topics in Your Space</div>
-            </div>
-            <p class="section-desc">Topics that are getting the most AI search attention.</p>
-
-            <div class="topic-item">
-                <span class="topic-name">AI API Integration</span>
-                <span class="topic-volume">845 searches</span>
-            </div>
-            <div class="topic-item">
-                <span class="topic-name">Machine Learning Tools</span>
-                <span class="topic-volume">672 searches</span>
-            </div>
-            <div class="topic-item">
-                <span class="topic-name">Developer Productivity</span>
-                <span class="topic-volume">534 searches</span>
-            </div>
-            <div class="topic-item">
-                <span class="topic-name">Cloud Services</span>
-                <span class="topic-volume">423 searches</span>
-            </div>
-            <div class="topic-item">
-                <span class="topic-name">Data Analytics</span>
-                <span class="topic-volume">318 searches</span>
-            </div>
-
-            <div class="takeaway">
-                <div class="takeaway-title">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-                    What This Means
+        
                 </div>
-                <div class="takeaway-text">"AI API Integration" is trending. Create content around this topic to capture more AI-driven traffic.</div>
+
+                <!-- Backlink Opportunities -->
+                <div class="opp-section">
+                    <div class="opp-section-title">Backlink Opportunities</div>
+                    
+            <div class="backlink-item">
+                <div class="backlink-domain">zh.wikipedia.org <span style="font-size:10px;color:var(--text-muted);">(Reference)</span></div>
+                <div class="backlink-meta">Priority: 74.1 | Chats: 69 | Prompts: 30</div>
+                <div style="margin-top:6px;"><a href="https://zh.wikipedia.org/wiki/%E4%B8%AD%E8%8F%AF%E6%B0%91%E5%9C%8B%E2%80%94%E9%A6%AC%E4%BE%86%E8%A5%BF%E4%BA%9E%E9%97%9C%E4%BF%82?utm_source=chatgpt.com" target="_blank" style="color:var(--primary);font-size:11px;">zh.wikipedia.org</a><br><a href="https://zh.wikipedia.org/wiki/TUGUGU?utm_source=chatgpt.com" target="_blank" style="color:var(--primary);font-size:11px;">zh.wikipedia.org</a></div>
+            </div>
+        
+            <div class="backlink-item">
+                <div class="backlink-domain">za.pinterest.com <span style="font-size:10px;color:var(--text-muted);">(Corporate)</span></div>
+                <div class="backlink-meta">Priority: 74.1 | Chats: 2 | Prompts: 1</div>
+                <div style="margin-top:6px;"><a href="https://za.pinterest.com/mixamitri/southeast-asia-and-hk/?utm_source=chatgpt.com" target="_blank" style="color:var(--primary);font-size:11px;">za.pinterest.com</a></div>
+            </div>
+        
+            <div class="backlink-item">
+                <div class="backlink-domain">yelp.com <span style="font-size:10px;color:var(--text-muted);">(Institutional)</span></div>
+                <div class="backlink-meta">Priority: 74.1 | Chats: 40 | Prompts: 15</div>
+                <div style="margin-top:6px;"><a href="https://www.yelp.com/biz/trip-support-markham-2" target="_blank" style="color:var(--primary);font-size:11px;">yelp.com</a><br><a href="https://www.yelp.com/biz/thai-airways-los-angeles" target="_blank" style="color:var(--primary);font-size:11px;">yelp.com</a></div>
+            </div>
+        
+                </div>
+
+                <!-- Community Opportunities -->
+                <div class="opp-section">
+                    <div class="opp-section-title">Community Opportunities</div>
+                    
+            <div class="community-item">
+                <div class="community-prompt">Prompt: "travel app advantages over websites"</div>
+                <div class="community-url"><a href="https://www.reddit.com/r/u_saitechnologies/comments/16e4cyi" target="_blank" style="color:var(--primary);font-size:11px;">Which is Right for Your Business? : u/saitechnolog...</a></div>
+                <div class="opportunity-meta">Citations: 1 | Platforms: Chatgpt<br>Competitors: Expedia, Airbnb, Booking</div>
+            </div>
+        
+            <div class="community-item">
+                <div class="community-prompt">Prompt: "booking hotels on app vs desktop"</div>
+                <div class="community-url"><a href="https://www.reddit.com/r/askhotels/comments/14e09u0/how_are_third_party_websites_so_much_cheaper_than/" target="_blank" style="color:var(--primary);font-size:11px;">How are third party websites so much cheaper than ...</a></div>
+                <div class="opportunity-meta">Citations: 3 | Platforms: Grok<br>Competitors: Expedia, Agoda, Booking</div>
+            </div>
+        
+            <div class="community-item">
+                <div class="community-prompt">Prompt: "best app for travel planning and deals"</div>
+                <div class="community-url"><a href="https://www.reddit.com/r/u_expedia/comments/1qcyes2/2026_travel_hacks_how_to_score_deals_before/?utm_source=chatgpt.com" target="_blank" style="color:var(--primary);font-size:11px;">2026 Travel Hacks: How to Score Deals Before Price...</a></div>
+                <div class="opportunity-meta">Citations: 1 | Platforms: Chatgpt<br>Competitors: Booking, Airbnb, Expedia</div>
+            </div>
+        
+                </div>
             </div>
         </div>
 

@@ -5,10 +5,16 @@ Generate HTML Report from DagenoAI API data - REAL DATA ONLY
 import json
 import os
 
-def generate_html_report_from_json(data_file, start_date, end_date):
-    """Generate HTML report from JSON data file - REAL DATA ONLY"""
+def generate_html_report_from_json(data_file, extra_data_file, start_date, end_date):
+    """Generate HTML report from JSON data files - REAL DATA ONLY"""
     with open(data_file, 'r', encoding='utf-8') as f:
         data = json.load(f)
+
+    # Load extra data (backlink and community opportunities)
+    extra_data = {}
+    if os.path.exists(extra_data_file):
+        with open(extra_data_file, 'r', encoding='utf-8') as f:
+            extra_data = json.load(f)
 
     # Extract real data
     brand_data = data.get('brand', {}).get('data', {})
@@ -85,32 +91,72 @@ def generate_html_report_from_json(data_file, start_date, end_date):
 
     # Real content opportunities
     opportunities = content_opp_data.get('items', [])
-    opp_cards = []
+    content_opp_rows = ''
     for o in opportunities[:3]:
         prompt = o.get('prompt', '')
         topic = o.get('topic', 'Content Opportunity')
         platforms = o.get('platforms', [])
-        top_competitors = o.get('topCompetitors', [])
         brand_gap = o.get('brandGap', 0)
         total_responses = o.get('totalResponseCount', 0)
 
-        # Get competitor info
-        comp_info = []
-        for comp in top_competitors[:3]:
-            comp_info.append({
-                'brand': comp.get('brand', 'Unknown'),
-                'rank': round(comp.get('avgRankPosition', 0), 1),
-                'mentions': comp.get('brandMentionCount', 0)
-            })
+        platforms_str = ', '.join([p.replace('_', ' ').title() for p in platforms[:5]])
 
-        opp_cards.append({
-            'topic': topic,
-            'prompt': prompt,
-            'platforms': ', '.join([p.replace('_', ' ').title() for p in platforms[:5]]),
-            'gap': brand_gap,
-            'responses': total_responses,
-            'competitors': comp_info
-        })
+        content_opp_rows += f'''
+            <div class="opportunity-card">
+                <div class="opportunity-header">
+                    <div class="opportunity-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    </div>
+                    <div class="opportunity-title">{topic}</div>
+                </div>
+                <div class="opportunity-desc">Prompt: "{prompt}" - {total_responses} responses found</div>
+                <div class="opportunity-meta">Gap: {brand_gap} | Platforms: {platforms_str}</div>
+                <span class="opportunity-tag">Gap: {brand_gap}</span>
+            </div>
+        '''
+
+    # Backlink opportunities from extra data
+    backlink_data = extra_data.get('backlink', {}).get('data', {}).get('items', [])
+    backlink_opp_rows = ''
+    for bl in backlink_data[:3]:
+        domain = bl.get('domain', 'Unknown')
+        urls = bl.get('urls', [])
+        priority = bl.get('priority', 0)
+        chat_count = bl.get('chatCount', 0)
+        prompt_count = bl.get('promptCount', 0)
+        domain_type = bl.get('domainType', 'Unknown')
+
+        url_list = '<br>'.join([f'<a href="{url}" target="_blank" style="color:var(--primary);font-size:11px;">{domain}</a>' for url in urls[:2]])
+
+        backlink_opp_rows += f'''
+            <div class="backlink-item">
+                <div class="backlink-domain">{domain} <span style="font-size:10px;color:var(--text-muted);">({domain_type})</span></div>
+                <div class="backlink-meta">Priority: {priority:.1f} | Chats: {chat_count} | Prompts: {prompt_count}</div>
+                <div style="margin-top:6px;">{url_list}</div>
+            </div>
+        '''
+
+    # Community opportunities from extra data
+    community_data = extra_data.get('community', {}).get('data', {}).get('items', [])
+    community_opp_rows = ''
+    for cm in community_data[:3]:
+        url = cm.get('url', 'Unknown')
+        prompt = cm.get('prompt', 'Unknown')
+        title = cm.get('title', 'Community Post')
+        citations = cm.get('citations', 0)
+        platforms = cm.get('platforms', [])
+        competitors = cm.get('competitors', [])
+
+        platforms_str = ', '.join([p.replace('_', ' ').title() for p in platforms[:3]])
+        competitors_str = ', '.join([c.get('brand', 'Unknown') for c in competitors[:3]])
+
+        community_opp_rows += f'''
+            <div class="community-item">
+                <div class="community-prompt">Prompt: "{prompt}"</div>
+                <div class="community-url"><a href="{url}" target="_blank" style="color:var(--primary);font-size:11px;">{title[:50]}...</a></div>
+                <div class="opportunity-meta">Citations: {citations} | Platforms: {platforms_str}<br>Competitors: {competitors_str}</div>
+            </div>
+        '''
 
     # Read template
     template_path = os.path.join(os.path.dirname(__file__), '..', 'templates', 'geo_report_template.html')
@@ -140,6 +186,7 @@ def generate_html_report_from_json(data_file, start_date, end_date):
         '{{REPORT_PERIOD}}': f"{start_date} to {end_date}",
         '{{EXECUTIVE_SUMMARY}}': exec_summary,
         '{{USER_RANKING}}': f"#{user_ranking}",
+        '{{USER_SCORE}}': f"{user_score:.1f}%",
         '{{SCORE_CHANGE}}': f"{user_score:.1f}%",
         '{{TOTAL_MENTIONS}}': f"{total_citations_meta:,}",
         '{{RANKING_DESC}}': f"{brand_name} ranks #{user_ranking} among {len(ranking_rows)} tracked travel brands. Visibility score: {user_score:.1f}%.",
@@ -255,25 +302,10 @@ def generate_html_report_from_json(data_file, start_date, end_date):
     else:
         replacements['{{TREND_TAKEAWAY}}'] = f"Visibility score: {user_score:.1f}%. No historical comparison data available for this period."
 
-    # Opportunity cards with REAL data
-    opp_html = ''
-    for o in opp_cards:
-        platforms_list = o['platforms'] if len(o['platforms']) <= 30 else o['platforms'][:30] + '...'
-
-        opp_html += f'''
-            <div class="opportunity-card">
-                <div class="opportunity-header">
-                    <div class="opportunity-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                    </div>
-                    <div class="opportunity-title">{o['topic']}</div>
-                </div>
-                <div class="opportunity-desc">Prompt: "{o['prompt']}" - {o['responses']} AI responses found. Gap score: {o['gap']}</div>
-                <div style="font-size:11px;color:var(--text-muted);margin-top:6px;">Platforms: {platforms_list}</div>
-                <span class="opportunity-tag">Gap: {o['gap']}</span>
-            </div>
-        '''
-    replacements['{{OPPORTUNITY_CARDS}}'] = opp_html
+    # Replace opportunity sections with REAL data
+    replacements['{{CONTENT_OPPORTUNITY_ROWS}}'] = content_opp_rows if content_opp_rows else '<div style="color:var(--text-muted);">No content opportunities found</div>'
+    replacements['{{BACKLINK_OPPORTUNITY_ROWS}}'] = backlink_opp_rows if backlink_opp_rows else '<div style="color:var(--text-muted);">No backlink opportunities found</div>'
+    replacements['{{COMMUNITY_OPPORTUNITY_ROWS}}'] = community_opp_rows if community_opp_rows else '<div style="color:var(--text-muted);">No community opportunities found</div>'
 
     # Topic rows with REAL data
     topic_html = ''
@@ -301,13 +333,14 @@ def generate_html_report_from_json(data_file, start_date, end_date):
 
 def main():
     data_file = os.path.join(os.path.dirname(__file__), '..', 'templates', 'api_response.json')
+    extra_data_file = os.path.join(os.path.dirname(__file__), '..', 'templates', 'api_extra_data.json')
     start_date = "2026-03-01"
     end_date = "2026-03-31"
 
     print(f"Generating HTML report with REAL data only for {start_date} to {end_date}...")
 
     # Generate HTML
-    html = generate_html_report_from_json(data_file, start_date, end_date)
+    html = generate_html_report_from_json(data_file, extra_data_file, start_date, end_date)
 
     # Save to file
     output_path = os.path.join(os.path.dirname(__file__), '..', 'templates', 'geo_report_live.html')

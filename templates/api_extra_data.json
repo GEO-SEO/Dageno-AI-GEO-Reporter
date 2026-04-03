@@ -1,0 +1,286 @@
+{
+  "backlink": {
+    "success": true,
+    "code": 0,
+    "message": "OK",
+    "data": {
+      "items": [
+        {
+          "domain": "zh.wikipedia.org",
+          "domainType": "Reference",
+          "urls": [
+            "https://zh.wikipedia.org/wiki/%E4%B8%AD%E8%8F%AF%E6%B0%91%E5%9C%8B%E2%80%94%E9%A6%AC%E4%BE%86%E8%A5%BF%E4%BA%9E%E9%97%9C%E4%BF%82?utm_source=chatgpt.com",
+            "https://zh.wikipedia.org/wiki/TUGUGU?utm_source=chatgpt.com",
+            "https://zh.wikipedia.org/wiki/TUGUGU",
+            "https://zh.wikipedia.org/wiki/Skyscanner?utm_source=chatgpt.com",
+            "https://zh.wikipedia.org/wiki/%E4%B8%AD%E8%8F%AF%E6%B0%91%E5%9C%8B%E2%80%94%E9%9F%93%E5%9C%8B%E9%97%9C%E4%BF%82?utm_source=chatgpt.com",
+            "https://zh.wikipedia.org/wiki/LINE%E6%97%85%E9%81%8A?utm_source=chatgpt.com",
+            "https://zh.wikipedia.org/wiki/KKday?utm_source=chatgpt.com"
+          ],
+          "platforms": [
+            "chatgpt"
+          ],
+          "promptCount": 30,
+          "chatCount": 69,
+          "priority": 74.1,
+          "as": 100
+        },
+        {
+          "domain": "za.pinterest.com",
+          "domainType": "Corporate",
+          "urls": [
+            "https://za.pinterest.com/mixamitri/southeast-asia-and-hk/?utm_source=chatgpt.com"
+          ],
+          "platforms": [
+            "chatgpt"
+          ],
+          "promptCount": 1,
+          "chatCount": 2,
+          "priority": 74.1,
+          "as": 100
+        },
+        {
+          "domain": "yelp.com",
+          "domainType": "Institutional",
+          "urls": [
+            "https://www.yelp.com/biz/trip-support-markham-2",
+            "https://www.yelp.com/biz/thai-airways-los-angeles",
+            "https://www.yelp.com/biz/china-travel-service-intl-usa-san-gabriel-2",
+            "https://www.yelp.com/biz/bangkok-airways-singapore-2",
+            "https://www.yelp.com/biz/kayak-new-york",
+            "https://www.yelp.com/search?cflt=transport&find_loc=Wichita%2C+KS",
+            "https://www.yelp.com/biz/hotel-tonight-san-francisco-8",
+            "https://www.yelp.com/biz/japan-airlines-los-angeles-2"
+          ],
+          "platforms": [
+            "grok",
+            "perplexity"
+          ],
+          "promptCount": 15,
+          "chatCount": 40,
+          "priority": 74.1,
+          "as": 100
+        },
+        {
+          "domain": "workspace.google.com",
+          "domainType": "Corporate",
+          "urls": [
+            "https://workspace.google.com/marketplace/app/travel_mapper/412821700766",
+            "https://workspace.google.com/marketplace/app/travel_mapper/412821700766#:~:text=%F0%9F%93%8C%20Location%20Automation%20Automatically%20plot,dragging%20and%20dropping%20your%20activities.",
+            "https://workspace.google.com/intl/th/products/calendar/"
+          ],
+          "platforms": [
+            "google_gemini",
+            "grok",
+            "perplexity"
+          ],
+          "promptCount": 8,
+          "chatCount": 11,
+          "priority": 74.1,
+          "as": 100
+        },
+        {
+          "domain": "walmart.com",
+          "domainType": "Marketplaces",
+          "urls": [
+            "https://www.walmart.com/ip/19109121983?utm_source=chatgpt.com"
+          ],
+          "platforms": [
+            "chatgpt"
+          ],
+          "promptCount": 1,
+          "chatCount": 1,
+          "priority": 74.1,
+          "as": 100
+        }
+      ]
+    },
+    "meta": {
+      "pagination": {
+        "page": 1,
+        "pageSize": 5,
+        "total": 25313,
+        "totalPages": 5063
+      }
+    }
+  },
+  "community": {
+    "success": true,
+    "code": 0,
+    "message": "OK",
+    "data": {
+      "items": [
+        {
+          "id": "ffec7affd53baddf1e0fc2694a4ddb84db971d97_d5b59d36-3618-42cd-8157-e9b6dcefcec8",
+          "urlHash": "ffec7affd53baddf1e0fc2694a4ddb84db971d97",
+          "url": "https://www.reddit.com/r/u_saitechnologies/comments/16e4cyi",
+          "promptId": "d5b59d36-3618-42cd-8157-e9b6dcefcec8",
+          "prompt": "travel app advantages over websites",
+          "title": "Which is Right for Your Business? : u/saitechnologies",
+          "domain": "reddit.com",
+          "domainType": "UGC",
+          "citations": 1,
+          "avgRankPosition": 0,
+          "competitors": [
+            {
+              "domain": "expedia.com",
+              "brand": "Expedia"
+            },
+            {
+              "domain": "airbnb.com",
+              "brand": "Airbnb"
+            },
+            {
+              "domain": "booking.com",
+              "brand": "Booking"
+            }
+          ],
+          "platforms": [
+            "chatgpt"
+          ],
+          "priority": 1
+        },
+        {
+          "id": "ffec5ee065fd6d4b5170ad1608ee29df567f5333_db23143b-5c93-4336-82be-c3a4bc4719a6",
+          "urlHash": "ffec5ee065fd6d4b5170ad1608ee29df567f5333",
+          "url": "https://www.reddit.com/r/askhotels/comments/14e09u0/how_are_third_party_websites_so_much_cheaper_than/",
+          "promptId": "db23143b-5c93-4336-82be-c3a4bc4719a6",
+          "prompt": "booking hotels on app vs desktop",
+          "title": "How are third party websites so much cheaper than just booking ...",
+          "domain": "reddit.com",
+          "domainType": "UGC",
+          "citations": 3,
+          "avgRankPosition": 0,
+          "competitors": [
+            {
+              "domain": "expedia.com",
+              "brand": "Expedia"
+            },
+            {
+              "domain": "agoda.com",
+              "brand": "Agoda"
+            },
+            {
+              "domain": "booking.com",
+              "brand": "Booking"
+            }
+          ],
+          "platforms": [
+            "grok"
+          ],
+          "priority": 1
+        },
+        {
+          "id": "ffebca4226e072d2125f691ad6d567a5c51e66b4_c716cb6d-5e45-4d2b-a6fe-65b638b593dd",
+          "urlHash": "ffebca4226e072d2125f691ad6d567a5c51e66b4",
+          "url": "https://www.reddit.com/r/u_expedia/comments/1qcyes2/2026_travel_hacks_how_to_score_deals_before/?utm_source=chatgpt.com",
+          "promptId": "c716cb6d-5e45-4d2b-a6fe-65b638b593dd",
+          "prompt": "best app for travel planning and deals",
+          "title": "2026 Travel Hacks: How to Score Deals Before Prices Spike",
+          "domain": "reddit.com",
+          "domainType": "UGC",
+          "citations": 1,
+          "avgRankPosition": 0,
+          "competitors": [
+            {
+              "domain": "booking.com",
+              "brand": "Booking"
+            },
+            {
+              "domain": "airbnb.com",
+              "brand": "Airbnb"
+            },
+            {
+              "domain": "expedia.com",
+              "brand": "Expedia"
+            },
+            {
+              "domain": "klook.com",
+              "brand": "Klook"
+            },
+            {
+              "domain": "agoda.com",
+              "brand": "Agoda"
+            }
+          ],
+          "platforms": [
+            "chatgpt"
+          ],
+          "priority": 1
+        },
+        {
+          "id": "ffebca4226e072d2125f691ad6d567a5c51e66b4_76efdbb7-78e0-4102-a72c-51b8e45a574f",
+          "urlHash": "ffebca4226e072d2125f691ad6d567a5c51e66b4",
+          "url": "https://www.reddit.com/r/u_expedia/comments/1qcyes2/2026_travel_hacks_how_to_score_deals_before/?utm_source=chatgpt.com",
+          "promptId": "76efdbb7-78e0-4102-a72c-51b8e45a574f",
+          "prompt": "best app for travel savings",
+          "title": "2026 Travel Hacks: How to Score Deals Before Prices Spike",
+          "domain": "reddit.com",
+          "domainType": "UGC",
+          "citations": 1,
+          "avgRankPosition": 0,
+          "competitors": [
+            {
+              "domain": "airbnb.com",
+              "brand": "Airbnb"
+            },
+            {
+              "domain": "agoda.com",
+              "brand": "Agoda"
+            },
+            {
+              "domain": "booking.com",
+              "brand": "Booking"
+            },
+            {
+              "domain": "expedia.com",
+              "brand": "Expedia"
+            },
+            {
+              "domain": "klook.com",
+              "brand": "Klook"
+            }
+          ],
+          "platforms": [
+            "chatgpt"
+          ],
+          "priority": 1
+        },
+        {
+          "id": "ffebca4226e072d2125f691ad6d567a5c51e66b4_3fe6144c-0949-4ffa-9be9-ad2e0f10a73b",
+          "urlHash": "ffebca4226e072d2125f691ad6d567a5c51e66b4",
+          "url": "https://www.reddit.com/r/u_expedia/comments/1qcyes2/2026_travel_hacks_how_to_score_deals_before/?utm_source=chatgpt.com",
+          "promptId": "3fe6144c-0949-4ffa-9be9-ad2e0f10a73b",
+          "prompt": "how to book vacation packages",
+          "title": "2026 Travel Hacks: How to Score Deals Before Prices Spike",
+          "domain": "reddit.com",
+          "domainType": "UGC",
+          "citations": 1,
+          "avgRankPosition": 0,
+          "competitors": [
+            {
+              "domain": "booking.com",
+              "brand": "Booking"
+            },
+            {
+              "domain": "expedia.com",
+              "brand": "Expedia"
+            }
+          ],
+          "platforms": [
+            "chatgpt"
+          ],
+          "priority": 1
+        }
+      ]
+    },
+    "meta": {
+      "pagination": {
+        "page": 1,
+        "pageSize": 5,
+        "total": 46862,
+        "totalPages": 9373
+      }
+    }
+  }
+}
