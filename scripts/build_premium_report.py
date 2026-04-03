@@ -283,6 +283,67 @@ def format_intentions(raw: Any) -> str:
     return str(raw)
 
 
+def build_trend_svg(labels_fmt: List[str], datasets: List[Dict[str, Any]]) -> str:
+    if not labels_fmt or not datasets:
+        return "<div style='padding:40px;color:#64748b;font-size:13px;'>Trend chart unavailable.</div>"
+    width, height = 1100, 340
+    left, right, top, bottom = 60, 20, 20, 48
+    plot_w = width - left - right
+    plot_h = height - top - bottom
+
+    values: List[float] = []
+    for ds in datasets:
+        for v in ds.get("data", []):
+            if isinstance(v, (int, float)):
+                values.append(float(v))
+    if not values:
+        return "<div style='padding:40px;color:#64748b;font-size:13px;'>Trend chart unavailable.</div>"
+    min_v, max_v = min(values), max(values)
+    if max_v <= min_v:
+        max_v = min_v + 1.0
+
+    def x_of(i: int) -> float:
+        if len(labels_fmt) <= 1:
+            return left
+        return left + (plot_w * i / (len(labels_fmt) - 1))
+
+    def y_of(v: float) -> float:
+        return top + (max_v - v) / (max_v - min_v) * plot_h
+
+    grid = []
+    for t in range(5):
+        y = top + t * (plot_h / 4)
+        grid.append(f"<line x1='{left}' y1='{y:.1f}' x2='{width-right}' y2='{y:.1f}' stroke='#e5e7eb' stroke-width='1' />")
+
+    x_labels = []
+    for i, lbl in enumerate(labels_fmt):
+        x = x_of(i)
+        x_labels.append(f"<text x='{x:.1f}' y='{height-16}' text-anchor='middle' font-size='11' fill='#64748b'>{html.escape(lbl)}</text>")
+
+    y_labels = []
+    for t in range(5):
+        v = min_v + (4 - t) * ((max_v - min_v) / 4)
+        y = top + t * (plot_h / 4) + 4
+        y_labels.append(f"<text x='{left-8}' y='{y:.1f}' text-anchor='end' font-size='11' fill='#64748b'>{v:.1f}%</text>")
+
+    lines = []
+    for ds in datasets[:8]:
+        color = (ds.get("itemStyle") or {}).get("color", "#2563eb")
+        points = []
+        for i, v in enumerate(ds.get("data", [])):
+            if isinstance(v, (int, float)):
+                points.append(f"{x_of(i):.1f},{y_of(float(v)):.1f}")
+        if len(points) >= 2:
+            lines.append(
+                f"<polyline points='{' '.join(points)}' fill='none' stroke='{color}' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round' />"
+            )
+
+    return (
+        f"<svg viewBox='0 0 {width} {height}' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'>"
+        f"{''.join(grid)}{''.join(lines)}{''.join(x_labels)}{''.join(y_labels)}</svg>"
+    )
+
+
 def build_section_analysis(title: str, lines: List[str]) -> str:
     body = "".join(f"<li>{html.escape(line)}</li>" for line in lines if line)
     if not body:
@@ -355,6 +416,7 @@ def build_report_html(payload: Dict[str, Any]) -> str:
                 "data": [map_by_date.get(d) for d in labels],
             }
         )
+    trend_svg_fallback = build_trend_svg(labels_fmt, datasets)
 
     my_trend_30 = [safe_num(r.get("visibility"), 0) * 100 for r in trend_30_rows if str(r.get("name") or "").lower() == brand_name.lower()]
     growth_30 = growth_from_series(my_trend_30)
@@ -612,7 +674,8 @@ def build_report_html(payload: Dict[str, Any]) -> str:
     .chip.info {{ background:rgba(59,130,246,.12); color:#1d4ed8; }}
     .exec-list {{ margin:6px 0 0; padding-left:18px; }}
     .exec-list li {{ margin:5px 0; font-size:13px; color:#334155; }}
-    .chart {{ width:100%; height:360px; border-radius:12px; background:#fff; border:1px solid #f1e7dd; }}
+    .chart {{ width:100%; height:360px; border-radius:12px; background:#fff; border:1px solid #f1e7dd; position:relative; overflow:hidden; }}
+    .chart-fallback {{ position:absolute; inset:0; }}
     table {{ width:100%; border-collapse:collapse; background:#fff; border-radius:12px; overflow:hidden; border:1px solid #f1e7dd; }}
     th,td {{ padding:10px 12px; border-bottom:1px solid #f4ede6; font-size:13px; text-align:left; }}
     th {{ background:#fff7f1; font-size:11px; text-transform:uppercase; letter-spacing:.05em; color:#6d7788; }}
@@ -681,7 +744,7 @@ def build_report_html(payload: Dict[str, Any]) -> str:
     <section class=\"section\">
       <div class=\"section-title\"><h3>Visibility Trend</h3><span class=\"subtle\">7-day trend by competitor</span></div>
       <p class=\"section-summary\">{html.escape(visibility_summary)}</p>
-      <div id=\"trendChart\" class=\"chart\"></div>
+      <div id=\"trendChart\" class=\"chart\"><div id=\"trendFallback\" class=\"chart-fallback\">{trend_svg_fallback}</div></div>
       {vis_analysis_html}
     </section>
 
@@ -733,9 +796,18 @@ def build_report_html(payload: Dict[str, Any]) -> str:
       yAxis: {{ type: 'value', axisLabel: {{ formatter: '{{value}}%' }} }},
       series: {json.dumps(datasets, ensure_ascii=False)}
     }};
-    const trendChart = echarts.init(document.getElementById('trendChart'));
-    trendChart.setOption(trendOption);
-    window.addEventListener('resize', () => trendChart.resize());
+    const trendContainer = document.getElementById('trendChart');
+    const fallbackNode = document.getElementById('trendFallback');
+    if (window.echarts && trendContainer) {{
+      try {{
+        const trendChart = echarts.init(trendContainer);
+        trendChart.setOption(trendOption);
+        if (fallbackNode) fallbackNode.style.display = 'none';
+        window.addEventListener('resize', () => trendChart.resize());
+      }} catch (e) {{
+        if (fallbackNode) fallbackNode.style.display = 'block';
+      }}
+    }}
   </script>
 </body>
 </html>
