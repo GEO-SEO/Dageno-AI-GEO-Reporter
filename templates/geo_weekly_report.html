@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip - GEO 周报/月报</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #ff5c23;
+            --primary-light: rgba(255, 92, 35, 0.1);
+            --primary-dark: #e04d1a;
+            --text-primary: #1a1a2e;
+            --text-secondary: #5c5c6d;
+            --text-muted: #8b8b9a;
+            --border: #e8e8ed;
+            --bg-white: #ffffff;
+            --bg-light: #f8f9fa;
+            --bg-success: rgba(16, 185, 129, 0.1);
+            --success: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --info: #3b82f6;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-light);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Professional Header */
+        .header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
+            color: white;
+            padding: 0;
+        }
+        .header-main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .brand-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .brand-logo {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            object-fit: contain;
+            background: white;
+            padding: 8px;
+        }
+        .brand-info h1 {
+            font-size: 28px;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 4px;
+        }
+        .brand-tagline {
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
+        }
+        .report-meta {
+            text-align: right;
+        }
+        .report-type {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .report-period {
+            font-size: 18px;
+            font-weight: 600;
+            color: white;
+        }
+        .report-date {
+            font-size: 13px;
+            color: rgba(255,255,255,0.6);
+            margin-top: 4px;
+        }
+
+        /* Brand Context Strip */
+        .brand-context {
+            background: rgba(255,255,255,0.05);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 20px 32px;
+        }
+        .brand-context-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .context-item {
+            flex: 1;
+            min-width: 200px;
+        }
+        .context-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 6px;
+        }
+        .context-value {
+            font-size: 14px;
+            color: white;
+            font-weight: 500;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 32px;
+        }
+
+        /* Hero Summary Section */
+        .hero-section {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .hero-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+        .hero-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .hero-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 24px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .hero-badge.up {
+            background: var(--bg-success);
+            color: var(--success);
+        }
+        .hero-badge.down {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--danger);
+        }
+        .hero-badge svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Key Metrics Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+        .metric-card {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--primary);
+        }
+        .metric-card.success::before { background: var(--success); }
+        .metric-card.warning::before { background: var(--warning); }
+        .metric-card.info::before { background: var(--info); }
+        .metric-value {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+        .metric-label {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+        .metric-change {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+        .metric-change.up {
+            background: var(--bg-success);
+            color: var(--success);
+        }
+        .metric-change.down {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--danger);
+        }
+
+        /* AI Summary Card */
+        .ai-summary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 12px;
+            padding: 24px;
+            color: white;
+        }
+        .ai-summary-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .ai-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .ai-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: white;
+        }
+        .ai-summary-title {
+            font-size: 18px;
+            font-weight: 700;
+        }
+        .ai-summary-items {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        .ai-item {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 16px;
+        }
+        .ai-item-label {
+            font-size: 12px;
+            opacity: 0.8;
+            margin-bottom: 6px;
+        }
+        .ai-item-value {
+            font-size: 18px;
+            font-weight: 700;
+        }
+        .ai-item-detail {
+            font-size: 12px;
+            opacity: 0.7;
+            margin-top: 4px;
+        }
+
+        /* Section Cards */
+        .section-card {
+            background: white;
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .section-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--primary-light);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .section-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--primary);
+        }
+
+        /* Sentiment Section */
+        .sentiment-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+        .sentiment-card {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        .sentiment-score {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        .sentiment-score.positive { color: var(--success); }
+        .sentiment-score.neutral { color: var(--warning); }
+        .sentiment-score.negative { color: var(--danger); }
+        .sentiment-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        .sentiment-bar {
+            height: 8px;
+            background: var(--border);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 12px;
+        }
+        .sentiment-bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+        .sentiment-legend {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 16px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        .legend-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        .legend-dot.positive { background: var(--success); }
+        .legend-dot.neutral { background: var(--warning); }
+        .legend-dot.negative { background: var(--danger); }
+
+        /* Trend Chart */
+        .trend-chart-container {
+            height: 300px;
+            margin: 20px 0;
+        }
+
+        /* Rankings */
+        .ranking-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .ranking-table th,
+        .ranking-table td {
+            padding: 14px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        .ranking-table th {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background: var(--bg-light);
+        }
+        .ranking-table tr:hover {
+            background: var(--bg-light);
+        }
+        .rank-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+        }
+        .rank-badge.top1 {
+            background: linear-gradient(135deg, #ffd700, #ffb700);
+            color: #7c5800;
+        }
+        .rank-badge.top2 {
+            background: linear-gradient(135deg, #c0c0c0, #a0a0a0);
+            color: #505050;
+        }
+        .rank-badge.top3 {
+            background: linear-gradient(135deg, #cd7f32, #a0522d);
+            color: white;
+        }
+        .rank-badge.normal {
+            background: var(--bg-light);
+            color: var(--text-muted);
+        }
+        .brand-cell {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .brand-cell-img {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: var(--bg-light);
+        }
+        .brand-cell-name {
+            font-weight: 600;
+        }
+        .brand-cell-name.you {
+            color: var(--primary);
+        }
+        .score-cell {
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .change-cell {
+            font-weight: 600;
+        }
+        .change-cell.up { color: var(--success); }
+        .change-cell.down { color: var(--danger); }
+
+        /* Topics */
+        .topic-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .topic-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px;
+            background: var(--bg-light);
+            border-radius: 10px;
+            transition: transform 0.2s ease;
+        }
+        .topic-item:hover {
+            transform: translateX(4px);
+        }
+        .topic-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .topic-rank {
+            width: 32px;
+            height: 32px;
+            background: var(--primary-light);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .topic-name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .topic-meta {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+        .topic-right {
+            text-align: right;
+        }
+        .topic-visibility {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .topic-change {
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 2px;
+        }
+        .topic-change.up { color: var(--success); }
+        .topic-change.down { color: var(--danger); }
+
+        /* Citation Sources */
+        .citation-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        .citation-card {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .citation-domain {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .citation-type {
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background: var(--primary-light);
+            color: var(--primary);
+            font-weight: 600;
+        }
+        .citation-stats {
+            display: flex;
+            gap: 20px;
+        }
+        .citation-stat {
+            flex: 1;
+        }
+        .citation-stat-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .citation-stat-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        /* Opportunities */
+        .opp-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        .opp-tab {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            background: var(--bg-light);
+            color: var(--text-secondary);
+            border: none;
+            transition: all 0.2s ease;
+        }
+        .opp-tab.active {
+            background: var(--primary);
+            color: white;
+        }
+        .opp-content {
+            display: none;
+        }
+        .opp-content.active {
+            display: block;
+        }
+        .opp-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .opp-card {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid var(--primary);
+        }
+        .opp-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+        .opp-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .opp-priority {
+            font-size: 11px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        .opp-priority.high {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--danger);
+        }
+        .opp-priority.medium {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--warning);
+        }
+        .opp-priority.low {
+            background: var(--bg-success);
+            color: var(--success);
+        }
+        .opp-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+        .opp-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .opp-tag {
+            font-size: 11px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            background: white;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Recommendations */
+        .recommendations {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .rec-card {
+            background: linear-gradient(135deg, var(--bg-light) 0%, white 100%);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            position: relative;
+        }
+        .rec-number {
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            width: 24px;
+            height: 24px;
+            background: var(--primary);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            color: white;
+        }
+        .rec-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            padding-top: 8px;
+        }
+        .rec-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+        .rec-impact {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+        .rec-impact-icon {
+            width: 16px;
+            height: 16px;
+            stroke: var(--success);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 32px;
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+        .footer-brand {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .ai-summary-items {
+                grid-template-columns: 1fr;
+            }
+            .sentiment-grid {
+                grid-template-columns: 1fr;
+            }
+            .recommendations {
+                grid-template-columns: 1fr;
+            }
+            .citation-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-main">
+            <div class="brand-section">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Trip.com_logo.svg/1280px-Trip.com_logo.svg.png" alt="Trip" class="brand-logo">
+                <div class="brand-info">
+                    <h1>Trip</h1>
+                    <div class="brand-tagline">Your Non-stop Travel Mate</div>
+                </div>
+            </div>
+            <div class="report-meta">
+                <div class="report-type">周报</div>
+                <div class="report-period">2026.03.27 - 2026.04.02</div>
+                <div class="report-date">生成时间: 2026-04-03 10:02</div>
+            </div>
+        </div>
+        <div class="brand-context">
+            <div class="brand-context-inner">
+                <div class="context-item">
+                    <div class="context-label">核心定位</div>
+                    <div class="context-value">Trip.com is a leading international online travel agency that provides a comprehensive one-stop trav...</div>
+                </div>
+                <div class="context-item">
+                    <div class="context-label">核心关键词</div>
+                    <div class="context-value">cheap flights, hotel booking, train tickets, travel deals, vacation packages</div>
+                </div>
+                <div class="context-item">
+                    <div class="context-label">主要竞品</div>
+                    <div class="context-value">Booking, Expedia, Agoda, Klook, Airbnb</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Hero Summary Section -->
+        <section class="hero-section">
+            <div class="hero-header">
+                <div class="hero-title">本周情况总览</div>
+                <div class="hero-badge down">
+                    {{#ifEquals TREND_DIRECTION "up"}}
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 15l-6-6-6 6"/>
+                    </svg>
+                    整体向好
+                    {{else}}
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                    需要关注
+                    {{/ifEquals}}
+                </div>
+            </div>
+
+            <div class="metrics-grid">
+                <div class="metric-card success">
+                    <div class="metric-value">30.1%</div>
+                    <div class="metric-label">AI可见度</div>
+                    <div class="metric-change down">
+                        {{#ifEquals VISIBILITY_CHANGE_DIR "up"}}+{{else}}-{{/ifEquals}}2.1% vs 上期
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">#3</div>
+                    <div class="metric-label">竞品排名</div>
+                    <div class="metric-change up">
+                        第3名
+                    </div>
+                </div>
+                <div class="metric-card info">
+                    <div class="metric-value">73.5</div>
+                    <div class="metric-label">情绪得分</div>
+                    <div class="metric-change up">
+                        {{#ifEquals SENTIMENT_CHANGE_DIR "up"}}+{{else}}-{{/ifEquals}}1.2 vs 上期
+                    </div>
+                </div>
+                <div class="metric-card warning">
+                    <div class="metric-value">28</div>
+                    <div class="metric-label">引用总数</div>
+                    <div class="metric-change up">
+                        {{#ifEquals CITATION_CHANGE_DIR "up"}}+{{else}}-{{/ifEquals}}5.2% vs 上期
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Summary Card -->
+            <div class="ai-summary">
+                <div class="ai-summary-header">
+                    <div class="ai-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/>
+                            <circle cx="12" cy="12" r="3"/>
+                        </svg>
+                    </div>
+                    <div class="ai-summary-title">AI 智能分析</div>
+                </div>
+                <div class="ai-summary-items">
+                    <div class="ai-item">
+                        <div class="ai-item-label">当前心智占位</div>
+                        <div class="ai-item-value">30.1%</div>
+                        <div class="ai-item-detail">竞品排名第 #3，booking.com 领先 3.2%</div>
+                    </div>
+                    <div class="ai-item">
+                        <div class="ai-item-label">舆论健康度</div>
+                        <div class="ai-item-value">73/100</div>
+                        <div class="ai-item-detail">正向 73% | 负向 12%（最大负向主题：客户服务）</div>
+                    </div>
+                    <div class="ai-item">
+                        <div class="ai-item-label">竞争压力点</div>
+                        <div class="ai-item-value">1.4xx</div>
+                        <div class="ai-item-detail">酒店预订 引用领先你 1.4 倍</div>
+                    </div>
+                    <div class="ai-item">
+                        <div class="ai-item-label">增长/下滑拐点</div>
+                        <div class="ai-item-value">+1.8%</div>
+                        <div class="ai-item-detail">过去30天，主要由 用户评价、内容更新 驱动</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sentiment Section -->
+        <section class="section-card">
+            <div class="section-header">
+                <div class="section-title">
+                    <div class="section-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                            <line x1="9" y1="9" x2="9.01" y2="9"/>
+                            <line x1="15" y1="9" x2="15.01" y2="9"/>
+                        </svg>
+                    </div>
+                    舆情健康度
+                </div>
+                <span style="font-size: 13px; color: var(--text-muted);">近 30 天数据</span>
+            </div>
+
+            <div class="sentiment-grid">
+                <div class="sentiment-card">
+                    <div class="sentiment-score positive">73</div>
+                    <div class="sentiment-label">综合情绪得分</div>
+                    <div class="sentiment-bar">
+                        <div class="sentiment-bar-fill" style="width: 73%; background: #10b981;"></div>
+                    </div>
+                </div>
+                <div class="sentiment-card">
+                    <div class="sentiment-score positive">73%</div>
+                    <div class="sentiment-label">正向情绪占比</div>
+                    <div class="sentiment-bar">
+                        <div class="sentiment-bar-fill" style="width: 73%; background: var(--success);"></div>
+                    </div>
+                </div>
+                <div class="sentiment-card">
+                    <div class="sentiment-score negative">12%</div>
+                    <div class="sentiment-label">负向情绪占比</div>
+                    <div class="sentiment-bar">
+                        <div class="sentiment-bar-fill" style="width: 12%; background: var(--danger);"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sentiment-legend">
+                <div class="legend-item">
+                    <span class="legend-dot positive"></span>
+                    正向情绪 (45条)
+                </div>
+                <div class="legend-item">
+                    <span class="legend-dot neutral"></span>
+                    中性情绪 (17条)
+                </div>
+                <div class="legend-item">
+                    <span class="legend-dot negative"></span>
+                    负向情绪 (8条)
+                </div>
+            </div>
+        </section>
+
+        <!-- Trend Section -->
+        <section class="section-card">
+            <div class="section-header">
+                <div class="section-title">
+                    <div class="section-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                        </svg>
+                    </div>
+                    可见度趋势
+                </div>
+                <span style="font-size: 13px; color: var(--text-muted);">近 7 天数据</span>
+            </div>
+
+            <div class="trend-chart-container">
+                <canvas id="trendChart"></canvas>
+            </div>
+
+            <div style="background: var(--bg-light); border-radius: 10px; padding: 20px; margin-top: 20px;">
+                <div style="font-size: 14px; font-weight: 600; margin-bottom: 8px; color: var(--text-primary);">趋势解读</div>
+                <div style="font-size: 13px; color: var(--text-secondary); line-height: 1.6;">
+                    
+    本周 Trip.com 在 AI 搜索中的可见度整体下降 2.1%，
+    当前排名第 3 位。与主要竞品 Booking 相比，可见度差距为 3.2%
+    。建议关注在「酒店预订」领域的引用表现。
+    
+                </div>
+            </div>
+        </section>
+
+        <!-- Competitor Ranking -->
+        <section class="section-card">
+            <div class="section-header">
+                <div class="section-title">
+                    <div class="section-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    竞品可见度排名
+                </div>
+            </div>
+
+            <table class="ranking-table">
+                <thead>
+                    <tr>
+                        <th>排名</th>
+                        <th>品牌</th>
+                        <th>可见度</th>
+                        <th>引用率</th>
+                        <th>变化趋势</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+        <tr>
+            <td><span class="rank-badge top1">1</span></td>
+            <td>
+                <div class="brand-cell">
+                    <div class="brand-cell-img"></div>
+                    <span class="brand-cell-name ">booking.com</span>
+                </div>
+            </td>
+            <td class="score-cell">41.2%</td>
+            <td class="score-cell">2.57%</td>
+            <td class="change-cell up">+2.1%</td>
+        </tr>
+        
+
+        <tr>
+            <td><span class="rank-badge top2">2</span></td>
+            <td>
+                <div class="brand-cell">
+                    <div class="brand-cell-img"></div>
+                    <span class="brand-cell-name ">agoda.com</span>
+                </div>
+            </td>
+            <td class="score-cell">30.3%</td>
+            <td class="score-cell">0.70%</td>
+            <td class="change-cell up">+2.1%</td>
+        </tr>
+        
+
+        <tr>
+            <td><span class="rank-badge top3">3</span></td>
+            <td>
+                <div class="brand-cell">
+                    <div class="brand-cell-img"></div>
+                    <span class="brand-cell-name you">trip.com ★</span>
+                </div>
+            </td>
+            <td class="score-cell">30.1%</td>
+            <td class="score-cell">2.90%</td>
+            <td class="change-cell down">-0.5%</td>
+        </tr>
+        
+
+        <tr>
+            <td><span class="rank-badge normal">4</span></td>
+            <td>
+                <div class="brand-cell">
+                    <div class="brand-cell-img"></div>
+                    <span class="brand-cell-name ">expedia.com</span>
+                </div>
+            </td>
+            <td class="score-cell">28.1%</td>
+            <td class="score-cell">3.03%</td>
+            <td class="change-cell down">-0.5%</td>
+        </tr>
+        
+
+        <tr>
+            <td><span class="rank-badge normal">5</span></td>
+            <td>
+                <div class="brand-cell">
+                    <div class="brand-cell-img"></div>
+                    <span class="brand-cell-name ">klook.com</span>
+                </div>
+            </td>
+            <td class="score-cell">16.1%</td>
+            <td class="score-cell">0.93%</td>
+            <td class="change-cell down">-0.5%</td>
+        </tr>
+        
+
+        <tr>
+            <td><span class="rank-badge normal">6</span></td>
+            <td>
+                <div class="brand-cell">
+                    <div class="brand-cell-img"></div>
+                    <span class="brand-cell-name ">airbnb.com</span>
+                </div>
+            </td>
+            <td class="score-cell">8.3%</td>
+            <td class="score-cell">0.00%</td>
+            <td class="change-cell down">-0.5%</td>
+        </tr>
+        
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Topics -->
+        <section class="section-card">
+            <div class="section-header">
+                <div class="section-title">
+                    <div class="section-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                        </svg>
+                    </div>
+                    热门话题
+                </div>
+            </div>
+
+            <div class="topic-list">
+                
+        <div class="topic-item">
+            <div class="topic-left">
+                <div class="topic-rank">1</div>
+                <div>
+                    <div class="topic-name">Japan Outbound Travel</div>
+                    <div class="topic-meta">情绪 77/100</div>
+                </div>
+            </div>
+            <div class="topic-right">
+                <div class="topic-visibility">51.2%</div>
+                <div class="topic-change up">+3.2%</div>
+            </div>
+        </div>
+        
+
+        <div class="topic-item">
+            <div class="topic-left">
+                <div class="topic-rank">2</div>
+                <div>
+                    <div class="topic-name">Korea Outbound Travel</div>
+                    <div class="topic-meta">情绪 77/100</div>
+                </div>
+            </div>
+            <div class="topic-right">
+                <div class="topic-visibility">48.4%</div>
+                <div class="topic-change up">+3.2%</div>
+            </div>
+        </div>
+        
+
+        <div class="topic-item">
+            <div class="topic-left">
+                <div class="topic-rank">3</div>
+                <div>
+                    <div class="topic-name">Greater China & Middle East Travel</div>
+                    <div class="topic-meta">情绪 76/100</div>
+                </div>
+            </div>
+            <div class="topic-right">
+                <div class="topic-visibility">43.7%</div>
+                <div class="topic-change down">-1.1%</div>
+            </div>
+        </div>
+        
+
+        <div class="topic-item">
+            <div class="topic-left">
+                <div class="topic-rank">4</div>
+                <div>
+                    <div class="topic-name">Southeast Asia Travel Solutions</div>
+                    <div class="topic-meta">情绪 76/100</div>
+                </div>
+            </div>
+            <div class="topic-right">
+                <div class="topic-visibility">40.6%</div>
+                <div class="topic-change down">-1.1%</div>
+            </div>
+        </div>
+        
+
+        <div class="topic-item">
+            <div class="topic-left">
+                <div class="topic-rank">5</div>
+                <div>
+                    <div class="topic-name">Mobile Travel Tools</div>
+                    <div class="topic-meta">情绪 72/100</div>
+                </div>
+            </div>
+            <div class="topic-right">
+                <div class="topic-visibility">31.0%</div>
+                <div class="topic-change down">-1.1%</div>
+            </div>
+        </div>
+        
+            </div>
+        </section>
+
+        <!-- Citation Sources -->
+        <section class="section-card">
+            <div class="section-header">
+                <div class="section-title">
+                    <div class="section-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                        </svg>
+                    </div>
+                    引用来源分析
+                </div>
+            </div>
+
+            <div class="citation-grid">
+                
+        <div class="citation-card">
+            <div class="citation-domain">
+                play.google.com
+                <span class="citation-type">Corporate</span>
+            </div>
+            <div class="citation-stats">
+                <div class="citation-stat">
+                    <div class="citation-stat-value">6319</div>
+                    <div class="citation-stat-label">引用次数</div>
+                </div>
+                <div class="citation-stat">
+                    <div class="citation-stat-value">28.0%</div>
+                    <div class="citation-stat-label">引用率</div>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="citation-card">
+            <div class="citation-domain">
+                apps.apple.com
+                <span class="citation-type">Corporate</span>
+            </div>
+            <div class="citation-stats">
+                <div class="citation-stat">
+                    <div class="citation-stat-value">6206</div>
+                    <div class="citation-stat-label">引用次数</div>
+                </div>
+                <div class="citation-stat">
+                    <div class="citation-stat-value">27.5%</div>
+                    <div class="citation-stat-label">引用率</div>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="citation-card">
+            <div class="citation-domain">
+                reddit.com
+                <span class="citation-type">UGC</span>
+            </div>
+            <div class="citation-stats">
+                <div class="citation-stat">
+                    <div class="citation-stat-value">5967</div>
+                    <div class="citation-stat-label">引用次数</div>
+                </div>
+                <div class="citation-stat">
+                    <div class="citation-stat-value">26.4%</div>
+                    <div class="citation-stat-label">引用率</div>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="citation-card">
+            <div class="citation-domain">
+                youtube.com
+                <span class="citation-type">Media</span>
+            </div>
+            <div class="citation-stats">
+                <div class="citation-stat">
+                    <div class="citation-stat-value">3269</div>
+                    <div class="citation-stat-label">引用次数</div>
+                </div>
+                <div class="citation-stat">
+                    <div class="citation-stat-value">14.5%</div>
+                    <div class="citation-stat-label">引用率</div>
+                </div>
+            </div>
+        </div>
+        
+            </div>
+        </section>
+
+        <!-- Recommendations -->
+        <section class="section-card">
+            <div class="section-header">
+                <div class="section-title">
+                    <div class="section-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 11l3 3L22 4"/>
+                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                        </svg>
+                    </div>
+                    本期行动建议
+                </div>
+            </div>
+
+            <div class="recommendations">
+                
+        <div class="rec-card">
+            <div class="rec-number">1</div>
+            <div class="rec-title">提升酒店预订内容覆盖</div>
+            <div class="rec-desc">针对"酒店预订"相关查询，创建更多高质量指南内容，提升在该领域的引用率</div>
+            <div class="rec-impact">
+                <svg class="rec-impact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 19V5M5 12l7-7 7 7"/>
+                </svg>
+                预计可提升可见度 5-8%
+            </div>
+        </div>
+        
+
+        <div class="rec-card">
+            <div class="rec-number">2</div>
+            <div class="rec-title">加强用户评价内容建设</div>
+            <div class="rec-desc">在 AI 友好的格式中融入真实用户评价数据，增强内容的可信度和引用价值</div>
+            <div class="rec-impact">
+                <svg class="rec-impact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 19V5M5 12l7-7 7 7"/>
+                </svg>
+                预计可提升情绪得分 3-5 分
+            </div>
+        </div>
+        
+
+        <div class="rec-card">
+            <div class="rec-number">3</div>
+            <div class="rec-title">拓展旅游攻略内容矩阵</div>
+            <div class="rec-desc">围绕热门目的地创建详细攻略内容，抢占长尾旅游问题的引用阵地</div>
+            <div class="rec-impact">
+                <svg class="rec-impact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 19V5M5 12l7-7 7 7"/>
+                </svg>
+                预计可增加 10+ 引用来源
+            </div>
+        </div>
+        
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>报告由 <span class="footer-brand">Dageno AI</span> GEO Reporter 生成</p>
+        <p style="margin-top: 8px;">数据更新时间: 2026-04-03 10:02</p>
+    </footer>
+
+    <script>
+        // Trend Chart
+        const ctx = document.getElementById('trendChart').getContext('2d');
+        const trendData = {"labels": ["03/27", "03/28", "03/29", "03/30", "03/31", "04/01", "04/02"], "datasets": [{"label": "booking.com", "data": [null, null, null, null, null, null, null], "borderColor": "#ff5c23", "backgroundColor": "#ff5c2320", "fill": false, "tension": 0.4, "pointRadius": 3, "pointHoverRadius": 6}, {"label": "agoda.com", "data": [null, null, null, null, null, null, null], "borderColor": "#3b82f6", "backgroundColor": "#3b82f620", "fill": false, "tension": 0.4, "pointRadius": 3, "pointHoverRadius": 6}, {"label": "trip.com", "data": [null, null, null, null, null, null, null], "borderColor": "#10b981", "backgroundColor": "#10b98120", "fill": false, "tension": 0.4, "pointRadius": 3, "pointHoverRadius": 6}, {"label": "expedia.com", "data": [null, null, null, null, null, null, null], "borderColor": "#f59e0b", "backgroundColor": "#f59e0b20", "fill": false, "tension": 0.4, "pointRadius": 3, "pointHoverRadius": 6}, {"label": "klook.com", "data": [null, null, null, null, null, null, null], "borderColor": "#8b5cf6", "backgroundColor": "#8b5cf620", "fill": false, "tension": 0.4, "pointRadius": 3, "pointHoverRadius": 6}]};
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: trendData.labels,
+                datasets: trendData.datasets
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: {
+                    mode: 'index',
+                    intersect: false,
+                },
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                            usePointStyle: true,
+                            padding: 20,
+                            font: {
+                                family: 'Inter',
+                                size: 12
+                            }
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(26, 26, 46, 0.9)',
+                        titleFont: {
+                            family: 'Inter',
+                            size: 13
+                        },
+                        bodyFont: {
+                            family: 'Inter',
+                            size: 12
+                        },
+                        padding: 12,
+                        cornerRadius: 8
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            font: {
+                                family: 'Inter',
+                                size: 11
+                            },
+                            color: '#8b8b9a'
+                        }
+                    },
+                    y: {
+                        grid: {
+                            color: '#e8e8ed'
+                        },
+                        ticks: {
+                            font: {
+                                family: 'Inter',
+                                size: 11
+                            },
+                            color: '#8b8b9a'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

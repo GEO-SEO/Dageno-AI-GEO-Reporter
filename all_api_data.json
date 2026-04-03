@@ -1,0 +1,3797 @@
+{
+  "brand_info": {
+    "success": true,
+    "code": 0,
+    "message": "OK",
+    "data": {
+      "id": "e48e1d99-6832-4f6b-9c39-ce406e70fb07",
+      "projectId": "17387b13-507b-4b67-aba5-0b4591eb43d0",
+      "name": "Trip",
+      "domain": "trip.com",
+      "tagline": "Your Non-stop Travel Mate",
+      "description": "Trip.com is a leading international online travel agency that provides a comprehensive one-stop travel platform for booking flights, hotels, trains, car rentals, and tour packages. It serves millions of users globally with 24/7 multilingual support and advanced AI-driven travel planning tools.",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Trip.com_logo.svg/1280px-Trip.com_logo.svg.png",
+      "website": "https://www.trip.com",
+      "socials": [
+        {
+          "url": "https://www.facebook.com/tripcom/",
+          "platform": "Facebook"
+        },
+        {
+          "url": "https://www.instagram.com/trip/",
+          "platform": "Instagram"
+        },
+        {
+          "url": "https://twitter.com/tripcom",
+          "platform": "Twitter"
+        },
+        {
+          "url": "https://www.linkedin.com/company/trip-com/",
+          "platform": "LinkedIn"
+        },
+        {
+          "url": "https://www.youtube.com/c/Tripcom",
+          "platform": "YouTube"
+        }
+      ],
+      "keywords": [
+        "cheap flights",
+        "hotel booking",
+        "train tickets",
+        "travel deals",
+        "vacation packages"
+      ],
+      "metadata": {
+        "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Trip.com_Icon_2022.png/512px-Trip.com_Icon_2022.png",
+        "name": "Trip.com",
+        "domain": "trip.com",
+        "source": "ai_research",
+        "summary": "# Trip.com\n\n## Overview\nTrip.com is a global one-stop travel service provider and one of the world's largest online travel agencies (OTAs). It offers a comprehensive suite of travel products including accommodation reservations, transportation ticketing, packaged tours, and corporate travel management. As the flagship international brand of Trip.com Group, it operates in over 200 countries and regions, supporting over 24 languages.\n\n## Key Features\n* **Extensive Inventory:** Access to over 1.7 million hotels and flights from more than 600 airlines covering 3,400 airports.\n* **Multi-Modal Transport:** Integrated booking for international flights, high-speed rail (China, UK, Korea, Germany), and car rentals in 6,000+ cities.\n* **AI-Powered Tools:** Features like 'TripGenie' and 'Trip.Planner' provide personalized itineraries and real-time travel assistance.\n* **24/7 Support:** World-class multilingual customer service available via phone, email, and app-based chat.\n* **Loyalty Program:** A tiered rewards system (Trip Coins) that offers discounts and exclusive benefits to frequent travelers.\n\n## Product Matrix\n* **Trip.com:** The primary international OTA platform for global users.\n* **Ctrip:** The leading travel service brand in Mainland China.\n* **Qunar:** A popular Chinese travel search and booking platform.\n* **Skyscanner:** A global travel metasearch engine for comparing flights, hotels, and car rentals.\n* **Trip.Biz:** A dedicated digital platform for corporate travel management and expense reporting.\n* **TrainPal:** A specialized app for finding and booking cheap train and coach tickets globally.\n\n## Target Users\n* **Leisure Travelers:** Individuals and families seeking vacation packages, flights, and hotels.\n* **Business Professionals:** Corporate users requiring efficient booking and expense management via Trip.Biz.\n* **The 'Silver Generation':** Seniors (50+) for whom the platform offers tailored travel experiences through initiatives like the 'Old Friends Club'.\n* **International Tourists:** Travelers looking for seamless cross-border experiences, particularly in the Asia-Pacific and European markets.\n\n## Market Position\nTrip.com is a dominant force in the Asia-Pacific market and a rapidly growing challenger to Western giants like Booking Holdings and Expedia Group. It is recognized as the world's largest online travel service provider by Gross Merchandise Volume (GMV) as of 2023, leveraging its strong roots in China to drive global outbound and inbound travel.\n\n## Competitors\n* **Booking.com** (booking.com): The global leader in hotel and accommodation inventory.\n* **Expedia** (expedia.com): A major US-based travel platform with a strong presence in North America.\n* **Agoda** (agoda.com): A key competitor in the Asian hotel booking market, owned by Booking Holdings.\n* **Klook** (klook.com): A leading platform for travel activities, tours, and local attractions.\n* **Airbnb** (airbnb.com): The primary competitor in the alternative accommodation and vacation rental space.\n\n## History\n* **1999:** Founded as Ctrip.com in Shanghai, China, by James Liang, Neil Shen, Min Fan, and Qi Ji.\n* **2003:** Successfully listed on the NASDAQ (TCOM).\n* **2016:** Acquired Skyscanner, a leading European travel metasearch engine.\n* **2017:** Acquired the Trip.com domain and rebranded its international service under this name.\n* **2019:** Officially changed the group name from Ctrip.com International, Ltd. to Trip.com Group Limited.\n* **2021:** Completed a secondary listing on the Hong Kong Stock Exchange (HKEX).\n\n## Core Value\nTrip.com operates under the 'G2' strategy: **Great Quality** and **Globalization**. Its core values emphasize customer-centricity, innovation through AI, and a commitment to making travel accessible and sustainable for everyone, summarized in its mission \"to pursue the perfect trip for a better world.\"",
+        "tagline": "Your Non-stop Travel Mate",
+        "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Trip.com_logo.svg/1280px-Trip.com_logo.svg.png",
+        "competitors": [
+          {
+            "name": "Booking.com",
+            "domain": "booking.com",
+            "source": "ai_research"
+          },
+          {
+            "name": "Expedia",
+            "domain": "expedia.com",
+            "source": "ai_research"
+          },
+          {
+            "name": "Agoda",
+            "domain": "agoda.com",
+            "source": "ai_research"
+          },
+          {
+            "name": "Klook",
+            "domain": "klook.com",
+            "source": "ai_research"
+          },
+          {
+            "name": "Airbnb",
+            "domain": "airbnb.com",
+            "source": "ai_research"
+          }
+        ],
+        "description": "Trip.com is a leading international online travel agency that provides a comprehensive one-stop travel platform for booking flights, hotels, trains, car rentals, and tour packages. It serves millions of users globally with 24/7 multilingual support and advanced AI-driven travel planning tools.",
+        "domain_type": "Corporate",
+        "social_links": [
+          {
+            "url": "https://www.facebook.com/tripcom/",
+            "platform": "Facebook"
+          },
+          {
+            "url": "https://www.instagram.com/trip/",
+            "platform": "Instagram"
+          },
+          {
+            "url": "https://twitter.com/tripcom",
+            "platform": "Twitter"
+          },
+          {
+            "url": "https://www.linkedin.com/company/trip-com/",
+            "platform": "LinkedIn"
+          },
+          {
+            "url": "https://www.youtube.com/c/Tripcom",
+            "platform": "YouTube"
+          }
+        ],
+        "official_website": "https://www.trip.com",
+        "primary_keywords": [
+          "cheap flights",
+          "hotel booking",
+          "train tickets",
+          "travel deals",
+          "vacation packages"
+        ]
+      },
+      "createdAt": "2026-03-06T14:30:48.285Z",
+      "updatedAt": "2026-03-06T14:30:48.285Z",
+      "summary": "# Trip\n\n## Overview\nTrip.com is a global one-stop travel service provider and one of the world's largest online travel agencies (OTAs). It offers a comprehensive suite of travel products including accommodation reservations, transportation ticketing, packaged tours, and corporate travel management. As the flagship international brand of Trip.com Group, it operates in over 200 countries and regions, supporting over 24 languages.\n\n## Key Features\n* **Extensive Inventory:** Access to over 1.7 million hotels and flights from more than 600 airlines covering 3,400 airports.\n* **Multi-Modal Transport:** Integrated booking for international flights, high-speed rail (China, UK, Korea, Germany), and car rentals in 6,000+ cities.\n* **AI-Powered Tools:** Features like 'TripGenie' and 'Trip.Planner' provide personalized itineraries and real-time travel assistance.\n* **24/7 Support:** World-class multilingual customer service available via phone, email, and app-based chat.\n* **Loyalty Program:** A tiered rewards system (Trip Coins) that offers discounts and exclusive benefits to frequent travelers.\n\n## Product Matrix\n* **Trip.com:** The primary international OTA platform for global users.\n* **Ctrip:** The leading travel service brand in Mainland China.\n* **Qunar:** A popular Chinese travel search and booking platform.\n* **Skyscanner:** A global travel metasearch engine for comparing flights, hotels, and car rentals.\n* **Trip.Biz:** A dedicated digital platform for corporate travel management and expense reporting.\n* **TrainPal:** A specialized app for finding and booking cheap train and coach tickets globally.\n\n## Target Users\n* **Leisure Travelers:** Individuals and families seeking vacation packages, flights, and hotels.\n* **Business Professionals:** Corporate users requiring efficient booking and expense management via Trip.Biz.\n* **The 'Silver Generation':** Seniors (50+) for whom the platform offers tailored travel experiences through initiatives like the 'Old Friends Club'.\n* **International Tourists:** Travelers looking for seamless cross-border experiences, particularly in the Asia-Pacific and European markets.\n\n## Market Position\nTrip.com is a dominant force in the Asia-Pacific market and a rapidly growing challenger to Western giants like Booking Holdings and Expedia Group. It is recognized as the world's largest online travel service provider by Gross Merchandise Volume (GMV) as of 2023, leveraging its strong roots in China to drive global outbound and inbound travel.\n\n## Competitors\n* **Booking.com** (booking.com): The global leader in hotel and accommodation inventory.\n* **Expedia** (expedia.com): A major US-based travel platform with a strong presence in North America.\n* **Agoda** (agoda.com): A key competitor in the Asian hotel booking market, owned by Booking Holdings.\n* **Klook** (klook.com): A leading platform for travel activities, tours, and local attractions.\n* **Airbnb** (airbnb.com): The primary competitor in the alternative accommodation and vacation rental space.\n\n## History\n* **1999:** Founded as Ctrip.com in Shanghai, China, by James Liang, Neil Shen, Min Fan, and Qi Ji.\n* **2003:** Successfully listed on the NASDAQ (TCOM).\n* **2016:** Acquired Skyscanner, a leading European travel metasearch engine.\n* **2017:** Acquired the Trip.com domain and rebranded its international service under this name.\n* **2019:** Officially changed the group name from Ctrip.com International, Ltd. to Trip.com Group Limited.\n* **2021:** Completed a secondary listing on the Hong Kong Stock Exchange (HKEX).\n\n## Core Value\nTrip.com operates under the 'G2' strategy: **Great Quality** and **Globalization**. Its core values emphasize customer-centricity, innovation through AI, and a commitment to making travel accessible and sustainable for everyone, summarized in its mission \"to pursue the perfect trip for a better world.\"",
+      "competitors": [
+        {
+          "id": "0380c676-82c2-4ab6-a3eb-a44a2b676032",
+          "domain": "booking.com",
+          "brand": "Booking",
+          "status": "succeeded"
+        },
+        {
+          "id": "16bd717e-4123-4922-8652-16271da45f31",
+          "domain": "expedia.com",
+          "brand": "Expedia",
+          "status": "succeeded"
+        },
+        {
+          "id": "900449d0-ec9e-4690-9b06-3feed5bbefe2",
+          "domain": "agoda.com",
+          "brand": "Agoda",
+          "status": "succeeded"
+        },
+        {
+          "id": "6e073a22-fe4c-407c-bd88-4cfb7a7d35be",
+          "domain": "klook.com",
+          "brand": "Klook",
+          "status": "succeeded"
+        },
+        {
+          "id": "66166bfe-2b8f-4f02-a7ab-55970621d74d",
+          "domain": "airbnb.com",
+          "brand": "Airbnb",
+          "status": "succeeded"
+        }
+      ]
+    }
+  },
+  "brand_summary_7d": {
+    "success": true,
+    "code": 0,
+    "message": "OK",
+    "data": {
+      "rows": [
+        {
+          "visibility": 0.30438179,
+          "citation": 0.03864446,
+          "sentiment": 73.46081243
+        }
+      ],
+      "query": {
+        "target": {
+          "entity": "brand",
+          "metrics": [
+            "visibility",
+            "citation",
+            "sentiment"
+          ],
+          "filters": {
+            "dateRange": {
+              "startAt": "2026-03-27T00:00:00.000Z",
+              "endAt": "2026-04-02T23:59:59.999Z"
+            }
+          }
+        },
+        "analysis": {
+          "type": "summary"
+        }
+      }
+    }
+  },
+  "brand_trend_7d": {
+    "success": true,
+    "code": 0,
+    "message": "OK",
+    "data": {
+      "rows": [
+        {
+          "date": "2026-03-27",
+          "name": "klook.com",
+          "visibility": 0.1570863393064929,
+          "citation": 0.00949667616334283
+        },
+        {
+          "date": "2026-03-27",
+          "name": "expedia.com",
+          "visibility": 0.2736793111473121,
+          "citation": 0.02849002849002849
+        },
+        {
+          "date": "2026-03-27",
+          "name": "agoda.com",
+          "visibility": 0.3030020944845241,
+          "citation": 0.007280785058562835
+        },
+        {
+          "date": "2026-03-27",
+          "name": "trip.com",
+          "visibility": 0.3176634861531301,
+          "citation": 0.038619816397594174,
+          "sentiment": 0.9456692913385828
+        },
+        {
+          "date": "2026-03-27",
+          "name": "airbnb.com",
+          "visibility": 0.0835466604607866,
+          "citation": 0
+        },
+        {
+          "date": "2026-03-27",
+          "name": "booking.com",
+          "visibility": 0.41494065627181753,
+          "citation": 0.03165558721114277
+        },
+        {
+          "date": "2026-03-28",
+          "name": "klook.com",
+          "visibility": 0.16263440860215053,
+          "citation": 0.010775862068965518
+        },
+        {
+          "date": "2026-03-28",
+          "name": "trip.com",
+          "visibility": 0.3033154121863799,
+          "citation": 0.033866995073891626,
+          "sentiment": 0.9253611556982344
+        },
+        {
+          "date": "2026-03-28",
+          "name": "agoda.com",
+          "visibility": 0.30376344086021506,
+          "citation": 0.008004926108374385
+        },
+        {
+          "date": "2026-03-28",
+          "name": "expedia.com",
+          "visibility": 0.28225806451612906,
+          "citation": 0.03078817733990148
+        },
+        {
+          "date": "2026-03-28",
+          "name": "booking.com",
+          "visibility": 0.4204749103942652,
+          "citation": 0.031711822660098525
+        },
+        {
+          "date": "2026-03-28",
+          "name": "airbnb.com",
+          "visibility": 0.08042114695340502,
+          "citation": 0
+        },
+        {
+          "date": "2026-03-29",
+          "name": "airbnb.com",
+          "visibility": 0.08404303003137606,
+          "citation": 0
+        },
+        {
+          "date": "2026-03-29",
+          "name": "agoda.com",
+          "visibility": 0.29829672792469747,
+          "citation": 0.005494505494505495
+        },
+        {
+          "date": "2026-03-29",
+          "name": "klook.com",
+          "visibility": 0.16001792917974003,
+          "citation": 0.009157509157509158
+        },
+        {
+          "date": "2026-03-29",
+          "name": "expedia.com",
+          "visibility": 0.27543702375616314,
+          "citation": 0.027167277167277168
+        },
+        {
+          "date": "2026-03-29",
+          "name": "trip.com",
+          "visibility": 0.30389959659345583,
+          "citation": 0.03663003663003663,
+          "sentiment": 0.945924764890282
+        },
+        {
+          "date": "2026-03-29",
+          "name": "booking.com",
+          "visibility": 0.4123711340206185,
+          "citation": 0.027472527472527472
+        },
+        {
+          "date": "2026-03-30",
+          "name": "agoda.com",
+          "visibility": 0.3046857650455252,
+          "citation": 0.006701631701631702
+        },
+        {
+          "date": "2026-03-30",
+          "name": "expedia.com",
+          "visibility": 0.27737064179435933,
+          "citation": 0.029137529137529136
+        },
+        {
+          "date": "2026-03-30",
+          "name": "booking.com",
+          "visibility": 0.4132800355318677,
+          "citation": 0.024184149184149184
+        },
+        {
+          "date": "2026-03-30",
+          "name": "klook.com",
+          "visibility": 0.16166999777925828,
+          "citation": 0.009615384615384616
+        },
+        {
+          "date": "2026-03-30",
+          "name": "trip.com",
+          "visibility": 0.3117921385742838,
+          "citation": 0.03991841491841492,
+          "sentiment": 0.9398612181958366
+        },
+        {
+          "date": "2026-03-30",
+          "name": "airbnb.com",
+          "visibility": 0.08039085054408172,
+          "citation": 0
+        },
+        {
+          "date": "2026-03-31",
+          "name": "airbnb.com",
+          "visibility": 0.08246508534692973,
+          "citation": 0
+        },
+        {
+          "date": "2026-03-31",
+          "name": "agoda.com",
+          "visibility": 0.31035247173575703,
+          "citation": 0.008410672853828306
+        },
+        {
+          "date": "2026-03-31",
+          "name": "klook.com",
+          "visibility": 0.164043449346043,
+          "citation": 0.008120649651972157
+        },
+        {
+          "date": "2026-03-31",
+          "name": "booking.com",
+          "visibility": 0.4242961649301707,
+          "citation": 0.02697215777262181
+        },
+        {
+          "date": "2026-03-31",
+          "name": "expedia.com",
+          "visibility": 0.2824207492795389,
+          "citation": 0.03219257540603248
+        },
+        {
+          "date": "2026-03-31",
+          "name": "trip.com",
+          "visibility": 0.304367102637996,
+          "citation": 0.04147331786542923,
+          "sentiment": 0.932295719844358
+        },
+        {
+          "date": "2026-04-01",
+          "name": "airbnb.com",
+          "visibility": 0.08067039106145252,
+          "citation": 0
+        },
+        {
+          "date": "2026-04-01",
+          "name": "booking.com",
+          "visibility": 0.4035754189944134,
+          "citation": 0.026658939437844104
+        },
+        {
+          "date": "2026-04-01",
+          "name": "expedia.com",
+          "visibility": 0.2878212290502793,
+          "citation": 0.03332367429730513
+        },
+        {
+          "date": "2026-04-01",
+          "name": "trip.com",
+          "visibility": 0.3141899441340782,
+          "citation": 0.04433497536945813,
+          "sentiment": 0.9431464174454828
+        },
+        {
+          "date": "2026-04-01",
+          "name": "klook.com",
+          "visibility": 0.16603351955307263,
+          "citation": 0.009562445667922342
+        },
+        {
+          "date": "2026-04-01",
+          "name": "agoda.com",
+          "visibility": 0.3030167597765363,
+          "citation": 0.008693132425383946
+        },
+        {
+          "date": "2026-04-02",
+          "name": "airbnb.com",
+          "visibility": 0.0903914590747331,
+          "citation": 0
+        },
+        {
+          "date": "2026-04-02",
+          "name": "trip.com",
+          "visibility": 0.2754448398576512,
+          "citation": 0.03566768160069596,
+          "sentiment": 0.9424157303370788
+        },
+        {
+          "date": "2026-04-02",
+          "name": "klook.com",
+          "visibility": 0.13807829181494663,
+          "citation": 0.006959547629404089
+        },
+        {
+          "date": "2026-04-02",
+          "name": "agoda.com",
+          "visibility": 0.27508896797153026,
+          "citation": 0.004784688995215311
+        },
+        {
+          "date": "2026-04-02",
+          "name": "booking.com",
+          "visibility": 0.4113879003558719,
+          "citation": 0.026533275337103087
+        },
+        {
+          "date": "2026-04-02",
+          "name": "expedia.com",
+          "visibility": 0.302491103202847,
+          "citation": 0.032622879512831666
+        }
+      ],
+      "query": {
+        "target": {
+          "entity": "brand",
+          "metrics": [
+            "visibility",
+            "citation",
+            "sentiment"
+          ],
+          "filters": {
+            "dateRange": {
+              "startAt": "2026-03-27T00:00:00.000Z",
+              "endAt": "2026-04-02T23:59:59.999Z"
+            }
+          }
+        },
+        "analysis": {
+          "type": "trend"
+        }
+      }
+    }
+  },
+  "brand_trend_30d": {
+    "success": true,
+    "code": 0,
+    "message": "OK",
+    "data": {
+      "rows": [
+        {
+          "date": "2026-03-04",
+          "name": "klook.com",
+          "visibility": 0.13381261595547309,
+          "citation": 0.00960735171261487
+        },
+        {
+          "date": "2026-03-04",
+          "name": "agoda.com",
+          "visibility": 0.30565862708719854,
+          "citation": 0.011278195488721804
+        },
+        {
+          "date": "2026-03-04",
+          "name": "booking.com",
+          "visibility": 0.37708719851576994,
+          "citation": 0.03717627401837928
+        },
+        {
+          "date": "2026-03-04",
+          "name": "expedia.com",
+          "visibility": 0.2564935064935065,
+          "citation": 0.03926482873851295
+        },
+        {
+          "date": "2026-03-04",
+          "name": "airbnb.com",
+          "visibility": 0.06957328385899815,
+          "citation": 0
+        },
+        {
+          "date": "2026-03-04",
+          "name": "trip.com",
+          "visibility": 0.30009276437847865,
+          "citation": 0.04135338345864661,
+          "sentiment": 0.9479251423921888
+        },
+        {
+          "date": "2026-03-05",
+          "name": "booking.com",
+          "visibility": 0.3842743817078861,
+          "citation": 0.03229713362939039
+        },
+        {
+          "date": "2026-03-05",
+          "name": "agoda.com",
+          "visibility": 0.312879141390574,
+          "citation": 0.008881711748082357
+        },
+        {
+          "date": "2026-03-05",
+          "name": "expedia.com",
+          "visibility": 0.26901539897340176,
+          "citation": 0.03027856277755349
+        },
+        {
+          "date": "2026-03-05",
+          "name": "klook.com",
+          "visibility": 0.1395240317312179,
+          "citation": 0.011303996770286637
+        },
+        {
+          "date": "2026-03-05",
+          "name": "trip.com",
+          "visibility": 0.3117125524965002,
+          "citation": 0.04077513120710537,
+          "sentiment": 0.9526440410418312
+        },
+        {
+          "date": "2026-03-05",
+          "name": "airbnb.com",
+          "visibility": 0.07419505366308912,
+          "citation": 0
+        },
+        {
+          "date": "2026-03-06",
+          "name": "trip.com",
+          "visibility": 0.3013664596273292,
+          "citation": 0.03955763504891536,
+          "sentiment": 0.9484265734265734
+        },
+        {
+          "date": "2026-03-06",
+          "name": "klook.com",
+          "visibility": 0.1391304347826087,
+          "citation": 0.007656316461080391
+        },
+        {
+          "date": "2026-03-06",
+          "name": "expedia.com",
+          "visibility": 0.26583850931677017,
+          "citation": 0.03530412590387069
+        },
+        {
+          "date": "2026-03-06",
+          "name": "airbnb.com",
+          "visibility": 0.07279503105590063,
+          "citation": 0
+        },
+        {
+          "date": "2026-03-06",
+          "name": "booking.com",
+          "visibility": 0.3903105590062112,
+          "citation": 0.031475967673330496
+        },
+        {
+          "date": "2026-03-06",
+          "name": "agoda.com",
+          "visibility": 0.30832298136645964,
+          "citation": 0.008507018290089324
+        },
+        {
+          "date": "2026-03-07",
+          "name": "booking.com",
+          "visibility": 0.3852787805856398,
+          "citation": 0.03062266076896904
+        },
+        {
+          "date": "2026-03-07",
+          "name": "agoda.com",
+          "visibility": 0.3016446048937024,
+          "citation": 0.005444028581150051
+        },
+        {
+          "date": "2026-03-07",
+          "name": "klook.com",
+          "visibility": 0.13257119935820297,
+          "citation": 0.008166042871725076
+        },
+        {
+          "date": "2026-03-07",
+          "name": "expedia.com",
+          "visibility": 0.2711592458884878,
+          "citation": 0.027220142905750252
+        },
+        {
+          "date": "2026-03-07",
+          "name": "trip.com",
+          "visibility": 0.30445246690734057,
+          "citation": 0.029601905410003404,
+          "sentiment": 0.9558924879393522
+        },
+        {
+          "date": "2026-03-07",
+          "name": "airbnb.com",
+          "visibility": 0.06257521058965103,
+          "citation": 0
+        },
+        {
+          "date": "2026-03-08",
+          "name": "agoda.com",
+          "visibility": 0.3086211060130403,
+          "citation": 0.005688744412840309
+        },
+        {
+          "date": "2026-03-08",
+          "name": "booking.com",
+          "visibility": 0.3856556387346052,
+          "citation": 0.03250711093051605
+        },
+        {
+          "date": "2026-03-08",
+          "name": "airbnb.com",
+          "visibility": 0.06496015455204057,
+          "citation": 0
+        },
+        {
+          "date": "2026-03-08",
+          "name": "expedia.com",
+          "visibility": 0.26249698140545763,
+          "citation": 0.029256399837464444
+        },
+        {
+          "date": "2026-03-08",
+          "name": "klook.com",
+          "visibility": 0.13475006037189086,
+          "citation": 0.008533116619260463
+        },
+        {
+          "date": "2026-03-08",
+          "name": "trip.com",
+          "visibility": 0.3052402801255735,
+          "citation": 0.03697683868346201,
+          "sentiment": 0.9391666666666668
+        },
+        {
+          "date": "2026-03-09",
+          "name": "klook.com",
+          "visibility": 0.13157894736842105,
+          "citation": 0.008077544426494346
+        },
+        {
+          "date": "2026-03-09",
+          "name": "expedia.com",
+          "visibility": 0.26451437873033096,
+          "citation": 0.03675282714054928
+        },
+        {
+          "date": "2026-03-09",
+          "name": "airbnb.com",
+          "visibility": 0.0683667932718394,
+          "citation": 0
+        },
+        {
+          "date": "2026-03-09",
+          "name": "trip.com",
+          "visibility": 0.2702116115029843,
+          "citation": 0.034733441033925685,
+          "sentiment": 0.948936170212766
+        },
+        {
+          "date": "2026-03-09",
+          "name": "booking.com",
+          "visibility": 0.35729788388497014,
+          "citation": 0.0395799676898223
+        },
+        {
+          "date": "2026-03-09",
+          "name": "agoda.com",
+          "visibility": 0.2935431361909929,
+          "citation": 0.005654281098546042
+        },
+        {
+          "date": "2026-03-10",
+          "name": "klook.com",
+          "visibility": 0.1385237613751264,
+          "citation": 0.008849557522123894
+        },
+        {
+          "date": "2026-03-10",
+          "name": "trip.com",
+          "visibility": 0.3087967644084934,
+          "citation": 0.03462870334744132,
+          "sentiment": 0.9381514940931204
+        },
+        {
+          "date": "2026-03-10",
+          "name": "airbnb.com",
+          "visibility": 0.06996966632962588,
+          "citation": 0.00038476337052712573
+        },
+        {
+          "date": "2026-03-10",
+          "name": "booking.com",
+          "visibility": 0.41900910010111225,
+          "citation": 0.04001539053482109
+        },
+        {
+          "date": "2026-03-10",
+          "name": "agoda.com",
+          "visibility": 0.3211324570273003,
+          "citation": 0.006540977298961139
+        },
+        {
+          "date": "2026-03-10",
+          "name": "expedia.com",
+          "visibility": 0.29383215369059656,
+          "citation": 0.03270488649480569
+        },
+        {
+          "date": "2026-03-11",
+          "name": "agoda.com",
+          "visibility": 0.29931794333683104,
+          "citation": 0.011567610690067813
+        },
+        {
+          "date": "2026-03-11",
+          "name": "booking.com",
+          "visibility": 0.3892969569779644,
+          "citation": 0.048663741523733546
+        },
+        {
+          "date": "2026-03-11",
+          "name": "airbnb.com",
+          "visibility": 0.05613850996852046,
+          "citation": 0
+        },
+        {
+          "date": "2026-03-11",
+          "name": "trip.com",
+          "visibility": 0.29931794333683104,
+          "citation": 0.04627044276027125,
+          "sentiment": 0.9393090569561158
+        },
+        {
+          "date": "2026-03-11",
+          "name": "expedia.com",
+          "visibility": 0.24475341028331585,
+          "citation": 0.032708416433984845
+        },
+        {
+          "date": "2026-03-11",
+          "name": "klook.com",
+          "visibility": 0.14559286463798532,
+          "citation": 0.014359792580773831
+        },
+        {
+          "date": "2026-03-12",
+          "name": "airbnb.com",
+          "visibility": 0.06672297297297297,
+          "citation": 0.0003943217665615142
+        },
+        {
+          "date": "2026-03-12",
+          "name": "booking.com",
+          "visibility": 0.42166385135135137,
+          "citation": 0.04140378548895899
+        },
+        {
+          "date": "2026-03-12",
+          "name": "klook.com",
+          "visibility": 0.14822635135135134,
+          "citation": 0.010646687697160885
+        },
+        {
+          "date": "2026-03-12",
+          "name": "trip.com",
+          "visibility": 0.31144425675675674,
+          "citation": 0.03588328075709779,
+          "sentiment": 0.9300499643112062
+        },
+        {
+          "date": "2026-03-12",
+          "name": "agoda.com",
+          "visibility": 0.31334459459459457,
+          "citation": 0.007097791798107256
+        },
+        {
+          "date": "2026-03-12",
+          "name": "expedia.com",
+          "visibility": 0.2763935810810811,
+          "citation": 0.039826498422712936
+        },
+        {
+          "date": "2026-03-13",
+          "name": "airbnb.com",
+          "visibility": 0.07170323456231621,
+          "citation": 0
+        },
+        {
+          "date": "2026-03-13",
+          "name": "agoda.com",
+          "visibility": 0.30717032345623163,
+          "citation": 0.004431909750201451
+        },
+        {
+          "date": "2026-03-13",
+          "name": "booking.com",
+          "visibility": 0.4003619090703461,
+          "citation": 0.036663980660757454
+        },
+        {
+          "date": "2026-03-13",
+          "name": "expedia.com",
+          "visibility": 0.2834200407147704,
+          "citation": 0.04149879129734085
+        },
+        {
+          "date": "2026-03-13",
+          "name": "klook.com",
+          "visibility": 0.1323230038452839,
+          "citation": 0.0064464141821112
+        },
+        {
+          "date": "2026-03-13",
+          "name": "trip.com",
+          "visibility": 0.30762270979416423,
+          "citation": 0.0443190975020145,
+          "sentiment": 0.9399375975039002
+        },
+        {
+          "date": "2026-03-14",
+          "name": "airbnb.com",
+          "visibility": 0.05174563591022444,
+          "citation": 0
+        },
+        {
+          "date": "2026-03-14",
+          "name": "klook.com",
+          "visibility": 0.12531172069825436,
+          "citation": 0.007618283881315156
+        },
+        {
+          "date": "2026-03-14",
+          "name": "expedia.com",
+          "visibility": 0.24096009975062344,
+          "citation": 0.0404971932638332
+        },
+        {
+          "date": "2026-03-14",
+          "name": "agoda.com",
+          "visibility": 0.2733790523690773,
+          "citation": 0.007217321571772253
+        },
+        {
+          "date": "2026-03-14",
+          "name": "trip.com",
+          "visibility": 0.2609102244389027,
+          "citation": 0.03648757016840417,
+          "sentiment": 0.9543726235741444
+        },
+        {
+          "date": "2026-03-14",
+          "name": "booking.com",
+          "visibility": 0.31140897755610975,
+          "citation": 0.03889334402566159
+        },
+        {
+          "date": "2026-03-15",
+          "name": "klook.com",
+          "visibility": 0.14874184529356943,
+          "citation": 0.01037509976057462
+        },
+        {
+          "date": "2026-03-15",
+          "name": "agoda.com",
+          "visibility": 0.3336439888164026,
+          "citation": 0.008778930566640064
+        },
+        {
+          "date": "2026-03-15",
+          "name": "booking.com",
+          "visibility": 0.43839701770736256,
+          "citation": 0.03910614525139665
+        },
+        {
+          "date": "2026-03-15",
+          "name": "trip.com",
+          "visibility": 0.31873252562907733,
+          "citation": 0.03750997605746209,
+          "sentiment": 0.9328449328449328
+        },
+        {
+          "date": "2026-03-15",
+          "name": "airbnb.com",
+          "visibility": 0.07362534948741846,
+          "citation": 0
+        },
+        {
+          "date": "2026-03-15",
+          "name": "expedia.com",
+          "visibility": 0.2881640260950606,
+          "citation": 0.040702314445331206
+        },
+        {
+          "date": "2026-03-16",
+          "name": "klook.com",
+          "visibility": 0.13591779542269966,
+          "citation": 0.007980845969672785
+        },
+        {
+          "date": "2026-03-16",
+          "name": "trip.com",
+          "visibility": 0.2919196637085474,
+          "citation": 0.035913806863527534,
+          "sentiment": 0.9442567567567568
+        },
+        {
+          "date": "2026-03-16",
+          "name": "booking.com",
+          "visibility": 0.3909388136384867,
+          "citation": 0.030726256983240222
+        },
+        {
+          "date": "2026-03-16",
+          "name": "agoda.com",
+          "visibility": 0.3092013078000934,
+          "citation": 0.007980845969672785
+        },
+        {
+          "date": "2026-03-16",
+          "name": "expedia.com",
+          "visibility": 0.2790751985053713,
+          "citation": 0.04150039904229848
+        },
+        {
+          "date": "2026-03-16",
+          "name": "airbnb.com",
+          "visibility": 0.06959364782811771,
+          "citation": 0
+        },
+        {
+          "date": "2026-03-17",
+          "name": "airbnb.com",
+          "visibility": 0.06233948167172543,
+          "citation": 0
+        },
+        {
+          "date": "2026-03-17",
+          "name": "klook.com",
+          "visibility": 0.13752042960541677,
+          "citation": 0.00939334637964775
+        },
+        {
+          "date": "2026-03-17",
+          "name": "agoda.com",
+          "visibility": 0.3154331076348354,
+          "citation": 0.004696673189823875
+        },
+        {
+          "date": "2026-03-17",
+          "name": "booking.com",
+          "visibility": 0.3973850105066542,
+          "citation": 0.04070450097847359
+        },
+        {
+          "date": "2026-03-17",
+          "name": "trip.com",
+          "visibility": 0.30025682932523934,
+          "citation": 0.037573385518591,
+          "sentiment": 0.9488870568837592
+        },
+        {
+          "date": "2026-03-17",
+          "name": "expedia.com",
+          "visibility": 0.2790100396918048,
+          "citation": 0.03561643835616438
+        },
+        {
+          "date": "2026-03-18",
+          "name": "trip.com",
+          "visibility": 0.2984097287184284,
+          "citation": 0.03614916286149163,
+          "sentiment": 0.9435684647302904
+        },
+        {
+          "date": "2026-03-18",
+          "name": "airbnb.com",
+          "visibility": 0.07015902712815715,
+          "citation": 0
+        },
+        {
+          "date": "2026-03-18",
+          "name": "klook.com",
+          "visibility": 0.14733395696913,
+          "citation": 0.0076103500761035
+        },
+        {
+          "date": "2026-03-18",
+          "name": "expedia.com",
+          "visibility": 0.28203928905519177,
+          "citation": 0.03729071537290715
+        },
+        {
+          "date": "2026-03-18",
+          "name": "agoda.com",
+          "visibility": 0.3061272217025257,
+          "citation": 0.006468797564687975
+        },
+        {
+          "date": "2026-03-18",
+          "name": "booking.com",
+          "visibility": 0.3886810102899906,
+          "citation": 0.02968036529680365
+        },
+        {
+          "date": "2026-03-19",
+          "name": "agoda.com",
+          "visibility": 0.3132304815334268,
+          "citation": 0.008433734939759036
+        },
+        {
+          "date": "2026-03-19",
+          "name": "airbnb.com",
+          "visibility": 0.06802244039270687,
+          "citation": 0
+        },
+        {
+          "date": "2026-03-19",
+          "name": "trip.com",
+          "visibility": 0.29897148200093504,
+          "citation": 0.03855421686746988,
+          "sentiment": 0.9321192052980132
+        },
+        {
+          "date": "2026-03-19",
+          "name": "booking.com",
+          "visibility": 0.3936418887330528,
+          "citation": 0.03493975903614458
+        },
+        {
+          "date": "2026-03-19",
+          "name": "klook.com",
+          "visibility": 0.15474520804114072,
+          "citation": 0.008433734939759036
+        },
+        {
+          "date": "2026-03-19",
+          "name": "expedia.com",
+          "visibility": 0.2755960729312763,
+          "citation": 0.03654618473895582
+        },
+        {
+          "date": "2026-03-20",
+          "name": "airbnb.com",
+          "visibility": 0.06191619962636776,
+          "citation": 0
+        },
+        {
+          "date": "2026-03-20",
+          "name": "agoda.com",
+          "visibility": 0.29890579129970646,
+          "citation": 0.010856453558504222
+        },
+        {
+          "date": "2026-03-20",
+          "name": "booking.com",
+          "visibility": 0.3592207099012543,
+          "citation": 0.03417772416566144
+        },
+        {
+          "date": "2026-03-20",
+          "name": "klook.com",
+          "visibility": 0.1438484120629837,
+          "citation": 0.012866907921190189
+        },
+        {
+          "date": "2026-03-20",
+          "name": "trip.com",
+          "visibility": 0.28529490258873763,
+          "citation": 0.038198632891033375,
+          "sentiment": 0.9497041420118344
+        },
+        {
+          "date": "2026-03-20",
+          "name": "expedia.com",
+          "visibility": 0.2540699226047505,
+          "citation": 0.03538399678327302
+        },
+        {
+          "date": "2026-03-21",
+          "name": "trip.com",
+          "visibility": 0.30153917910447764,
+          "citation": 0.040257648953301126,
+          "sentiment": 0.9526530612244898
+        },
+        {
+          "date": "2026-03-21",
+          "name": "klook.com",
+          "visibility": 0.1490205223880597,
+          "citation": 0.010869565217391304
+        },
+        {
+          "date": "2026-03-21",
+          "name": "agoda.com",
+          "visibility": 0.30573694029850745,
+          "citation": 0.008454106280193236
+        },
+        {
+          "date": "2026-03-21",
+          "name": "airbnb.com",
+          "visibility": 0.06646455223880597,
+          "citation": 0
+        },
+        {
+          "date": "2026-03-21",
+          "name": "booking.com",
+          "visibility": 0.3831623134328358,
+          "citation": 0.03864734299516908
+        },
+        {
+          "date": "2026-03-21",
+          "name": "expedia.com",
+          "visibility": 0.2798507462686567,
+          "citation": 0.04227053140096618
+        },
+        {
+          "date": "2026-03-22",
+          "name": "trip.com",
+          "visibility": 0.3140719185200582,
+          "citation": 0.04008016032064128,
+          "sentiment": 0.9452529452529452
+        },
+        {
+          "date": "2026-03-22",
+          "name": "expedia.com",
+          "visibility": 0.2970276449802536,
+          "citation": 0.031663326653306616
+        },
+        {
+          "date": "2026-03-22",
+          "name": "agoda.com",
+          "visibility": 0.3138640615256703,
+          "citation": 0.007615230460921844
+        },
+        {
+          "date": "2026-03-22",
+          "name": "airbnb.com",
+          "visibility": 0.0717106630638121,
+          "citation": 0.0008016032064128256
+        },
+        {
+          "date": "2026-03-22",
+          "name": "klook.com",
+          "visibility": 0.1529827478694658,
+          "citation": 0.012024048096192385
+        },
+        {
+          "date": "2026-03-22",
+          "name": "booking.com",
+          "visibility": 0.4107254209104136,
+          "citation": 0.03967935871743487
+        },
+        {
+          "date": "2026-03-23",
+          "name": "agoda.com",
+          "visibility": 0.3097407147862649,
+          "citation": 0.00819366852886406
+        },
+        {
+          "date": "2026-03-23",
+          "name": "klook.com",
+          "visibility": 0.15743985050221912,
+          "citation": 0.01042830540037244
+        },
+        {
+          "date": "2026-03-23",
+          "name": "trip.com",
+          "visibility": 0.30950712450362067,
+          "citation": 0.03687150837988827,
+          "sentiment": 0.9407051282051282
+        },
+        {
+          "date": "2026-03-23",
+          "name": "airbnb.com",
+          "visibility": 0.0712450362064938,
+          "citation": 0
+        },
+        {
+          "date": "2026-03-23",
+          "name": "booking.com",
+          "visibility": 0.4036440084092502,
+          "citation": 0.03761638733705773
+        },
+        {
+          "date": "2026-03-23",
+          "name": "expedia.com",
+          "visibility": 0.28381219341275404,
+          "citation": 0.03389199255121043
+        },
+        {
+          "date": "2026-03-24",
+          "name": "booking.com",
+          "visibility": 0.4115590771381962,
+          "citation": 0.033499170812603646
+        },
+        {
+          "date": "2026-03-24",
+          "name": "expedia.com",
+          "visibility": 0.2824516429736658,
+          "citation": 0.02155887230514096
+        },
+        {
+          "date": "2026-03-24",
+          "name": "klook.com",
+          "visibility": 0.16359822885108366,
+          "citation": 0.006301824212271974
+        },
+        {
+          "date": "2026-03-24",
+          "name": "agoda.com",
+          "visibility": 0.30692146352831506,
+          "citation": 0.006633499170812604
+        },
+        {
+          "date": "2026-03-24",
+          "name": "airbnb.com",
+          "visibility": 0.08576089489629457,
+          "citation": 0.0003316749585406302
+        },
+        {
+          "date": "2026-03-24",
+          "name": "trip.com",
+          "visibility": 0.31158238172920066,
+          "citation": 0.03781094527363184,
+          "sentiment": 0.9412698412698411
+        },
+        {
+          "date": "2026-03-25",
+          "name": "airbnb.com",
+          "visibility": 0.07911318553092182,
+          "citation": 0
+        },
+        {
+          "date": "2026-03-25",
+          "name": "klook.com",
+          "visibility": 0.17012835472578763,
+          "citation": 0.010452961672473868
+        },
+        {
+          "date": "2026-03-25",
+          "name": "booking.com",
+          "visibility": 0.3908984830805134,
+          "citation": 0.027241051631295532
+        },
+        {
+          "date": "2026-03-25",
+          "name": "agoda.com",
+          "visibility": 0.3003500583430572,
+          "citation": 0.006968641114982578
+        },
+        {
+          "date": "2026-03-25",
+          "name": "expedia.com",
+          "visibility": 0.2793465577596266,
+          "citation": 0.031675641431739
+        },
+        {
+          "date": "2026-03-25",
+          "name": "trip.com",
+          "visibility": 0.30921820303383896,
+          "citation": 0.04149509027557808,
+          "sentiment": 0.9417946645109136
+        },
+        {
+          "date": "2026-03-26",
+          "name": "expedia.com",
+          "visibility": 0.2732368052312004,
+          "citation": 0.02848200312989045
+        },
+        {
+          "date": "2026-03-26",
+          "name": "airbnb.com",
+          "visibility": 0.08453993460999533,
+          "citation": 0
+        },
+        {
+          "date": "2026-03-26",
+          "name": "agoda.com",
+          "visibility": 0.30569827183559084,
+          "citation": 0.004381846635367762
+        },
+        {
+          "date": "2026-03-26",
+          "name": "trip.com",
+          "visibility": 0.3092013078000934,
+          "citation": 0.03943661971830986,
+          "sentiment": 0.9341463414634148
+        },
+        {
+          "date": "2026-03-26",
+          "name": "klook.com",
+          "visibility": 0.17211583372255956,
+          "citation": 0.012206572769953052
+        },
+        {
+          "date": "2026-03-26",
+          "name": "booking.com",
+          "visibility": 0.4138253152732368,
+          "citation": 0.03129890453834116
+        },
+        {
+          "date": "2026-03-27",
+          "name": "booking.com",
+          "visibility": 0.41494065627181753,
+          "citation": 0.03165558721114277
+        },
+        {
+          "date": "2026-03-27",
+          "name": "expedia.com",
+          "visibility": 0.2736793111473121,
+          "citation": 0.02849002849002849
+        },
+        {
+          "date": "2026-03-27",
+          "name": "klook.com",
+          "visibility": 0.1570863393064929,
+          "citation": 0.00949667616334283
+        },
+        {
+          "date": "2026-03-27",
+          "name": "airbnb.com",
+          "visibility": 0.0835466604607866,
+          "citation": 0
+        },
+        {
+          "date": "2026-03-27",
+          "name": "trip.com",
+          "visibility": 0.3176634861531301,
+          "citation": 0.038619816397594174,
+          "sentiment": 0.9456692913385828
+        },
+        {
+          "date": "2026-03-27",
+          "name": "agoda.com",
+          "visibility": 0.3030020944845241,
+          "citation": 0.007280785058562835
+        },
+        {
+          "date": "2026-03-28",
+          "name": "trip.com",
+          "visibility": 0.3033154121863799,
+          "citation": 0.033866995073891626,
+          "sentiment": 0.9253611556982344
+        },
+        {
+          "date": "2026-03-28",
+          "name": "klook.com",
+          "visibility": 0.16263440860215053,
+          "citation": 0.010775862068965518
+        },
+        {
+          "date": "2026-03-28",
+          "name": "airbnb.com",
+          "visibility": 0.08042114695340502,
+          "citation": 0
+        },
+        {
+          "date": "2026-03-28",
+          "name": "booking.com",
+          "visibility": 0.4204749103942652,
+          "citation": 0.031711822660098525
+        },
+        {
+          "date": "2026-03-28",
+          "name": "expedia.com",
+          "visibility": 0.28225806451612906,
+          "citation": 0.03078817733990148
+        },
+        {
+          "date": "2026-03-28",
+          "name": "agoda.com",
+          "visibility": 0.30376344086021506,
+          "citation": 0.008004926108374385
+        },
+        {
+          "date": "2026-03-29",
+          "name": "klook.com",
+          "visibility": 0.16001792917974003,
+          "citation": 0.009157509157509158
+        },
+        {
+          "date": "2026-03-29",
+          "name": "agoda.com",
+          "visibility": 0.29829672792469747,
+          "citation": 0.005494505494505495
+        },
+        {
+          "date": "2026-03-29",
+          "name": "trip.com",
+          "visibility": 0.30389959659345583,
+          "citation": 0.03663003663003663,
+          "sentiment": 0.945924764890282
+        },
+        {
+          "date": "2026-03-29",
+          "name": "expedia.com",
+          "visibility": 0.27543702375616314,
+          "citation": 0.027167277167277168
+        },
+        {
+          "date": "2026-03-29",
+          "name": "airbnb.com",
+          "visibility": 0.08404303003137606,
+          "citation": 0
+        },
+        {
+          "date": "2026-03-29",
+          "name": "booking.com",
+          "visibility": 0.4123711340206185,
+          "citation": 0.027472527472527472
+        },
+        {
+          "date": "2026-03-30",
+          "name": "expedia.com",
+          "visibility": 0.27737064179435933,
+          "citation": 0.029137529137529136
+        },
+        {
+          "date": "2026-03-30",
+          "name": "agoda.com",
+          "visibility": 0.3046857650455252,
+          "citation": 0.006701631701631702
+        },
+        {
+          "date": "2026-03-30",
+          "name": "trip.com",
+          "visibility": 0.3117921385742838,
+          "citation": 0.03991841491841492,
+          "sentiment": 0.9398612181958366
+        },
+        {
+          "date": "2026-03-30",
+          "name": "klook.com",
+          "visibility": 0.16166999777925828,
+          "citation": 0.009615384615384616
+        },
+        {
+          "date": "2026-03-30",
+          "name": "booking.com",
+          "visibility": 0.4132800355318677,
+          "citation": 0.024184149184149184
+        },
+        {
+          "date": "2026-03-30",
+          "name": "airbnb.com",
+          "visibility": 0.08039085054408172,
+          "citation": 0
+        },
+        {
+          "date": "2026-03-31",
+          "name": "trip.com",
+          "visibility": 0.304367102637996,
+          "citation": 0.04147331786542923,
+          "sentiment": 0.932295719844358
+        },
+        {
+          "date": "2026-03-31",
+          "name": "expedia.com",
+          "visibility": 0.2824207492795389,
+          "citation": 0.03219257540603248
+        },
+        {
+          "date": "2026-03-31",
+          "name": "booking.com",
+          "visibility": 0.4242961649301707,
+          "citation": 0.02697215777262181
+        },
+        {
+          "date": "2026-03-31",
+          "name": "agoda.com",
+          "visibility": 0.31035247173575703,
+          "citation": 0.008410672853828306
+        },
+        {
+          "date": "2026-03-31",
+          "name": "klook.com",
+          "visibility": 0.164043449346043,
+          "citation": 0.008120649651972157
+        },
+        {
+          "date": "2026-03-31",
+          "name": "airbnb.com",
+          "visibility": 0.08246508534692973,
+          "citation": 0
+        },
+        {
+          "date": "2026-04-01",
+          "name": "booking.com",
+          "visibility": 0.4035754189944134,
+          "citation": 0.026658939437844104
+        },
+        {
+          "date": "2026-04-01",
+          "name": "airbnb.com",
+          "visibility": 0.08067039106145252,
+          "citation": 0
+        },
+        {
+          "date": "2026-04-01",
+          "name": "agoda.com",
+          "visibility": 0.3030167597765363,
+          "citation": 0.008693132425383946
+        },
+        {
+          "date": "2026-04-01",
+          "name": "klook.com",
+          "visibility": 0.16603351955307263,
+          "citation": 0.009562445667922342
+        },
+        {
+          "date": "2026-04-01",
+          "name": "expedia.com",
+          "visibility": 0.2878212290502793,
+          "citation": 0.03332367429730513
+        },
+        {
+          "date": "2026-04-01",
+          "name": "trip.com",
+          "visibility": 0.3141899441340782,
+          "citation": 0.04433497536945813,
+          "sentiment": 0.9431464174454828
+        },
+        {
+          "date": "2026-04-02",
+          "name": "agoda.com",
+          "visibility": 0.27508896797153026,
+          "citation": 0.004784688995215311
+        },
+        {
+          "date": "2026-04-02",
+          "name": "booking.com",
+          "visibility": 0.4113879003558719,
+          "citation": 0.026533275337103087
+        },
+        {
+          "date": "2026-04-02",
+          "name": "klook.com",
+          "visibility": 0.13807829181494663,
+          "citation": 0.006959547629404089
+        },
+        {
+          "date": "2026-04-02",
+          "name": "trip.com",
+          "visibility": 0.2754448398576512,
+          "citation": 0.03566768160069596,
+          "sentiment": 0.9424157303370788
+        },
+        {
+          "date": "2026-04-02",
+          "name": "airbnb.com",
+          "visibility": 0.0903914590747331,
+          "citation": 0
+        },
+        {
+          "date": "2026-04-02",
+          "name": "expedia.com",
+          "visibility": 0.302491103202847,
+          "citation": 0.032622879512831666
+        }
+      ],
+      "query": {
+        "target": {
+          "entity": "brand",
+          "metrics": [
+            "visibility",
+            "citation",
+            "sentiment"
+          ],
+          "filters": {
+            "dateRange": {
+              "startAt": "2026-03-04T00:00:00.000Z",
+              "endAt": "2026-04-02T23:59:59.999Z"
+            }
+          }
+        },
+        "analysis": {
+          "type": "trend"
+        }
+      }
+    }
+  },
+  "brand_ranking": {
+    "success": true,
+    "code": 0,
+    "message": "OK",
+    "data": {
+      "rows": [
+        {
+          "name": "booking.com",
+          "visibility": 0.4143323172141464,
+          "citation": 0.027884065582212424
+        },
+        {
+          "name": "trip.com",
+          "visibility": 0.30438178859099646,
+          "citation": 0.03864446255078867
+        },
+        {
+          "name": "agoda.com",
+          "visibility": 0.29974374682839794,
+          "citation": 0.007052906091071711
+        },
+        {
+          "name": "expedia.com",
+          "visibility": 0.2830683032495184,
+          "citation": 0.0305317344787008
+        },
+        {
+          "name": "klook.com",
+          "visibility": 0.15850913365452915,
+          "citation": 0.009098296422071533
+        },
+        {
+          "name": "airbnb.com",
+          "visibility": 0.08313266049610925,
+          "citation": 0
+        }
+      ],
+      "query": {
+        "target": {
+          "entity": "brand",
+          "metrics": [
+            "visibility",
+            "citation"
+          ],
+          "filters": {
+            "dateRange": {
+              "startAt": "2026-03-27T00:00:00.000Z",
+              "endAt": "2026-04-02T23:59:59.999Z"
+            }
+          }
+        },
+        "analysis": {
+          "type": "ranking",
+          "ranking": {
+            "orderBy": "visibility",
+            "direction": "desc"
+          }
+        }
+      }
+    }
+  },
+  "topics": {
+    "success": true,
+    "code": 0,
+    "message": "OK",
+    "data": {
+      "items": [
+        {
+          "id": "455e0bf7-9cb4-4f7c-a33c-61688f93a54b",
+          "topic": "Japan Outbound Travel",
+          "visibility": 0.5058067490809396,
+          "visibilityChangedRate": -0.002277158329735185,
+          "sentiment": 76.68233082706767,
+          "avgPosition": 2.960319238437596,
+          "citationRate": 0.06581254926417343,
+          "volume": 3
+        },
+        {
+          "id": "e75bb22f-70bc-4ccd-bd32-a02f7b8c28c7",
+          "topic": "Korea Outbound Travel",
+          "visibility": 0.4877139390399677,
+          "visibilityChangedRate": 0.001044747832607662,
+          "sentiment": 76.792,
+          "avgPosition": 3.5131409812173504,
+          "citationRate": 0.04329035137014782,
+          "volume": 1
+        },
+        {
+          "id": "fabb7806-fd57-4064-bcfe-0505212a8441",
+          "topic": "Greater China & Middle East Travel",
+          "visibility": 0.4332069525786295,
+          "visibilityChangedRate": 0.004819146468268309,
+          "sentiment": 75.98268398268398,
+          "avgPosition": 3.407470808768123,
+          "citationRate": 0.047557768326704206,
+          "volume": 2
+        },
+        {
+          "id": "9f9ad931-5021-40b1-a6dd-7bd34ead603b",
+          "topic": "Southeast Asia Travel Solutions",
+          "visibility": 0.4034003733323645,
+          "visibilityChangedRate": -0.005369367172721018,
+          "sentiment": 75.93498452012383,
+          "avgPosition": 3.618850475496827,
+          "citationRate": 0.0631118558846931,
+          "volume": 2
+        },
+        {
+          "id": "c7a6846a-3c86-427f-aa4c-051d0fed3089",
+          "topic": "Mobile Travel Tools",
+          "visibility": 0.3133020065884368,
+          "visibilityChangedRate": -0.0028840954546805464,
+          "sentiment": 71.97788404064555,
+          "avgPosition": 4.031277859632595,
+          "citationRate": 0.02590962709165176,
+          "volume": 5
+        },
+        {
+          "id": "828e29f5-85cf-4d78-abb8-b120d580537a",
+          "topic": "Top Rated Travel Apps",
+          "visibility": 0.272670765198998,
+          "visibilityChangedRate": -0.003338719654976452,
+          "sentiment": 72.02523874488404,
+          "avgPosition": 4.013218202944665,
+          "citationRate": 0.007511713663375247,
+          "volume": 1
+        },
+        {
+          "id": "047cd093-8e2e-491a-9b4b-2942e4970ef1",
+          "topic": "Travel Planning Guides",
+          "visibility": 0.2232621686968522,
+          "visibilityChangedRate": 0.0026482317775103625,
+          "sentiment": 70.09021739130435,
+          "avgPosition": 4.050842360620431,
+          "citationRate": 0.08152818711719213,
+          "volume": 4
+        },
+        {
+          "id": "8c3530bc-2c5f-4445-bf5f-8453c56e9ad3",
+          "topic": "Platform Comparison Guide",
+          "visibility": 0.18563689034181205,
+          "visibilityChangedRate": -0.008929294912200764,
+          "sentiment": 71.10308182784271,
+          "avgPosition": 3.713731012137468,
+          "citationRate": 0.00803375414905699,
+          "volume": 3
+        }
+      ]
+    },
+    "meta": {
+      "pagination": {
+        "page": 1,
+        "pageSize": 20,
+        "total": 8,
+        "totalPages": 1
+      }
+    }
+  },
+  "topic_trend": {
+    "success": true,
+    "code": 0,
+    "message": "OK",
+    "data": {
+      "rows": [
+        {
+          "date": "2026-03-27",
+          "topic": "Top Rated Travel Apps",
+          "visibility": 0.2817258883248731,
+          "sentiment": 0.9627906976744186,
+          "citation": 0.008849557522123894
+        },
+        {
+          "date": "2026-03-28",
+          "topic": "Top Rated Travel Apps",
+          "visibility": 0.28363636363636363,
+          "sentiment": 0.913793103448276,
+          "citation": 0.0034542314335060447
+        },
+        {
+          "date": "2026-03-29",
+          "topic": "Top Rated Travel Apps",
+          "visibility": 0.2630937880633374,
+          "sentiment": 0.9532710280373832,
+          "citation": 0.0017035775127768314
+        },
+        {
+          "date": "2026-03-30",
+          "topic": "Top Rated Travel Apps",
+          "visibility": 0.28174123337363965,
+          "sentiment": 0.947136563876652,
+          "citation": 0.01
+        },
+        {
+          "date": "2026-03-31",
+          "topic": "Top Rated Travel Apps",
+          "visibility": 0.26745562130177514,
+          "sentiment": 0.954337899543379,
+          "citation": 0.008012820512820512
+        },
+        {
+          "date": "2026-04-01",
+          "topic": "Top Rated Travel Apps",
+          "visibility": 0.293124246079614,
+          "sentiment": 0.9319148936170212,
+          "citation": 0.011345218800648298
+        },
+        {
+          "date": "2026-04-02",
+          "topic": "Top Rated Travel Apps",
+          "visibility": 0.2379182156133829,
+          "sentiment": 0.9516129032258064,
+          "citation": 0.009216589861751152
+        },
+        {
+          "date": "2026-03-27",
+          "topic": "Mobile Travel Tools",
+          "visibility": 0.32222222222222224,
+          "sentiment": 0.9606299212598424,
+          "citation": 0.020072992700729927
+        },
+        {
+          "date": "2026-03-28",
+          "topic": "Mobile Travel Tools",
+          "visibility": 0.3237063778580024,
+          "sentiment": 0.953846153846154,
+          "citation": 0.01981981981981982
+        },
+        {
+          "date": "2026-03-29",
+          "topic": "Mobile Travel Tools",
+          "visibility": 0.3086124401913876,
+          "sentiment": 0.9642857142857144,
+          "citation": 0.02363636363636364
+        },
+        {
+          "date": "2026-03-30",
+          "topic": "Mobile Travel Tools",
+          "visibility": 0.3108433734939759,
+          "sentiment": 0.9506172839506172,
+          "citation": 0.030874785591766724
+        },
+        {
+          "date": "2026-03-31",
+          "topic": "Mobile Travel Tools",
+          "visibility": 0.3381818181818182,
+          "sentiment": 0.9372693726937268,
+          "citation": 0.03315881326352531
+        },
+        {
+          "date": "2026-04-01",
+          "topic": "Mobile Travel Tools",
+          "visibility": 0.3212996389891697,
+          "sentiment": 0.968,
+          "citation": 0.03951890034364261
+        },
+        {
+          "date": "2026-04-02",
+          "topic": "Mobile Travel Tools",
+          "visibility": 0.26824817518248173,
+          "sentiment": 0.972027972027972,
+          "citation": 0.014285714285714284
+        },
+        {
+          "date": "2026-03-27",
+          "topic": "Travel Planning Guides",
+          "visibility": 0.24816625916870416,
+          "sentiment": 0.8675496688741722,
+          "citation": 0.09792843691148775
+        },
+        {
+          "date": "2026-03-28",
+          "topic": "Travel Planning Guides",
+          "visibility": 0.21618357487922704,
+          "sentiment": 0.8412698412698413,
+          "citation": 0.07393715341959335
+        },
+        {
+          "date": "2026-03-29",
+          "topic": "Travel Planning Guides",
+          "visibility": 0.22341696535244923,
+          "sentiment": 0.908450704225352,
+          "citation": 0.0703971119133574
+        },
+        {
+          "date": "2026-03-30",
+          "topic": "Travel Planning Guides",
+          "visibility": 0.21957040572792363,
+          "sentiment": 0.8676470588235294,
+          "citation": 0.08027923211169284
+        },
+        {
+          "date": "2026-03-31",
+          "topic": "Travel Planning Guides",
+          "visibility": 0.21608643457382956,
+          "sentiment": 0.7928571428571428,
+          "citation": 0.08376068376068375
+        },
+        {
+          "date": "2026-04-01",
+          "topic": "Travel Planning Guides",
+          "visibility": 0.22840236686390533,
+          "sentiment": 0.9136690647482014,
+          "citation": 0.09262435677530018
+        },
+        {
+          "date": "2026-04-02",
+          "topic": "Travel Planning Guides",
+          "visibility": 0.21100917431192664,
+          "sentiment": 0.8372093023255814,
+          "citation": 0.07177033492822966
+        },
+        {
+          "date": "2026-03-27",
+          "topic": "Platform Comparison Guide",
+          "visibility": 0.20607661822985468,
+          "sentiment": 0.9285714285714286,
+          "citation": 0.007518796992481203
+        },
+        {
+          "date": "2026-03-28",
+          "topic": "Platform Comparison Guide",
+          "visibility": 0.1835443037974684,
+          "sentiment": 0.823943661971831,
+          "citation": 0.007434944237918215
+        },
+        {
+          "date": "2026-03-29",
+          "topic": "Platform Comparison Guide",
+          "visibility": 0.18043202033036848,
+          "sentiment": 0.8613138686131386,
+          "citation": 0.005357142857142857
+        },
+        {
+          "date": "2026-03-30",
+          "topic": "Platform Comparison Guide",
+          "visibility": 0.18969849246231155,
+          "sentiment": 0.8503401360544217,
+          "citation": 0.010344827586206896
+        },
+        {
+          "date": "2026-03-31",
+          "topic": "Platform Comparison Guide",
+          "visibility": 0.1706700379266751,
+          "sentiment": 0.8955223880597015,
+          "citation": 0.0071174377224199285
+        },
+        {
+          "date": "2026-04-01",
+          "topic": "Platform Comparison Guide",
+          "visibility": 0.19083969465648856,
+          "sentiment": 0.8827586206896552,
+          "citation": 0.010398613518197574
+        },
+        {
+          "date": "2026-04-02",
+          "topic": "Platform Comparison Guide",
+          "visibility": 0.17819706498951782,
+          "sentiment": 0.8780487804878049,
+          "citation": 0.008064516129032258
+        },
+        {
+          "date": "2026-03-27",
+          "topic": "Japan Outbound Travel",
+          "visibility": 0.5271565495207667,
+          "sentiment": 0.98125,
+          "citation": 0.04659498207885305
+        },
+        {
+          "date": "2026-03-28",
+          "topic": "Japan Outbound Travel",
+          "visibility": 0.4984984984984985,
+          "sentiment": 0.9871794871794872,
+          "citation": 0.06643356643356643
+        },
+        {
+          "date": "2026-03-29",
+          "topic": "Japan Outbound Travel",
+          "visibility": 0.5319148936170213,
+          "sentiment": 0.9705882352941176,
+          "citation": 0.08650519031141868
+        },
+        {
+          "date": "2026-03-30",
+          "topic": "Japan Outbound Travel",
+          "visibility": 0.504424778761062,
+          "sentiment": 0.9754601226993864,
+          "citation": 0.07395498392282958
+        },
+        {
+          "date": "2026-03-31",
+          "topic": "Japan Outbound Travel",
+          "visibility": 0.49279538904899134,
+          "sentiment": 0.9817073170731708,
+          "citation": 0.05660377358490566
+        },
+        {
+          "date": "2026-04-01",
+          "topic": "Japan Outbound Travel",
+          "visibility": 0.5391566265060241,
+          "sentiment": 0.9818181818181818,
+          "citation": 0.06070287539936102
+        },
+        {
+          "date": "2026-04-02",
+          "topic": "Japan Outbound Travel",
+          "visibility": 0.4467005076142132,
+          "sentiment": 0.9651162790697676,
+          "citation": 0.06989247311827956
+        },
+        {
+          "date": "2026-03-27",
+          "topic": "Korea Outbound Travel",
+          "visibility": 0.508833922261484,
+          "sentiment": 0.9696969696969696,
+          "citation": 0.04032258064516129
+        },
+        {
+          "date": "2026-03-28",
+          "topic": "Korea Outbound Travel",
+          "visibility": 0.4628378378378378,
+          "sentiment": 0.967479674796748,
+          "citation": 0.04263565891472868
+        },
+        {
+          "date": "2026-03-29",
+          "topic": "Korea Outbound Travel",
+          "visibility": 0.4880546075085324,
+          "sentiment": 0.9710144927536232,
+          "citation": 0.04780876494023904
+        },
+        {
+          "date": "2026-03-30",
+          "topic": "Korea Outbound Travel",
+          "visibility": 0.5284280936454849,
+          "sentiment": 0.9727891156462584,
+          "citation": 0.02197802197802198
+        },
+        {
+          "date": "2026-03-31",
+          "topic": "Korea Outbound Travel",
+          "visibility": 0.47368421052631576,
+          "sentiment": 0.9692307692307692,
+          "citation": 0.04316546762589928
+        },
+        {
+          "date": "2026-04-01",
+          "topic": "Korea Outbound Travel",
+          "visibility": 0.4812286689419795,
+          "sentiment": 0.9696969696969696,
+          "citation": 0.049429657794676805
+        },
+        {
+          "date": "2026-04-02",
+          "topic": "Korea Outbound Travel",
+          "visibility": 0.47093023255813954,
+          "sentiment": 0.9863013698630136,
+          "citation": 0.057692307692307696
+        },
+        {
+          "date": "2026-03-27",
+          "topic": "Southeast Asia Travel Solutions",
+          "visibility": 0.39344262295081966,
+          "sentiment": 0.9264705882352942,
+          "citation": 0.06521739130434782
+        },
+        {
+          "date": "2026-03-28",
+          "topic": "Southeast Asia Travel Solutions",
+          "visibility": 0.3893129770992366,
+          "sentiment": 0.9642857142857144,
+          "citation": 0.05217391304347826
+        },
+        {
+          "date": "2026-03-29",
+          "topic": "Southeast Asia Travel Solutions",
+          "visibility": 0.42385786802030456,
+          "sentiment": 0.9681528662420382,
+          "citation": 0.05797101449275362
+        },
+        {
+          "date": "2026-03-30",
+          "topic": "Southeast Asia Travel Solutions",
+          "visibility": 0.4175,
+          "sentiment": 0.9935064935064936,
+          "citation": 0.06685236768802229
+        },
+        {
+          "date": "2026-03-31",
+          "topic": "Southeast Asia Travel Solutions",
+          "visibility": 0.4120603015075377,
+          "sentiment": 0.9615384615384616,
+          "citation": 0.07520891364902507
+        },
+        {
+          "date": "2026-04-01",
+          "topic": "Southeast Asia Travel Solutions",
+          "visibility": 0.4020356234096692,
+          "sentiment": 0.9444444444444444,
+          "citation": 0.07458563535911603
+        },
+        {
+          "date": "2026-04-02",
+          "topic": "Southeast Asia Travel Solutions",
+          "visibility": 0.3855932203389831,
+          "sentiment": 0.975609756097561,
+          "citation": 0.049773755656108594
+        },
+        {
+          "date": "2026-03-27",
+          "topic": "Greater China & Middle East Travel",
+          "visibility": 0.43209876543209874,
+          "sentiment": 0.9558823529411764,
+          "citation": 0.04477611940298507
+        },
+        {
+          "date": "2026-03-28",
+          "topic": "Greater China & Middle East Travel",
+          "visibility": 0.4226190476190476,
+          "sentiment": 0.9253731343283582,
+          "citation": 0.03424657534246575
+        },
+        {
+          "date": "2026-03-29",
+          "topic": "Greater China & Middle East Travel",
+          "visibility": 0.4121212121212121,
+          "sentiment": 0.9393939393939394,
+          "citation": 0.05
+        },
+        {
+          "date": "2026-03-30",
+          "topic": "Greater China & Middle East Travel",
+          "visibility": 0.47126436781609193,
+          "sentiment": 0.9375,
+          "citation": 0.05228758169934641
+        },
+        {
+          "date": "2026-03-31",
+          "topic": "Greater China & Middle East Travel",
+          "visibility": 0.44047619047619047,
+          "sentiment": 0.943661971830986,
+          "citation": 0.06040268456375839
+        },
+        {
+          "date": "2026-04-01",
+          "topic": "Greater China & Middle East Travel",
+          "visibility": 0.45180722891566266,
+          "sentiment": 0.9324324324324323,
+          "citation": 0.025974025974025976
+        },
+        {
+          "date": "2026-04-02",
+          "topic": "Greater China & Middle East Travel",
+          "visibility": 0.4020618556701031,
+          "sentiment": 0.9722222222222222,
+          "citation": 0.06521739130434782
+        }
+      ],
+      "query": {
+        "target": {
+          "entity": "topic",
+          "metrics": [
+            "visibility",
+            "sentiment",
+            "citation"
+          ],
+          "filters": {
+            "dateRange": {
+              "startAt": "2026-03-27T00:00:00.000Z",
+              "endAt": "2026-04-02T23:59:59.999Z"
+            }
+          }
+        },
+        "analysis": {
+          "type": "trend"
+        }
+      }
+    }
+  },
+  "topic_ranking": {
+    "success": true,
+    "code": 0,
+    "message": "OK",
+    "data": {
+      "rows": [
+        {
+          "topic": "Japan Outbound Travel",
+          "visibility": 0.50580675,
+          "sentiment": 76.68233083,
+          "citation": 0.06581255
+        },
+        {
+          "topic": "Korea Outbound Travel",
+          "visibility": 0.48771394,
+          "sentiment": 76.792,
+          "citation": 0.04329035
+        },
+        {
+          "topic": "Greater China & Middle East Travel",
+          "visibility": 0.43320695,
+          "sentiment": 75.98268398,
+          "citation": 0.04755777
+        },
+        {
+          "topic": "Southeast Asia Travel Solutions",
+          "visibility": 0.40340037,
+          "sentiment": 75.93498452,
+          "citation": 0.06311186
+        },
+        {
+          "topic": "Mobile Travel Tools",
+          "visibility": 0.31330201,
+          "sentiment": 71.97788404,
+          "citation": 0.02590963
+        },
+        {
+          "topic": "Top Rated Travel Apps",
+          "visibility": 0.27267077,
+          "sentiment": 72.02523874,
+          "citation": 0.00751171
+        },
+        {
+          "topic": "Travel Planning Guides",
+          "visibility": 0.22326217,
+          "sentiment": 70.09021739,
+          "citation": 0.08152819
+        },
+        {
+          "topic": "Platform Comparison Guide",
+          "visibility": 0.18563689,
+          "sentiment": 71.10308183,
+          "citation": 0.00803375
+        }
+      ],
+      "query": {
+        "target": {
+          "entity": "topic",
+          "metrics": [
+            "visibility",
+            "sentiment",
+            "citation"
+          ],
+          "filters": {
+            "dateRange": {
+              "startAt": "2026-03-27T00:00:00.000Z",
+              "endAt": "2026-04-02T23:59:59.999Z"
+            }
+          }
+        },
+        "analysis": {
+          "type": "ranking",
+          "ranking": {
+            "orderBy": "visibility",
+            "direction": "desc"
+          }
+        }
+      }
+    }
+  },
+  "prompts": {
+    "success": true,
+    "code": 0,
+    "message": "OK",
+    "data": {
+      "items": [
+        {
+          "id": "07a4c4c2-cb9a-4eba-8521-3d033f6ae399",
+          "topic": "Japan Outbound Travel",
+          "prompt": "best app to book flights to China",
+          "intentions": [
+            {
+              "i": "Commercial",
+              "s": 95
+            }
+          ],
+          "funnel": "MOFU",
+          "createdAt": "2026-03-06T14:30:47.914Z",
+          "visibility": 1,
+          "visibilityChangedRate": 0.049107142857142794,
+          "sentiment": 80.90384615384616,
+          "sentimentChangedRate": -0.9711538461538396,
+          "avgPosition": 1.6659863945578233,
+          "avgPositionChangedRate": 0.18533163265306118,
+          "citationRate": 0.4094104308390022,
+          "volume": 5
+        },
+        {
+          "id": "1075d15f-06e7-4b9d-aae5-efbaacb1e8f9",
+          "topic": "Japan Outbound Travel",
+          "prompt": "app to book China flights and hotels",
+          "intentions": [
+            {
+              "i": "Transactional",
+              "s": 93
+            }
+          ],
+          "funnel": "BOFU",
+          "createdAt": "2026-03-06T14:30:47.914Z",
+          "visibility": 0.9484126984126984,
+          "visibilityChangedRate": -0.0024801587301588324,
+          "sentiment": 83.54166666666667,
+          "sentimentChangedRate": 1.6564207650273204,
+          "avgPosition": 1.0816326530612244,
+          "avgPositionChangedRate": -0.27774234693877564,
+          "citationRate": 0.4680272108843537,
+          "volume": 5
+        },
+        {
+          "id": "74132160-6610-4778-a9aa-5c4febe6ab35",
+          "topic": "Southeast Asia Travel Solutions",
+          "prompt": "app for booking China flights and hotels",
+          "intentions": [
+            {
+              "i": "Transactional",
+              "s": 90
+            }
+          ],
+          "funnel": "BOFU",
+          "createdAt": "2026-03-06T14:30:47.914Z",
+          "visibility": 0.9464285714285714,
+          "visibilityChangedRate": 0.007192460317460236,
+          "sentiment": 82.6470588235294,
+          "sentimentChangedRate": 1.397058823529406,
+          "avgPosition": 1.094387755102041,
+          "avgPositionChangedRate": -0.1757015306122447,
+          "citationRate": 0.5278911564625849,
+          "volume": 5
+        },
+        {
+          "id": "e8d90c74-d6f2-4ae6-b72b-d6e3c3ce78c1",
+          "topic": "Greater China & Middle East Travel",
+          "prompt": "app to book flights from Taiwan to China",
+          "intentions": [
+            {
+              "i": "Transactional",
+              "s": 94
+            }
+          ],
+          "funnel": "BOFU",
+          "createdAt": "2026-03-06T14:30:47.914Z",
+          "visibility": 0.8809523809523808,
+          "visibilityChangedRate": 0.13690476190476186,
+          "sentiment": 80.3,
+          "sentimentChangedRate": 0.3638297872340388,
+          "avgPosition": 1.6867913832199546,
+          "avgPositionChangedRate": -0.2511550453514737,
+          "citationRate": 0.3435374149659864,
+          "volume": 5
+        },
+        {
+          "id": "5a8a420c-322a-4014-8fd3-9608ebd9714c",
+          "topic": "Japan Outbound Travel",
+          "prompt": "best hotel booking app for Asia",
+          "intentions": [
+            {
+              "i": "Commercial",
+              "s": 88
+            }
+          ],
+          "funnel": "MOFU",
+          "createdAt": "2026-03-06T14:30:47.914Z",
+          "visibility": 0.8769841269841271,
+          "visibilityChangedRate": -0.011408730158730007,
+          "sentiment": 72.23404255319149,
+          "sentimentChangedRate": -0.6606942889137741,
+          "avgPosition": 2.700850340136054,
+          "avgPositionChangedRate": -0.06155045351473998,
+          "citationRate": 0.017857142857142856,
+          "volume": 4
+        },
+        {
+          "id": "10139442-ce77-43b7-b4a4-4fddb9f12d9d",
+          "topic": "Greater China & Middle East Travel",
+          "prompt": "app to book flights from Hong Kong to China",
+          "intentions": [
+            {
+              "i": "Transactional",
+              "s": 95
+            }
+          ],
+          "funnel": "BOFU",
+          "createdAt": "2026-03-06T14:30:47.914Z",
+          "visibility": 0.8662698412698413,
+          "visibilityChangedRate": 0.08998015873015874,
+          "sentiment": 81.95652173913044,
+          "sentimentChangedRate": 1.4871339840283895,
+          "avgPosition": 1.2040816326530612,
+          "avgPositionChangedRate": -0.06318027210884347,
+          "citationRate": 0.3836734693877551,
+          "volume": 5
+        },
+        {
+          "id": "f6fc06a7-7e2f-4dde-8ee0-b92fae3f3ed2",
+          "topic": "Korea Outbound Travel",
+          "prompt": "best app for Korea to Asia travel",
+          "intentions": [
+            {
+              "i": "Commercial",
+              "s": 94
+            }
+          ],
+          "funnel": "MOFU",
+          "createdAt": "2026-03-06T14:30:47.914Z",
+          "visibility": 0.8492063492063491,
+          "visibilityChangedRate": 0.048859126984126866,
+          "sentiment": 76.11111111111111,
+          "sentimentChangedRate": -2.24183006535948,
+          "avgPosition": 6.685714285714285,
+          "avgPositionChangedRate": 0.7898809523809511,
+          "citationRate": 0.2511337868480726,
+          "volume": 2
+        },
+        {
+          "id": "fedb49b7-081d-4ab6-9fc8-b2c3b9924019",
+          "topic": "Platform Comparison Guide",
+          "prompt": "การเปรียบเทียบแอปการท่องเที่ยวสำหรับตั๋วเครื่องบิน",
+          "intentions": [
+            {
+              "i": "Commercial",
+              "s": 89
+            }
+          ],
+          "funnel": "MOFU",
+          "createdAt": "2026-03-06T14:30:47.914Z",
+          "visibility": 0.8325396825396825,
+          "visibilityChangedRate": 0.03888888888888886,
+          "sentiment": 69.93478260869566,
+          "sentimentChangedRate": -1.0848252344415954,
+          "avgPosition": 3.791326530612245,
+          "avgPositionChangedRate": 0.23090986394557866,
+          "citationRate": 0,
+          "volume": 5
+        },
+        {
+          "id": "53b982a2-cff1-49ef-ad16-a8918606eb77",
+          "topic": "Southeast Asia Travel Solutions",
+          "prompt": "app to book flights from Thailand to China",
+          "intentions": [
+            {
+              "i": "Transactional",
+              "s": 91
+            }
+          ],
+          "funnel": "BOFU",
+          "createdAt": "2026-03-06T14:30:47.914Z",
+          "visibility": 0.8253968253968254,
+          "visibilityChangedRate": -0.05133928571428581,
+          "sentiment": 80.17073170731707,
+          "sentimentChangedRate": 0.2616407982261677,
+          "avgPosition": 1.7130952380952382,
+          "avgPositionChangedRate": -0.3501488095238092,
+          "citationRate": 0.3908163265306122,
+          "volume": 3
+        },
+        {
+          "id": "5b92a524-29c8-4670-bea1-982cdd3d8b53",
+          "topic": "Japan Outbound Travel",
+          "prompt": "hotel booking app for Asian countries",
+          "intentions": [
+            {
+              "i": "Transactional",
+              "s": 86
+            }
+          ],
+          "funnel": "BOFU",
+          "createdAt": "2026-03-06T14:30:47.914Z",
+          "visibility": 0.8218253968253969,
+          "visibilityChangedRate": -0.0330853174603174,
+          "sentiment": 71.84782608695652,
+          "sentimentChangedRate": -3.416324856439715,
+          "avgPosition": 3.0289115646258504,
+          "avgPositionChangedRate": -0.00476899092970573,
+          "citationRate": 0.0734126984126984,
+          "volume": 3
+        }
+      ]
+    },
+    "meta": {
+      "pagination": {
+        "page": 1,
+        "pageSize": 10,
+        "total": 534,
+        "totalPages": 54
+      }
+    }
+  },
+  "citation_domains": {
+    "success": true,
+    "code": 0,
+    "message": "OK",
+    "data": {
+      "items": [
+        {
+          "domain": "reddit.com",
+          "domainType": "UGC",
+          "citationCount": 5932,
+          "citationRate": 0.2658539864652893,
+          "seoData": {
+            "totalVisits": 3826063911,
+            "bounceRate": 0.4415,
+            "pagePerVisit": 4.6046,
+            "avgDuration": 330.0675
+          }
+        },
+        {
+          "domain": "play.google.com",
+          "domainType": "Corporate",
+          "citationCount": 5273,
+          "citationRate": 0.23631963429390937,
+          "seoData": {
+            "totalVisits": 1047280580,
+            "bounceRate": 0.6204,
+            "pagePerVisit": 2.5685,
+            "avgDuration": 116.1892
+          }
+        },
+        {
+          "domain": "apps.apple.com",
+          "domainType": "Corporate",
+          "citationCount": 4753,
+          "citationRate": 0.21301483440147,
+          "seoData": {
+            "totalVisits": 127293831,
+            "bounceRate": 0.7376,
+            "pagePerVisit": 1.5852,
+            "avgDuration": 46.6993
+          }
+        },
+        {
+          "domain": "google.com",
+          "domainType": "Corporate",
+          "citationCount": 3546,
+          "citationRate": 0.15892080849728857,
+          "seoData": {
+            "totalVisits": 78229857909,
+            "bounceRate": 0.2823,
+            "pagePerVisit": 8.6177,
+            "avgDuration": 614.4548
+          }
+        },
+        {
+          "domain": "youtube.com",
+          "domainType": "Media",
+          "citationCount": 3260,
+          "citationRate": 0.14610316855644692,
+          "seoData": {
+            "totalVisits": 27023255287,
+            "bounceRate": 0.2279,
+            "pagePerVisit": 12.0428,
+            "avgDuration": 1153.3164
+          }
+        },
+        {
+          "domain": "apple.com",
+          "domainType": "Corporate",
+          "citationCount": 2896,
+          "citationRate": 0.1297898086317393,
+          "seoData": {
+            "totalVisits": 472601888,
+            "bounceRate": 0.5296,
+            "pagePerVisit": 3.188,
+            "avgDuration": 141.6996
+          }
+        },
+        {
+          "domain": "traveloka.com",
+          "domainType": "Corporate",
+          "citationCount": 2267,
+          "citationRate": 0.1015999641464617,
+          "seoData": {
+            "totalVisits": 28899519,
+            "bounceRate": 0.4448,
+            "pagePerVisit": 3.1608,
+            "avgDuration": 118.8375
+          }
+        },
+        {
+          "domain": "pcmag.com",
+          "domainType": "Corporate",
+          "citationCount": 2257,
+          "citationRate": 0.10115179491776094,
+          "seoData": {
+            "totalVisits": 11810870,
+            "bounceRate": 0.6011,
+            "pagePerVisit": 1.632,
+            "avgDuration": 64.6477
+          }
+        },
+        {
+          "domain": "facebook.com",
+          "domainType": "UGC",
+          "citationCount": 2049,
+          "citationRate": 0.0918298749607852,
+          "seoData": {
+            "totalVisits": 10813132295,
+            "bounceRate": 0.3079,
+            "pagePerVisit": 11.9791,
+            "avgDuration": 597.1273
+          }
+        },
+        {
+          "domain": "going.com",
+          "domainType": "Corporate",
+          "citationCount": 1865,
+          "citationRate": 0.08358356115269126,
+          "seoData": {
+            "totalVisits": 1436660,
+            "bounceRate": 0.3957,
+            "pagePerVisit": 2.4418,
+            "avgDuration": 68.7898
+          }
+        }
+      ]
+    },
+    "meta": {
+      "pagination": {
+        "page": 1,
+        "pageSize": 10,
+        "total": 16299,
+        "totalPages": 1630
+      }
+    }
+  },
+  "citation_urls": {
+    "success": true,
+    "code": 0,
+    "message": "OK",
+    "data": {
+      "items": [
+        {
+          "url": "https://www.pcmag.com/picks/best-travel-apps",
+          "urlHash": "047ef9864e6e6c0b975048fb088f0461afaef423",
+          "pageType": "Listicle",
+          "domain": "pcmag.com",
+          "title": "The Best Travel Apps We've Tested for 2026",
+          "citationCount": 1517,
+          "citationRate": 0.0513854074927173,
+          "mentions": [],
+          "mentioned": false
+        },
+        {
+          "url": "https://www.memoirs-of-acacia.com/post/apps-southeast-asia-travel",
+          "urlHash": "5a5ef2a1af1b16ee5b333aee0c717c9d6f163bb1",
+          "pageType": "Listicle",
+          "domain": "memoirs-of-acacia.com",
+          "title": "10+ Apps to Download Before Your Trip to Southeast Asia",
+          "citationCount": 1129,
+          "citationRate": 0.03824266648601044,
+          "mentions": [],
+          "mentioned": false
+        },
+        {
+          "url": "https://www.travelwithtmc.com/best-travel-apps/",
+          "urlHash": "170726512365c4fd999557addd2b3eefbbcde82a",
+          "pageType": "Listicle",
+          "domain": "travelwithtmc.com",
+          "title": "The 26 Best Travel Apps in 2026",
+          "citationCount": 1073,
+          "citationRate": 0.036345776031434185,
+          "mentions": [],
+          "mentioned": false
+        },
+        {
+          "url": "https://activetraveladventures.com/best-travel-apps-2026/",
+          "urlHash": "9a8542fbd7a54ddb0b462be6177ae6faa17debdd",
+          "pageType": "Listicle",
+          "domain": "activetraveladventures.com",
+          "title": "Best Travel Apps 2026: Flights, Maps, Money & Planning ...",
+          "citationCount": 930,
+          "citationRate": 0.03150193076349841,
+          "mentions": [],
+          "mentioned": false
+        },
+        {
+          "url": "https://thefoodieway.com/blog/southeast-asia/best-travel-apps-southeast-asia-2025/",
+          "urlHash": "6b18f8ceb150755c10446662b8a6892e7d2088cc",
+          "pageType": "Listicle",
+          "domain": "thefoodieway.com",
+          "title": "Best Travel Apps for Southeast Asia (2025): Essential Picks",
+          "citationCount": 786,
+          "citationRate": 0.02662421245173091,
+          "mentions": [],
+          "mentioned": false
+        },
+        {
+          "url": "https://twocantravel.com/best-apps-for-travel-asia/",
+          "urlHash": "62f846cbe11284b410ce1af09022fbce97b75d3a",
+          "pageType": "Listicle",
+          "domain": "twocantravel.com",
+          "title": "The Best Apps for Travel in Asia",
+          "citationCount": 712,
+          "citationRate": 0.024117607208183726,
+          "mentions": [],
+          "mentioned": false
+        },
+        {
+          "url": "https://www.traveloka.com/th-th/explore/tips/13-must-have-travel-apps/510118",
+          "urlHash": "66e61f40723fbff95aba31298c06bfd0d7d52e05",
+          "pageType": "Listicle",
+          "domain": "traveloka.com",
+          "title": "มัดรวม 13 แอปพลิเคชันที่สายท่องเที่ยวควรมีติดเครื่อง",
+          "citationCount": 672,
+          "citationRate": 0.02276268545491498,
+          "mentions": [],
+          "mentioned": false
+        },
+        {
+          "url": "https://localsinsider.com/travel-insights/best-flight-apps-for-cheap-fares/",
+          "urlHash": "36051970a57244aefdaaacbb07b04879fce8da5b",
+          "pageType": "Listicle",
+          "domain": "localsinsider.com",
+          "title": "TOP Cheap Flights Finding Apps & Sites 2026 | Compare ...",
+          "citationCount": 621,
+          "citationRate": 0.021035160219497324,
+          "mentions": [],
+          "mentioned": false
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=tLWQdf4-aZ4",
+          "urlHash": "6758677e55eaabbbcc1c83688c8385ad1683250d",
+          "pageType": "Listicle",
+          "domain": "youtube.com",
+          "title": "อยากไปเที่ยวแต่ขี้เกียจวางแผน! | 5 APP สายท่องเที่ยว",
+          "citationCount": 606,
+          "citationRate": 0.02052706456202154,
+          "mentions": [],
+          "mentioned": false
+        },
+        {
+          "url": "https://www.beartai.com/tech/1469484/",
+          "urlHash": "9e4481473df2330498aa238727aa40905b8f92b0",
+          "pageType": "Listicle",
+          "domain": "beartai.com",
+          "title": "7 แอปฯ ต้องมี! ถ้าอยากเที่ยวแบบโปรในยุคดิจิทัล",
+          "citationCount": 581,
+          "citationRate": 0.019680238466228576,
+          "mentions": [],
+          "mentioned": false
+        }
+      ]
+    },
+    "meta": {
+      "pagination": {
+        "page": 1,
+        "pageSize": 10,
+        "total": 71694,
+        "totalPages": 7170
+      }
+    }
+  },
+  "content_opportunities": {
+    "success": true,
+    "code": 0,
+    "message": "OK",
+    "data": {
+      "items": [
+        {
+          "id": "217492ae-385c-434f-ac67-13598e4f4235",
+          "prompt": "best app for business travel",
+          "topicId": "828e29f5-85cf-4d78-abb8-b120d580537a",
+          "topic": "Top Rated Travel Apps",
+          "promptHash": "f8b2e6f1ebb6ee0de2352a3c5134a7809f044923",
+          "platforms": [
+            "copilot",
+            "perplexity",
+            "grok",
+            "google_overview",
+            "google_aimode"
+          ],
+          "topCompetitors": [
+            {
+              "domain": "expedia.com",
+              "brand": "Expedia",
+              "avgRankPosition": 9.75,
+              "brandMentionCount": 10
+            },
+            {
+              "domain": "airbnb.com",
+              "brand": "Airbnb",
+              "avgRankPosition": 9,
+              "brandMentionCount": 3
+            },
+            {
+              "domain": "booking.com",
+              "brand": "Booking",
+              "avgRankPosition": 9.461538461538462,
+              "brandMentionCount": 35
+            }
+          ],
+          "brandGap": 1,
+          "sourceGap": 1,
+          "myDomainMentionCount": 0,
+          "mySourceCount": 0,
+          "totalResponseCount": 37,
+          "totalSourceCount": 22
+        },
+        {
+          "id": "a28f7088-4b06-4eff-b040-6f197f5157ff",
+          "prompt": "best app for planning international trips",
+          "topicId": "828e29f5-85cf-4d78-abb8-b120d580537a",
+          "topic": "Top Rated Travel Apps",
+          "promptHash": "f5bc7c70160d6475a057850e6379add5c4bde01c",
+          "platforms": [
+            "google_gemini",
+            "chatgpt",
+            "google_aimode",
+            "perplexity",
+            "copilot",
+            "grok"
+          ],
+          "topCompetitors": [
+            {
+              "domain": "booking.com",
+              "brand": "Booking",
+              "avgRankPosition": 8.538461538461538,
+              "brandMentionCount": 17
+            },
+            {
+              "domain": "expedia.com",
+              "brand": "Expedia",
+              "avgRankPosition": null,
+              "brandMentionCount": 0
+            },
+            {
+              "domain": "airbnb.com",
+              "brand": "Airbnb",
+              "avgRankPosition": 9.333333333333334,
+              "brandMentionCount": 3
+            },
+            {
+              "domain": "klook.com",
+              "brand": "Klook",
+              "avgRankPosition": 8.5,
+              "brandMentionCount": 2
+            }
+          ],
+          "brandGap": 1,
+          "sourceGap": 1,
+          "myDomainMentionCount": 0,
+          "mySourceCount": 0,
+          "totalResponseCount": 19,
+          "totalSourceCount": 11
+        },
+        {
+          "id": "80a3c3f9-4c80-46e7-a1e7-ee6592fb43d2",
+          "prompt": "travel app comparison guide",
+          "topicId": "8c3530bc-2c5f-4445-bf5f-8453c56e9ad3",
+          "topic": "Platform Comparison Guide",
+          "promptHash": "f28caac2f35b344daa98138eb104c2d716af918b",
+          "platforms": [
+            "copilot",
+            "google_overview",
+            "chatgpt",
+            "google_gemini",
+            "grok",
+            "google_aimode",
+            "perplexity"
+          ],
+          "topCompetitors": [
+            {
+              "domain": "agoda.com",
+              "brand": "Agoda",
+              "avgRankPosition": 7,
+              "brandMentionCount": 2
+            },
+            {
+              "domain": "expedia.com",
+              "brand": "Expedia",
+              "avgRankPosition": 6,
+              "brandMentionCount": 24
+            },
+            {
+              "domain": "booking.com",
+              "brand": "Booking",
+              "avgRankPosition": 8.446808510638299,
+              "brandMentionCount": 79
+            },
+            {
+              "domain": "airbnb.com",
+              "brand": "Airbnb",
+              "avgRankPosition": 10.243243243243244,
+              "brandMentionCount": 55
+            },
+            {
+              "domain": "klook.com",
+              "brand": "Klook",
+              "avgRankPosition": 13,
+              "brandMentionCount": 4
+            }
+          ],
+          "brandGap": 1,
+          "sourceGap": 1,
+          "myDomainMentionCount": 0,
+          "mySourceCount": 0,
+          "totalResponseCount": 83,
+          "totalSourceCount": 4
+        },
+        {
+          "id": "debb1749-6783-429f-824d-4cc0d965017f",
+          "prompt": "how to manage travel plans on mobile",
+          "topicId": "047cd093-8e2e-491a-9b4b-2942e4970ef1",
+          "topic": "Travel Planning Guides",
+          "promptHash": "eff539fb0ae7ca5ff0fad24c5ad570b0502e3473",
+          "platforms": [
+            "grok",
+            "google_overview",
+            "chatgpt",
+            "perplexity",
+            "google_aimode",
+            "copilot"
+          ],
+          "topCompetitors": [
+            {
+              "domain": "expedia.com",
+              "brand": "Expedia",
+              "avgRankPosition": 7.583333333333333,
+              "brandMentionCount": 16
+            },
+            {
+              "domain": "booking.com",
+              "brand": "Booking",
+              "avgRankPosition": 10,
+              "brandMentionCount": 13
+            },
+            {
+              "domain": "airbnb.com",
+              "brand": "Airbnb",
+              "avgRankPosition": 9.555555555555555,
+              "brandMentionCount": 11
+            }
+          ],
+          "brandGap": 1,
+          "sourceGap": 1,
+          "myDomainMentionCount": 0,
+          "mySourceCount": 0,
+          "totalResponseCount": 32,
+          "totalSourceCount": 10
+        },
+        {
+          "id": "ac670cc7-0d09-4d4e-970c-ccbb113415b4",
+          "prompt": "best app for travel organization",
+          "topicId": "8c3530bc-2c5f-4445-bf5f-8453c56e9ad3",
+          "topic": "Platform Comparison Guide",
+          "promptHash": "edc74a49786d94eafad115060c0220369b21f18e",
+          "platforms": [
+            "perplexity",
+            "chatgpt"
+          ],
+          "topCompetitors": [
+            {
+              "domain": "booking.com",
+              "brand": "Booking",
+              "avgRankPosition": 4,
+              "brandMentionCount": 1
+            },
+            {
+              "domain": "expedia.com",
+              "brand": "Expedia",
+              "avgRankPosition": null,
+              "brandMentionCount": 0
+            }
+          ],
+          "brandGap": 1,
+          "sourceGap": 1,
+          "myDomainMentionCount": 0,
+          "mySourceCount": 0,
+          "totalResponseCount": 1,
+          "totalSourceCount": 3
+        },
+        {
+          "id": "1d97c8a6-d6bf-456b-ad6d-d45a806f968d",
+          "prompt": "how to plan trips digitally",
+          "topicId": "047cd093-8e2e-491a-9b4b-2942e4970ef1",
+          "topic": "Travel Planning Guides",
+          "promptHash": "e98b44ffa827142f91b6d841019f966a8987285e",
+          "platforms": [
+            "google_aimode",
+            "grok",
+            "google_gemini",
+            "copilot",
+            "chatgpt",
+            "perplexity"
+          ],
+          "topCompetitors": [
+            {
+              "domain": "expedia.com",
+              "brand": "Expedia",
+              "avgRankPosition": 6.166666666666667,
+              "brandMentionCount": 12
+            },
+            {
+              "domain": "booking.com",
+              "brand": "Booking",
+              "avgRankPosition": 9.05,
+              "brandMentionCount": 27
+            },
+            {
+              "domain": "agoda.com",
+              "brand": "Agoda",
+              "avgRankPosition": 5,
+              "brandMentionCount": 1
+            },
+            {
+              "domain": "airbnb.com",
+              "brand": "Airbnb",
+              "avgRankPosition": 9.941176470588236,
+              "brandMentionCount": 22
+            }
+          ],
+          "brandGap": 1,
+          "sourceGap": 1,
+          "myDomainMentionCount": 0,
+          "mySourceCount": 0,
+          "totalResponseCount": 40,
+          "totalSourceCount": 8
+        },
+        {
+          "id": "66bc9fea-95b7-4330-b600-63609ebc19ce",
+          "prompt": "which travel app is easiest to use",
+          "topicId": "8c3530bc-2c5f-4445-bf5f-8453c56e9ad3",
+          "topic": "Platform Comparison Guide",
+          "promptHash": "e0628f3bbae17234d29efa365f2d5deb86982816",
+          "platforms": [
+            "google_aimode",
+            "google_gemini",
+            "copilot",
+            "perplexity",
+            "chatgpt",
+            "grok",
+            "google_overview"
+          ],
+          "topCompetitors": [
+            {
+              "domain": "booking.com",
+              "brand": "Booking",
+              "avgRankPosition": 5.852941176470588,
+              "brandMentionCount": 50
+            },
+            {
+              "domain": "expedia.com",
+              "brand": "Expedia",
+              "avgRankPosition": 5,
+              "brandMentionCount": 10
+            },
+            {
+              "domain": "airbnb.com",
+              "brand": "Airbnb",
+              "avgRankPosition": 6,
+              "brandMentionCount": 2
+            }
+          ],
+          "brandGap": 1,
+          "sourceGap": 1,
+          "myDomainMentionCount": 0,
+          "mySourceCount": 0,
+          "totalResponseCount": 56,
+          "totalSourceCount": 11
+        },
+        {
+          "id": "4b74badf-2efe-4372-aec6-2e825bc564df",
+          "prompt": "app to organize travel itinerary",
+          "topicId": "c7a6846a-3c86-427f-aa4c-051d0fed3089",
+          "topic": "Mobile Travel Tools",
+          "promptHash": "df4e4845c14c99fbb5ab0d3db88243018e3d13e8",
+          "platforms": [
+            "chatgpt",
+            "perplexity",
+            "google_overview",
+            "grok"
+          ],
+          "topCompetitors": [
+            {
+              "domain": "booking.com",
+              "brand": "Booking",
+              "avgRankPosition": 8,
+              "brandMentionCount": 1
+            },
+            {
+              "domain": "expedia.com",
+              "brand": "Expedia",
+              "avgRankPosition": null,
+              "brandMentionCount": 0
+            }
+          ],
+          "brandGap": 1,
+          "sourceGap": 1,
+          "myDomainMentionCount": 0,
+          "mySourceCount": 0,
+          "totalResponseCount": 1,
+          "totalSourceCount": 3
+        },
+        {
+          "id": "f135c6e2-de38-4b24-bc52-704421f4b47b",
+          "prompt": "how to plan Asia trip from Thailand",
+          "topicId": "9f9ad931-5021-40b1-a6dd-7bd34ead603b",
+          "topic": "Southeast Asia Travel Solutions",
+          "promptHash": "d7f0faf0bbdec5533c03e1d7cf570b2b693b37c8",
+          "platforms": [
+            "grok",
+            "google_overview",
+            "copilot",
+            "google_gemini",
+            "google_aimode",
+            "perplexity"
+          ],
+          "topCompetitors": [
+            {
+              "domain": "expedia.com",
+              "brand": "Expedia",
+              "avgRankPosition": null,
+              "brandMentionCount": 0
+            },
+            {
+              "domain": "klook.com",
+              "brand": "Klook",
+              "avgRankPosition": 5.222222222222222,
+              "brandMentionCount": 12
+            },
+            {
+              "domain": "agoda.com",
+              "brand": "Agoda",
+              "avgRankPosition": 5.454545454545454,
+              "brandMentionCount": 12
+            },
+            {
+              "domain": "booking.com",
+              "brand": "Booking",
+              "avgRankPosition": 6.2105263157894735,
+              "brandMentionCount": 22
+            }
+          ],
+          "brandGap": 1,
+          "sourceGap": 1,
+          "myDomainMentionCount": 0,
+          "mySourceCount": 0,
+          "totalResponseCount": 27,
+          "totalSourceCount": 5
+        },
+        {
+          "id": "d64fad4d-b80a-4897-9f0e-52b1acb94e68",
+          "prompt": "how to plan Asia trip from Vietnam",
+          "topicId": "9f9ad931-5021-40b1-a6dd-7bd34ead603b",
+          "topic": "Southeast Asia Travel Solutions",
+          "promptHash": "d7987902960771f1322e2fee484884ac561cf73d",
+          "platforms": [
+            "grok",
+            "chatgpt",
+            "google_overview",
+            "google_gemini",
+            "google_aimode",
+            "perplexity"
+          ],
+          "topCompetitors": [
+            {
+              "domain": "expedia.com",
+              "brand": "Expedia",
+              "avgRankPosition": null,
+              "brandMentionCount": 0
+            },
+            {
+              "domain": "agoda.com",
+              "brand": "Agoda",
+              "avgRankPosition": 5.777777777777778,
+              "brandMentionCount": 10
+            },
+            {
+              "domain": "klook.com",
+              "brand": "Klook",
+              "avgRankPosition": 4.3,
+              "brandMentionCount": 11
+            },
+            {
+              "domain": "trip.com",
+              "brand": "Trip",
+              "avgRankPosition": null,
+              "brandMentionCount": 0
+            },
+            {
+              "domain": "booking.com",
+              "brand": "Booking",
+              "avgRankPosition": 5.714285714285714,
+              "brandMentionCount": 16
+            }
+          ],
+          "brandGap": 1,
+          "sourceGap": 1,
+          "myDomainMentionCount": 0,
+          "mySourceCount": 0,
+          "totalResponseCount": 28,
+          "totalSourceCount": 2
+        }
+      ]
+    },
+    "meta": {
+      "pagination": {
+        "page": 1,
+        "pageSize": 10,
+        "total": 528,
+        "totalPages": 53
+      }
+    }
+  },
+  "backlink_opportunities": {
+    "success": true,
+    "code": 0,
+    "message": "OK",
+    "data": {
+      "items": [
+        {
+          "domain": "zh.wikipedia.org",
+          "domainType": "Reference",
+          "urls": [
+            "https://zh.wikipedia.org/wiki/KKday?utm_source=chatgpt.com"
+          ],
+          "platforms": [
+            "chatgpt"
+          ],
+          "promptCount": 1,
+          "chatCount": 1,
+          "priority": 74.1,
+          "as": 100
+        },
+        {
+          "domain": "yelp.com",
+          "domainType": "Institutional",
+          "urls": [
+            "https://www.yelp.com/biz/hotel-tonight-san-francisco-8",
+            "https://www.yelp.com/biz/japan-airlines-los-angeles-2",
+            "https://www.yelp.com/biz/trip-support-markham-2",
+            "https://www.yelp.com/biz/airasia-travel-and-service-centre-kuala-lumpur",
+            "https://www.yelp.com/biz/china-travel-service-intl-usa-san-gabriel-2",
+            "https://www.yelp.com/biz/bangkok-airways-singapore-2",
+            "https://www.yelp.com/biz/thai-airways-los-angeles",
+            "https://www.yelp.com/biz/asiana-airlines-san-francisco-3",
+            "https://www.yelp.com/biz/kayak-new-york"
+          ],
+          "platforms": [
+            "perplexity",
+            "grok"
+          ],
+          "promptCount": 13,
+          "chatCount": 30,
+          "priority": 74.1,
+          "as": 100
+        },
+        {
+          "domain": "yahoo.co.jp",
+          "domainType": "Media",
+          "urls": [
+            "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q12293444677?utm_source=chatgpt.com",
+            "https://travel.yahoo.co.jp/dp/?utm_source=chatgpt.com",
+            "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q11320233236?utm_source=chatgpt.com",
+            "https://shopping.yahoo.co.jp/products/zzmbld48cg?utm_source=chatgpt.com",
+            "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q11295868976?utm_source=chatgpt.com",
+            "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q12106997032?utm_source=chatgpt.com",
+            "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q14314254164?utm_source=chatgpt.com",
+            "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q11121849181?utm_source=chatgpt.com"
+          ],
+          "platforms": [
+            "chatgpt"
+          ],
+          "promptCount": 8,
+          "chatCount": 8,
+          "priority": 74.1,
+          "as": 100
+        },
+        {
+          "domain": "workspace.google.com",
+          "domainType": "Corporate",
+          "urls": [
+            "https://workspace.google.com/marketplace/app/travel_mapper/412821700766",
+            "https://workspace.google.com/intl/th/products/calendar/"
+          ],
+          "platforms": [
+            "grok"
+          ],
+          "promptCount": 5,
+          "chatCount": 6,
+          "priority": 74.1,
+          "as": 100
+        },
+        {
+          "domain": "travel.rakuten.co.jp",
+          "domainType": "Corporate",
+          "urls": [
+            "https://travel.rakuten.co.jp/service/smartphone/?utm_source=chatgpt.com",
+            "https://travel.rakuten.co.jp/howto/flight.html?utm_source=chatgpt.com",
+            "https://travel.rakuten.co.jp/package/?utm_source=chatgpt.com",
+            "https://travel.rakuten.co.jp/howto/package.html?utm_source=chatgpt.com",
+            "https://travel.rakuten.co.jp/?utm_source=chatgpt.com"
+          ],
+          "platforms": [
+            "chatgpt"
+          ],
+          "promptCount": 4,
+          "chatCount": 5,
+          "priority": 74.1,
+          "as": 100
+        },
+        {
+          "domain": "translate.google.com",
+          "domainType": "Institutional",
+          "urls": [
+            "https://translate.google.com/"
+          ],
+          "platforms": [
+            "google_gemini"
+          ],
+          "promptCount": 1,
+          "chatCount": 1,
+          "priority": 74.1,
+          "as": 100
+        },
+        {
+          "domain": "timesofindia.indiatimes.com",
+          "domainType": "Media",
+          "urls": [
+            "https://timesofindia.indiatimes.com/etimes/trending/how-to-buy-cheap-flight-tickets-unlock-hidden-deals-without-breaking-the-bank/articleshow/129719296.cms?utm_source=chatgpt.com",
+            "https://timesofindia.indiatimes.com/life-style/travel/things-to-do/avoid-these-8-common-mistakes-when-booking-a-hotel-online/articleshow/124359104.cms?utm_source=chatgpt.com",
+            "https://timesofindia.indiatimes.com/technology/tech-news/cleartrip-launches-price-trends-feature-to-improve-flight-booking-experience-all-details/articleshow/126705940.cms?utm_source=chatgpt.com",
+            "https://timesofindia.indiatimes.com/technology/tech-news/skyscanner-has-these-three-tips-for-you-to-buy-cheap-air-tickets/articleshow/126355672.cms?utm_source=chatgpt.com",
+            "https://timesofindia.indiatimes.com/technology/tech-tips/skyscanner-vs-google-flights-the-best-way-to-find-cheap-flight-prices-in-2025/articleshow/118009141.cms?utm_source=chatgpt.com",
+            "https://timesofindia.indiatimes.com/life-style/travel/things-to-do/8-smart-tips-for-using-apps-to-book-accommodation-the-ideal-travellers-checklist/articleshow/128606950.cms?utm_source=chatgpt.com",
+            "https://timesofindia.indiatimes.com/technology/tech-news/makemytrip-launches-global-tours-platform-with-200000-experiences-across-130-countries/articleshow/122878608.cms?utm_source=chatgpt.com",
+            "https://timesofindia.indiatimes.com/life-style/travel/things-to-do/8-smart-tips-for-using-apps-to-book-accommodation-the-ideal-travellers-checklist/articleshow/128606950.cms",
+            "https://timesofindia.indiatimes.com/technology/tech-news/google-maps-getting-immersive-navigation-with-3d-view-gemini-powered-ask-maps-and-other-features/articleshow/129557147.cms?utm_source=chatgpt.com",
+            "https://timesofindia.indiatimes.com/etimes/dubai-airports-update-march-26-2026-air-india-air-asia-to-operate-32-flights-indigo-issues-fresh-travel-advisory-for-flyers/articleshow/129815760.cms?utm_source=chatgpt.com",
+            "https://timesofindia.indiatimes.com/entertainment/hect-india-launches-revolutionary-ai-travel-planning-platform-to-simplify-trip-planning-for-indian-families/articleshow/129951294.cms?utm_source=chatgpt.com",
+            "https://timesofindia.indiatimes.com/technology/tech-tips/how-to-use-google-maps-without-internet-the-simple-trick-every-traveller-should-know/articleshow/125560315.cms?utm_source=chatgpt.com",
+            "https://timesofindia.indiatimes.com/technology/tech-news/makemytrip-launches-global-tours-platform-with-200000-experiences-across-130-countries/articleshow/122878608.cms",
+            "https://timesofindia.indiatimes.com/city/kolkata/salt-lake-man-loses-1-9l-in-thailand-hotel-booking-scam/articleshow/124967813.cms?utm_source=chatgpt.com",
+            "https://timesofindia.indiatimes.com/etimes/trending/how-to-buy-cheap-flight-tickets-unlock-hidden-deals-without-breaking-the-bank/articleshow/129719296.cms",
+            "https://timesofindia.indiatimes.com/entertainment/hect-india-launches-revolutionary-ai-travel-planning-platform-to-simplify-trip-planning-for-indian-families/articleshow/129951294.cms",
+            "https://timesofindia.indiatimes.com/life-style/travel/news/dubai-airports-update-march-29-2026-air-india-group-to-run-30-flights-indigo-says-we-stand-with-you-to-ensure-your-travel-plans-remain-as-smooth-as-possible/articleshow/129875507.cms?utm_source=chatgpt.com",
+            "https://timesofindia.indiatimes.com/life-style/travel/how-to-get-cheap-flights-and-beat-airline-algorithms-tips-and-tricks/photostory/121929378.cms?utm_source=chatgpt.com",
+            "https://timesofindia.indiatimes.com/technology/tech-news/google-adds-ai-powered-features-to-its-flight-deals-tool-how-to-use-the-feature-to-book-cheap-flight-tickets/articleshow/125393885.cms?utm_source=chatgpt.com",
+            "https://timesofindia.indiatimes.com/technology/tech-tips/skyscanner-vs-google-flights-the-best-way-to-find-cheap-flight-prices-in-2025/articleshow/118009141.cms",
+            "https://timesofindia.indiatimes.com/itslideshowviewall/46887336.cms",
+            "https://timesofindia.indiatimes.com/technology/tech-news/makemytrip-partners-with-google-cloud-to-revamp-ai-powered-travel-planning-for-travellers/articleshow/124388475.cms?utm_source=chatgpt.com",
+            "https://timesofindia.indiatimes.com/world/middle-east/uae-visa-changes-2026-explained-new-categories-sponsorship-rules-easier-entry-for-tourists/articleshow/126366004.cms",
+            "https://timesofindia.indiatimes.com/india/makemytrip-launches-ai-based-trip-planning-assistant/articleshow/123160997.cms?utm_source=chatgpt.com",
+            "https://timesofindia.indiatimes.com/technology/tech-news/cleartrip-launches-price-trends-feature-to-improve-flight-booking-experience-all-details/articleshow/126705940.cms",
+            "https://timesofindia.indiatimes.com/technology/tech-news/makemytrip-partners-with-google-cloud-to-revamp-ai-powered-travel-planning-for-travellers/articleshow/124388475.cms",
+            "https://timesofindia.indiatimes.com/city/lucknow/ecotourism-app-for-nature-lovers/articleshow/129111787.cms",
+            "https://timesofindia.indiatimes.com/life-style/travel/things-to-do/avoid-these-8-common-mistakes-when-booking-a-hotel-online/articleshow/124359104.cms",
+            "https://timesofindia.indiatimes.com/life-style/travel/destinations/how-to-travel-cheap-5-smart-hacks-to-save-money-on-your-next-trip/photostory/121806930.cms?utm_source=chatgpt.com"
+          ],
+          "platforms": [
+            "perplexity",
+            "grok",
+            "chatgpt"
+          ],
+          "promptCount": 122,
+          "chatCount": 247,
+          "priority": 74.1,
+          "as": 100
+        },
+        {
+          "domain": "th.tripadvisor.com",
+          "domainType": "Corporate",
+          "urls": [
+            "https://th.tripadvisor.com",
+            "https://th.tripadvisor.com/Trips",
+            "https://th.tripadvisor.com/ShowUserReviews-g297922-d1788653-r215998992-Kor_Sor_Resort_Spa-Hua_Hin_Prachuap_Khiri_Khan_Province.html"
+          ],
+          "platforms": [
+            "perplexity",
+            "grok"
+          ],
+          "promptCount": 5,
+          "chatCount": 18,
+          "priority": 74.1,
+          "as": 100
+        },
+        {
+          "domain": "tech.yahoo.com",
+          "domainType": "Corporate",
+          "urls": [
+            "https://tech.yahoo.com/apps/articles/5-essential-iphone-apps-frequent-181700890.html?utm_source=chatgpt.com",
+            "https://tech.yahoo.com/apps/articles/cant-wait-free-travel-tracking-150000118.html",
+            "https://tech.yahoo.com/apps/articles/best-navigation-apps-2026-141410109.html?utm_source=chatgpt.com"
+          ],
+          "platforms": [
+            "grok",
+            "chatgpt"
+          ],
+          "promptCount": 4,
+          "chatCount": 6,
+          "priority": 74.1,
+          "as": 100
+        },
+        {
+          "domain": "support.microsoft.com",
+          "domainType": "Corporate",
+          "urls": [
+            "https://support.microsoft.com/th-th/office/%E0%B8%A7%E0%B8%B2%E0%B8%87%E0%B9%81%E0%B8%9C%E0%B8%99%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%80%E0%B8%94%E0%B8%B4%E0%B8%99%E0%B8%97%E0%B8%B2%E0%B8%87%E0%B8%AB%E0%B8%A3%E0%B8%B7%E0%B8%AD%E0%B8%A7%E0%B8%B1%E0%B8%99%E0%B8%AB%E0%B8%A2%E0%B8%B8%E0%B8%94%E0%B8%9E%E0%B8%B1%E0%B8%81%E0%B8%9C%E0%B9%88%E0%B8%AD%E0%B8%99-2d3a348c-42be-4e5b-ad18-8fd9de453fc2?utm_source=chatgpt.com",
+            "https://support.microsoft.com/ja-jp/office/%E6%97%85%E8%A1%8C%E3%82%84%E4%BC%91%E6%9A%87%E3%82%92%E8%A8%88%E7%94%BB%E3%81%99%E3%82%8B-2d3a348c-42be-4e5b-ad18-8fd9de453fc2?utm_source=chatgpt.com",
+            "https://support.microsoft.com/th-th/office/%E0%B8%A7%E0%B8%B2%E0%B8%87%E0%B9%81%E0%B8%9C%E0%B8%99%E0%B8%9E%E0%B8%B1%E0%B8%81%E0%B8%A3%E0%B9%89%E0%B8%AD%E0%B8%99%E0%B8%81%E0%B8%B1%E0%B8%9A%E0%B9%80%E0%B8%9E%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%99%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B8%84%E0%B8%A3%E0%B8%AD%E0%B8%9A%E0%B8%84%E0%B8%A3%E0%B8%B1%E0%B8%A7-ebb7efbb-7819-4c14-9acd-59dab6ebf57e?utm_source=chatgpt.com",
+            "https://support.microsoft.com/en-us/office/plan-a-trip-or-a-vacation-2d3a348c-42be-4e5b-ad18-8fd9de453fc2",
+            "https://support.microsoft.com/th-th/office/%E0%B8%A7%E0%B8%B2%E0%B8%87%E0%B9%81%E0%B8%9C%E0%B8%99%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%80%E0%B8%94%E0%B8%B4%E0%B8%99%E0%B8%97%E0%B8%B2%E0%B8%87%E0%B8%AB%E0%B8%A3%E0%B8%B7%E0%B8%AD%E0%B8%A7%E0%B8%B1%E0%B8%99%E0%B8%AB%E0%B8%A2%E0%B8%B8%E0%B8%94%E0%B8%9E%E0%B8%B1%E0%B8%81%E0%B8%9C%E0%B9%88%E0%B8%AD%E0%B8%99-2d3a348c-42be-4e5b-ad18-8fd9de453fc2",
+            "https://support.microsoft.com/th-th/office/%E0%B9%81%E0%B8%99%E0%B8%A7%E0%B8%97%E0%B8%B2%E0%B8%87%E0%B8%AA%E0%B9%8D%E0%B8%B2%E0%B8%AB%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%88%E0%B8%B1%E0%B8%94%E0%B8%A3%E0%B8%B0%E0%B9%80%E0%B8%9A%E0%B8%B5%E0%B8%A2%E0%B8%9A%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%88%E0%B8%B1%E0%B8%94%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B9%81%E0%B8%9A%E0%B8%9A%E0%B8%82%E0%B9%89%E0%B8%AD%E0%B8%A1%E0%B8%B9%E0%B8%A5%E0%B8%9A%E0%B8%99%E0%B9%80%E0%B8%A7%E0%B8%B4%E0%B8%A3%E0%B9%8C%E0%B8%81%E0%B8%8A%E0%B8%B5%E0%B8%95-90895cad-6c85-4e02-90d3-8798660166e3"
+          ],
+          "platforms": [
+            "perplexity",
+            "grok",
+            "chatgpt"
+          ],
+          "promptCount": 15,
+          "chatCount": 45,
+          "priority": 74.1,
+          "as": 100
+        }
+      ]
+    },
+    "meta": {
+      "pagination": {
+        "page": 1,
+        "pageSize": 10,
+        "total": 13901,
+        "totalPages": 1391
+      }
+    }
+  },
+  "community_opportunities": {
+    "success": true,
+    "code": 0,
+    "message": "OK",
+    "data": {
+      "items": [
+        {
+          "id": "ffec5ee065fd6d4b5170ad1608ee29df567f5333_db23143b-5c93-4336-82be-c3a4bc4719a6",
+          "urlHash": "ffec5ee065fd6d4b5170ad1608ee29df567f5333",
+          "url": "https://www.reddit.com/r/askhotels/comments/14e09u0/how_are_third_party_websites_so_much_cheaper_than/",
+          "promptId": "db23143b-5c93-4336-82be-c3a4bc4719a6",
+          "prompt": "booking hotels on app vs desktop",
+          "title": "How are third party websites so much cheaper than just ...",
+          "domain": "reddit.com",
+          "domainType": "UGC",
+          "citations": 3,
+          "avgRankPosition": 0,
+          "competitors": [
+            {
+              "domain": "booking.com",
+              "brand": "Booking"
+            },
+            {
+              "domain": "expedia.com",
+              "brand": "Expedia"
+            }
+          ],
+          "platforms": [
+            "grok"
+          ],
+          "priority": 1
+        },
+        {
+          "id": "ffec5ee065fd6d4b5170ad1608ee29df567f5333_b1e03327-eb04-48cd-a2fc-f70c50ad59cd",
+          "urlHash": "ffec5ee065fd6d4b5170ad1608ee29df567f5333",
+          "url": "https://www.reddit.com/r/askhotels/comments/14e09u0/how_are_third_party_websites_so_much_cheaper_than/",
+          "promptId": "b1e03327-eb04-48cd-a2fc-f70c50ad59cd",
+          "prompt": "hotel booking app vs website",
+          "title": "How are third party websites so much cheaper than just ...",
+          "domain": "reddit.com",
+          "domainType": "UGC",
+          "citations": 11,
+          "avgRankPosition": 0,
+          "competitors": [
+            {
+              "domain": "expedia.com",
+              "brand": "Expedia"
+            },
+            {
+              "domain": "booking.com",
+              "brand": "Booking"
+            },
+            {
+              "domain": "agoda.com",
+              "brand": "Agoda"
+            }
+          ],
+          "platforms": [
+            "grok"
+          ],
+          "priority": 1
+        },
+        {
+          "id": "ffec5ee065fd6d4b5170ad1608ee29df567f5333_448148dd-54c2-4934-8caa-9687ab13f451",
+          "urlHash": "ffec5ee065fd6d4b5170ad1608ee29df567f5333",
+          "url": "https://www.reddit.com/r/askhotels/comments/14e09u0/how_are_third_party_websites_so_much_cheaper_than/",
+          "promptId": "448148dd-54c2-4934-8caa-9687ab13f451",
+          "prompt": "are travel apps cheaper than websites",
+          "title": "How are third party websites so much cheaper than just ...",
+          "domain": "reddit.com",
+          "domainType": "UGC",
+          "citations": 1,
+          "avgRankPosition": 0,
+          "competitors": [
+            {
+              "domain": "agoda.com",
+              "brand": "Agoda"
+            },
+            {
+              "domain": "expedia.com",
+              "brand": "Expedia"
+            },
+            {
+              "domain": "booking.com",
+              "brand": "Booking"
+            }
+          ],
+          "platforms": [
+            "grok"
+          ],
+          "priority": 1
+        },
+        {
+          "id": "ffec5ee065fd6d4b5170ad1608ee29df567f5333_93ea9e1e-a5fe-45c0-84d3-d5262177b987",
+          "urlHash": "ffec5ee065fd6d4b5170ad1608ee29df567f5333",
+          "url": "https://www.reddit.com/r/askhotels/comments/14e09u0/how_are_third_party_websites_so_much_cheaper_than/",
+          "promptId": "93ea9e1e-a5fe-45c0-84d3-d5262177b987",
+          "prompt": "travel app vs traditional booking",
+          "title": "How are third party websites so much cheaper than just ...",
+          "domain": "reddit.com",
+          "domainType": "UGC",
+          "citations": 2,
+          "avgRankPosition": 0,
+          "competitors": [
+            {
+              "domain": "airbnb.com",
+              "brand": "Airbnb"
+            },
+            {
+              "domain": "expedia.com",
+              "brand": "Expedia"
+            },
+            {
+              "domain": "booking.com",
+              "brand": "Booking"
+            }
+          ],
+          "platforms": [
+            "grok"
+          ],
+          "priority": 1
+        },
+        {
+          "id": "ffec5ee065fd6d4b5170ad1608ee29df567f5333_de7511c3-130e-4148-8339-624de24fba35",
+          "urlHash": "ffec5ee065fd6d4b5170ad1608ee29df567f5333",
+          "url": "https://www.reddit.com/r/askhotels/comments/14e09u0/how_are_third_party_websites_so_much_cheaper_than/",
+          "promptId": "de7511c3-130e-4148-8339-624de24fba35",
+          "prompt": "is booking hotels via app cheaper",
+          "title": "How are third party websites so much cheaper than just ...",
+          "domain": "reddit.com",
+          "domainType": "UGC",
+          "citations": 4,
+          "avgRankPosition": 0,
+          "competitors": [
+            {
+              "domain": "booking.com",
+              "brand": "Booking"
+            },
+            {
+              "domain": "expedia.com",
+              "brand": "Expedia"
+            },
+            {
+              "domain": "agoda.com",
+              "brand": "Agoda"
+            }
+          ],
+          "platforms": [
+            "grok"
+          ],
+          "priority": 1
+        },
+        {
+          "id": "ffec5ee065fd6d4b5170ad1608ee29df567f5333_d5dfa8a7-2d80-4488-a5ed-0378d6275218",
+          "urlHash": "ffec5ee065fd6d4b5170ad1608ee29df567f5333",
+          "url": "https://www.reddit.com/r/askhotels/comments/14e09u0/how_are_third_party_websites_so_much_cheaper_than/",
+          "promptId": "d5dfa8a7-2d80-4488-a5ed-0378d6275218",
+          "prompt": "travel app vs multiple websites",
+          "title": "How are third party websites so much cheaper than just ...",
+          "domain": "reddit.com",
+          "domainType": "UGC",
+          "citations": 1,
+          "avgRankPosition": 0,
+          "competitors": [
+            {
+              "domain": "expedia.com",
+              "brand": "Expedia"
+            },
+            {
+              "domain": "booking.com",
+              "brand": "Booking"
+            },
+            {
+              "domain": "agoda.com",
+              "brand": "Agoda"
+            },
+            {
+              "domain": "airbnb.com",
+              "brand": "Airbnb"
+            }
+          ],
+          "platforms": [
+            "grok"
+          ],
+          "priority": 1
+        },
+        {
+          "id": "ffebca4226e072d2125f691ad6d567a5c51e66b4_aa7540cf-aecd-48d1-a9ef-8ac4302bac94",
+          "urlHash": "ffebca4226e072d2125f691ad6d567a5c51e66b4",
+          "url": "https://www.reddit.com/r/u_expedia/comments/1qcyes2/2026_travel_hacks_how_to_score_deals_before/?utm_source=chatgpt.com",
+          "promptId": "aa7540cf-aecd-48d1-a9ef-8ac4302bac94",
+          "prompt": "best app for travel price tracking",
+          "title": "2026 Travel Hacks: How to Score Deals Before Prices Spike",
+          "domain": "reddit.com",
+          "domainType": "UGC",
+          "citations": 1,
+          "avgRankPosition": 0,
+          "competitors": [
+            {
+              "domain": "expedia.com",
+              "brand": "Expedia"
+            },
+            {
+              "domain": "booking.com",
+              "brand": "Booking"
+            }
+          ],
+          "platforms": [
+            "chatgpt"
+          ],
+          "priority": 1
+        },
+        {
+          "id": "ffebca4226e072d2125f691ad6d567a5c51e66b4_5ba9eb97-278a-4053-846a-56c9f7dabf25",
+          "urlHash": "ffebca4226e072d2125f691ad6d567a5c51e66b4",
+          "url": "https://www.reddit.com/r/u_expedia/comments/1qcyes2/2026_travel_hacks_how_to_score_deals_before/?utm_source=chatgpt.com",
+          "promptId": "5ba9eb97-278a-4053-846a-56c9f7dabf25",
+          "prompt": "how to book trips faster",
+          "title": "2026 Travel Hacks: How to Score Deals Before Prices Spike",
+          "domain": "reddit.com",
+          "domainType": "UGC",
+          "citations": 3,
+          "avgRankPosition": 0,
+          "competitors": [
+            {
+              "domain": "expedia.com",
+              "brand": "Expedia"
+            },
+            {
+              "domain": "airbnb.com",
+              "brand": "Airbnb"
+            },
+            {
+              "domain": "booking.com",
+              "brand": "Booking"
+            },
+            {
+              "domain": "klook.com",
+              "brand": "Klook"
+            }
+          ],
+          "platforms": [
+            "chatgpt"
+          ],
+          "priority": 1
+        },
+        {
+          "id": "ffebca4226e072d2125f691ad6d567a5c51e66b4_1c65dbaf-7461-40dd-9e2f-3784ef9186ff",
+          "urlHash": "ffebca4226e072d2125f691ad6d567a5c51e66b4",
+          "url": "https://www.reddit.com/r/u_expedia/comments/1qcyes2/2026_travel_hacks_how_to_score_deals_before/?utm_source=chatgpt.com",
+          "promptId": "1c65dbaf-7461-40dd-9e2f-3784ef9186ff",
+          "prompt": "how to find travel deals easily",
+          "title": "2026 Travel Hacks: How to Score Deals Before Prices Spike",
+          "domain": "reddit.com",
+          "domainType": "UGC",
+          "citations": 1,
+          "avgRankPosition": 0,
+          "competitors": [
+            {
+              "domain": "agoda.com",
+              "brand": "Agoda"
+            },
+            {
+              "domain": "booking.com",
+              "brand": "Booking"
+            },
+            {
+              "domain": "expedia.com",
+              "brand": "Expedia"
+            }
+          ],
+          "platforms": [
+            "chatgpt"
+          ],
+          "priority": 1
+        },
+        {
+          "id": "ffebca4226e072d2125f691ad6d567a5c51e66b4_c716cb6d-5e45-4d2b-a6fe-65b638b593dd",
+          "urlHash": "ffebca4226e072d2125f691ad6d567a5c51e66b4",
+          "url": "https://www.reddit.com/r/u_expedia/comments/1qcyes2/2026_travel_hacks_how_to_score_deals_before/?utm_source=chatgpt.com",
+          "promptId": "c716cb6d-5e45-4d2b-a6fe-65b638b593dd",
+          "prompt": "best app for travel planning and deals",
+          "title": "2026 Travel Hacks: How to Score Deals Before Prices Spike",
+          "domain": "reddit.com",
+          "domainType": "UGC",
+          "citations": 1,
+          "avgRankPosition": 0,
+          "competitors": [
+            {
+              "domain": "airbnb.com",
+              "brand": "Airbnb"
+            },
+            {
+              "domain": "expedia.com",
+              "brand": "Expedia"
+            },
+            {
+              "domain": "booking.com",
+              "brand": "Booking"
+            }
+          ],
+          "platforms": [
+            "chatgpt"
+          ],
+          "priority": 1
+        }
+      ]
+    },
+    "meta": {
+      "pagination": {
+        "page": 1,
+        "pageSize": 10,
+        "total": 20839,
+        "totalPages": 2084
+      }
+    }
+  },
+  "platform_ranking": {
+    "success": true,
+    "code": 0,
+    "message": "OK",
+    "data": {
+      "rows": [
+        {
+          "platform": "grok",
+          "visibility": 0.41003811102569454,
+          "citation": 0.03723620218724848
+        },
+        {
+          "platform": "google_gemini",
+          "visibility": 0.4002225436352332,
+          "citation": 0.035468831713809795
+        },
+        {
+          "platform": "perplexity",
+          "visibility": 0.2089628767448159,
+          "citation": 0.07384169149961241
+        },
+        {
+          "platform": "chatgpt",
+          "visibility": 0.19510331686048324,
+          "citation": 0.009153681313195714
+        }
+      ],
+      "query": {
+        "target": {
+          "entity": "platform",
+          "metrics": [
+            "visibility",
+            "citation"
+          ],
+          "filters": {
+            "dateRange": {
+              "startAt": "2026-03-27T00:00:00.000Z",
+              "endAt": "2026-04-02T23:59:59.999Z"
+            }
+          }
+        },
+        "analysis": {
+          "type": "ranking",
+          "ranking": {
+            "orderBy": "visibility",
+            "direction": "desc"
+          }
+        }
+      }
+    }
+  }
+}
