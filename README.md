@@ -243,8 +243,8 @@ python scripts/generate_and_distribute_reports.py \
 
 Click the links below to preview the HTML report:
 
-- **[📊 View Sample Report](https://htmlpreview.github.io/?https://github.com/GEO-SEO/Dageno-AI-GEO-Reporter/blob/main/templates/geo_report_sample.html)** - Simplified, easy-to-read report with plain-language summaries
-- **[📄 View Template](https://github.com/GEO-SEO/Dageno-AI-GEO-Reporter/blob/main/templates/geo_report_template.html)** - Template file with placeholder variables
+- **[📊 View Sample Report](https://htmlpreview.github.io/?https://github.com/GEO-SEO/Dageno-AI-GEO-Reporter/blob/main/templates/geo_report_sample.html)** - Premium GEO sample report with executive summary, actionable insights, and improved readability
+- **[📄 View Template](https://github.com/GEO-SEO/Dageno-AI-GEO-Reporter/blob/main/templates/geo_report_template.html)** - Latest premium report template (same visual style as the sample)
 
 ### Sample Report Preview
 
