@@ -268,6 +268,7 @@ def process_data(data):
     processed['sentiment_score'] = int(current_sentiment) if current_sentiment else 75
     processed['sentiment_class'] = 'positive' if current_sentiment >= 70 else 'neutral' if current_sentiment >= 50 else 'negative'
     processed['sentiment_color'] = '#10b981' if current_sentiment >= 70 else '#f59e0b' if current_sentiment >= 50 else '#ef4444'
+    processed['sentiment_bar_style'] = f'width: {processed["sentiment_score"]}%; background: {processed["sentiment_color"]};'
 
     # Estimate sentiment distribution (based on score)
     positive_ratio = min(95, int(current_sentiment)) if current_sentiment else 70
@@ -309,8 +310,8 @@ def process_data(data):
         processed['competitive_gap'] = '1.0x'
         processed['competitor_gap_multiple'] = '1.0'
 
-    processed['competitor_leading_in'] = '酒店预订'
-    processed['trend_drivers'] = '用户评价、内容更新'
+    processed['competitor_leading_in'] = 'hotel booking'
+    processed['trend_drivers'] = 'User reviews, content updates'
 
     # Citation change
     citation_change = 5.2  # Placeholder - would need previous period data
@@ -323,11 +324,11 @@ def process_data(data):
     processed['sentiment_change_dir'] = 'up' if sentiment_change >= 0 else 'down'
 
     # Ranking change
-    processed['ranking_change_text'] = '持平' if my_position == 2 else f'第{my_position}名'
+    processed['ranking_change_text'] = 'Stable' if my_position == 2 else f'#{my_position}'
     processed['ranking_change_dir'] = 'up'
 
     # Negative topic (placeholder)
-    processed['negative_topic'] = '客户服务'
+    processed['negative_topic'] = 'Customer Service'
 
     # Overall trend direction
     processed['trend_direction'] = 'up' if vis_change >= 0 else 'down'
@@ -368,11 +369,11 @@ def process_data(data):
         'datasets': chart_datasets
     })
 
-    processed['trend_period'] = '近 7 天数据'
+    processed['trend_period'] = 'Last 7 Days'
     processed['trend_summary'] = f'''
-    本周 Trip.com 在 AI 搜索中的可见度整体{'上升' if vis_change >= 0 else '下降'} {abs(vis_change):.1f}%，
-    当前排名第 {my_position} 位。与主要竞品 Booking 相比，可见度差距为 {processed['gap_with_top']}%
-    。建议关注在「{processed['competitor_leading_in']}」领域的引用表现。
+    This week, {processed["brand_name"]}\'s AI search visibility overall {("increased" if vis_change >= 0 else "decreased")} by {abs(vis_change):.1f}%,
+    currently ranking #{my_position}. Compared to main competitor {processed["top_competitor"]}, the visibility gap is {processed["gap_with_top"]}%.
+    Recommended focus on citation performance in "{processed["competitor_leading_in"]}" area.
     '''
 
     # Competitor ranking rows
@@ -411,7 +412,7 @@ def process_data(data):
 
     topic_rows = []
     for i, topic in enumerate(topic_data[:5]):
-        topic_name = topic.get('topic', f'话题 {i+1}')
+        topic_name = topic.get('topic', f'Topic {i+1}')
         visibility = topic.get('visibility', 0) * 100 if isinstance(topic.get('visibility'), float) else topic.get('visibility', 0)
         change = '+3.2%' if i < 2 else '-1.1%'
         change_class = 'up' if '+' in change else 'down'
@@ -422,7 +423,7 @@ def process_data(data):
                 <div class="topic-rank">{i+1}</div>
                 <div>
                     <div class="topic-name">{topic_name}</div>
-                    <div class="topic-meta">情绪 {topic.get('sentiment', 0):.0f}/100</div>
+                    <div class="topic-meta">Sentiment {topic.get('sentiment', 0):.0f}/100</div>
                 </div>
             </div>
             <div class="topic-right">
@@ -431,7 +432,7 @@ def process_data(data):
             </div>
         </div>
         ''')
-    processed['topic_rows'] = '\n'.join(topic_rows) if topic_rows else '<div class="topic-item">暂无话题数据</div>'
+    processed['topic_rows'] = '\n'.join(topic_rows) if topic_rows else '<div class="topic-item">No topic data available</div>'
 
     # Citation rows
     citation_data = data.get('citation_domains', {}).get('data', {}).get('items', [])
@@ -451,39 +452,39 @@ def process_data(data):
             <div class="citation-stats">
                 <div class="citation-stat">
                     <div class="citation-stat-value">{cit_count}</div>
-                    <div class="citation-stat-label">引用次数</div>
+                    <div class="citation-stat-label">Citations</div>
                 </div>
                 <div class="citation-stat">
                     <div class="citation-stat-value">{cit_rate:.1f}%</div>
-                    <div class="citation-stat-label">引用率</div>
+                    <div class="citation-stat-label">Citation Rate</div>
                 </div>
             </div>
         </div>
         ''')
 
     if not citation_rows:
-        citation_rows.append('<div class="citation-card"><div class="citation-domain">暂无引用数据</div></div>')
+        citation_rows.append('<div class="citation-card"><div class="citation-domain">No citation data available</div></div>')
     processed['citation_rows'] = '\n'.join(citation_rows)
 
     # Recommendations
     recommendations = [
         {
             'num': 1,
-            'title': '提升酒店预订内容覆盖',
-            'desc': '针对"酒店预订"相关查询，创建更多高质量指南内容，提升在该领域的引用率',
-            'impact': '预计可提升可见度 5-8%'
+            'title': 'Expand Hotel Booking Content',
+            'desc': 'Create more high-quality guide content for hotel booking queries to improve citation rate in this area',
+            'impact': 'Expected to increase visibility by 5-8%'
         },
         {
             'num': 2,
-            'title': '加强用户评价内容建设',
-            'desc': '在 AI 友好的格式中融入真实用户评价数据，增强内容的可信度和引用价值',
-            'impact': '预计可提升情绪得分 3-5 分'
+            'title': 'Strengthen User Review Content',
+            'desc': 'Integrate real user review data in AI-friendly formats to enhance content credibility and citation value',
+            'impact': 'Expected to improve sentiment score by 3-5 points'
         },
         {
             'num': 3,
-            'title': '拓展旅游攻略内容矩阵',
-            'desc': '围绕热门目的地创建详细攻略内容，抢占长尾旅游问题的引用阵地',
-            'impact': '预计可增加 10+ 引用来源'
+            'title': 'Expand Travel Guide Content Matrix',
+            'desc': 'Create detailed travel guide content around popular destinations to capture long-tail travel citation opportunities',
+            'impact': 'Expected to add 10+ citation sources'
         }
     ]
 
@@ -504,9 +505,49 @@ def process_data(data):
         ''')
     processed['recommendation_rows'] = '\n'.join(rec_rows)
 
-    # Report metadata
-    processed['report_type'] = '周报'
-    processed['report_period'] = '2026.03.27 - 2026.04.02'
+    # Executive Summary
+    exec_summary_parts = []
+    if vis_change >= 0:
+        exec_summary_parts.append(f'<span class="highlight">increased by {abs(vis_change):.1f}%</span> in visibility')
+    else:
+        exec_summary_parts.append(f'<span class="highlight-down">decreased by {abs(vis_change):.1f}%</span> in visibility')
+    exec_summary_parts.append(f'now ranking <strong>#{my_position}</strong>')
+    exec_summary_parts.append(f'with a sentiment score of <strong>{processed["sentiment_score"]}</strong>')
+    processed['exec_summary'] = f'{processed["brand_name"]} has ' + ', '.join(exec_summary_parts) + ' this week.'
+
+    # Trend badge
+    processed['trend_badge_class'] = 'up' if vis_change >= 0 else 'down'
+    processed['trend_badge_text'] = f'{"+"}' if vis_change >= 0 else '' + f'{abs(vis_change):.1f}%'
+    processed['trend_badge_icon'] = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>' if vis_change >= 0 else '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>'
+
+    # Metric values
+    processed['metric_visibility'] = f"{my_visibility * 100:.1f}%" if my_visibility else '30.1%'
+    processed['metric_ranking'] = f'#{my_position}'
+    processed['metric_sentiment'] = str(processed['sentiment_score'])
+    processed['metric_citations'] = str(int(current_citation * 1000)) if current_citation else '301'
+
+    # Metric change classes
+    processed['metric_vis_change_class'] = 'up' if vis_change >= 0 else 'down'
+    processed['metric_vis_change'] = f'+{abs(vis_change):.1f}%' if vis_change >= 0 else f'-{abs(vis_change):.1f}%'
+    processed['metric_rank_change_class'] = 'up'
+    processed['metric_rank_change'] = 'Stable'
+    processed['metric_sent_change_class'] = 'up' if sentiment_change >= 0 else 'down'
+    processed['metric_sent_change'] = f'+{abs(sentiment_change):.1f}' if sentiment_change >= 0 else f'-{abs(sentiment_change):.1f}'
+    processed['metric_cit_change_class'] = 'up' if citation_change >= 0 else 'down'
+    processed['metric_cit_change'] = f'+{abs(citation_change):.1f}%' if citation_change >= 0 else f'-{abs(citation_change):.1f}%'
+
+    # AI Insights
+    processed['ai_mind_share'] = f"{my_visibility * 100:.1f}%" if my_visibility else '30.1%'
+    processed['ai_mind_share_detail'] = f'{processed["gap_with_top"]}% gap vs {processed["top_competitor"]}'
+    processed['ai_sentiment'] = f'{processed["sentiment_score"]}/100'
+    processed['ai_sentiment_detail'] = f'Based on {processed["positive_count"]} positive mentions'
+    processed['ai_competitive'] = processed['competitive_gap']
+    processed['ai_competitive_detail'] = f'{processed["top_competitor"]} leads in {processed["competitor_leading_in"]}'
+    processed['ai_growth'] = f'+{abs(vis_change):.1f}%' if vis_change >= 0 else f'-{abs(vis_change):.1f}%'
+    processed['ai_growth_detail'] = f'7-day trend: {processed["visibility_trend_30d"]} over 30 days'
+
+    # Report metadata - will be set in main()
+    processed['report_type'] = 'Weekly Report'
     processed['generated_date'] = datetime.now().strftime('%Y-%m-%d %H:%M')
     processed['data_update_time'] = datetime.now().strftime('%Y-%m-%d %H:%M')
 
@@ -514,10 +555,46 @@ def process_data(data):
 
 
 def render_template(template, data):
-    """Simple template renderer - replaces placeholders"""
+    """Template renderer with JavaScript data object support"""
+    # Replace all placeholders
     for key, value in data.items():
         placeholder = '{{' + key.upper() + '}}'
-        template = template.replace(placeholder, str(value))
+        if isinstance(value, str):
+            template = template.replace(placeholder, value)
+        else:
+            try:
+                template = template.replace(placeholder, json.dumps(value))
+            except (TypeError, ValueError):
+                template = template.replace(placeholder, str(value))
+
+    # Replace DATA_OBJECT with actual JavaScript object
+    js_object_str = '{\n'
+    for key, value in data.items():
+        # Format values properly for JavaScript
+        if isinstance(value, str) and (value.startswith('{') or value.startswith('[')):
+            # Already JSON string
+            js_value = value
+        elif isinstance(value, str):
+            # Escape quotes and wrap in quotes
+            escaped = value.replace('\\', '\\\\').replace('"', '\\"').replace('\n', ' ').replace('\r', ' ')
+            js_value = f'"{escaped}"'
+        elif isinstance(value, (int, float)):
+            js_value = str(value)
+        elif isinstance(value, bool):
+            js_value = 'true' if value else 'false'
+        elif value is None:
+            js_value = 'null'
+        else:
+            try:
+                js_value = json.dumps(value)
+            except:
+                js_value = json.dumps(str(value))
+
+        js_object_str += f'            {key}: {js_value},\n'
+    js_object_str += '        }'
+
+    template = template.replace('DATA_OBJECT', js_object_str)
+
     return template
 
 
@@ -566,8 +643,11 @@ def main():
     print("\nProcessing data...")
     processed_data = process_data(all_data)
 
-    # Load template
-    template_path = os.path.join(os.path.dirname(__file__), '..', 'templates', 'geo_weekly_report_template.html')
+    # Set report period
+    processed_data['report_period'] = f"{start_date} to {end_date}"
+
+    # Load template (use English template)
+    template_path = os.path.join(os.path.dirname(__file__), '..', 'templates', 'geo_weekly_report_en_template.html')
     print(f"Loading template from: {template_path}")
     template = load_template(template_path)
 

@@ -657,16 +657,16 @@
     <header class="header">
         <div class="header-main">
             <div class="brand-section">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Trip.com_logo.svg/1280px-Trip.com_logo.svg.png" alt="Trip" class="brand-logo" id="brandLogo">
+                <img src="{{BRAND_LOGO}}" alt="{{BRAND_NAME}}" class="brand-logo" id="brandLogo">
                 <div class="brand-info">
-                    <h1 id="brandNameHeader">Trip</h1>
-                    <div class="brand-tagline" id="brandTagline">Your Non-stop Travel Mate</div>
+                    <h1 id="brandNameHeader">{{BRAND_NAME}}</h1>
+                    <div class="brand-tagline" id="brandTagline">{{BRAND_TAGLINE}}</div>
                 </div>
             </div>
             <div class="report-meta">
-                <div class="report-type">Weekly Report</div>
-                <div class="report-period">2026-03-27 to 2026-04-02</div>
-                <div class="report-date">Generated: 2026-04-03 10:25</div>
+                <div class="report-type">{{REPORT_TYPE}}</div>
+                <div class="report-period">{{REPORT_PERIOD}}</div>
+                <div class="report-date">Generated: {{GENERATED_DATE}}</div>
             </div>
         </div>
 
@@ -674,7 +674,7 @@
         <div class="exec-summary-strip">
             <div class="exec-summary-inner">
                 <div class="exec-summary-label">Executive Summary</div>
-                <div class="exec-summary-text" id="execSummary">Trip has <span class="highlight-down">decreased by 2.1%</span> in visibility, now ranking <strong>#3</strong>, with a sentiment score of <strong>73</strong> this week.</div>
+                <div class="exec-summary-text" id="execSummary">{{EXEC_SUMMARY}}</div>
             </div>
         </div>
 
@@ -682,15 +682,15 @@
             <div class="brand-context-inner">
                 <div class="context-item">
                     <div class="context-label">Core Positioning</div>
-                    <div class="context-value" id="brandDesc">Trip.com is a leading international online travel agency that provides a comprehensive one-stop trav...</div>
+                    <div class="context-value" id="brandDesc">{{BRAND_DESCRIPTION}}</div>
                 </div>
                 <div class="context-item">
                     <div class="context-label">Keywords</div>
-                    <div class="context-value" id="brandKeywords">cheap flights, hotel booking, train tickets, travel deals, vacation packages</div>
+                    <div class="context-value" id="brandKeywords">{{BRAND_KEYWORDS}}</div>
                 </div>
                 <div class="context-item">
                     <div class="context-label">Competitors</div>
-                    <div class="context-value" id="brandCompetitors">Booking, Expedia, Agoda, Klook, Airbnb</div>
+                    <div class="context-value" id="brandCompetitors">{{BRAND_COMPETITORS}}</div>
                 </div>
             </div>
         </div>
@@ -701,39 +701,39 @@
         <section class="hero-section">
             <div class="hero-header">
                 <div class="hero-title">Weekly Overview</div>
-                <div class="hero-badge down" id="trendBadge">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                    <span id="trendBadgeText">2.1%</span>
+                <div class="hero-badge {{TREND_BADGE_CLASS}}" id="trendBadge">
+                    {{TREND_BADGE_ICON}}
+                    <span id="trendBadgeText">{{TREND_BADGE_TEXT}}</span>
                 </div>
             </div>
 
             <div class="metrics-grid">
                 <div class="metric-card success">
-                    <div class="metric-value" id="metricVisibility">30.1%</div>
+                    <div class="metric-value" id="metricVisibility">{{METRIC_VISIBILITY}}</div>
                     <div class="metric-label">AI Visibility</div>
-                    <div class="metric-change down" id="metricVisChange">
-                        -2.1%
+                    <div class="metric-change {{METRIC_VIS_CHANGE_CLASS}}" id="metricVisChange">
+                        {{METRIC_VIS_CHANGE}}
                     </div>
                 </div>
                 <div class="metric-card">
-                    <div class="metric-value" id="metricRanking">#3</div>
+                    <div class="metric-value" id="metricRanking">{{METRIC_RANKING}}</div>
                     <div class="metric-label">Competitor Ranking</div>
-                    <div class="metric-change up" id="metricRankChange">
-                        Stable
+                    <div class="metric-change {{METRIC_RANK_CHANGE_CLASS}}" id="metricRankChange">
+                        {{METRIC_RANK_CHANGE}}
                     </div>
                 </div>
                 <div class="metric-card info">
-                    <div class="metric-value" id="metricSentiment">73</div>
+                    <div class="metric-value" id="metricSentiment">{{METRIC_SENTIMENT}}</div>
                     <div class="metric-label">Sentiment Score</div>
-                    <div class="metric-change up" id="metricSentChange">
-                        +1.2
+                    <div class="metric-change {{METRIC_SENT_CHANGE_CLASS}}" id="metricSentChange">
+                        {{METRIC_SENT_CHANGE}}
                     </div>
                 </div>
                 <div class="metric-card warning">
-                    <div class="metric-value" id="metricCitations">28</div>
+                    <div class="metric-value" id="metricCitations">{{METRIC_CITATIONS}}</div>
                     <div class="metric-label">Total Citations</div>
-                    <div class="metric-change up" id="metricCitChange">
-                        +5.2%
+                    <div class="metric-change {{METRIC_CIT_CHANGE_CLASS}}" id="metricCitChange">
+                        {{METRIC_CIT_CHANGE}}
                     </div>
                 </div>
             </div>
@@ -752,23 +752,23 @@
                 <div class="ai-summary-items">
                     <div class="ai-item">
                         <div class="ai-item-label">Mind Share</div>
-                        <div class="ai-item-value" id="aiMindShare">30.1%</div>
-                        <div class="ai-item-detail" id="aiMindShareDetail">3.2% gap vs booking.com</div>
+                        <div class="ai-item-value" id="aiMindShare">{{AI_MIND_SHARE}}</div>
+                        <div class="ai-item-detail" id="aiMindShareDetail">{{AI_MIND_SHARE_DETAIL}}</div>
                     </div>
                     <div class="ai-item">
                         <div class="ai-item-label">Sentiment Health</div>
-                        <div class="ai-item-value" id="aiSentiment">73/100</div>
-                        <div class="ai-item-detail" id="aiSentimentDetail">Based on 45 positive mentions</div>
+                        <div class="ai-item-value" id="aiSentiment">{{AI_SENTIMENT}}</div>
+                        <div class="ai-item-detail" id="aiSentimentDetail">{{AI_SENTIMENT_DETAIL}}</div>
                     </div>
                     <div class="ai-item">
                         <div class="ai-item-label">Competitive Pressure</div>
-                        <div class="ai-item-value" id="aiCompetitive">1.4x</div>
-                        <div class="ai-item-detail" id="aiCompetitiveDetail">booking.com leads in hotel booking</div>
+                        <div class="ai-item-value" id="aiCompetitive">{{AI_COMPETITIVE}}</div>
+                        <div class="ai-item-detail" id="aiCompetitiveDetail">{{AI_COMPETITIVE_DETAIL}}</div>
                     </div>
                     <div class="ai-item">
                         <div class="ai-item-label">Growth/Decline Inflection</div>
-                        <div class="ai-item-value" id="aiGrowth">-2.1%</div>
-                        <div class="ai-item-detail" id="aiGrowthDetail">7-day trend: +1.8% over 30 days</div>
+                        <div class="ai-item-value" id="aiGrowth">{{AI_GROWTH}}</div>
+                        <div class="ai-item-detail" id="aiGrowthDetail">{{AI_GROWTH_DETAIL}}</div>
                     </div>
                 </div>
             </div>
@@ -793,24 +793,24 @@
 
             <div class="sentiment-grid">
                 <div class="sentiment-card">
-                    <div class="sentiment-score positive" id="sentimentScore">73</div>
+                    <div class="sentiment-score {{SENTIMENT_CLASS}}" id="sentimentScore">{{SENTIMENT_SCORE}}</div>
                     <div class="sentiment-label">Overall Score</div>
                     <div class="sentiment-bar">
-                        <div class="sentiment-bar-fill" id="sentimentBarFill" style="width: 73%; background: #10b981;"></div>
+                        <div class="sentiment-bar-fill" id="sentimentBarFill" style="{{SENTIMENT_BAR_STYLE}}"></div>
                     </div>
                 </div>
                 <div class="sentiment-card">
-                    <div class="sentiment-score positive" id="positiveRatio">73</div>
+                    <div class="sentiment-score positive" id="positiveRatio">{{POSITIVE_RATIO}}</div>
                     <div class="sentiment-label">Positive</div>
                     <div class="sentiment-bar">
-                        <div class="sentiment-bar-fill" style="width: 73%; background: var(--success);"></div>
+                        <div class="sentiment-bar-fill" style="width: {{POSITIVE_RATIO}}%; background: var(--success);"></div>
                     </div>
                 </div>
                 <div class="sentiment-card">
-                    <div class="sentiment-score negative" id="negativeRatio">12</div>
+                    <div class="sentiment-score negative" id="negativeRatio">{{NEGATIVE_RATIO}}</div>
                     <div class="sentiment-label">Negative</div>
                     <div class="sentiment-bar">
-                        <div class="sentiment-bar-fill" style="width: 12%; background: var(--danger);"></div>
+                        <div class="sentiment-bar-fill" style="width: {{NEGATIVE_RATIO}}%; background: var(--danger);"></div>
                     </div>
                 </div>
             </div>
@@ -818,15 +818,15 @@
             <div class="sentiment-legend">
                 <div class="legend-item">
                     <span class="legend-dot positive"></span>
-                    Positive (45 mentions)
+                    Positive ({{POSITIVE_COUNT}} mentions)
                 </div>
                 <div class="legend-item">
                     <span class="legend-dot neutral"></span>
-                    Neutral (17 mentions)
+                    Neutral ({{NEUTRAL_COUNT}} mentions)
                 </div>
                 <div class="legend-item">
                     <span class="legend-dot negative"></span>
-                    Negative (8 mentions)
+                    Negative ({{NEGATIVE_COUNT}} mentions)
                 </div>
             </div>
         </section>
@@ -842,7 +842,7 @@
                     </div>
                     Visibility Trend
                 </div>
-                <span style="font-size: 13px; color: var(--text-muted);" id="trendPeriod">Last 7 Days</span>
+                <span style="font-size: 13px; color: var(--text-muted);" id="trendPeriod">{{TREND_PERIOD}}</span>
             </div>
 
             <div class="trend-chart-container">
@@ -852,11 +852,7 @@
             <div style="background: var(--bg-light); border-radius: 10px; padding: 20px; margin-top: 20px;">
                 <div style="font-size: 14px; font-weight: 600; margin-bottom: 8px; color: var(--text-primary);">Trend Analysis</div>
                 <div style="font-size: 13px; color: var(--text-secondary); line-height: 1.6;" id="trendSummary">
-                    
-    This week, Trip's AI search visibility overall decreased by 2.1%,
-    currently ranking #3. Compared to main competitor booking.com, the visibility gap is 3.2%.
-    Recommended focus on citation performance in "hotel booking" area.
-    
+                    {{TREND_SUMMARY}}
                 </div>
             </div>
         </section>
@@ -954,87 +950,12 @@
     <!-- Footer -->
     <footer class="footer">
         <p>Report generated by <span class="footer-brand">Dageno AI</span> GEO Reporter</p>
-        <p style="margin-top: 8px;">Data last updated: 2026-04-03 10:25</p>
+        <p style="margin-top: 8px;">Data last updated: {{DATA_UPDATE_TIME}}</p>
     </footer>
 
     <script>
         // Initialize data from server-side rendering
-        var reportData = {
-            brand_name: "Trip",
-            brand_tagline: "Your Non-stop Travel Mate",
-            brand_logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Trip.com_logo.svg/1280px-Trip.com_logo.svg.png",
-            brand_description: "Trip.com is a leading international online travel agency that provides a comprehensive one-stop trav...",
-            brand_keywords: "cheap flights, hotel booking, train tickets, travel deals, vacation packages",
-            brand_competitors: "Booking, Expedia, Agoda, Klook, Airbnb",
-            current_visibility: "30.1%",
-            current_sentiment: "73.5",
-            total_citations: "28",
-            competitor_ranking: "#3",
-            visibility_change: "2.1",
-            visibility_change_dir: "down",
-            visibility_trend_30d: "+1.8%",
-            visibility_trend_30d_dir: "up",
-            sentiment_score: 73,
-            sentiment_class: "positive",
-            sentiment_color: "#10b981",
-            sentiment_bar_style: "width: 73%; background: #10b981;",
-            positive_ratio: 73,
-            negative_ratio: 12,
-            neutral_ratio: 15,
-            positive_count: 45,
-            negative_count: 8,
-            neutral_count: 17,
-            mind_share_visibility: "30.1",
-            top_competitor: "booking.com",
-            gap_with_top: "3.2",
-            competitive_gap: "1.4x",
-            competitor_gap_multiple: "1.4",
-            competitor_leading_in: "hotel booking",
-            trend_drivers: "User reviews, content updates",
-            citation_change: "5.2",
-            citation_change_dir: "up",
-            sentiment_change: "1.2",
-            sentiment_change_dir: "up",
-            ranking_change_text: "#3",
-            ranking_change_dir: "up",
-            negative_topic: "Customer Service",
-            trend_direction: "down",
-            trend_chart_data: {"labels": ["03/27", "03/28", "03/29", "03/30", "03/31", "04/01", "04/02"], "datasets": [{"label": "booking.com", "data": [null, null, null, null, null, null, null], "borderColor": "#ff5c23", "backgroundColor": "#ff5c2320", "fill": false, "tension": 0.4, "pointRadius": 3, "pointHoverRadius": 6}, {"label": "agoda.com", "data": [null, null, null, null, null, null, null], "borderColor": "#3b82f6", "backgroundColor": "#3b82f620", "fill": false, "tension": 0.4, "pointRadius": 3, "pointHoverRadius": 6}, {"label": "trip.com", "data": [null, null, null, null, null, null, null], "borderColor": "#10b981", "backgroundColor": "#10b98120", "fill": false, "tension": 0.4, "pointRadius": 3, "pointHoverRadius": 6}, {"label": "expedia.com", "data": [null, null, null, null, null, null, null], "borderColor": "#f59e0b", "backgroundColor": "#f59e0b20", "fill": false, "tension": 0.4, "pointRadius": 3, "pointHoverRadius": 6}, {"label": "klook.com", "data": [null, null, null, null, null, null, null], "borderColor": "#8b5cf6", "backgroundColor": "#8b5cf620", "fill": false, "tension": 0.4, "pointRadius": 3, "pointHoverRadius": 6}]},
-            trend_period: "Last 7 Days",
-            trend_summary: "     This week, Trip's AI search visibility overall decreased by 2.1%,     currently ranking #3. Compared to main competitor booking.com, the visibility gap is 3.2%.     Recommended focus on citation performance in \"hotel booking\" area.     ",
-            competitor_ranking_rows: "         <tr>             <td><span class=\"rank-badge top1\">1</span></td>             <td>                 <div class=\"brand-cell\">                     <div class=\"brand-cell-img\"></div>                     <span class=\"brand-cell-name \">booking.com</span>                 </div>             </td>             <td class=\"score-cell\">41.2%</td>             <td class=\"score-cell\">2.57%</td>             <td class=\"change-cell up\">+2.1%</td>         </tr>                   <tr>             <td><span class=\"rank-badge top2\">2</span></td>             <td>                 <div class=\"brand-cell\">                     <div class=\"brand-cell-img\"></div>                     <span class=\"brand-cell-name \">agoda.com</span>                 </div>             </td>             <td class=\"score-cell\">30.3%</td>             <td class=\"score-cell\">0.70%</td>             <td class=\"change-cell up\">+2.1%</td>         </tr>                   <tr>             <td><span class=\"rank-badge top3\">3</span></td>             <td>                 <div class=\"brand-cell\">                     <div class=\"brand-cell-img\"></div>                     <span class=\"brand-cell-name you\">trip.com ★</span>                 </div>             </td>             <td class=\"score-cell\">30.1%</td>             <td class=\"score-cell\">2.90%</td>             <td class=\"change-cell down\">-0.5%</td>         </tr>                   <tr>             <td><span class=\"rank-badge normal\">4</span></td>             <td>                 <div class=\"brand-cell\">                     <div class=\"brand-cell-img\"></div>                     <span class=\"brand-cell-name \">expedia.com</span>                 </div>             </td>             <td class=\"score-cell\">28.1%</td>             <td class=\"score-cell\">3.03%</td>             <td class=\"change-cell down\">-0.5%</td>         </tr>                   <tr>             <td><span class=\"rank-badge normal\">5</span></td>             <td>                 <div class=\"brand-cell\">                     <div class=\"brand-cell-img\"></div>                     <span class=\"brand-cell-name \">klook.com</span>                 </div>             </td>             <td class=\"score-cell\">16.1%</td>             <td class=\"score-cell\">0.93%</td>             <td class=\"change-cell down\">-0.5%</td>         </tr>                   <tr>             <td><span class=\"rank-badge normal\">6</span></td>             <td>                 <div class=\"brand-cell\">                     <div class=\"brand-cell-img\"></div>                     <span class=\"brand-cell-name \">airbnb.com</span>                 </div>             </td>             <td class=\"score-cell\">8.3%</td>             <td class=\"score-cell\">0.00%</td>             <td class=\"change-cell down\">-0.5%</td>         </tr>         ",
-            topic_rows: "         <div class=\"topic-item\">             <div class=\"topic-left\">                 <div class=\"topic-rank\">1</div>                 <div>                     <div class=\"topic-name\">Japan Outbound Travel</div>                     <div class=\"topic-meta\">Sentiment 77/100</div>                 </div>             </div>             <div class=\"topic-right\">                 <div class=\"topic-visibility\">51.2%</div>                 <div class=\"topic-change up\">+3.2%</div>             </div>         </div>                   <div class=\"topic-item\">             <div class=\"topic-left\">                 <div class=\"topic-rank\">2</div>                 <div>                     <div class=\"topic-name\">Korea Outbound Travel</div>                     <div class=\"topic-meta\">Sentiment 77/100</div>                 </div>             </div>             <div class=\"topic-right\">                 <div class=\"topic-visibility\">48.4%</div>                 <div class=\"topic-change up\">+3.2%</div>             </div>         </div>                   <div class=\"topic-item\">             <div class=\"topic-left\">                 <div class=\"topic-rank\">3</div>                 <div>                     <div class=\"topic-name\">Greater China & Middle East Travel</div>                     <div class=\"topic-meta\">Sentiment 76/100</div>                 </div>             </div>             <div class=\"topic-right\">                 <div class=\"topic-visibility\">43.7%</div>                 <div class=\"topic-change down\">-1.1%</div>             </div>         </div>                   <div class=\"topic-item\">             <div class=\"topic-left\">                 <div class=\"topic-rank\">4</div>                 <div>                     <div class=\"topic-name\">Southeast Asia Travel Solutions</div>                     <div class=\"topic-meta\">Sentiment 76/100</div>                 </div>             </div>             <div class=\"topic-right\">                 <div class=\"topic-visibility\">40.6%</div>                 <div class=\"topic-change down\">-1.1%</div>             </div>         </div>                   <div class=\"topic-item\">             <div class=\"topic-left\">                 <div class=\"topic-rank\">5</div>                 <div>                     <div class=\"topic-name\">Mobile Travel Tools</div>                     <div class=\"topic-meta\">Sentiment 72/100</div>                 </div>             </div>             <div class=\"topic-right\">                 <div class=\"topic-visibility\">31.0%</div>                 <div class=\"topic-change down\">-1.1%</div>             </div>         </div>         ",
-            citation_rows: "         <div class=\"citation-card\">             <div class=\"citation-domain\">                 play.google.com                 <span class=\"citation-type\">Corporate</span>             </div>             <div class=\"citation-stats\">                 <div class=\"citation-stat\">                     <div class=\"citation-stat-value\">6319</div>                     <div class=\"citation-stat-label\">Citations</div>                 </div>                 <div class=\"citation-stat\">                     <div class=\"citation-stat-value\">28.0%</div>                     <div class=\"citation-stat-label\">Citation Rate</div>                 </div>             </div>         </div>                   <div class=\"citation-card\">             <div class=\"citation-domain\">                 apps.apple.com                 <span class=\"citation-type\">Corporate</span>             </div>             <div class=\"citation-stats\">                 <div class=\"citation-stat\">                     <div class=\"citation-stat-value\">6206</div>                     <div class=\"citation-stat-label\">Citations</div>                 </div>                 <div class=\"citation-stat\">                     <div class=\"citation-stat-value\">27.5%</div>                     <div class=\"citation-stat-label\">Citation Rate</div>                 </div>             </div>         </div>                   <div class=\"citation-card\">             <div class=\"citation-domain\">                 reddit.com                 <span class=\"citation-type\">UGC</span>             </div>             <div class=\"citation-stats\">                 <div class=\"citation-stat\">                     <div class=\"citation-stat-value\">5967</div>                     <div class=\"citation-stat-label\">Citations</div>                 </div>                 <div class=\"citation-stat\">                     <div class=\"citation-stat-value\">26.4%</div>                     <div class=\"citation-stat-label\">Citation Rate</div>                 </div>             </div>         </div>                   <div class=\"citation-card\">             <div class=\"citation-domain\">                 youtube.com                 <span class=\"citation-type\">Media</span>             </div>             <div class=\"citation-stats\">                 <div class=\"citation-stat\">                     <div class=\"citation-stat-value\">3269</div>                     <div class=\"citation-stat-label\">Citations</div>                 </div>                 <div class=\"citation-stat\">                     <div class=\"citation-stat-value\">14.5%</div>                     <div class=\"citation-stat-label\">Citation Rate</div>                 </div>             </div>         </div>         ",
-            recommendation_rows: "         <div class=\"rec-card\">             <div class=\"rec-number\">1</div>             <div class=\"rec-title\">Expand Hotel Booking Content</div>             <div class=\"rec-desc\">Create more high-quality guide content for hotel booking queries to improve citation rate in this area</div>             <div class=\"rec-impact\">                 <svg class=\"rec-impact-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\">                     <path d=\"M12 19V5M5 12l7-7 7 7\"/>                 </svg>                 Expected to increase visibility by 5-8%             </div>         </div>                   <div class=\"rec-card\">             <div class=\"rec-number\">2</div>             <div class=\"rec-title\">Strengthen User Review Content</div>             <div class=\"rec-desc\">Integrate real user review data in AI-friendly formats to enhance content credibility and citation value</div>             <div class=\"rec-impact\">                 <svg class=\"rec-impact-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\">                     <path d=\"M12 19V5M5 12l7-7 7 7\"/>                 </svg>                 Expected to improve sentiment score by 3-5 points             </div>         </div>                   <div class=\"rec-card\">             <div class=\"rec-number\">3</div>             <div class=\"rec-title\">Expand Travel Guide Content Matrix</div>             <div class=\"rec-desc\">Create detailed travel guide content around popular destinations to capture long-tail travel citation opportunities</div>             <div class=\"rec-impact\">                 <svg class=\"rec-impact-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\">                     <path d=\"M12 19V5M5 12l7-7 7 7\"/>                 </svg>                 Expected to add 10+ citation sources             </div>         </div>         ",
-            exec_summary: "Trip has <span class=\"highlight-down\">decreased by 2.1%</span> in visibility, now ranking <strong>#3</strong>, with a sentiment score of <strong>73</strong> this week.",
-            trend_badge_class: "down",
-            trend_badge_text: "2.1%",
-            trend_badge_icon: "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><polyline points=\"6 9 12 15 18 9\"/></svg>",
-            metric_visibility: "30.1%",
-            metric_ranking: "#3",
-            metric_sentiment: "73",
-            metric_citations: "28",
-            metric_vis_change_class: "down",
-            metric_vis_change: "-2.1%",
-            metric_rank_change_class: "up",
-            metric_rank_change: "Stable",
-            metric_sent_change_class: "up",
-            metric_sent_change: "+1.2",
-            metric_cit_change_class: "up",
-            metric_cit_change: "+5.2%",
-            ai_mind_share: "30.1%",
-            ai_mind_share_detail: "3.2% gap vs booking.com",
-            ai_sentiment: "73/100",
-            ai_sentiment_detail: "Based on 45 positive mentions",
-            ai_competitive: "1.4x",
-            ai_competitive_detail: "booking.com leads in hotel booking",
-            ai_growth: "-2.1%",
-            ai_growth_detail: "7-day trend: +1.8% over 30 days",
-            report_type: "Weekly Report",
-            generated_date: "2026-04-03 10:25",
-            data_update_time: "2026-04-03 10:25",
-            report_period: "2026-03-27 to 2026-04-02",
-        };
+        var reportData = DATA_OBJECT;
 
         // Apply brand logo
         var logoUrl = reportData.brand_logo;
